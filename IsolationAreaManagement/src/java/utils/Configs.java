@@ -7,9 +7,9 @@ package utils;
 
 public class Configs {
     public static final String SERVER = "localhost";
-    public static final String DB_NAME = "swp"; //database name
+    public static final String DB_NAME = "SWP_PROJECT"; //database name
     public static final String DB_USERNAME = "sa"; // username
-    public static final String DB_PASSWORD = "123456"; // password
+    public static final String DB_PASSWORD = "sa"; // password
     public static final String PORT_NUMBER = "1433";//localhost
 
 }
