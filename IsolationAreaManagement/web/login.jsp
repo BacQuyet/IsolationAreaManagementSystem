@@ -6,9 +6,7 @@
     <form action="" method="POST" id="form-dn" class="form">
         <h3 class="heading">Đăng nhập</h3>
         <p class="desc">Đăng nhập để trải nghiệm toàn bộ tiện ích nào</p>
-
         <div class="spacer"></div>
-
         <div class="form-group">
             <label for="" class="form-label">Tên đăng nhập</label>
             <input id="ten_dang_nhap" class="form-control" name="username" type="text" >
