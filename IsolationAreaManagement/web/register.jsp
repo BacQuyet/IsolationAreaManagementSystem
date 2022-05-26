@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<link href="<%=request.getContextPath()%>/assets/css/form.css" rel="stylesheet">
+<link href="assets/css/form.css" rel="stylesheet">
 
 <div class="form-container">
     <form action="RegisterServlet" method="POST" id="form-dk" class="form">
@@ -49,17 +49,3 @@
     </form>
 </div>
 
-<script src="<%=request.getContextPath()%>/assets/js/validator.js"></script>
-<script>
-    Validator({
-        form: "#form-dk",
-        errorSelector: '.form-message',
-        rules: [
-            Validator.isRequired("#username"),
-            Validator.minLength("#password", 6),
-            Validator.isPhone("#phone"),
-            Validator.isRequired("#fullname"),
-            Validator.isRequired("#makhucachly"),
-        ]
-    });
-</script>
