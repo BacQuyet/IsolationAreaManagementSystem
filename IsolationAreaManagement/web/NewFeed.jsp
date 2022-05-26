@@ -1,6 +1,6 @@
 
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="<%=request.getContextPath()%>/assets/css/index.css" rel="stylesheet">
+<link href="/assets/css/index.css" rel="stylesheet">
 <div class="body-container">
     <div class="thumb" id="thumb">
         <!-- slide -->
@@ -38,15 +38,3 @@
             </div>
         </div>
     </div>
-</div>
-<script>
-    $("#thumb > div:gt(0)").hide();
-    setInterval(function () {
-        $('#thumb > div:first')
-                .fadeOut(1000)
-                .next()
-                .fadeIn(1000)
-                .end()
-                .appendTo('#thumb');
-    }, 5000);
-</script>
