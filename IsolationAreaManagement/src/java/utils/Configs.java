@@ -10,6 +10,5 @@ public class Configs {
     public static final String DB_NAME = "SWP_PROJECT"; //database name
     public static final String DB_USERNAME = "sa"; // username
     public static final String DB_PASSWORD = "123"; // password
-    public static final String PORT_NUMBER = "1433";//localhost 
-    //duy
+    public static final String PORT_NUMBER = "1433";//localhost
 }
