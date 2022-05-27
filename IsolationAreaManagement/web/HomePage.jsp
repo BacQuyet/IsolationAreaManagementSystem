@@ -74,5 +74,6 @@
                 </div>
             </div>
         </header>
+        <jsp:include page="NewFeed.jsp"/>
     </body>
 </html>
