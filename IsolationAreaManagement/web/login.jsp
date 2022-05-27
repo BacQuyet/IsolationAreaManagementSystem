@@ -18,7 +18,7 @@
             <input id="password" class="form-control" name="password" type="password" >
             <span class="form-message"></span>
         </div>
-        <a href="" style="font-size: 20px">Quên mật khẩu</a>
+        <a href="forgotPassword.jsp" style="font-size: 20px">Quên mật khẩu</a>
         <button class="form-submit">Đăng nhập</button>
     </form>
 </div>
