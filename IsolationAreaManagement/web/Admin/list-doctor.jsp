@@ -22,40 +22,14 @@
 
                 <th width="20%">Hệ thống</th>
             </tr>
-            <c:forEach var="doctor" items="${list}">
-                <tr>
-                    <td>Doctor</td>
-                    <td>FullName</td>
-                    <td>Address</td>
-                    <td>Phone</td>
-                    <td class="td-action">
-                        <a href="Accounts/ViewDetailDoctor?id="><i class="far fa-calendar-alt"></i></a>
-                        <a href="Accounts/DeleteAccountDoctor?id=" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
-                    </td>
-                </tr>
-            </c:forEach>
+            
 
         </table>
     </div>
     <div style="margin: 35px">
         <nav aria-label="..." class="d-flex justify-content-center">
             <ul class="pagination pagination-lg">
-                <c:forEach begin="1" end="${totalPage}" var="i">
-                    <c:choose>
-                        <c:when test="">
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">
-                                    
-                                    <span class="sr-only">(current)</span>
-                                </span>
-                            </li>
-                        </c:when>
-                        <c:otherwise>
-
-                            <li class="page-item"><a class="page-link" href="Accounts/ViewAccountDoctor?pageIndex="></a></li>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
+                
             </ul>
         </nav>
 
