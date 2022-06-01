@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import utils.Notification;
-import static utils.Utils.md5;
 
 public class LoginServlet extends HttpServlet {
 
