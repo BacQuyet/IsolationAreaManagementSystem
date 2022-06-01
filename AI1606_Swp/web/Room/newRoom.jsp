@@ -38,5 +38,6 @@
                 
             </ul>
         </div>
+            <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Add</span></button>
     </body>
 </html>
