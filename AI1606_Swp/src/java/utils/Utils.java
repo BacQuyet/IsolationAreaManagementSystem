@@ -13,8 +13,8 @@ import javax.mail.internet.*;
 public class Utils {
 
     public static final String SUBJECT = "Request to change password";
-    public static final String EMAIL = "luctungthungrac3timxacnguoiyeu@gmail.com";
-    public static final String PASSWORD = "HaiLuu110301hl";
+    public static final String EMAIL = "namnt@gmail.com";
+    public static final String PASSWORD = "ThanhNam123";
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final StringBuffer CHARACTERS = new StringBuffer("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
 

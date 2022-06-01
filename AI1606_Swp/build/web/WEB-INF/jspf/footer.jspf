@@ -16,7 +16,7 @@
         <br/>
         
         <ul class="footer_links">
-            <li><i class="fas fa-map-marker-alt"></i> 1, Dai Co Viet, Hai Ba Trung, Hanoi</li>
+            <li><i class="fas fa-map-marker-alt"></i> 1, Tan Xa, Hoa Lac, Hanoi</li>
             <li><i class="fas fa-at"></i>namnt153224@fpt.edu.vn</li>
             <li><i class="fas fa-phone-alt"></i> 096934565 </li>
         </ul>
@@ -26,7 +26,7 @@
     <div class="col-2">
         <h3 class="footer_selects">Socialize</h3>
         <br/>
-        <a href=https://www.facebook.com/hoanghai.luu.71/""><i class="fab fa-facebook-square footer-icon"></i></a>
+        <a href=https://www.facebook.com/thanhnamm511/""><i class="fab fa-facebook-square footer-icon"></i></a>
         <a href=""><i class="fab fa-instagram footer-icon"></i></a>
         <a href=""><i class="fab fa-linkedin footer-icon"></i></a>
     </div>
