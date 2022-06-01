@@ -5,10 +5,6 @@
         <servlet-class>controller.base.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ChangePassword</servlet-name>
-        <servlet-class>controller.base.ChangePassword</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>controller.base.RegisterServlet</servlet-class>
     </servlet>
@@ -99,10 +95,6 @@
     <servlet>
         <servlet-name>FilterReport</servlet-name>
         <servlet-class>controller.report.FilterReport</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateAccount</servlet-name>
-        <servlet-class>controller.base.UpdateAccount</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewAccountNurse</servlet-name>
@@ -227,14 +219,6 @@
     <servlet-mapping>
         <servlet-name>ViewAllPatient</servlet-name>
         <url-pattern>/Patient/view-all</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateAccount</servlet-name>
-        <url-pattern>/myaccount/UpdateAccount</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ChangePassword</servlet-name>
-        <url-pattern>/myaccount/ChangePassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewAccountNurse</servlet-name>

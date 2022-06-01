@@ -5,12 +5,15 @@
     <div class="content-label">
         <span class="content-label__menu">Bảng điều khiển</span>
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Quản lý phòng bệnh</span>
-        <div class="spacer2"></div>
+        <div class="spacer2">
+            
+        </div>
     </div>
     <div class="btn-add">
         <a href="<%=request.getContextPath()%>/Room/add.jsp"><i class="fas fa-plus-circle"></i>
-            <span>Thêm</span>
+            <span>Thêm phòng</span>
         </a>
+<!--            bang benh nhan-->
     </div>
     <div class="table-list">
         <table class="table-list__user">
@@ -21,9 +24,7 @@
                 <th width="20">Khu cách ly</th>  
                 <th width="25%">Ghi chú</th>
                 <th width="15%">Hành động</th>
-
             </tr>
-
         </table>
     </div>
     </div>

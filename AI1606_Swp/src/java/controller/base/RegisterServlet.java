@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import utils.Configs;
 import utils.Notification;
-import static utils.Utils.md5;
 
 public class RegisterServlet extends HttpServlet {
 

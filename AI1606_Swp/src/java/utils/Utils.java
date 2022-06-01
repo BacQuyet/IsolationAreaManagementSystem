@@ -1,15 +1,8 @@
 package utils;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -36,18 +29,6 @@ public class Utils {
         return result.toString();
     }
 
-    public static String md5(String str) {
-        String result = "";
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("MD5");
-            //digest.update(str.getBytes());
-            BigInteger bigInteger = new BigInteger(1, digest.digest());
-            result = bigInteger.toString(16);
-        } catch (NoSuchAlgorithmException e) {
-        }
-        return result;
-    }
 
     public int getDistanceTime(Date timeBegin, Date timeEnd) {
         if (timeEnd == null) {

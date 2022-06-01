@@ -10,7 +10,8 @@
     <div class="content-header">
         <div class="content-header__info">
             <span>Khu cách ly: </span>
-            <span>Mã phòng:   -  Tên phòng: </span>
+            <span>Khu cách ly: </span>
+            <span>Mã phòng:  -  Tên phòng: </span>
         </div>
         
     </div>
