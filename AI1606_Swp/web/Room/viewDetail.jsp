@@ -20,6 +20,8 @@
             <span class="info-label">Thông tin</span>
             <ul class="info-detail">
                 <li>Số giường tối đa: </li>
+                <li>Số giường tối đa: </li>
+                <li>Số bệnh nhân hiện có: </li>
                 <li>Số bệnh nhân hiện có: </li>
                 <li>Ghi chú: </li>
                 
