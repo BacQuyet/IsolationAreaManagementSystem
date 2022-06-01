@@ -20,34 +20,10 @@ import javax.mail.internet.*;
 public class Utils {
 
     public static final String SUBJECT = "Request to change password";
-    public static final String EMAIL = "luctungthungrac3timxacnguoiyeu@gmail.com";
-    public static final String PASSWORD = "HaiLuu110301hl";
+    public static final String EMAIL = "namnt@gmail.com";
+    public static final String PASSWORD = "ThanhNam123";
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final StringBuffer CHARACTERS = new StringBuffer("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
-
-    public static String randomPassword(int size) {
-        StringBuffer result = new StringBuffer();
-        Random random = new Random();
-
-        for (int i = 0; i < size; i++) {
-            char chars = CHARACTERS.charAt(random.nextInt(CHARACTERS.length()));
-            result.append(chars);
-        }
-        return result.toString();
-    }
-
-    public static String md5(String str) {
-        String result = "";
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("MD5");
-            //digest.update(str.getBytes());
-            BigInteger bigInteger = new BigInteger(1, digest.digest());
-            result = bigInteger.toString(16);
-        } catch (NoSuchAlgorithmException e) {
-        }
-        return result;
-    }
 
     public int getDistanceTime(Date timeBegin, Date timeEnd) {
         if (timeEnd == null) {

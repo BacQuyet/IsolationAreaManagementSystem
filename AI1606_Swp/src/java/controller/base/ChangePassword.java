@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import utils.Notification;
-import static utils.Utils.md5;
 
 /**
  *
@@ -84,8 +83,8 @@ public class ChangePassword extends HttpServlet {
         String new2_pass = request.getParameter("new2_pass");
         HttpSession session = request.getSession();
         Account user = (Account) session.getAttribute("userLogin");
-        String current_pass_md5= md5(current_pass);
-        String new_pass_md5 = md5(new_pass);
+        String current_pass_md5= current_pass;
+        String new_pass_md5 = new_pass;
         if(current_pass_md5.equals(user.getPassword())){
             Hashtable<String, String>my_dict = new Hashtable<>();
             my_dict.put("password", new_pass_md5);
