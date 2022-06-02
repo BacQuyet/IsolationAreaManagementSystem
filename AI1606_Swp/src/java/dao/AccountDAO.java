@@ -180,6 +180,15 @@ public class AccountDAO implements DAO<Account> {
             ex.printStackTrace();
         }
     }
+    public void updateForgots(Account t, String pass) {
+        try {
+            String sql = "UPDATE dbo.account SET password = '" + pass + "' WHERE username = '" + t.getUserName() + "'";
+            PreparedStatement pt = conn.prepareStatement(sql);
+            pt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 
     public static void main(String[] args) {
