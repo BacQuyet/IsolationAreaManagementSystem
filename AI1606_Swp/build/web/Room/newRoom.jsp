@@ -38,7 +38,7 @@
                 
             </ul>
         </div>
-            <div class="form-group">
+<!--            <div class="form-group">
                 <label for="areaId" class="form-label">Khu cách ly:</label>
                 <input id="areaId" class="form-control" name="areaId" type="text"  value="" style="display: none">
                 <input id="areaName" class="form-control" name="areaName" type="text" readonly  value="">
@@ -51,5 +51,20 @@
                 <span class="form-message"></span>
             </div>
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Add</span></button>
+            
+                    </div>
+            <div class="form-group">
+                <label for="areaId" class="form-label">Khu cách ly:</label>
+                <input id="areaId" class="form-control" name="areaId" type="text"  value="" style="display: none">
+                <input id="areaName" class="form-control" name="areaName" type="text" readonly  value="">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="note" class="form-label">Ghi chú</label>
+                <input id="note" class="form-control" name="note" type="text" value = "">
+                <span class="form-message"></span>
+            </div>
+            <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Add</span></button>-->
     </body>
 </html>
