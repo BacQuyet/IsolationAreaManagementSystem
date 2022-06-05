@@ -17,8 +17,13 @@
         </div>
 
         <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" class="form-control" name="email" type="text" >
+            <label for="password" class="form-label">Nhập mật khẩu</label>
+            <input id="password" class="form-control" name="pass1" type="password" >
+            <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Nhập lại mật khẩu</label>
+            <input id="password" class="form-control" name="pass2" type="password" >
             <span class="form-message"></span>
         </div>
         <button id="forgot" class="form-submit">Tiếp theo</button>

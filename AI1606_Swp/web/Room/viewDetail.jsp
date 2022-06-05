@@ -10,7 +10,8 @@
     <div class="content-header">
         <div class="content-header__info">
             <span>Khu cách ly: </span>
-            <span>Mã phòng:   -  Tên phòng: </span>
+            <span>Khu cách ly: </span>
+            <span>Mã phòng:  -  Tên phòng: </span>
         </div>
         
     </div>
@@ -19,6 +20,8 @@
             <span class="info-label">Thông tin</span>
             <ul class="info-detail">
                 <li>Số giường tối đa: </li>
+                <li>Số giường tối đa: </li>
+                <li>Số bệnh nhân hiện có: </li>
                 <li>Số bệnh nhân hiện có: </li>
                 <li>Ghi chú: </li>
                 

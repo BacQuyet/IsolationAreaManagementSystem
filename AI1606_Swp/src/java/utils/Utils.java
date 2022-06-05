@@ -1,15 +1,8 @@
 package utils;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +17,18 @@ public class Utils {
     public static final String PASSWORD = "ThanhNam123";
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final StringBuffer CHARACTERS = new StringBuffer("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+
+    public static String randomPassword(int size) {
+        StringBuffer result = new StringBuffer();
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            char chars = CHARACTERS.charAt(random.nextInt(CHARACTERS.length()));
+            result.append(chars);
+        }
+        return result.toString();
+    }
+
 
     public int getDistanceTime(Date timeBegin, Date timeEnd) {
         if (timeEnd == null) {
