@@ -1,8 +1,4 @@
-<%-- 
-    Document   : test
-    Created on : Feb 23, 2022, 3:45:26 PM
-    Author     : hoang
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

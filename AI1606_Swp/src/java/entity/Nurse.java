@@ -5,10 +5,6 @@
  */
 package entity;
 
-/**
- *
- * @author hoang
- */
 public class Nurse {
 
     private int id_nurse;

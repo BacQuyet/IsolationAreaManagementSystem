@@ -17,10 +17,6 @@ import javax.servlet.http.HttpSession;
 import utils.Notification;
 import utils.Utils;
 
-/**
- *
- * @author hoang
- */
 public class ForgotPasswordServlet extends HttpServlet {
 
     /**
