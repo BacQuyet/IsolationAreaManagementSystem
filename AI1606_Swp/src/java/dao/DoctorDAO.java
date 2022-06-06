@@ -90,26 +90,26 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
 
     @Override
     public Doctor get(int id) {
-//        try {
-//            String sql = "SELECT * FROM dbo.doctor\n"
-//                + "WHERE id_doctor = ?" ;
-//            PreparedStatement sttm = conn.prepareStatement(sql);
-//            sttm.setInt(1,id);
-//            ResultSet rs = sttm.executeQuery();
-//            
-//            Doctor doctor = new Doctor();
-//            while (rs.next()) {
-//                doctor.setDoctor(rs.getInt("id_doctor"));
-//                doctor.setDoctorName(rs.getString("doctor_name"));
-//                doctor.setPhone(rs.getInt("phone"));
-//                doctor.setFullName(rs.getString("fullname"));
-//                doctor.setIdAccount(rs.getInt("id_account"));
-//                doctor.setAddress(rs.getString("address"));
-//            }
-//            return doctor;
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
+        try {
+            String sql = "SELECT * FROM dbo.doctor\n"
+                + "WHERE id_doctor = ?" ;
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setInt(1,id);
+            ResultSet rs = sttm.executeQuery();
+            
+            Doctor doctor = new Doctor();
+            while (rs.next()) {
+                doctor.setDoctor(rs.getInt("id_doctor"));
+                doctor.setDoctorName(rs.getString("doctor_name"));
+                doctor.setPhone(rs.getInt("phone"));
+                doctor.setFullName(rs.getString("fullname"));
+                doctor.setIdAccount(rs.getInt("id_account"));
+                doctor.setAddress(rs.getString("address"));
+            }
+            return doctor;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         return null;
     }
 
