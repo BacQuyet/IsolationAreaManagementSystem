@@ -18,6 +18,10 @@ import javax.servlet.http.HttpSession;
 import utils.Notification;
 import utils.Utils;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> f12ef3f3a3c754dd425ee038aa27e9f1da4ebd2f
 public class ForgotPasswordServlet extends HttpServlet {
 
     /**
