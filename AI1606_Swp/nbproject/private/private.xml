@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
-<<<<<<< HEAD
         <group>
-            <file>file:/D:/FPTU/Sem5/SWP391/week4/Code/IsolationAreaManagementSystem/AI1606_Swp/web/home.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/utils/Configs.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/logout.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/controller/base/LoginServlet.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/nbproject/build-impl.xml</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/bootstrap/css/bootstrap.css.map</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Report/filter.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/bootstrap/css/bootstrap.css</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/fonts/fontawesome-5.15.3/css/svg-with-js.min.css</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/controller/base/ForgotPasswordServlet.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/bootstrap/css/bootstrap.min.css</file>
         </group>
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        <group/>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
->>>>>>> 4e46e377cb145dad862324c87ad0a7181045309a
-        <group>
-            <file>file:/E:/Kì_8/SWP391/code_github/IsolationAreaManagementSystem/AI1606_Swp/web/Room/newRoom.jsp</file>
-        </group>
-<<<<<<< HEAD
-=======
->>>>>>> cfcea6d53b9dffb6a7f848bea2d4f171b4f9a336
->>>>>>> def00d888bc69635ec5262dc6f60ff12006d2647
->>>>>>> 4e46e377cb145dad862324c87ad0a7181045309a
->>>>>>> f12ef3f3a3c754dd425ee038aa27e9f1da4ebd2f
->>>>>>> 42a6c3464448966a9be2ba906155e121ab6ca4f4
     </open-files>
 </project-private>
