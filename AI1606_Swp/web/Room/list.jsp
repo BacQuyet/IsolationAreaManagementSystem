@@ -26,6 +26,16 @@
                 <th width="15%">Hành động</th>
             </tr>
         </table>
+<!--        <table class="table-list__user">
+            <tr>
+                <th width="10%">Mã phòng</th>
+                <th width="20%">Tên phòng</th>
+                <th width="10%">Sức chứa</th>  
+                <th width="20">Khu cách ly</th>  
+                <th width="25%">Ghi chú</th>
+                <th width="15%">Hành động</th>
+            </tr>
+        </table>-->
     </div>
     </div>
 </div>
