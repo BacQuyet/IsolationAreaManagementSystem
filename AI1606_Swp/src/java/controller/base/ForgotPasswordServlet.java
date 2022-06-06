@@ -9,6 +9,7 @@ import dao.AccountDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,10 @@ import javax.servlet.http.HttpSession;
 import utils.Notification;
 import utils.Utils;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f12ef3f3a3c754dd425ee038aa27e9f1da4ebd2f
 public class ForgotPasswordServlet extends HttpServlet {
 
     /**
@@ -74,20 +78,21 @@ public class ForgotPasswordServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        PrintWriter out = response.getWriter();
-        HttpSession ss = request.getSession();
         String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        AccountDAO accountDAO = new AccountDAO();
-        Utils utils = new Utils();
-        Account account = accountDAO.findByUsernameEmail(username, email);
-        accountDAO.updateForgot(account);
-        String password = request.getParameter("password");
-        String message = utils.sendMessage(username, password);
-        utils.send(email, utils.SUBJECT, message, utils.EMAIL, utils.PASSWORD);
-        Notification noti = new Notification("Cảm ơn", "Mật khẩu mới đã được gửi vào trong email của bạn, bạn hãy check mail và sau đó đổi lại mật khẩu nhé.", "success");
-        request.setAttribute("notify", noti);
-        response.sendRedirect("login.jsp");
+        String pass1 = request.getParameter("pass1");
+        String pass2 = request.getParameter("pass2");
+        if(pass2.equalsIgnoreCase(pass1)){
+           AccountDAO accountDAO = new AccountDAO();
+           Account account = accountDAO.find(username);
+           accountDAO.updateForgots(account, pass1);
+           response.sendRedirect("login.jsp");
+        }else{
+           Notification noti = new Notification("Error", "Mật khẩu không trùng khớp. Vui lòng kiểm tra lại.", "error");
+           request.setAttribute("notify", noti);
+           RequestDispatcher rt = request.getRequestDispatcher("forgot_password.jsp");
+           rt.forward(request, response);
+        }
+
     }
 
     /**

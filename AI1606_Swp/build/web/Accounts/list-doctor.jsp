@@ -19,19 +19,19 @@
                 <th width="30%">Họ tên</th>
                 <th width="20%">Địa chỉ</th>
                 <th width="20%">Số điện thoại</th>
-                
+
                 <th width="20%">Hệ thống</th>
             </tr>
 
         </table>
     </div>
-            <div style="margin: 35px">
-                 <nav aria-label="..." class="d-flex justify-content-center">
-                                            <ul class="pagination pagination-lg">
-                                            </ul>
-                                        </nav>
-                
-            </div>
+    <div style="margin: 35px">
+        <nav aria-label="..." class="d-flex justify-content-center">
+            <ul class="pagination pagination-lg">
+            </ul>
+        </nav>
+
+    </div>
 
 
 </div>
