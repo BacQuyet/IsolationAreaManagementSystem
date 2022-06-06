@@ -85,7 +85,7 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
 
     @Override
     public void delete(Doctor t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "delete from doctor where id_doctor = " + t.getDoctor();
     }
 
     @Override
