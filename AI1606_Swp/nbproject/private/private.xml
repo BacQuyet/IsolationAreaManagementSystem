@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/list.jsp</file>
             <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/view-detail.jsp</file>
-            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/src/java/controller/base/LoginServlet.java</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/feedback.jsp</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/test.jsp</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/src/java/utils/Configs.java</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/add.jsp</file>
         </group>
     </open-files>
 </project-private>
