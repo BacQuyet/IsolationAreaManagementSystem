@@ -3,9 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/Kì_8/SWP391/code_github/IsolationAreaManagementSystem/AI1606_Swp/src/java/dao/RoomDAO.java</file>
             <file>file:/E:/Kì_8/SWP391/code_github/IsolationAreaManagementSystem/AI1606_Swp/web/Room/list.jsp</file>
             <file>file:/E:/Kì_8/SWP391/code_github/IsolationAreaManagementSystem/AI1606_Swp/web/myaccount/accountDetail.jsp</file>
+=======
+<<<<<<< HEAD
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/dao/DoctorDAO.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/view-detail.jsp</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/feedback.jsp</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/test.jsp</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/src/java/utils/Configs.java</file>
+            <file>file:/E:/SourceCode/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/add.jsp</file>
+=======
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/utils/Configs.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/logout.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/controller/base/LoginServlet.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/nbproject/build-impl.xml</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/bootstrap/css/bootstrap.css.map</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Report/filter.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/bootstrap/css/bootstrap.css</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/fonts/fontawesome-5.15.3/css/svg-with-js.min.css</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/controller/base/ForgotPasswordServlet.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/bootstrap/css/bootstrap.min.css</file>
+>>>>>>> a7ac0aee1692556abbc54facefba67ba029b597b
+>>>>>>> 2f0ddffa8a84eb601d503647b2bc3814a46e206a
+>>>>>>> ee3d7df99e73208f0750228caf85e4fce361d34a
         </group>
     </open-files>
 </project-private>
