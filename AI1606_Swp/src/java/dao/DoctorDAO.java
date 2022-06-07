@@ -75,7 +75,18 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
 
     @Override
     public void create(Doctor t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (
+            PreparedStatement prep = conn.prepareStatement(SQL_INSERT)) {
+            prep.setString(1, t.getDoctorName());
+            prep.setInt(2, t.getPhone());
+            prep.setString(3, t.getFullName());
+            prep.setInt(4, t.getIdAccount());
+            prep.setString(5, t.getAddress());
+            
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
