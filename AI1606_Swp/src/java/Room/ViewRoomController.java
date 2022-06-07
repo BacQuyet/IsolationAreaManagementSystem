@@ -3,22 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.base;
+package Room;
 
-import dao.AccountDAO;
-import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import utils.Notification;
-import utils.Utils;
 
-public class ForgotPasswordServlet extends HttpServlet {
+/**
+ *
+ * @author Thanh Duy
+ */
+public class ViewRoomController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +35,10 @@ public class ForgotPasswordServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ForgotPasswordServlet</title>");
+            out.println("<title>Servlet ViewRoomController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ForgotPasswordServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ViewRoomController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,23 +70,7 @@ public class ForgotPasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String username = request.getParameter("username");
-        String pass1 = request.getParameter("pass1");
-        String pass2 = request.getParameter("pass2");
-        if(pass2.equalsIgnoreCase(pass1)){
-           AccountDAO accountDAO = new AccountDAO();
-           Account account = accountDAO.find(username);
-           accountDAO.updateForgots(account, pass1);
-           response.sendRedirect("login.jsp");
-        }else{
-           Notification noti = new Notification("Error", "Mật khẩu không trùng khớp. Vui lòng kiểm tra lại.", "error");
-           request.setAttribute("notify", noti);
-           RequestDispatcher rt = request.getRequestDispatcher("forgot_password.jsp");
-           rt.forward(request, response);
-        }
-
+        processRequest(request, response);
     }
 
     /**

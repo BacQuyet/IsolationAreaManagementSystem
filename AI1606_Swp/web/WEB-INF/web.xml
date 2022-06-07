@@ -132,6 +132,10 @@
         <servlet-name>ListFeedBack</servlet-name>
         <servlet-class>feedback.ListFeedBack</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewRoomController</servlet-name>
+        <servlet-class>Room.ViewRoomController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -255,6 +259,10 @@
     <servlet-mapping>
         <servlet-name>ListFeedBack</servlet-name>
         <url-pattern>/ListFeedBack</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewRoomController</servlet-name>
+        <url-pattern>/viewroom</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
