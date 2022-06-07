@@ -85,7 +85,13 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
 
     @Override
     public void delete(Doctor t) {
-        String sql = "delete from doctor where id_doctor = " + t.getDoctor();
+        try {
+            String sql = "delete from doctor where id_doctor = " + t.getDoctor();
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException x) {
+            x.printStackTrace();
+        }
     }
 
     @Override
