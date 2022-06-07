@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 import utils.Notification;
 
 
-public class LoginServlet extends HttpServlet {
+public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

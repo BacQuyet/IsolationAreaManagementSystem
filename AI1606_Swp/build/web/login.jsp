@@ -4,7 +4,7 @@
 <link href="<%=request.getContextPath()%>/assets/css/form.css" rel="stylesheet">
 
 <div class="form-container">
-    <form action="LoginServlet" method="POST" id="form-dn" class="form">
+    <form action="LoginController" method="POST" id="form-dn" class="form">
         <h3 class="heading">Đăng nhập</h3>
         <p class="desc">Đăng nhập để trải nghiệm toàn bộ tiện ích nào</p>
 

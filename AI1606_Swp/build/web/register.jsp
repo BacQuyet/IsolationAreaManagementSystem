@@ -3,7 +3,7 @@
 <link href="<%=request.getContextPath()%>/assets/css/form.css" rel="stylesheet">
 
 <div class="form-container">
-    <form action="RegisterServlet" method="POST" id="form-dk" class="form">
+    <form action="RegisterController" method="POST" id="form-dk" class="form">
         <h3 class="heading">Đăng ký</h3>
 
         <div class="spacer"></div>

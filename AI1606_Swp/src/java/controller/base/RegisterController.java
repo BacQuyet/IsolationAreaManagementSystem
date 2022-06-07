@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import utils.Configs;
 import utils.Notification;
 
-public class RegisterServlet extends HttpServlet {
+public class RegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

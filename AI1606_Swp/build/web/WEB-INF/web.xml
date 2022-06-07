@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>controller.base.LoginServlet</servlet-class>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.base.LoginController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>controller.base.RegisterServlet</servlet-class>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>controller.base.RegisterController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>controller.base.HomeServlet</servlet-class>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>controller.base.HomeController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>viewPatientServlet</servlet-name>
@@ -65,8 +65,8 @@
         <servlet-class>controller.Patient.AddTestPatient</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ForgotPasswordServlet</servlet-name>
-        <servlet-class>controller.base.ForgotPasswordServlet</servlet-class>
+        <servlet-name>ForgotPasswordController</servlet-name>
+        <servlet-class>controller.base.ForgotPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewAllPatient</servlet-name>
@@ -157,15 +157,15 @@
         <url-pattern>/Room/delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/RegisterServlet</url-pattern>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/RegisterController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
+        <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -197,7 +197,7 @@
         <url-pattern>/Patient/add-test</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-name>ForgotPasswordController</servlet-name>
         <url-pattern>/ForgotPassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
