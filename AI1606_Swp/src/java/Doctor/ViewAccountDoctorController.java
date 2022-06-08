@@ -60,23 +60,23 @@ public class ViewAccountDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        DoctorDAO ndao = new DoctorDAO();
-//         int pageIndex = 1;
-//        final int PAGE_SIZE = 2;
-//        int type = 0;
-//        String raw_page = request.getParameter("pageIndex");
-//        if (raw_page != null) {
-//            pageIndex = Integer.parseInt(raw_page);
-//        }
-//        List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
-//        int totalPage = ndao.countPage(PAGE_SIZE);
-//
-//         request.setAttribute("totalPage", totalPage);
-//         request.setAttribute("pageIndex", pageIndex);
-//        
-//         request.setAttribute("list", list);
-//         RequestDispatcher view = request.getRequestDispatcher("/Accounts/list-doctor.jsp");
-//         view.forward(request, response);
+        DoctorDAO ndao = new DoctorDAO();
+         int pageIndex = 1;
+        final int PAGE_SIZE = 2;
+        int type = 0;
+        String raw_page = request.getParameter("pageIndex");
+        if (raw_page != null) {
+            pageIndex = Integer.parseInt(raw_page);
+        }
+        List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
+        int totalPage = ndao.countPage(PAGE_SIZE);
+
+         request.setAttribute("totalPage", totalPage);
+         request.setAttribute("pageIndex", pageIndex);
+        
+         request.setAttribute("list", list);
+         RequestDispatcher view = request.getRequestDispatcher("/Accounts/list-doctor.jsp");
+         view.forward(request, response);
     }
 
     /**
