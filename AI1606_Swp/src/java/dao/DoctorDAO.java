@@ -22,19 +22,19 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-public class DoctorDAO implements DAO<Doctor>{
+public class DoctorDAO implements DAO<Doctor> {
 
-    private final String SQL_INSERT = "INSERT INTO [dbo].[doctor]\n" +
-"           ([doctor_name]\n" +
-"           ,[phone]\n" +
-"           ,[fullname]\n" +
-"           ,[id_account]\n" +
-"           ,[address])\n" +
-"     VALUES\n" +
-"           (?,?,?,?,?)";
-     Connection conn = DBcontext.getConnection();
-     
-public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
+    private final String SQL_INSERT = "INSERT INTO [dbo].[doctor]\n"
+            + "           ([doctor_name]\n"
+            + "           ,[phone]\n"
+            + "           ,[fullname]\n"
+            + "           ,[id_account]\n"
+            + "           ,[address])\n"
+            + "     VALUES\n"
+            + "           (?,?,?,?,?)";
+    Connection conn = DBcontext.getConnection();
+
+    public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
         ArrayList<Doctor> lst = new ArrayList<>();
         try {
             String query = "SELECT * FROM doctor ORDER BY id_doctor "
@@ -52,7 +52,7 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
                 String fullName = rs.getString(4);
                 int idAccount = rs.getInt(5);
                 String address = rs.getString(6);
-                
+
                 lst.add(new Doctor(nID, nName, phone, fullName, idAccount, address));
             }
             return lst;
@@ -62,11 +62,32 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
         }
         return null;
     }
+
+    public int countPage(int pageSize) {
+        try {
+            String query = "select Count(*) from doctor";
+
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            int count = 0;
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+            int numOfPage = count / pageSize;
+            if (count % pageSize != 0) {
+                numOfPage++;
+            }
+            return numOfPage;
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
+
     @Override
     public List<Doctor> parse(String sql) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
     @Override
     public List<Doctor> getAll() {
@@ -76,13 +97,13 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
     @Override
     public void create(Doctor t) {
         try (
-            PreparedStatement prep = conn.prepareStatement(SQL_INSERT)) {
+                PreparedStatement prep = conn.prepareStatement(SQL_INSERT)) {
             prep.setString(1, t.getDoctorName());
             prep.setInt(2, t.getPhone());
             prep.setString(3, t.getFullName());
             prep.setInt(4, t.getIdAccount());
             prep.setString(5, t.getAddress());
-            
+
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,11 +130,11 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
     public Doctor get(int id) {
         try {
             String sql = "SELECT * FROM dbo.doctor\n"
-                + "WHERE id_doctor = ?" ;
+                    + "WHERE id_doctor = ?";
             PreparedStatement sttm = conn.prepareStatement(sql);
-            sttm.setInt(1,id);
+            sttm.setInt(1, id);
             ResultSet rs = sttm.executeQuery();
-            
+
             Doctor doctor = new Doctor();
             while (rs.next()) {
                 doctor.setDoctor(rs.getInt("id_doctor"));
@@ -130,6 +151,4 @@ public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
         return null;
     }
 
-    
-    
 }

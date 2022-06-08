@@ -22,12 +22,7 @@
 
                 <th width="20%">Hệ thống</th>
             </tr>
-
-        </table>
-    </div>
-    <div style="margin: 35px">
-        <nav aria-label="..." class="d-flex justify-content-center">
-            <ul class="pagination pagination-lg">
+            
             </ul>
         </nav>
 
