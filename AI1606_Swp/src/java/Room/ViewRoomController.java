@@ -5,8 +5,12 @@
  */
 package Room;
 
+import dao.RoomDAO;
+import entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +60,13 @@ public class ViewRoomController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        RoomDAO dao = new RoomDAO();
+        List<Room> list = dao.getAll();
+        request.setAttribute("listRoom", list);
+        RequestDispatcher view = request.getRequestDispatcher("/Room/list.jsp");
+        view.forward(request, response);
     }
 
     /**
