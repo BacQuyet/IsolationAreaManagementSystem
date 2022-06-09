@@ -52,7 +52,7 @@
                 <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
             </form>
         </div>
-        <div><img class="form-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/>
+        <div><img class="form-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}${userLogin.getAvatar()}"/>
             <input name="file" type="file" accept="image/*" onchange="loadFile(event)" id="getFile" style="display:none" >
             <button style="margin-top: 4px; display:block;width: max-content; height:30px;" onclick="document.getElementById('getFile').click()">Chọn ảnh</button>
             <script>
@@ -69,3 +69,4 @@
     </div>
 </div>
 
+s
