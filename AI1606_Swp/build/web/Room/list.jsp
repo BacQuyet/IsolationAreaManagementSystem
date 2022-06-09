@@ -36,7 +36,7 @@
                     <td class="td-action">
                         <a href="<%=request.getContextPath()%>/Room/viewDetail?roomId=${room.getRoomId()}"><i class="far fa-calendar-alt"></i></a>
                         <a href="<%=request.getContextPath()%>/Room/update?roomId=${room.getRoomId()}"><i class="fas fa-pen"></i></a>
-                        <a href="<%=request.getContextPath()%>/Room/delete?roomId=${room.getRoomId()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Room/deleteroom?roomId=${room.getRoomId()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </c:forEach>
