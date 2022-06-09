@@ -67,7 +67,54 @@ public class AddDoctorController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repass");
+  
+        String fullname = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String email = request.getParameter("email");
+        int phoneNumber = Integer.parseInt(phone);
+        HttpSession ss = request.getSession();
+        //check ten dang nhap
+        AccountDAO accountDAO = new AccountDAO();
+        Account user = accountDAO.find(username);
+        if (user != null) {
+            Notification noti = new Notification("Error", "Tài khoản đã tồn tại", "error");
+            request.setAttribute("notify", noti);
+            RequestDispatcher rt = request.getRequestDispatcher("add-doctor.jsp");
+            rt.forward(request, response);
+        } else {
+            if (password.equals(repassword)) {
+                Account newUser = new Account();
+                newUser.setUserName(username);
+                newUser.setPassword(password);
+                newUser.setEmail(email);
+                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
+                newUser.setType(new TypeAccount(2));
+                accountDAO.create(newUser);
+                Account user1 = accountDAO.find(username);
+                Doctor doctor = new Doctor();
+                doctor.setAddress(address);
+                doctor.setFullName(fullname);
+                doctor.setDoctorName("abc");
+                doctor.setIdAccount(user1.getAccountId());
+                doctor.setPhone(phoneNumber);
+                DoctorDAO doc = new DoctorDAO();
+                doc.create(doctor);
+                Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
+                request.setAttribute("notify", noti);
+                RequestDispatcher r1 = request.getRequestDispatcher("ViewAccountDoctor");
+                r1.forward(request, response);
+            } else {
+                Notification noti = new Notification("Error", "sai mk", "error");
+                request.setAttribute("notify", noti);
+                RequestDispatcher rt = request.getRequestDispatcher("add-doctor.jsp");
+                rt.forward(request, response);
+            }
+
+        }
     }
 
     /**
