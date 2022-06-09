@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>imgPath</param-name>
+        <param-value>assets/img/</param-value>
+    </context-param>
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controller.base.LoginController</servlet-class>
@@ -129,10 +133,10 @@
         <servlet-class>Room.ViewRoomController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>AddRoomNurseController</servlet-name>
         <servlet-class>Room.AddRoomNurseController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>ViewAccountDoctorController</servlet-name>
         <servlet-class>Doctor.ViewAccountDoctorController</servlet-class>
     </servlet>
@@ -143,6 +147,10 @@
     <servlet>
         <servlet-name>DeleteAccountDoctorController</servlet-name>
         <servlet-class>Doctor.DeleteAccountDoctorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteRoomController</servlet-name>
+        <servlet-class>Room.DeleteRoomController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -265,9 +273,10 @@
         <url-pattern>/Room/viewroom</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>AddRoomNurseController</servlet-name>
         <url-pattern>/Room/addroomnurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ViewAccountDoctorController</servlet-name>
         <url-pattern>/ViewAccountDoctor</url-pattern>
     </servlet-mapping>
@@ -278,12 +287,13 @@
     <servlet-mapping>
         <servlet-name>DeleteAccountDoctorController</servlet-name>
         <url-pattern>/DeleteAccountDoctor</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteRoomController</servlet-name>
+        <url-pattern>/deleteroom</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>
-            60
-        </session-timeout>
+        <session-timeout>60</session-timeout>
     </session-config>
     <jsp-config>
         <jsp-property-group>
@@ -299,11 +309,9 @@
             <url-pattern>/forgot_password.jsp</url-pattern>
             <url-pattern>/search.jsp</url-pattern>
             <url-pattern>/register.jsp</url-pattern>
-            <!-- và các trang khác -->
             <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
-        <!-- optional for admin GUI -->
         <jsp-property-group>
             <description>JSP configuration for the admin console
             </description>
@@ -318,8 +326,4 @@
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
     </jsp-config>
-    <context-param>
-        <param-name>imgPath</param-name>
-        <param-value>assets/img/</param-value>
-    </context-param>
 </web-app>
