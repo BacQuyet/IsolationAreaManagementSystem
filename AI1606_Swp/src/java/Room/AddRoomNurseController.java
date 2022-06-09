@@ -5,14 +5,19 @@
  */
 package Room;
 
+import dao.AreaDAO;
+import dao.RoomDAO;
 import entity.Nurse;
+import entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
@@ -79,6 +84,28 @@ public class AddRoomNurseController extends HttpServlet {
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
         Nurse nurse = (Nurse) ss.getAttribute("nurse");
+        
+        if (roomName == null || bedNumber == null) {
+            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", noti);
+            RequestDispatcher add = request.getRequestDispatcher("/Room/add.jsp");
+            add.forward(request, response);
+        }
+        if (note.length() == 0) {
+            note = "no notes";
+        }
+        RoomDAO dao = new RoomDAO();
+        AreaDAO daoArea = new AreaDAO();
+        Room room = new Room();
+        room.setRoomName(roomName);
+        room.setBedNumber(Integer.parseInt(bedNumber));
+        room.setNote(note);
+        room.setArea(daoArea.get(nurse.getId_area()));
+        dao.create(room);
+        
+        Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");
+        request.setAttribute("notify", noti);
+        response.sendRedirect("viewroom");
     }
 
     /**

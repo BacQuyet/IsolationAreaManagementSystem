@@ -9,7 +9,7 @@
 
 
     <div class="form-container">
-        <form action="add" method="POST" id="form-dn" class="form">
+        <form action="addroomnurse" method="POST" id="form-dn" class="form">
 
             <div class="form-group form-group__special">
                 <label for="roomName" class="form-label">Tên phòng</label>
