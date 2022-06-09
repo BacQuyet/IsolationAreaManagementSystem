@@ -21,6 +21,14 @@ public class Account {
     public Account() {
     }
 
+    public Account(String userName, String password, String avatar, String email, TypeAccount type) {
+        this.userName = userName;
+        this.password = password;
+        this.avatar = avatar;
+        this.email = email;
+        this.type = type;
+    }
+
     public Account(Integer accountId, String userName, String password, String avatar, String email, TypeAccount type, Patient patient) {
         this.accountId = accountId;
         this.userName = userName;

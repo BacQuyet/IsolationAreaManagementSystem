@@ -150,5 +150,9 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return null;
     }
-
+    public static void main(String[] args) {
+        DoctorDAO dao = new DoctorDAO();
+        Doctor d = new Doctor("Ngoc", 1234567678, "ngoc", 4002, "HN");
+        dao.create(d);
+    }
 }

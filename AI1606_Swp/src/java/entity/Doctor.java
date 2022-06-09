@@ -20,6 +20,14 @@ public class Doctor {
     public Doctor() {
     }
 
+    public Doctor(String doctorName, int phone, String fullName, int idAccount, String Address) {
+        this.doctorName = doctorName;
+        this.phone = phone;
+        this.fullName = fullName;
+        this.idAccount = idAccount;
+        this.Address = Address;
+    }
+    
     public Doctor(int doctor, String doctorName, int phone, String fullName, int idAccount, String Address) {
         this.doctor = doctor;
         this.doctorName = doctorName;

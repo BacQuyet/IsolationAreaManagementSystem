@@ -192,12 +192,14 @@ public class AccountDAO implements DAO<Account> {
 
 
     public static void main(String[] args) {
-        AccountDAO dao = new AccountDAO();
-        System.out.println(dao.findByUsernamePassword("duy19", "123456"));
+        Account a = new Account("thanhhduy", "123456", "a", "a", new TypeAccount(2));
+        AccountDAO d = new AccountDAO();
+        d.create(a);
     }
 
     @Override
     public void delete(Account t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }
