@@ -6,13 +6,16 @@
 package Room;
 
 import dao.PatientDAO;
+import dao.RoomDAO;
 import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -77,6 +80,18 @@ public class DeleteRoomController extends HttpServlet {
         int roomId = Integer.parseInt(request.getParameter("roomId"));
         PatientDAO daoPatient = new PatientDAO();
         Patient list = daoPatient.getPatientByRoom(roomId);
+        if (list == null){
+            RoomDAO dao = new RoomDAO();
+            dao.delete(dao.get(roomId));
+            Notification noti = new Notification("Success","Xóa phòng cách ly thành công.","success");
+            request.setAttribute("notify", noti);
+            RequestDispatcher delete = request.getRequestDispatcher("viewroom");
+            delete.forward(request, response);
+        }
+        Notification noti = new Notification("Warning", "Không thể xóa phòng cách ly khi trong đó vẫn còn bệnh nhân.","warning");
+        request.setAttribute("notify", noti);
+        RequestDispatcher room = request.getRequestDispatcher("viewroom");
+        room.forward(request, response);
     }
 
     /**

@@ -64,7 +64,24 @@ public class RoomDAO implements DAO<Room> {
 
     @Override
     public Room get(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "SELECT * FROM [dbo].[room] WHERE room_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                Room r = new Room();
+                r.setRoomId(rs.getInt("room_id"));
+                r.setRoomName(rs.getString("room_name"));
+                r.setBedNumber(rs.getInt("bed_number"));
+                r.setArea(area.get(rs.getInt("area_id")));
+                r.setNote(rs.getString("note"));
+                return r;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return null;
     }
 
     @Override
@@ -97,7 +114,14 @@ public class RoomDAO implements DAO<Room> {
     }
 
     @Override
-    public void delete(Room t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Room r) {
+        String sql = "DELETE FROM [dbo].[room] WHERE room_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, r.getRoomId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
 }
