@@ -63,7 +63,7 @@ public class NurseDAO implements DAO<Nurse> {
     }
 
    
-
+// fix bug update
     @Override
     public void update(Nurse t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
