@@ -27,6 +27,14 @@
                         <option value="F2">F2</option>
                         <option value="F3">F3</option>
                         <option value="F4" selected="selected">F4</option>
+                        <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+
+</html>
                     </select>
                 </div>-->
     </body>
