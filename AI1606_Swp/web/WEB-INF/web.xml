@@ -160,6 +160,10 @@
         <servlet-name>AddNewDoctorController</servlet-name>
         <servlet-class>Doctor.AddNewDoctorController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteDoctorController</servlet-name>
+        <servlet-class>Doctor.DeleteDoctorController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -307,6 +311,10 @@
     <servlet-mapping>
         <servlet-name>AddNewDoctorController</servlet-name>
         <url-pattern>/Accounts/addNewDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDoctorController</servlet-name>
+        <url-pattern>/Accounts/DeleteAccountDoctor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

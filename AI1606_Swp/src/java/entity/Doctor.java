@@ -37,6 +37,10 @@ public class Doctor {
         this.Address = Address;
     }
 
+    public Doctor(int doctor) {
+        this.doctor = doctor;
+    }
+    
     public int getDoctor() {
         return doctor;
     }

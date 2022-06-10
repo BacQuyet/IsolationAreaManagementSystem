@@ -199,7 +199,13 @@ public class AccountDAO implements DAO<Account> {
 
     @Override
     public void delete(Account t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql = "delete from account where account_id = " + t.getAccountId();
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException x) {
+            x.printStackTrace();
+        }
     }
     
 }

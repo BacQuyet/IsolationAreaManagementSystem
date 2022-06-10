@@ -9,23 +9,21 @@ import dao.AccountDAO;
 import dao.DoctorDAO;
 import entity.Account;
 import entity.Doctor;
-import entity.TypeAccount;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import utils.Configs;
 import utils.Notification;
 
 /**
  *
  * @author Administrator
  */
-public class AddNewDoctorController extends HttpServlet {
+public class DeleteDoctorController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +42,10 @@ public class AddNewDoctorController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddDoctorController</title>");            
+            out.println("<title>Servlet DeleteDoctorController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddDoctorController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteDoctorController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,56 +63,32 @@ public class AddNewDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String repassword = request.getParameter("repass");
-  
-        String fullname = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String email = request.getParameter("email");
-        int phoneNumber = Integer.parseInt(phone);
-        HttpSession ss = request.getSession();
-        //check ten dang nhap
+       String id = request.getParameter("id");
         AccountDAO accountDAO = new AccountDAO();
-        Account user = accountDAO.find(username);
-        if (user != null) {
-            Notification noti = new Notification("Error", "Tài khoản đã tồn tại", "error");
-            request.setAttribute("notify", noti);
-            RequestDispatcher rt = request.getRequestDispatcher("add-doctor.jsp");
-            rt.forward(request, response);
-        } else {
-            if (password.equals(repassword)) {
-                Account newUser = new Account();
-                newUser.setUserName(username);
-                newUser.setPassword(password);
-                newUser.setEmail(email);
-                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
-                newUser.setType(new TypeAccount(2));
-                accountDAO.create(newUser);
-                Account user1 = accountDAO.find(username);
-                Doctor doctor = new Doctor();
-                doctor.setAddress(address);
-                doctor.setFullName(fullname);
-                doctor.setDoctorName("abc");
-                doctor.setIdAccount(user1.getAccountId());
-                doctor.setPhone(phoneNumber);
-                DoctorDAO doc = new DoctorDAO();
-                doc.create(doctor);
-                Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
-                request.setAttribute("notify", noti);
-                RequestDispatcher r1 = request.getRequestDispatcher("ViewDoctor");
-                r1.forward(request, response);
-            } else {
-                Notification noti = new Notification("Error", "sai mk", "error");
-                request.setAttribute("notify", noti);
-                RequestDispatcher rt = request.getRequestDispatcher("add-doctor.jsp");
-                rt.forward(request, response);
-            }
-
+        DoctorDAO doctorDAO = new DoctorDAO();
+        int id1 = Integer.parseInt(id);
+        Doctor doctor = doctorDAO.get(id1);
+        Account account = accountDAO.get(doctor.getIdAccount());
+        doctorDAO.delete(doctor);
+        accountDAO.delete(account);
+         int pageIndex = 1;
+        final int PAGE_SIZE = 2;
+        int type = 0;
+        String raw_page = request.getParameter("pageIndex");
+        if (raw_page != null) {
+            pageIndex = Integer.parseInt(raw_page);
         }
+        List<Doctor> list = doctorDAO.getAllDoctor(pageIndex, PAGE_SIZE);
+        int totalPage = doctorDAO.countPage(PAGE_SIZE);
+
+         request.setAttribute("totalPage", totalPage);
+         request.setAttribute("pageIndex", pageIndex);
+        
+         request.setAttribute("list", list);
+         Notification noti = new Notification("Success", "Xoá tài khoản thành công.", "success");
+                request.setAttribute("notify", noti);
+         RequestDispatcher view = request.getRequestDispatcher("/Accounts/list-doctor.jsp");
+         view.forward(request, response);
     }
 
     /**
