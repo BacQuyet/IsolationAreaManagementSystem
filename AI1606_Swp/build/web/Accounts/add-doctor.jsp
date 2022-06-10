@@ -10,7 +10,7 @@
     </div>
     <div class="form-container form-container_add">
         <div>
-            <form action="AddDoctor" method="GET" id="form-xn" class="form">
+            <form action="addNewDoctor" method="GET" id="form-xn" class="form">
                 <div class="form-group">
                     <label for="ho_ten" class="form-label">Họ tên nhân viên:</label>
                     <input id="ho_ten" class="form-control" name="name" type="text" required>
