@@ -53,7 +53,7 @@
                         </c:when>
                         <c:otherwise>
 
-                            <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/Accounts/ViewAccountDoctor?pageIndex=${i}">${i}</a></li>
+                            <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/Accounts/ViewDoctor?pageIndex=${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
