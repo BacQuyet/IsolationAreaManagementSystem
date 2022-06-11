@@ -56,7 +56,7 @@ public class AddRoomFromAdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -70,7 +70,9 @@ public class AddRoomFromAdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String roomName = request.getParameter("roomName");
+        String bedNumber = request.getParameter("bedNumber");
+        String note = request.getParameter("note");
     }
 
     /**
