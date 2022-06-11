@@ -11,11 +11,28 @@
             
         </div>
     </div>
+    <%
+        Account account = (Account) session.getAttribute("userLogin");
+        if (account.getType().getAccountTypeId() == 3) { // Nurse login
+    %>
     <div class="btn-add">
         <a href="<%=request.getContextPath()%>/Room/add.jsp"><i class="fas fa-plus-circle"></i>
-            <span>Thêm phòng</span>
+            <span>Thêm</span>
         </a>
     </div>
+    <% }
+    %>
+    
+    <%
+        if (account.getType().getAccountTypeId() == 1) {
+    %>
+    <div class="btn-add">
+        <a href="<%=request.getContextPath()%>/Room/addadmin.jsp"><i class="fas fa-plus-circle"></i>
+            <span>Thêm</span>
+        </a>
+    </div>
+    <% }
+    %>
     <div class="table-list">
         <table class="table-list__user">
             <tr>
