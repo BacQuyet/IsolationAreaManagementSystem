@@ -176,6 +176,10 @@
         <servlet-name>ViewListPatientController</servlet-name>
         <servlet-class>Patient.ViewListPatientController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddRoomFromAdminController</servlet-name>
+        <servlet-class>Room.AddRoomFromAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -339,6 +343,10 @@
     <servlet-mapping>
         <servlet-name>ViewListPatientController</servlet-name>
         <url-pattern>/Patient/ViewPatient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddRoomFromAdminController</servlet-name>
+        <url-pattern>/addroomAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
