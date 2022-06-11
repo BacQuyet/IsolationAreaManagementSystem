@@ -28,6 +28,11 @@
                 <input id="note" class="form-control" name="note" type="text" >
                 <span class="form-message"></span>
             </div>
+            <div class="form-group">
+                <label for="area" class="form-label">Khu vực</label>
+                <input id="area" class="form-control" name="area" type="text" >
+                <span class="form-message"></span>
+            </div>
 
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
         </form>

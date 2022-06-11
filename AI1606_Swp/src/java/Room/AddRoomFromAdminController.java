@@ -73,6 +73,7 @@ public class AddRoomFromAdminController extends HttpServlet {
         String roomName = request.getParameter("roomName");
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
+        String area = request.getParameter("area");
     }
 
     /**
