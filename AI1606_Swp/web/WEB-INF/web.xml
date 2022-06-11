@@ -346,7 +346,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddRoomFromAdminController</servlet-name>
-        <url-pattern>/addroomAdmin</url-pattern>
+        <url-pattern>/Room/addroomAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

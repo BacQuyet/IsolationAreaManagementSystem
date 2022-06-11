@@ -107,6 +107,22 @@ public class RoomDAO implements DAO<Room> {
             Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
     }
+    
+    public void createRoom(Room r) {
+        
+        String sql = "INSERT INTO room"
+                + " ([room_name],[bed_number],[note],[area_id]) VALUES (?,?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, r.getRoomName());
+            pre.setInt(2, r.getBedNumber());
+            pre.setString(3, r.getNote());
+            pre.setInt(4, r.getArea().getAreaId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
 
     @Override
     public void update(Room t, Hashtable<String, String> my_dict) {

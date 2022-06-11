@@ -7,10 +7,12 @@ package Room;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -70,10 +72,22 @@ public class AddRoomFromAdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String roomName = request.getParameter("roomName");
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
-        String area = request.getParameter("area");
+        int area = Integer.parseInt(request.getParameter("area"));
+        
+        if (roomName == null || bedNumber == null) {
+            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", noti);
+            RequestDispatcher add = request.getRequestDispatcher("/Room/addadmin.jsp");
+            add.forward(request, response);
+        }
+        if (note.length() == 0) {
+            note = "no notes";
+        }
     }
 
     /**
