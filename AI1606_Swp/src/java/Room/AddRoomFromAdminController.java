@@ -5,6 +5,9 @@
  */
 package Room;
 
+import dao.AreaDAO;
+import dao.RoomDAO;
+import entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -88,6 +91,19 @@ public class AddRoomFromAdminController extends HttpServlet {
         if (note.length() == 0) {
             note = "no notes";
         }
+        
+        RoomDAO dao = new RoomDAO();
+        AreaDAO daoArea = new AreaDAO();
+        Room room = new Room();
+        room.setRoomName(roomName);
+        room.setBedNumber(Integer.parseInt(bedNumber));
+        room.setNote(note);
+        room.setArea(daoArea.get(area));
+        dao.create(room);
+        
+        Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");
+        request.setAttribute("notify", noti);
+        response.sendRedirect("viewroom");
     }
 
     /**
