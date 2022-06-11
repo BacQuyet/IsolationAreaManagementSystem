@@ -168,6 +168,14 @@
         <servlet-name>ViewDetailDoctorController</servlet-name>
         <servlet-class>Doctor.ViewDetailDoctorController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateDoctorController</servlet-name>
+        <servlet-class>Doctor.UpdateDoctorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewListPatientController</servlet-name>
+        <servlet-class>Patient.ViewListPatientController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -323,6 +331,14 @@
     <servlet-mapping>
         <servlet-name>ViewDetailDoctorController</servlet-name>
         <url-pattern>/Accounts/viewDetailDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDoctorController</servlet-name>
+        <url-pattern>/Accounts/UpdateDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewListPatientController</servlet-name>
+        <url-pattern>/Patient/ViewPatient</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

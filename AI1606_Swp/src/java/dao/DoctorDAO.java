@@ -109,7 +109,23 @@ public class DoctorDAO implements DAO<Doctor> {
             e.printStackTrace();
         }
     }
-
+    public void updateDoctor(Doctor d) {
+        String sql = "UPDATE [dbo].[doctor]\n"
+                + "   SET [phone] = ?\n"
+                + "      ,[fullname] = ?\n"
+                + "      ,[address] = ?\n"
+                + " WHERE id_doctor = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, d.getPhone());
+            pre.setString(2, d.getFullName());
+            pre.setString(3, d.getAddress());
+            pre.setInt(4, d.getDoctor());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
     @Override
     public void update(Doctor t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

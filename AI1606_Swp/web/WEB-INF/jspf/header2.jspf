@@ -111,7 +111,7 @@
 
                         if (acocuntTypeId == 1) {  // Admin
                     %>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/list.jsp"><i class="fas fa-user sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/ViewPatient"><i class="fas fa-user sidebar-icon"></i>
                             <span class="sidebar-info">Người cách ly</span>
                         </a>
                     </li>

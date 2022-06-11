@@ -30,7 +30,7 @@
                     <td>${doctor.getPhone()}</td>
                     <td class="td-action">
                         <a href="<%=request.getContextPath()%>/Accounts/viewDetailDoctor?id=${doctor.getDoctor()}"><i class="far fa-calendar-alt"></i></a>
-                        <a href="<%=request.getContextPath()%>/Accounts/update?id=${doctor.getDoctor()}"><i class="fas fa-pen"></i></a>
+                        <a href="<%=request.getContextPath()%>/Accounts/UpdateDoctor?id=${doctor.getDoctor()}"><i class="fas fa-pen"></i></a>
                         <a href="<%=request.getContextPath()%>/Accounts/DeleteAccountDoctor?id=${doctor.getDoctor()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>

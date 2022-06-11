@@ -100,7 +100,7 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
-    
+
     public Patient getPatientByRoom(int id) {
         String sql = "SELECT * from patient where room_id = " + id;
         List<Patient> qq = new ArrayList<>();
@@ -121,7 +121,7 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return qq.size();
     }
-    
+
     /**
      * GEt NUMBER OF PATIENTS IN 1 CERTAIN DATE
      *
@@ -135,10 +135,10 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return qq.size();
     }
-    
-     /**
-     *  GET TOTAL PATIENTS IN THE SYSTEM
-     *  
+
+    /**
+     * GET TOTAL PATIENTS IN THE SYSTEM
+     *
      * @return NUMBER OF PATIENTS
      */
     public int getTotalPatients() {
@@ -155,10 +155,27 @@ public class PatientDAO implements DAO<Patient> {
         return 0;
     }
 
-
     @Override
-    public void create(Patient t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void create(Patient p) {
+        try (
+                PreparedStatement prep = conn.prepareStatement(SQL_INSERT)) {
+            prep.setString(1, p.getPatientName());
+            prep.setInt(2, p.getAge());
+            prep.setString(3, p.getGender());
+            prep.setString(4, p.getAddress());
+            prep.setString(5, p.getPassport());
+            prep.setInt(6, p.getPhoneNumber());
+            prep.setString(7, p.getRegion());
+            prep.setString(8, p.getSuspicionLevel());
+            prep.setTimestamp(9, (java.sql.Timestamp) p.getTimeIn());
+            prep.setTimestamp(10, null);
+            prep.setInt(11, p.getRoom().getRoomId());
+            prep.setInt(12, p.getArea().getAreaId());
+            prep.setInt(13, 30); // valid account id
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
     @Override
@@ -187,13 +204,65 @@ public class PatientDAO implements DAO<Patient> {
         }
     }
 
+    public List<Patient> getListAll(int offset, int noOfRecords) {
+        String sql = "SELECT * FROM dbo.patient\n"
+                + "ORDER BY patient_id\n"
+                + "OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
+        //System.out.println("sql " + sql);
+        List<Patient> qq = new ArrayList<>();
+        qq = parse(sql);
+        return qq;
+    }
+    public int getNoOfRecord(int areaId) {
+        try {
+            String sql = "SELECT COUNT(*) AS NoOfRecords FROM dbo.patient WHERE area_id = " + areaId;
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            rs.next();
+            return rs.getInt("NoOfRecords");
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+    public List<Patient> getList(int offset, int noOfRecords, int areaId) {
+        String sql = "SELECT * FROM dbo.patient\n"
+                + "WHERE area_id = " + areaId + "\n"
+                + "ORDER BY patient_id\n"
+                + "OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
+        //System.out.println("sql " + sql);
+        List<Patient> qq = new ArrayList<>();
+        qq = parse(sql);
+        return qq;
+    }
     @Override
     public void delete(Patient t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql = "DELETE FROM dbo.patient WHERE patient_id = " + t.getPatientId();
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException x) {
+            x.printStackTrace();
+        }
     }
 
     @Override
     public List<Patient> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       String sql = "SELECT * from patient";
+        List<Patient> qq = new ArrayList<>();
+        qq = parse(sql);
+        return qq;
+    }
+    public void discharge(Patient patient) {
+        Hashtable<String, String> hashTable = new Hashtable<>();
+        String timeOut = Utils.getToday();
+        hashTable.put("time_out", timeOut);
+        update(patient, hashTable);
+    }
+    public List<Patient> SearchByKey(String key) {
+        
+        String sql = "SELECT * from patient where full_name like '%" + key + "%'";
+        List<Patient> qq = new ArrayList<>();
+        qq = parse(sql);
+        return qq;
     }
 }
