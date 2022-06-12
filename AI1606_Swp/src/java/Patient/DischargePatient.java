@@ -22,19 +22,19 @@ public class DischargePatient extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        PatientDAO patientDAO = new PatientDAO();
-        Patient patient = patientDAO.get(Integer.parseInt(id));
-        if (patient.getTimeOut() == null) {
-            patientDAO.discharge(patient);
-            Notification noti = new Notification("Success", "Xuất viện thành công", "success");
-            request.setAttribute("notify", noti);
-        } else {
-            Notification noti = new Notification("Error", "Người này đã xuất viện rồi", "error");
-            request.setAttribute("notify", noti);
-        }
-        RequestDispatcher r1 = request.getRequestDispatcher("view-detail?id=" + id);
-        r1.forward(request, response);
+//        String id = request.getParameter("id");
+//        PatientDAO patientDAO = new PatientDAO();
+//        Patient patient = patientDAO.get(Integer.parseInt(id));
+//        if (patient.getTimeOut() == null) {
+//            patientDAO.discharge(patient);
+//            Notification noti = new Notification("Success", "Xuất viện thành công", "success");
+//            request.setAttribute("notify", noti);
+//        } else {
+//            Notification noti = new Notification("Error", "Người này đã xuất viện rồi", "error");
+//            request.setAttribute("notify", noti);
+//        }
+//        RequestDispatcher r1 = request.getRequestDispatcher("view-detail?id=" + id);
+//        r1.forward(request, response);
     }
 
     /**
