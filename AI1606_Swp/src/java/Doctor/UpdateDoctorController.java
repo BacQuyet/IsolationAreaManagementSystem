@@ -83,7 +83,7 @@ public class UpdateDoctorController extends HttpServlet {
             RequestDispatcher view = request.getRequestDispatcher("ViewDoctor");
             view.forward(request, response);
         }
-        int doctorId = Integer.parseInt(request.getParameter("id_doctor"));
+        int doctorId = Integer.parseInt(request.getParameter("id"));
         String fullname = request.getParameter("fullname");
         int phone = Integer.parseInt(request.getParameter("phone"));
         String address = request.getParameter("address");
@@ -107,7 +107,7 @@ public class UpdateDoctorController extends HttpServlet {
             request.setAttribute("notify", noti);
         }
         request.setAttribute("doctor", dao.get(doctorId));
-        RequestDispatcher update = request.getRequestDispatcher("/Accounts/update-doctor.jsp");
+        RequestDispatcher update = request.getRequestDispatcher("update-doctor.jsp");
         update.forward(request, response);
     }
 
