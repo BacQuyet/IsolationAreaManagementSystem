@@ -29,22 +29,22 @@ public class ViewDetailPatient extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        int id = 0;
-        if (request.getParameter("id") != null) {
-            id = Integer.parseInt(request.getParameter("id"));
-        }
-        PatientDAO patientDAO = new PatientDAO();
-        Patient patient = patientDAO.get(id);
-//        TestResultDAO testResultDAO = new TestResultDAO();
-//        List<TestResult> results = testResultDAO.findTestResultByPatientId(id);
-//        String ids = id + "";
-//        request.setAttribute("code", Utils.md5(ids));
-        request.setAttribute("patient", patient);
-//        request.setAttribute("results", results);
-        RequestDispatcher view = request.getRequestDispatcher("../Patient/view-detail.jsp");
-        view.forward(request, response);
+//        response.setContentType("text/html;charset=UTF-8");
+//        request.setCharacterEncoding("UTF-8");
+//        int id = 0;
+//        if (request.getParameter("id") != null) {
+//            id = Integer.parseInt(request.getParameter("id"));
+//        }
+//        PatientDAO patientDAO = new PatientDAO();
+//        Patient patient = patientDAO.get(id);
+////        TestResultDAO testResultDAO = new TestResultDAO();
+////        List<TestResult> results = testResultDAO.findTestResultByPatientId(id);
+////        String ids = id + "";
+////        request.setAttribute("code", Utils.md5(ids));
+//        request.setAttribute("patient", patient);
+////        request.setAttribute("results", results);
+//        RequestDispatcher view = request.getRequestDispatcher("../Patient/view-detail.jsp");
+//        view.forward(request, response);
     }
 
     /**
