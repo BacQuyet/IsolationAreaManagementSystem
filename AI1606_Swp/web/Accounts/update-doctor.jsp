@@ -10,24 +10,24 @@
     </div>
     <div class="form-container form-container_add">
         <div>
-            <form action="UpdateDoctor" method="POST" id="form-xn" class="form">
+            <form action="/Accounts/UpdateDoctor" method="POST" id="form-xn" class="form">
                 <div class="form-group">
-                    <label for="id_doctor" class="form-label">Mã:</label>
-                    <input id="ho_ten" class="form-control" name="id_doctor" type="text" required value="${doctor.getDoctor}">
+                    <label for="id" class="form-label">Mã:</label>
+                    <input id="ho_ten" class="form-control" name="id" type="text" required value="${doctor.getDoctor}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
-                    <label for="ho_ten" class="form-label">Họ tên nhân viên:</label>
+                    <label for="fullname" class="form-label">Họ tên nhân viên:</label>
                     <input id="ho_ten" class="form-control" name="fullname" type="text" required value="${doctor.getFullName}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
-                    <label for="so_dien_thoai" class="form-label">Số điện thoại:</label>
+                    <label for="phone" class="form-label">Số điện thoại:</label>
                     <input id="so_dien_thoai" class="form-control" name="phone" type="text" value="${doctor.getPhone}" >
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
-                    <label for="so_dien_thoai" class="form-label">Địa chỉ </label>
+                    <label for="address" class="form-label">Địa chỉ </label>
                     <input id="so_dien_thoai" class="form-control" name="address" type="text" value="${doctor.getAddress}">
                     <span class="form-message"></span>
                 </div>                

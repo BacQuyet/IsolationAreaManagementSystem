@@ -2,6 +2,22 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Accounts/update-doctor.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Accounts/list-doctor.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/WEB-INF/jspf/header2.jspf</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/Doctor/UpdateDoctorController.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/Doctor/ViewDetailDoctorController.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/view-detail.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/Patient/ViewListPatientController.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/utils/Configs.java</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Patient/list.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Accounts/view-detail-doctor.jsp</file>
+            <file>file:/F:/FPTU/Summer2022/SWP391/Week5/Code/IsolationAreaManagementSystem/AI1606_Swp/web/WEB-INF/web.xml</file>
+        </group>
+>>>>>>> 8b185e82ec34cefc6c50143ac2187093ca785bfa
     </open-files>
 </project-private>
