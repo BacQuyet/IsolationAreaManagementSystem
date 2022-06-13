@@ -65,7 +65,7 @@ public class ViewRoomController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         int page = 1;
         int recordPerPage = 5;
-
+//page
             if (request.getParameter("page") != null) {
                 page = Integer.parseInt(request.getParameter("page"));
             }
