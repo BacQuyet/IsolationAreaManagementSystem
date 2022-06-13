@@ -123,6 +123,31 @@ public class RoomDAO implements DAO<Room> {
             Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
     }
+    
+    public int getNoOfRecord() {
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[room]";
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return 0;
+    }
+    
+    public List getIndex(int index1, int index2) {
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY room_id) AS RowNum\n"
+                + "    FROM [dbo].[room] "
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        List<Room> room = new ArrayList<>();
+        room = parse(sql);
+        return room;
+    }
 
     @Override
     public void update(Room t, Hashtable<String, String> my_dict) {

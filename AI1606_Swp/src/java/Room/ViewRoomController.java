@@ -62,16 +62,21 @@ public class ViewRoomController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        int pageIndex = 1;
-        final int PAGE_SIZE = 2;
-        int type = 0;
-        String raw_page = request.getParameter("pageIndex");
-        if (raw_page != null) {
-            pageIndex = Integer.parseInt(raw_page);
-        }
-        RoomDAO dao = new RoomDAO();
-        List<Room> list = dao.getAll();
+        int page = 1;
+        int recordPerPage = 5;
+
+            if (request.getParameter("page") != null) {
+                page = Integer.parseInt(request.getParameter("page"));
+            }
+            
+         RoomDAO dao = new RoomDAO();    
+        List<Room> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
+        int noOfRecord = dao.getNoOfRecord();
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
+       
         request.setAttribute("listRoom", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
         RequestDispatcher view = request.getRequestDispatcher("/Room/list.jsp");
         view.forward(request, response);
     }
