@@ -21,7 +21,7 @@ import utils.Notification;
 
 /**
  *
- * @author Thanh Duy
+ * @author Admin
  */
 public class AddRoomNurseController extends HttpServlet {
 
@@ -63,6 +63,7 @@ public class AddRoomNurseController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //
         doPost(request, response);
     }
 
