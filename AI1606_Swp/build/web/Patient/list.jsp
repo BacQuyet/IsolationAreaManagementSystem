@@ -7,19 +7,13 @@
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Người cách ly </span>
         <div class="spacer2"></div>
     </div>
-    <%
-        Account account = (Account) session.getAttribute("userLogin");
-        if (account.getType().getAccountTypeId() == 3) { // Nurse login
-%>
     <div class="btn-add">
 
         <a href="<%=request.getContextPath()%>/Patient/add.jsp"><i class="fas fa-plus-circle"></i>
             <span>Thêm</span>
         </a>
     </div>
-    <%
-        }
-    %>
+
     <div class="table-list">
         <table class="table-list__user">
             <tr>
@@ -31,36 +25,27 @@
                 <th width="10%">Quốc tịch</th>
                 <th width="15%">Tình trạng</th>
                 <th width="19%">Mức độ nghi nhiễm</th>
-                    <%
-                        if (account.getType().getAccountTypeId() == 3) { // Nurse login
-                    %>
+
                 <th width="19%">Hành động</th>
-                    <%
-                        }
-                    %>
             </tr>
             <c:forEach var="patient" items="${list}">
                 <tr>
                     <td>${patient.getPatientId()}</td>
                     <td>${patient.getPatientName()}</td>
                     <td>${patient.getAge()}</td>
-                    <td>${patient.getRoom().getRoomName()}</td>
-                    <td>${patient.getArea().getAreaId()}</td>
+                    <td>${patient.getRoomName()}</td>
+                    <td>${patient.getAreaName()}</td>
                     <td>${patient.getRegion()}</td>
                     <c:if test="${empty patient.getTimeOut()}"> <td>${Utils.getDistanceTime(patient.getTimeIn(), patient.getTimeOut()) + 1} ngày</td>
                     </c:if>
                     <c:if test="${not empty patient.getTimeOut()}"><td style="color: red; font-weight: 500;">Đã ra</td></c:if>
                     <td data-filetype="${patient.getSuspicionLevel()}">${patient.getSuspicionLevel()}</td>
-                    <%
-                        if (account.getType().getAccountTypeId() == 2) { // Nurse login
-                    %>
                     <td class="td-action">
                         <a href="<%=request.getContextPath()%>/Patient/view-detail?id=${patient.getPatientId()}"><i class="far fa-calendar-alt"></i></a>
                         <a href="<%=request.getContextPath()%>/Patient/update.jsp?id=${patient.getPatientId()}"><i class="fas fa-pen"></i></a>
                         <a href="<%=request.getContextPath()%>/Patient/delete?id=${patient.getPatientId()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                     </td>
-                    <%  }
-                    %>
+
                 </tr>
             </c:forEach>
         </table>

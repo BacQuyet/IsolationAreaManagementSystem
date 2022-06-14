@@ -205,13 +205,38 @@ public class PatientDAO implements DAO<Patient> {
     }
 
     public List<Patient> getListAll(int offset, int noOfRecords) {
-        String sql = "SELECT * FROM dbo.patient\n"
+        String sql = "SELECT * FROM patient p\n"
+                + "join room  r on p.room_id = r.room_id\n"
+                + "join area a on p.area_id = a.area_id\n"
                 + "ORDER BY patient_id\n"
                 + "OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
         //System.out.println("sql " + sql);
-        List<Patient> qq = new ArrayList<>();
-        qq = parse(sql);
-        return qq;
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            ArrayList<Patient> qq = new ArrayList<>();
+            while (rs.next()) {
+                Patient p = new Patient();
+                p.setPatientId(rs.getInt("patient_id"));
+                p.setPatientName(rs.getString("full_name"));
+                p.setAge(rs.getInt("age"));
+                p.setGender(rs.getString("gender"));
+                p.setAddress(rs.getString("address"));
+                p.setPassport(rs.getString("partpost"));
+                p.setPhoneNumber(rs.getInt("phone"));
+                p.setRegion(rs.getString("region"));
+                p.setSuspicionLevel(rs.getString("suspicion_level"));
+                p.setTimeIn(rs.getTimestamp("time_in"));
+                p.setTimeOut(rs.getTimestamp("time_out"));
+                p.setRoomName(rs.getString("room_name"));
+                p.setAreaName(rs.getString("area_name"));
+                qq.add(p);
+            }
+            return qq;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
     public int getNoOfRecord(int areaId) {
         try {
