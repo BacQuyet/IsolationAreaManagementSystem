@@ -80,8 +80,7 @@ public class DeleteNurseController extends HttpServlet {
         dao.delete(dao.get(nurseId));
         Notification noti = new Notification("Success","Xóa y tá cách ly thành công.","success");
         request.setAttribute("notify", noti);
-        RequestDispatcher delete = request.getRequestDispatcher("viewnurse");
-        delete.forward(request, response);
+        request.getRequestDispatcher("viewnurse").forward(request, response);
     }
 
     /**
