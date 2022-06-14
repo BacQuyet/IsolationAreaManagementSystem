@@ -8,7 +8,7 @@ h1 {
     color: yellow;
 }
 header {
-    background-image: linear-gradient(0, pink, red);
+    background-image: linear-gradient(0, #ccebff, #4db8ff);
 }
 
 .header_one{
@@ -74,11 +74,11 @@ header {
 .search button{
     outline: none;
     position: absolute;
-    color: #fff;
+    color: white;
     font-size: 2.3rem;
     width: 70px;
     height: 40px;
-    background: green;
+    background: #008ae6;
     
     border: 1px solid rgba(0,0,0,0.6);
     border-radius: 0 5px 5px 0;
@@ -159,7 +159,7 @@ header {
 #footer { 
     font-size: 1.4rem;
     margin: 0 auto;
-    background: red;
+    background: #00ace6;
     color: var(--white-color);
     padding: 30px 0px;
     width: 100%;

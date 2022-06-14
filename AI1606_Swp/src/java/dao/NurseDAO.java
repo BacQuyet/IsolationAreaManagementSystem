@@ -61,6 +61,31 @@ public class NurseDAO implements DAO<Nurse> {
         }
         return null;
     }
+    
+    
+    public int getNoOfRecord() {
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[nurse]";
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return 0;
+    }
+   public List getIndex(int index1, int index2) {
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY id_nurse) AS RowNum\n"
+                + "    FROM [dbo].[nurse] "
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        List<Nurse> nurse = new ArrayList<>();
+        nurse = parse(sql);
+        return nurse;
+    }
 
     public Nurse getByID(int id_nurse) {
 
