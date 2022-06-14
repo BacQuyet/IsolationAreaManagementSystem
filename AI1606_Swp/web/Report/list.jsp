@@ -9,11 +9,11 @@
     </div>
 
     <div style="margin: 50px 350px 50px 50px;">
-    <h2>Lọc danh sách</h2>
-    <p style="font-size: 1.6rem;">Nhập bất kỳ thông tin liên quan trong bảng:</p>  
-    <input style="font-size: 1.6rem;" class="form-control" id="myInput" type="text" placeholder="Search..">
+        <h2>Lọc danh sách</h2>
+        <p style="font-size: 1.6rem;">Nhập bất kỳ thông tin liên quan trong bảng:</p>  
+        <input style="font-size: 1.6rem;" class="form-control" id="myInput" type="text" placeholder="Search..">
     </div>
-    
+
     <div class="table-list">
         <table class="table-list__user">
             <tr>
@@ -24,17 +24,54 @@
             </tr>
             <tbody id="myTable">
                 <tr></tr>
+                <c:forEach var="report" items="${listReport}">
+                    <tr>
+                        <td>${report.getPatient().getPatientId()}</td>
+                        <td>${report.getPatient().getPatientName()}</td>
+                        <td>${report.getContent()}</td>
+                        <td>${report.getCreateDate()}</td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>
+    <div class="content-pad">
+        <c:if test="${currentPage * 10 > noOfRecords}">
+            <div class="content-pad__label">Showing ${(currentPage-1)*10+1} to ${noOfRecords} of ${noOfRecords} entries</div>
+        </c:if>
+        <c:if test="${currentPage * 10 <= noOfRecords}">
+            <div class="content-pad__label">Showing ${(currentPage-1)*10+1} to ${currentPage * 10} of ${noOfRecords} entries</div>
+        </c:if>
+
+        <div class="content-pad__info">
+            <c:if test="${currentPage != 1}">
+                <a href="<%=request.getContextPath()%>/Report/list?page=${currentPage - 1}"> < </a>
+            </c:if>
+
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <a href="">${i}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="<%=request.getContextPath()%>/Report/list?page=${i}"> ${i} </a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+            <c:if test = "${currentPage lt noOfPages}">
+                <a href="<%=request.getContextPath()%>/Report/list?page=${currentPage+1}"> > </a>
+            </c:if>
+        </div>
+    </div>
 </div>
 <script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
     });
-  });
-});
 </script>
