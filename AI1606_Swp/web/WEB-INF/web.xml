@@ -348,6 +348,22 @@
         <servlet-name>AddRoomFromAdminController</servlet-name>
         <url-pattern>/Room/addroomAdmin</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNurseController</servlet-name>
+        <url-pattern>/Nurse/addnurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewNurseController</servlet-name>
+        <url-pattern>/Nurse/viewnurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateNurseController</servlet-name>
+        <url-pattern>/updatenurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteNurseController</servlet-name>
+        <url-pattern>/Nurse/deletenurse</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>

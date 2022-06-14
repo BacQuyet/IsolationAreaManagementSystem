@@ -19,20 +19,49 @@
                 <th width="30%">Họ tên</th>
                 <th width="20%">Địa chỉ</th>
                 <th width="20%">Số điện thoại</th>
-               
                 <th width="20%">Hệ thống</th>
             </tr>
-
+            <c:forEach var="nurse" items="${listnurse}">
+                <tr>
+                    <td>${nurse.getId_nurse()}</td>
+                    <td>${nurse.getFullName()}</td>
+                    <td>${nurse.getAddress()}</td>
+                    <td>${nurse.getPhone()}</td>
+                    <td class="td-action">
+                        <a href="<%=request.getContextPath()%>/Accounts/ViewDetailNurse?id=${nurse.getId_nurse()}"><i class="far fa-calendar-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Nurse/deletenurse?nurseId=${nurse.getId_nurse()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </c:forEach>
         </table>
+        <div class="content-pad">
+        <c:if test="${currentPage * 5 > noOfRecords}">
+            <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${noOfRecords} of ${noOfRecords} entries</div>
+        </c:if>
+        <c:if test="${currentPage * 5 <= noOfRecords}">
+            <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${currentPage * 5} of ${noOfRecords} entries</div>
+        </c:if>
+
+        <div class="content-pad__info">
+            <c:if test="${currentPage != 1}">
+                <a href="<%=request.getContextPath()%>/Nurse/viewnurse?page=${currentPage - 1}"> < </a>
+            </c:if>
+
+            <c:forEach begin="1" end="${noOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${currentPage eq i}">
+                        <a href="">${i}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="<%=request.getContextPath()%>/Nurse/viewnurse?page=${i}"> ${i} </a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+            <c:if test = "${currentPage lt noOfPages}">
+                <a href="<%=request.getContextPath()%>/Nurse/viewnurse?page=${currentPage+1}"> > </a>
+            </c:if>
+        </div>
     </div>
-            <div style="margin: 35px">
-                 <nav aria-label="..." class="d-flex justify-content-center">
-                                            <ul class="pagination pagination-lg">
-                                               
-                                            </ul>
-                                        </nav>
-                
-            </div>
-
-
+    </div>           
 </div>
