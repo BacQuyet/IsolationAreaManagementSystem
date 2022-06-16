@@ -45,7 +45,7 @@
 
         <div class="content-pad__info">
             <c:if test="${currentPage != 1}">
-                <a href="<%=request.getContextPath()%>/Report/list?page=${currentPage - 1}"> < </a>
+                <a href="<%=request.getContextPath()%>/Report/listReport?page=${currentPage - 1}"> < </a>
             </c:if>
 
             <c:forEach begin="1" end="${noOfPages}" var="i">
@@ -54,13 +54,13 @@
                         <a href="">${i}</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="<%=request.getContextPath()%>/Report/list?page=${i}"> ${i} </a>
+                        <a href="<%=request.getContextPath()%>/Report/listReport?page=${i}"> ${i} </a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
 
             <c:if test = "${currentPage lt noOfPages}">
-                <a href="<%=request.getContextPath()%>/Report/list?page=${currentPage+1}"> > </a>
+                <a href="<%=request.getContextPath()%>/Report/listReport?page=${currentPage+1}"> > </a>
             </c:if>
         </div>
     </div>
