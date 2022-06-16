@@ -76,7 +76,7 @@ public class ViewNurseController extends HttpServlet {
         request.setAttribute("listnurse", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
-        request.getRequestDispatcher("/Accounts/list-nurse.jsp").forward(request, response);
+        request.getRequestDispatcher("/Nurse/list-nurse.jsp").forward(request, response);
 
     }
 
