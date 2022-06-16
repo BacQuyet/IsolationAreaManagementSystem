@@ -180,10 +180,6 @@
         <servlet-name>AddRoomFromAdminController</servlet-name>
         <servlet-class>Room.AddRoomFromAdminController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ViewReportController</servlet-name>
-        <servlet-class>Report.ViewReportController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -367,10 +363,6 @@
     <servlet-mapping>
         <servlet-name>DeleteNurseController</servlet-name>
         <url-pattern>/Nurse/deletenurse</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewReportController</servlet-name>
-        <url-pattern>/Report/listReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
