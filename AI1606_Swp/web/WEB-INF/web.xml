@@ -432,7 +432,6 @@
             <url-pattern>/listfeedback.jsp</url-pattern>
             <url-pattern>/Patient/*</url-pattern>
             <url-pattern>/Room/*</url-pattern>
-            <url-pattern>/Accounts/*</url-pattern>
             <url-pattern>/Doctors/*</url-pattern>
             <url-pattern>/Nurse/*</url-pattern>
             <url-pattern>/Report/*</url-pattern>
