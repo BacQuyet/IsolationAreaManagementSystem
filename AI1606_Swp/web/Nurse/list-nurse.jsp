@@ -28,7 +28,8 @@
                     <td>${nurse.getAddress()}</td>
                     <td>${nurse.getPhone()}</td>
                     <td class="td-action">
-                        <a href="<%=request.getContextPath()%>/Accounts/ViewDetailNurse?id=${nurse.getId_nurse()}"><i class="far fa-calendar-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Nurse/viewdetailnurse?nurseId=${nurse.getId_nurse()}"><i class="far fa-calendar-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Nurse/updatenurse?nurseId=${nurse.getId_nurse()}"><i class="fas fa-pen"></i></a>
                         <a href="<%=request.getContextPath()%>/Nurse/deletenurse?nurseId=${nurse.getId_nurse()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
