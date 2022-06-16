@@ -184,6 +184,22 @@
         <servlet-name>ViewReportController</servlet-name>
         <servlet-class>Report.ViewReportController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewListDoctorController</servlet-name>
+        <servlet-class>Doctor.ViewListDoctorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewsDoctorController</servlet-name>
+        <servlet-class>Doctor.AddNewsDoctorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailsDoctorController</servlet-name>
+        <servlet-class>Doctor.ViewDetailsDoctorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveDoctorController</servlet-name>
+        <servlet-class>Doctor.RemoveDoctorController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -372,6 +388,22 @@
         <servlet-name>ViewReportController</servlet-name>
         <url-pattern>/Report/listReport</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewListDoctorController</servlet-name>
+        <url-pattern>/Doctors/ViewDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewsDoctorController</servlet-name>
+        <url-pattern>/Doctors/addDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailsDoctorController</servlet-name>
+        <url-pattern>/Doctors/viewDetailDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveDoctorController</servlet-name>
+        <url-pattern>/Doctors/Delete</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
@@ -401,6 +433,7 @@
             <url-pattern>/Patient/*</url-pattern>
             <url-pattern>/Room/*</url-pattern>
             <url-pattern>/Accounts/*</url-pattern>
+            <url-pattern>/Doctors/*</url-pattern>
             <url-pattern>/Nurse/*</url-pattern>
             <url-pattern>/Report/*</url-pattern>
             <include-prelude>/WEB-INF/jspf/header2.jspf</include-prelude>

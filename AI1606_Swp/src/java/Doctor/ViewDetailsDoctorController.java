@@ -5,11 +5,12 @@
  */
 package Doctor;
 
+import dao.AccountDAO;
 import dao.DoctorDAO;
+import entity.Account;
 import entity.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrator
  */
-public class ViewDoctorController extends HttpServlet {
+public class ViewDetailsDoctorController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +40,10 @@ public class ViewDoctorController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewAccountDoctorController</title>");            
+            out.println("<title>Servlet ViewDetailsDoctorController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewAccountDoctorController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ViewDetailsDoctorController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,23 +61,16 @@ public class ViewDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DoctorDAO ndao = new DoctorDAO();
-         int pageIndex = 1;
-        final int PAGE_SIZE = 2;
-        int type = 0;
-        String raw_page = request.getParameter("pageIndex");
-        if (raw_page != null) {
-            pageIndex = Integer.parseInt(raw_page);
-        }
-        List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
-        int totalPage = ndao.countPage(PAGE_SIZE);
-
-         request.setAttribute("totalPage", totalPage);
-         request.setAttribute("pageIndex", pageIndex);
+        int id = Integer.parseInt(request.getParameter("id"));
+        DoctorDAO doctorDao = new DoctorDAO();
+        Doctor doctor = doctorDao.get(id);
+        AccountDAO accountDAO = new AccountDAO();
+        Account account = accountDAO.get(doctor.getIdAccount());
         
-         request.setAttribute("list", list);
-         RequestDispatcher view = request.getRequestDispatcher("/Accounts/list-doctor.jsp");
-         view.forward(request, response);
+        request.setAttribute("doctor", doctor);
+        request.setAttribute("account", account);
+        RequestDispatcher view = request.getRequestDispatcher("/Doctors/view-detail-doctor.jsp");
+        view.forward(request, response);
     }
 
     /**
