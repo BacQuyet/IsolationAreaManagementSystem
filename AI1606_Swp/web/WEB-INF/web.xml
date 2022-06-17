@@ -434,6 +434,7 @@
             <url-pattern>/Room/*</url-pattern>
             <url-pattern>/Doctors/*</url-pattern>
             <url-pattern>/Nurse/*</url-pattern>
+            <url-pattern>/Prescription/*</url-pattern>
             <url-pattern>/Report/*</url-pattern>
             <include-prelude>/WEB-INF/jspf/header2.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
