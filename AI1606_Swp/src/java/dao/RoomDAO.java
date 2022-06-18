@@ -153,6 +153,22 @@ public class RoomDAO implements DAO<Room> {
     public void update(Room t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public void updateRoom(Room r) {
+        String sql = "UPDATE room SET "
+                + "room_name = ?, bed_number = ?, note = ?, area_id = ? "
+                + "WHERE room_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, r.getRoomName());
+            pre.setInt(2, r.getBedNumber());
+            pre.setString(3, r.getNote());
+            pre.setInt(4, r.getArea().getAreaId());
+            pre.setInt(5, r.getRoomId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
 
     @Override
     public void delete(Room r) {

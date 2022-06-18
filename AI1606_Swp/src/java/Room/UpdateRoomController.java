@@ -5,7 +5,9 @@
  */
 package Room;
 
+import dao.AreaDAO;
 import dao.RoomDAO;
+import entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -86,6 +89,26 @@ public class UpdateRoomController extends HttpServlet {
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
         String areaId = request.getParameter("areaId");
+        
+        if (roomName != null && bedNumber != null && areaId != null) {
+            if (roomName.length() > 0 && bedNumber.length() > 0 && areaId.length() > 0) {
+                if (note.length() == 0) {
+                    note = "no notes";
+                }
+                AreaDAO daoArea = new AreaDAO();
+                Room room = new Room();
+                room.setRoomId(roomId);
+                room.setRoomName(roomName);
+                room.setNote(note);
+                room.setBedNumber(Integer.parseInt(bedNumber));
+                room.setArea(daoArea.get(Integer.parseInt(areaId)));
+                dao.updateRoom(room);
+                Notification noti = new Notification("Success", "Cập nhật phòng cách ly thành công.", "success");
+                request.setAttribute("notify", noti);
+                RequestDispatcher update = request.getRequestDispatcher("viewroom");
+                update.forward(request, response);
+            }
+        }
     }
 
     /**
