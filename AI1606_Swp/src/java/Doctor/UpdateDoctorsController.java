@@ -9,18 +9,18 @@ import dao.DoctorDAO;
 import entity.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
  * @author Administrator
  */
-public class ViewListDoctorController extends HttpServlet {
+public class UpdateDoctorsController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class ViewListDoctorController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewListDoctorController</title>");            
+            out.println("<title>Servlet UpdateDoctorController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewListDoctorController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateDoctorController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,24 +60,9 @@ public class ViewListDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DoctorDAO ndao = new DoctorDAO();
-         int pageIndex = 1;
-        final int PAGE_SIZE = 2;
-        int type = 0;
-        String raw_page = request.getParameter("pageIndex");
-        if (raw_page != null) {
-            pageIndex = Integer.parseInt(raw_page);
-        }
-        List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
-        int totalPage = ndao.countPage(PAGE_SIZE);
-
-         request.setAttribute("totalPage", totalPage);
-         request.setAttribute("pageIndex", pageIndex);
-        
-         request.setAttribute("list", list);
-         RequestDispatcher view = request.getRequestDispatcher("/Doctors/list-doctor.jsp");
-         view.forward(request, response);
-    }
+       
+            doPost(request, response);
+    }   
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -90,7 +75,42 @@ public class ViewListDoctorController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        DoctorDAO dao = new DoctorDAO();
+        if (request.getParameter("id_doctor") == null) {
+            RequestDispatcher view = request.getRequestDispatcher("ViewDoctor");
+            view.forward(request, response);
+        }
+        int id = Integer.parseInt(request.getParameter("id_doctor"));
+        String fullname = request.getParameter("fullname");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+
+        if (fullname != null && address != null) {
+            if (fullname.length() > 0 && address.length() > 0) {
+               
+
+                Doctor d = new Doctor();
+                d.setDoctor(id);
+                d.setFullName(fullname);
+                d.setPhone(Integer.parseInt(phone));
+                d.setAddress(address);               
+                dao.updateDoctor(d);
+                //response.sendRedirect("ViewDoctor");
+                Notification noti = new Notification("Success", "Cập nhật bác sĩ thành công.", "success");
+                request.setAttribute("notify", noti);
+                 request.getRequestDispatcher("ViewDoctor").forward(request, response);
+                
+                
+            }
+        }
+        if ((fullname != null && address != null)) {
+            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", noti);
+        }
+        request.setAttribute("doctor", dao.get(id));
+        request.getRequestDispatcher("/Doctors/update-doctor.jsp").forward(request, response);
     }
 
     /**

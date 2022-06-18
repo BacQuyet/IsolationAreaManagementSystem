@@ -201,8 +201,13 @@
         <servlet-class>Doctor.RemoveDoctorController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>UpdateRoomController</servlet-name>
         <servlet-class>Room.UpdateRoomController</servlet-class>
+=======
+        <servlet-name>UpdateDoctorsController</servlet-name>
+        <servlet-class>Doctor.UpdateDoctorsController</servlet-class>
+>>>>>>> bd76461a9c07cfbc3fb271f3e7bb2752b15b1053
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -409,8 +414,13 @@
         <url-pattern>/Doctors/Delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>UpdateRoomController</servlet-name>
         <url-pattern>/updateroom</url-pattern>
+=======
+        <servlet-name>UpdateDoctorsController</servlet-name>
+        <url-pattern>/Doctors/UpdateDoctor</url-pattern>
+>>>>>>> bd76461a9c07cfbc3fb271f3e7bb2752b15b1053
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
@@ -442,6 +452,7 @@
             <url-pattern>/Room/*</url-pattern>
             <url-pattern>/Doctors/*</url-pattern>
             <url-pattern>/Nurse/*</url-pattern>
+            <url-pattern>/Prescription/*</url-pattern>
             <url-pattern>/Report/*</url-pattern>
             <include-prelude>/WEB-INF/jspf/header2.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>

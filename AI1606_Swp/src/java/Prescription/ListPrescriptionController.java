@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Doctor;
+package Prescription;
 
-import dao.DoctorDAO;
-import entity.Doctor;
+import dao.PrescriptionDAO;
+import entity.Account;
+import entity.Presciption;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,12 +16,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Administrator
+ * @author X1 Carbon Gen 7
  */
-public class ViewListDoctorController extends HttpServlet {
+public class ListPrescriptionController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +41,10 @@ public class ViewListDoctorController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewListDoctorController</title>");            
+            out.println("<title>Servlet ListPrescriptionController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewListDoctorController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ListPrescriptionController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,23 +62,46 @@ public class ViewListDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DoctorDAO ndao = new DoctorDAO();
-         int pageIndex = 1;
-        final int PAGE_SIZE = 2;
-        int type = 0;
-        String raw_page = request.getParameter("pageIndex");
-        if (raw_page != null) {
-            pageIndex = Integer.parseInt(raw_page);
-        }
-        List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
-        int totalPage = ndao.countPage(PAGE_SIZE);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
-         request.setAttribute("totalPage", totalPage);
-         request.setAttribute("pageIndex", pageIndex);
-        
-         request.setAttribute("list", list);
-         RequestDispatcher view = request.getRequestDispatcher("/Doctors/list-doctor.jsp");
-         view.forward(request, response);
+        int page = 1;
+        int recordPerPage = 10;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        int id = 0;
+        HttpSession session = request.getSession();
+        Account userLogin = (Account) session.getAttribute("userLogin");
+        if (userLogin.getType().getAccountTypeId() == 4) {// Patient
+            id = userLogin.getPatient().getPatientId();
+        }
+
+        String fname = (String) request.getParameter("fname");
+        String ffrom = (String) request.getParameter("ffrom");
+        String fto = (String) request.getParameter("fto");
+        String fsort = (String) request.getParameter("fsort");
+
+        PrescriptionDAO dao = new PrescriptionDAO();
+        List<Presciption> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage, id);
+        int noOfRecord = dao.getNoOfRecord(id);
+        int noOfPage = (int) ((noOfRecord + 9) / 10);
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listPrescription", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
+        if (userLogin.getType().getAccountTypeId() == 4) {// List for Patient
+//            RequestDispatcher view = request.getRequestDispatcher("personalList.jsp");
+//            view.forward(request, response);
+        } else {
+            // List for Doctor
+            request.setAttribute("fname", fname);
+            request.setAttribute("ffrom", ffrom);
+            request.setAttribute("fto", fto);
+            request.setAttribute("fsort", fsort);
+            RequestDispatcher view = request.getRequestDispatcher("ListPrescription.jsp");
+            view.forward(request, response);
+        }
     }
 
     /**
@@ -90,7 +115,7 @@ public class ViewListDoctorController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        processRequest(request, response);
     }
 
     /**
