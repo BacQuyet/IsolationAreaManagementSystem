@@ -5,8 +5,10 @@
  */
 package Room;
 
+import dao.RoomDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +58,7 @@ public class UpdateRoomController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -70,7 +72,20 @@ public class UpdateRoomController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        RoomDAO dao = new RoomDAO();
+
+        if (request.getParameter("roomId") == null) {
+            RequestDispatcher view = request.getRequestDispatcher("viewroom");
+            view.forward(request, response);
+        }
+        
+        int roomId = Integer.parseInt(request.getParameter("roomId"));
+        String roomName = request.getParameter("roomName");
+        String bedNumber = request.getParameter("bedNumber");
+        String note = request.getParameter("note");
+        String areaId = request.getParameter("areaId");
     }
 
     /**
