@@ -200,6 +200,10 @@
         <servlet-name>RemoveDoctorController</servlet-name>
         <servlet-class>Doctor.RemoveDoctorController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateDoctorsController</servlet-name>
+        <servlet-class>Doctor.UpdateDoctorsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -403,6 +407,10 @@
     <servlet-mapping>
         <servlet-name>RemoveDoctorController</servlet-name>
         <url-pattern>/Doctors/Delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDoctorsController</servlet-name>
+        <url-pattern>/Doctors/UpdateDoctor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
