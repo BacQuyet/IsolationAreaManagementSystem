@@ -90,7 +90,7 @@ public class ViewReportController extends HttpServlet {
         request.setAttribute("listReport", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
-        if (userLogin.getType().getAccountTypeId() == 3) {// List for Patient
+        if (userLogin.getType().getAccountTypeId() == 4) {// List for Patient
             RequestDispatcher view = request.getRequestDispatcher("personalList.jsp");
             view.forward(request, response);
         } else {
