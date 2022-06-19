@@ -232,6 +232,10 @@
         <servlet-name>DeleteReportController</servlet-name>
         <servlet-class>Report.DeleteReportController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddReportController</servlet-name>
+        <servlet-class>Report.AddReportController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -451,6 +455,10 @@
     <servlet-mapping>
         <servlet-name>DeleteReportController</servlet-name>
         <url-pattern>/Report/deleteReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddReportController</servlet-name>
+        <url-pattern>/Report/addReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
