@@ -140,6 +140,28 @@
         <servlet-name>ViewAccountDoctorController</servlet-name>
         <servlet-class>Doctor.ViewAccountDoctorController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>AddNurseController</servlet-name>
+        <servlet-class>Nurse.AddNurseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewNurseController</servlet-name>
+        <servlet-class>Nurse.ViewNurseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateNurseController</servlet-name>
+        <servlet-class>Nurse.UpdateNurseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteNurseController</servlet-name>
+        <servlet-class>Nurse.DeleteNurseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailNurseController</servlet-name>
+        <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
+    </servlet>
+    
     <servlet>
         <servlet-name>AddDoctorController</servlet-name>
         <servlet-class>Doctor.AddDoctorController</servlet-class>
@@ -201,13 +223,14 @@
         <servlet-class>Doctor.RemoveDoctorController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
+
         <servlet-name>UpdateRoomController</servlet-name>
         <servlet-class>Room.UpdateRoomController</servlet-class>
-=======
+        </servlet>
+<servlet>
         <servlet-name>UpdateDoctorsController</servlet-name>
         <servlet-class>Doctor.UpdateDoctorsController</servlet-class>
->>>>>>> bd76461a9c07cfbc3fb271f3e7bb2752b15b1053
+
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -387,11 +410,15 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateNurseController</servlet-name>
-        <url-pattern>/updatenurse</url-pattern>
+        <url-pattern>/Nurse/updatenurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteNurseController</servlet-name>
         <url-pattern>/Nurse/deletenurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailNurseController</servlet-name>
+        <url-pattern>/Nurse/viewdetailnurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewReportController</servlet-name>
@@ -414,13 +441,14 @@
         <url-pattern>/Doctors/Delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
+
         <servlet-name>UpdateRoomController</servlet-name>
         <url-pattern>/updateroom</url-pattern>
-=======
+        </servlet-mapping>
+<servlet-mapping>
         <servlet-name>UpdateDoctorsController</servlet-name>
         <url-pattern>/Doctors/UpdateDoctor</url-pattern>
->>>>>>> bd76461a9c07cfbc3fb271f3e7bb2752b15b1053
+
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
