@@ -14,6 +14,20 @@
         <p style="font-size: 1.6rem;">Nhập bất kỳ thông tin liên quan trong bảng:</p>  
         <input style="font-size: 1.6rem;" class="form-control" id="myInput" type="text" placeholder="Search..">
     </div>
+    
+    <%
+        Account account = (Account) session.getAttribute("userLogin");
+        if (account.getType().getAccountTypeId() == 2) { // Doctor login
+    %>
+    <div class="btn-add">
+
+        <a href="<%=request.getContextPath()%>/Prescription/AddPrescription.jsp"><i class="fas fa-plus-circle"></i>
+            <span>Thêm</span>
+        </a>
+    </div>
+    <%
+        }
+    %>
 
     <div class="table-list">
         <table class="table-list__user">
