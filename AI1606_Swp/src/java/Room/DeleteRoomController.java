@@ -87,6 +87,7 @@ public class DeleteRoomController extends HttpServlet {
             request.setAttribute("notify", noti);
             RequestDispatcher delete = request.getRequestDispatcher("viewroom");
             delete.forward(request, response);
+            //
         }
         Notification noti = new Notification("Warning", "Không thể xóa phòng cách ly khi trong đó vẫn còn bệnh nhân.","warning");
         request.setAttribute("notify", noti);
