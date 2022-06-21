@@ -152,6 +152,10 @@ public class AddNurseController extends HttpServlet {
         String address = request.getParameter("address");
         String area = request.getParameter("loai");
         String email = request.getParameter("email");
+        
+        AccountDAO accountDAO = new AccountDAO();
+        Account user = accountDAO.find(username);
+        AreaDAO a = new AreaDAO();
     }
 
     /**
