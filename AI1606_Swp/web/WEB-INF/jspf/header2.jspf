@@ -36,6 +36,9 @@
                     <li><a href=""><i class="fa-solid fa-house-user"></i>
                             <span>Thông báo</span></a>
                     </li>
+                    <li><a href=""><i class="far fa-question-circle"></i>
+                            <span>Trợ giúp</span></a>
+                    </li>
                     <%  Account user = (Account) session.getAttribute("userLogin");
                         if (user == null) {
                     %>
