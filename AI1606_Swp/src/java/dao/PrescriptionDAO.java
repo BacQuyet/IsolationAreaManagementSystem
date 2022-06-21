@@ -119,4 +119,12 @@ public class PrescriptionDAO implements DAO<Presciption>{
         return 0;
     }
     
+    public List<Presciption> SearchByKey(String key) {
+        
+        String sql = "SELECT * from presciption where medicine_name like '%" + key + "%'";
+        List<Presciption> qq = new ArrayList<>();
+        qq = parse(sql);
+        return qq;
+    }
+    
 }

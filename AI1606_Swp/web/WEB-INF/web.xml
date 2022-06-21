@@ -240,6 +240,10 @@
         <servlet-name>AddPrescriptionController</servlet-name>
         <servlet-class>Prescription.AddPrescriptionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchPrescriptionController</servlet-name>
+        <servlet-class>Prescription.SearchPrescriptionController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -467,6 +471,10 @@
     <servlet-mapping>
         <servlet-name>AddPrescriptionController</servlet-name>
         <url-pattern>/Prescription/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchPrescriptionController</servlet-name>
+        <url-pattern>/Prescription/search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
