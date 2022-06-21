@@ -11,10 +11,10 @@
     <div class="form-container">
         <form action="updateroom" method="POST" id="form-dn" class="form">
             
-            <input id="roomId" class="form-control" name="roomId" type="text" value="" style="display: none">
+            <input id="roomId" class="form-control" name="roomId" type="text" value="${room.getRoomId()}" style="display: none">
             <div class="form-group form-group__special">
                 <label for="roomName" class="form-label">Tên phòng</label>
-                <input id="roomName" class="form-control" name="roomName" type="text" required value ="">
+                <input id="roomName" class="form-control" name="roomName" type="text" required value="${room.getRoomName()}">
                 <span class="form-message"></span>
             </div>
 
