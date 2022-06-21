@@ -175,7 +175,8 @@ public class ReportDAO implements DAO<Report> {
     
     public static void main(String[] args) {
         ReportDAO dao = new ReportDAO();
-        dao.getAll();
+        dao.getClass();
+        System.out.println("");
         System.out.println("");
     }
 }
