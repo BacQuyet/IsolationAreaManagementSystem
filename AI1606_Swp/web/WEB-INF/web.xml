@@ -446,7 +446,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateRoomController</servlet-name>
-        <url-pattern>/updateroom</url-pattern>
+        <url-pattern>/Room/updateroom</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateDoctorsController</servlet-name>

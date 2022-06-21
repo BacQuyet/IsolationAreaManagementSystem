@@ -9,7 +9,7 @@
 
 
     <div class="form-container">
-        <form action="update" method="POST" id="form-dn" class="form">
+        <form action="updateroom" method="POST" id="form-dn" class="form">
             
             <input id="roomId" class="form-control" name="roomId" type="text" value="" style="display: none">
             <div class="form-group form-group__special">
