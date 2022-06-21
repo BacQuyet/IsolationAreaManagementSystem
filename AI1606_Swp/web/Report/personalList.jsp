@@ -38,8 +38,8 @@
                         <td>${report.getContent()}</td>
                         <td>${report.getCreateDate()}</td>
                         <td class="td-action">
-                            <a href="<%=request.getContextPath()%>/Report/update?reportId=${report.getId_report()}"><i class="fas fa-pen"></i></a>
-                            <a href="<%=request.getContextPath()%>/Report/delete?reportId=${report.getId_report()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
+                            <a href="<%=request.getContextPath()%>/Report/updateReport?reportId=${report.getId_report()}"><i class="fas fa-pen"></i></a>
+                            <a href="<%=request.getContextPath()%>/Report/deleteReport?reportId=${report.getId_report()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -57,7 +57,7 @@
 
         <div class="content-pad__info">
             <c:if test="${currentPage != 1}">
-                <a href="<%=request.getContextPath()%>/Report/list?page=${currentPage - 1}"> < </a>
+                <a href="<%=request.getContextPath()%>/Report/listReport?page=${currentPage - 1}"> < </a>
             </c:if>
 
             <c:forEach begin="1" end="${noOfPages}" var="i">
@@ -66,13 +66,13 @@
                         <a href="">${i}</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="<%=request.getContextPath()%>/Report/list?page=${i}"> ${i} </a>
+                        <a href="<%=request.getContextPath()%>/Report/listReport?page=${i}"> ${i} </a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
 
             <c:if test = "${currentPage lt noOfPages}">
-                <a href="<%=request.getContextPath()%>/Report/list?page=${currentPage+1}"> > </a>
+                <a href="<%=request.getContextPath()%>/Report/listReport?page=${currentPage+1}"> > </a>
             </c:if>
         </div>
     </div>

@@ -140,7 +140,6 @@
         <servlet-name>ViewAccountDoctorController</servlet-name>
         <servlet-class>Doctor.ViewAccountDoctorController</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>AddNurseController</servlet-name>
         <servlet-class>Nurse.AddNurseController</servlet-class>
@@ -161,7 +160,6 @@
         <servlet-name>ViewDetailNurseController</servlet-name>
         <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>AddDoctorController</servlet-name>
         <servlet-class>Doctor.AddDoctorController</servlet-class>
@@ -223,14 +221,20 @@
         <servlet-class>Doctor.RemoveDoctorController</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>UpdateRoomController</servlet-name>
         <servlet-class>Room.UpdateRoomController</servlet-class>
-        </servlet>
-<servlet>
+    </servlet>
+    <servlet>
         <servlet-name>UpdateDoctorsController</servlet-name>
         <servlet-class>Doctor.UpdateDoctorsController</servlet-class>
-
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteReportController</servlet-name>
+        <servlet-class>Report.DeleteReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddReportController</servlet-name>
+        <servlet-class>Report.AddReportController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -441,14 +445,20 @@
         <url-pattern>/Doctors/Delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>UpdateRoomController</servlet-name>
         <url-pattern>/updateroom</url-pattern>
-        </servlet-mapping>
-<servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>UpdateDoctorsController</servlet-name>
         <url-pattern>/Doctors/UpdateDoctor</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteReportController</servlet-name>
+        <url-pattern>/Report/deleteReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddReportController</servlet-name>
+        <url-pattern>/Report/addReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

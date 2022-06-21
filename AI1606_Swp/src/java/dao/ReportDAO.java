@@ -139,11 +139,8 @@ public class ReportDAO implements DAO<Report> {
         return report;
     }
 
-    public int getNoOfRecord(int id) {
-        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[report]";
-        if (id > 0) {
-            sql += " WHERE id_patient = " + id;
-        }
+    public int getNoOfRecord() {
+        String sql = "SELECT *from report";
         try {
             Statement sttm = conn.createStatement();
             ResultSet rs = sttm.executeQuery(sql);
@@ -174,5 +171,28 @@ public class ReportDAO implements DAO<Report> {
 
     public List<Report> getAllByPatientId(Integer patientId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static void main(String[] args) {
+        ReportDAO dao = new ReportDAO();
+        dao.getClass();
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
     }
 }

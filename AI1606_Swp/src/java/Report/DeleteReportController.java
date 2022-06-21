@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Nurse;
+package Report;
 
-import dao.NurseDAO;
-import entity.Nurse;
+import dao.ReportDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
- * @author Thanh Duy
+ * @author ADMIN
  */
-public class ViewNurseController extends HttpServlet {
+public class DeleteReportController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +38,10 @@ public class ViewNurseController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewNurseController</title>");
+            out.println("<title>Servlet DeleteReportController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewNurseController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteReportController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,25 +59,7 @@ public class ViewNurseController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        NurseDAO ndao = new NurseDAO();
-        int page = 1;
-        int recordPerPage = 5;
-
-        if (request.getParameter("page") != null) {
-            page = Integer.parseInt(request.getParameter("page"));
-        }
-
-        List<Nurse> list = ndao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
-        int noOfRecord = ndao.getNoOfRecord();
-        int noOfPage = (int) ((noOfRecord + 4) / 5);
-        request.setAttribute("noOfRecords", noOfRecord);
-        request.setAttribute("listnurse", list);
-        request.setAttribute("noOfPages", noOfPage);
-        request.setAttribute("currentPage", page);
-        request.getRequestDispatcher("/Nurse/list-nurse.jsp").forward(request, response);
-
+        doPost(request, response);
     }
 
     /**
@@ -91,7 +73,19 @@ public class ViewNurseController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        ReportDAO dao = new ReportDAO();
+        if (request.getParameter("reportId") == null) {
+            RequestDispatcher update = request.getRequestDispatcher("listReport");
+            update.forward(request, response);
+        }
+
+        dao.delete(dao.get(Integer.parseInt(request.getParameter("reportId"))));
+        Notification noti = new Notification("Success", "Xóa report thành công.", "success");
+        request.setAttribute("notify", noti);
+        RequestDispatcher delete = request.getRequestDispatcher("listReport");
+        delete.forward(request, response);
     }
 
     /**

@@ -66,14 +66,14 @@ public class ViewReportController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         int page = 1;
-        int recordPerPage = 10;
+        int recordPerPage = 5;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
         int id = 0;
         HttpSession session = request.getSession();
         Account userLogin = (Account) session.getAttribute("userLogin");
-        if (userLogin.getType().getAccountTypeId() == 3) {// Patient
+        if (userLogin.getType().getAccountTypeId() == 4) {// Patient
             id = userLogin.getPatient().getPatientId();
         }
 
@@ -84,13 +84,13 @@ public class ViewReportController extends HttpServlet {
 
         ReportDAO dao = new ReportDAO();
         List<Report> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage, id);
-        int noOfRecord = dao.getNoOfRecord(id);
-        int noOfPage = (int) ((noOfRecord + 9) / 10);
+        int noOfRecord = dao.getNoOfRecord();
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
         request.setAttribute("noOfRecords", noOfRecord);
         request.setAttribute("listReport", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
-        if (userLogin.getType().getAccountTypeId() == 3) {// List for Patient
+        if (userLogin.getType().getAccountTypeId() == 4) {// List for Patient
             RequestDispatcher view = request.getRequestDispatcher("personalList.jsp");
             view.forward(request, response);
         } else {
@@ -115,7 +115,7 @@ public class ViewReportController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     /**

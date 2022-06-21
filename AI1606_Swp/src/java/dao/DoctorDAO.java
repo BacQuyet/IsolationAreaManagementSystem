@@ -166,6 +166,29 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return null;
     }
+    
+    public Doctor getByIdAccount(int idAccount){
+        try {
+            String sql = "select * from dbo.doctor where id_account = ?";
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setInt(1, idAccount);
+            ResultSet rs = sttm.executeQuery();
+            Doctor doctor = new Doctor();
+            while (rs.next()) {
+                doctor.setDoctor(rs.getInt("id_doctor"));
+                doctor.setDoctorName(rs.getString("doctor_name"));
+                doctor.setPhone(rs.getInt("phone"));
+                doctor.setFullName(rs.getString("fullname"));
+                doctor.setIdAccount(rs.getInt("id_account"));
+                doctor.setAddress(rs.getString("address"));
+            }
+            return doctor;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         DoctorDAO dao = new DoctorDAO();
         dao.delete(new Doctor(2011));

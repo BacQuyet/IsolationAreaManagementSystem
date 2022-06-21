@@ -6,9 +6,11 @@
 package controller.base;
 
 import dao.AccountDAO;
+import dao.DoctorDAO;
 import dao.NurseDAO;
 import dao.PatientDAO;
 import entity.Account;
+import entity.Doctor;
 import entity.Nurse;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -44,6 +46,7 @@ public class LoginController extends HttpServlet {
         HttpSession ss = request.getSession();
         AccountDAO accountDAO = new AccountDAO();
         NurseDAO nurseDAO = new NurseDAO();
+        DoctorDAO doctorDAO = new DoctorDAO();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
@@ -66,6 +69,11 @@ public class LoginController extends HttpServlet {
             if (account.getType().getAccountTypeId() == 3) {
                 Nurse nurse = nurseDAO.get(account.getAccountId());
                 ss.setAttribute("nurse", nurse);
+                RequestDispatcher rt = request.getRequestDispatcher("home");
+                rt.forward(request, response);
+            } if(account.getType().getAccountTypeId() == 2){
+                Doctor doctor = doctorDAO.getByIdAccount(account.getAccountId());
+                ss.setAttribute("doctor", doctor);
                 RequestDispatcher rt = request.getRequestDispatcher("home");
                 rt.forward(request, response);
             } else {

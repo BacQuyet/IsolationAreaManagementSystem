@@ -49,7 +49,7 @@
                 </c:if>
         </ul>
     </div>
-
+<!------>
     <div class="content-btn">
         
         <a href="<%=request.getContextPath()%>/Room/update?roomId=${roomId}" style="background-color: #00AAFF"><i class="fas fa-user-edit"></i> Cập nhật phòng</a>

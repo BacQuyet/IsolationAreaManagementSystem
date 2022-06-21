@@ -3,23 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Nurse;
+package Report;
 
-import dao.NurseDAO;
-import entity.Nurse;
+import dao.ReportDAO;
+import entity.Account;
+import entity.Report;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.sql.Timestamp;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
- * @author Thanh Duy
+ * @author ADMIN
  */
-public class ViewNurseController extends HttpServlet {
+public class AddReportController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +42,10 @@ public class ViewNurseController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewNurseController</title>");
+            out.println("<title>Servlet AddReportController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewNurseController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddReportController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,25 +63,7 @@ public class ViewNurseController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        NurseDAO ndao = new NurseDAO();
-        int page = 1;
-        int recordPerPage = 5;
-
-        if (request.getParameter("page") != null) {
-            page = Integer.parseInt(request.getParameter("page"));
-        }
-
-        List<Nurse> list = ndao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
-        int noOfRecord = ndao.getNoOfRecord();
-        int noOfPage = (int) ((noOfRecord + 4) / 5);
-        request.setAttribute("noOfRecords", noOfRecord);
-        request.setAttribute("listnurse", list);
-        request.setAttribute("noOfPages", noOfPage);
-        request.setAttribute("currentPage", page);
-        request.getRequestDispatcher("/Nurse/list-nurse.jsp").forward(request, response);
-
+        doPost(request, response);
     }
 
     /**
@@ -91,7 +77,40 @@ public class ViewNurseController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String content = "";
+        for (int i = 1; i < 10; i++) {
+            String x = request.getParameter("s" + i);
+            if (x != null) {
+                content += x + "; ";
+            }
+        }
+        String x = request.getParameter("cother");
+        if (x != null) {
+            if (request.getParameter("other") != null) {
+                content += request.getParameter("other") + "; ";
+            }
+        }
+        if ("".equals(content.trim())) {
+            content = "Không có triệu trứng bệnh; ";
+        }
+        content += request.getParameter("test");
+        long millis = System.currentTimeMillis();
+        Timestamp date = new Timestamp(millis);
+        Report report = new Report();
+        report.setContent(content);
+        report.setCreateDate(date);
+
+        HttpSession session = request.getSession();
+        Account userLogin = (Account) session.getAttribute("userLogin");
+        report.setPatient(userLogin.getPatient());
+        ReportDAO dao = new ReportDAO();
+        dao.create(report);
+        Notification noti = new Notification("Success", "Thêm báo cáo thành công.", "success");
+        request.setAttribute("notify", noti);
+        RequestDispatcher add = request.getRequestDispatcher("listReport");
+        add.forward(request, response);
     }
 
     /**
