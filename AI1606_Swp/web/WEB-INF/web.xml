@@ -236,6 +236,10 @@
         <servlet-name>AddReportController</servlet-name>
         <servlet-class>Report.AddReportController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddPrescriptionController</servlet-name>
+        <servlet-class>Prescription.AddPrescriptionController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -459,6 +463,10 @@
     <servlet-mapping>
         <servlet-name>AddReportController</servlet-name>
         <url-pattern>/Report/addReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPrescriptionController</servlet-name>
+        <url-pattern>/Prescription/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
