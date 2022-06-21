@@ -172,4 +172,10 @@ public class ReportDAO implements DAO<Report> {
     public List<Report> getAllByPatientId(Integer patientId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public static void main(String[] args) {
+        ReportDAO dao = new ReportDAO();
+        dao.getAll();
+        System.out.println("");
+    }
 }
