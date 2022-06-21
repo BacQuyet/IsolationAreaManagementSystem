@@ -156,6 +156,13 @@ public class AddNurseController extends HttpServlet {
         AccountDAO accountDAO = new AccountDAO();
         Account user = accountDAO.find(username);
         AreaDAO a = new AreaDAO();
+        
+        if (user != null) {
+            Notification noti = new Notification("Error", "Tài khoản đã tồn tại", "error");
+            request.setAttribute("notify", noti);
+            RequestDispatcher rt = request.getRequestDispatcher("/Nurse/addnurse");
+            rt.forward(request, response);
+        }
     }
 
     /**
