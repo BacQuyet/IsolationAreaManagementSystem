@@ -30,14 +30,11 @@
     </head>
     <body>
         <header>
-            <div class="header_one">
+            <div class="abc">
                 <span id='header_one-name'>Hệ thống quản lý khu cách ly Covid-19</span>
                 <ul class='user'>
                     <li><a href=""><i class="fa-solid fa-house-user"></i>
                             <span>Thông báo</span></a>
-                    </li>
-                    <li><a href=""><i class="far fa-question-circle"></i>
-                            <span>Trợ giúp</span></a>
                     </li>
                     <%  Account user = (Account) session.getAttribute("userLogin");
                         if (user == null) {
