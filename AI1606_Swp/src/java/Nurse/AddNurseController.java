@@ -127,6 +127,8 @@ public class AddNurseController extends HttpServlet {
 
            AreaDAO a = new AreaDAO();
         request.setAttribute("emtrang", a.getAll());
+        System.out.println("heloos");
+        request.getRequestDispatcher("/Nurse/add-nurse.jsp").forward(request, response);
     }
 
     /**
