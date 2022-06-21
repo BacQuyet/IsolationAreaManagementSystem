@@ -69,61 +69,64 @@ public class AddNurseController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String fullname = request.getParameter("name");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String repassword = request.getParameter("repass");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String area = request.getParameter("loai");
-        String email = request.getParameter("email");
-        int phoneNumber = Integer.parseInt(phone);
+//        response.setContentType("text/html;charset=UTF-8");
+//        request.setCharacterEncoding("UTF-8");
+//        String fullname = request.getParameter("name");
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        String repassword = request.getParameter("repass");
+//        String phone = request.getParameter("phone");
+//        String address = request.getParameter("address");
+//        String area = request.getParameter("loai");
+//        String email = request.getParameter("email");
+//        int phoneNumber = Integer.parseInt(phone);
+//
+//        AccountDAO accountDAO = new AccountDAO();
+//        Account user = accountDAO.find(username);
+//        AreaDAO a = new AreaDAO();
+//        
+//        if (user != null) {
+//            Notification noti = new Notification("Error", "Tài khoản đã tồn tại", "error");
+//            request.setAttribute("notify", noti);
+//            RequestDispatcher rt = request.getRequestDispatcher("/Nurse/add-nurse.jsp");
+//            rt.forward(request, response);
+//        } else {
+//            if (password.equals(repassword)) {
+//                Account newUser = new Account();
+//                newUser.setUserName(username);
+//                newUser.setPassword(password);
+//                newUser.setEmail(email);
+//                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
+//                newUser.setType(new TypeAccount(2));
+//                accountDAO.create(newUser);
+//                Account user1 = accountDAO.find(username);
+//                Nurse nurse = new Nurse();
+//                nurse.setAddress(address);
+//                nurse.setFullName(fullname);
+//                nurse.setId_area(Integer.parseInt(area));
+//                nurse.setPhone(phoneNumber);
+//                nurse.setId_account(user1.getAccountId());
+//                nurse.setName_nurse("abc");
+//                NurseDAO nu = new NurseDAO();
+//                nu.create(nurse);
+//                List<Area> ar = a.getAll();
+//                request.setAttribute("listarea", ar);
+//                Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
+//                request.setAttribute("notify", noti);
+//                RequestDispatcher r1 = request.getRequestDispatcher("viewnurse");
+//                r1.forward(request, response);
+//            } else {
+//                Notification noti = new Notification("Error", "sai mk", "error");
+//                request.setAttribute("notify", noti);
+//                RequestDispatcher rt = request.getRequestDispatcher("/Nurse/add-nurse.jsp");
+//                rt.forward(request, response);
+//            }
+//            
+//
+//        }
 
-        AccountDAO accountDAO = new AccountDAO();
-        Account user = accountDAO.find(username);
-        AreaDAO a = new AreaDAO();
-        
-        if (user != null) {
-            Notification noti = new Notification("Error", "Tài khoản đã tồn tại", "error");
-            request.setAttribute("notify", noti);
-            RequestDispatcher rt = request.getRequestDispatcher("/Nurse/add-nurse.jsp");
-            rt.forward(request, response);
-        } else {
-            if (password.equals(repassword)) {
-                Account newUser = new Account();
-                newUser.setUserName(username);
-                newUser.setPassword(password);
-                newUser.setEmail(email);
-                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
-                newUser.setType(new TypeAccount(2));
-                accountDAO.create(newUser);
-                Account user1 = accountDAO.find(username);
-                Nurse nurse = new Nurse();
-                nurse.setAddress(address);
-                nurse.setFullName(fullname);
-                nurse.setId_area(Integer.parseInt(area));
-                nurse.setPhone(phoneNumber);
-                nurse.setId_account(user1.getAccountId());
-                nurse.setName_nurse("abc");
-                NurseDAO nu = new NurseDAO();
-                nu.create(nurse);
-                List<Area> ar = a.getAll();
-                request.setAttribute("listarea", ar);
-                Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
-                request.setAttribute("notify", noti);
-                RequestDispatcher r1 = request.getRequestDispatcher("viewnurse");
-                r1.forward(request, response);
-            } else {
-                Notification noti = new Notification("Error", "sai mk", "error");
-                request.setAttribute("notify", noti);
-                RequestDispatcher rt = request.getRequestDispatcher("/Nurse/add-nurse.jsp");
-                rt.forward(request, response);
-            }
-            
-
-        }
+           AreaDAO a = new AreaDAO();
+        request.setAttribute("emtrang", a.getAll());
     }
 
     /**
