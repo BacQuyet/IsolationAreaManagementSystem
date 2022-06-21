@@ -142,7 +142,16 @@ public class AddNurseController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String fullname = request.getParameter("name");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repass");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String area = request.getParameter("loai");
+        String email = request.getParameter("email");
     }
 
     /**
