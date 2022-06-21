@@ -72,7 +72,7 @@ public class LoginController extends HttpServlet {
                 RequestDispatcher rt = request.getRequestDispatcher("home");
                 rt.forward(request, response);
             } if(account.getType().getAccountTypeId() == 2){
-                Doctor doctor = doctorDAO.get(account.getAccountId());
+                Doctor doctor = doctorDAO.getByIdAccount(account.getAccountId());
                 ss.setAttribute("doctor", doctor);
                 RequestDispatcher rt = request.getRequestDispatcher("home");
                 rt.forward(request, response);
