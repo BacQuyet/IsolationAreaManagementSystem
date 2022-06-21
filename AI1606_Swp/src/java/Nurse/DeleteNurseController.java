@@ -76,8 +76,9 @@ public class DeleteNurseController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int nurseId = Integer.parseInt(request.getParameter("nurseId"));
-        NurseDAO dao = new NurseDAO();
-        dao.delete(dao.get(nurseId));
+        //NurseDAO dao = new NurseDAO();
+        //dao.delete(dao.get(nurseId));
+        //dao.delete(dao.get(nurseId));
         Notification noti = new Notification("Success","Xóa y tá cách ly thành công.","success");
         request.setAttribute("notify", noti);
         request.getRequestDispatcher("viewnurse").forward(request, response);
