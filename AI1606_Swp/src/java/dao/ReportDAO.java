@@ -178,5 +178,9 @@ public class ReportDAO implements DAO<Report> {
         dao.getClass();
         System.out.println("");
         System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
     }
 }
