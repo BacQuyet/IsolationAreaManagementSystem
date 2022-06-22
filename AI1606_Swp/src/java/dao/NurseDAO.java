@@ -20,7 +20,8 @@ import java.util.logging.Logger;
 public class NurseDAO implements DAO<Nurse> {
 
     Connection conn = DBcontext.getConnection();
-
+    AccountDAO acc = new AccountDAO();
+    AreaDAO area = new AreaDAO();
     private final String SQL_INSERT = "INSERT INTO [dbo].[nurse]\n"
             + "           ([name_nurse]\n"
             + "           ,[phone]\n"
@@ -33,7 +34,26 @@ public class NurseDAO implements DAO<Nurse> {
 
     @Override
     public List<Nurse> parse(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            ArrayList<Nurse> nurse = new ArrayList<>();
+            while (rs.next()) {
+                Nurse r = new Nurse();
+                r.setId_nurse(rs.getInt("id_nurse"));
+                r.setName_nurse(rs.getString("name_nurse"));
+                r.setPhone(rs.getInt("phone"));
+                r.setId_account(acc.get(rs.getInt("id_account")));
+                r.setAddress(rs.getString("address"));
+                r.setId_area(area.get(rs.getInt("id_area")));
+                r.setFullName(rs.getString("fullname"));
+                nurse.add(r);
+            }
+            return nurse;
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return null;
     }
 
     @Override
