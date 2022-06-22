@@ -8,7 +8,7 @@
         <div class="spacer2"></div>
     </div>
     <div class="btn-add">
-        <a href="<%=request.getContextPath()%>/Accounts/add-nhansu.jsp"><i class="fas fa-plus-circle"></i>
+        <a href="<%=request.getContextPath()%>/Nurse/addnurse"><i class="fas fa-plus-circle"></i>
             <span>Thêm nhân viên</span>
         </a>
     </div>

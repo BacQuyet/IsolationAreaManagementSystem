@@ -1,4 +1,5 @@
 <%@page import="utils.Utils"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/add.css">
 <div class="col-10 content">
@@ -9,7 +10,7 @@
     </div>
     <div class="form-container form-container_add">
         <div>
-            <form action="AddNurse" method="GET" id="form-xn" class="form">
+            <form action="addnurse" method="GET" id="form-xn" class="form">
                 <div class="form-group">
                     <label for="ho_ten" class="form-label">Họ tên nhân viên:</label>
                     <input id="ho_ten" class="form-control" name="name" type="text" required>
@@ -50,9 +51,10 @@
                 <div class="form-group">
                     <label for="loai" class="form-label">khu vực:</label>
                     <select name="loai" id="loai" class="form-control">
-                        <option value="1" selected="selected">dom A</option>
-                        <option value="2">dom B</option>
-                        <option value="2">dom C</option>
+                        <option value="0">Chọn khu vực</option>
+                    <c:forEach begin="0" end="${fn:length(emtrang)-1}" var="duy">
+                        <option value="${emtrang[duy].areaId}">${emtrang[duy].areaName}</option>
+                    </c:forEach>
                     </select>
                 </div>
                 <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>

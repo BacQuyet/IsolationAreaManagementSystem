@@ -123,7 +123,7 @@
                         </a>
                     </li>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Accounts/view-list-nurse"><i class="fas fa-file-invoice sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Nurse/viewnurse"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý y tá</span>
                         </a>
                     </li>
