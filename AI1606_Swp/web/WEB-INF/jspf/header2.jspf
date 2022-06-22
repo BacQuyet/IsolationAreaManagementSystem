@@ -56,7 +56,10 @@
                         <img id="avatar-login" src="<%=request.getContextPath()%>/${initParam.imgPath}${userLogin.getAvatar()}">
                         <span>${userLogin.getUserName()}</span>
                         <div class="user-info">
-                            
+                            <ul class="user-info__list">
+                                <li class="user-info__item"><a href="<%=request.getContextPath()%>/myaccount/viewAccount">Tài khoản của tôi</a></li>
+                                <li class="user-info__item"><a href="<%=request.getContextPath()%>/myaccount/ChangePassword.jsp">Đổi mật khẩu</a></li>
+                            </ul>
                         </div>
                     </div>                   
                 </li>
@@ -66,7 +69,7 @@
             <br/>
             <div class='header_two row'>
                 <div class="logo col-3">
-                    <a href=""><img src="<%=request.getContextPath()%>/assets/img/logo.png"></a>
+                    <a href="home"><img src="<%=request.getContextPath()%>/assets/img/logo.png"></a>
                 </div>
                 <% }%>
 
@@ -90,11 +93,11 @@
                         <div class="space"></div>
 
                     </li>
-                    <li><a class="sidebar-li" href=""><i class="fas fa-home sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="home"><i class="fas fa-home sidebar-icon"></i>
                             <span class="sidebar-info">Dashboard</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li active" href=""><i class="sidebar-icon"></i>
+                    <li><a class="sidebar-li active" href="home"><i class="sidebar-icon"></i>
                             <span class="sidebar-info">Home</span>
                         </a>
                     </li>
@@ -119,38 +122,39 @@
                             <span class="sidebar-info">Quản lý bác sĩ</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Nurse/list-nurse.jsp"><i class="fas fa-file-invoice sidebar-icon"></i>
+                    </li>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Accounts/view-list-nurse"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý y tá</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Room/viewroom"><i class="fas fa-briefcase-medical sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Room/list"><i class="fas fa-briefcase-medical sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý phòng</span>
                         </a>
                     </li>
                     <% } %>
-                    <% if (acocuntTypeId == 2) { // Doctor %>  
+                    <% if (acocuntTypeId == 4) { // Doctor %>  
 
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/listReport"><i class="fas fa-file-invoice sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Theo dõi sức khỏe</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/listReport"><i class="fas fa-briefcase-medical sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-briefcase-medical sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý đơn thuốc</span>
                         </a>
                     </li>
                     <% } %>
-                    <% if (acocuntTypeId == 3) { // Nurse %> 
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/list.jsp"><i class="fas fa-user sidebar-icon"></i>
+                    <% if (acocuntTypeId == 2) { // Nurse %> 
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/view-list"><i class="fas fa-user sidebar-icon"></i>
                             <span class="sidebar-info">Người cách ly</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Room/viewroom"><i class="fas fa-briefcase-medical sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Room/list"><i class="fas fa-briefcase-medical sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý phòng</span>
                         </a>
                     </li>
                     <% }%>
-                    <% if (acocuntTypeId == 4) { // Patient %>  
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/listReport"><i class="fas fa-file-invoice sidebar-icon"></i>
+                    <% if (acocuntTypeId == 3) { // Patient %>  
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Báo cáo sức khỏe</span>
                         </a>
                     </li>
