@@ -6,6 +6,7 @@
 package entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.sql.Timestamp;
 public class Presciption {
     private Integer presciptionId;
     private String presciptionName;
-    private Timestamp createDate;
+    private Date createDate;
     private Patient patient;
     private Doctor doctor;
     private Medicine medicine;
@@ -23,7 +24,7 @@ public class Presciption {
     public Presciption() {
     }
 
-    public Presciption(Integer presciptionId, String presciptionName, Timestamp createDate, Patient patient, Doctor doctor, Medicine medicine, Integer quantity) {
+    public Presciption(Integer presciptionId, String presciptionName, Date createDate, Patient patient, Doctor doctor, Medicine medicine, Integer quantity) {
         this.presciptionId = presciptionId;
         this.presciptionName = presciptionName;
         this.createDate = createDate;
@@ -51,11 +52,11 @@ public class Presciption {
         this.presciptionName = presciptionName;
     }
 
-    public Timestamp getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Timestamp createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 

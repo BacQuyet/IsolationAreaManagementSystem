@@ -8,6 +8,7 @@ package dao;
 import entity.Presciption;
 import entity.Report;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,21 @@ import java.util.logging.Logger;
  * @author X1 Carbon Gen 7
  */
 public class PrescriptionDAO implements DAO<Presciption>{
+    
+    private final String SQL_INSERT = "INSERT INTO [dbo].[prescription]\n"
+            + "           ([medicine_name]\n"
+            + "           ,[create_date]\n"
+            + "           ,[id_patient]\n"
+            + "           ,[id_doctor]\n"
+            + "           ,[id_medicine]\n"
+            + "           ,[quantity])\n"
+            + "     VALUES\n"
+            + "           (?\n"
+            + "           ,?\n"
+            + "           ,?\n"
+            + "           ,?\n"
+            + "           ,?\n"
+            + "           ,?)";
     
     PatientDAO patient = new PatientDAO();
     DoctorDAO doctor = new DoctorDAO();
@@ -71,7 +87,18 @@ public class PrescriptionDAO implements DAO<Presciption>{
 
     @Override
     public void create(Presciption t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (
+                PreparedStatement prep = conn.prepareStatement(SQL_INSERT)) {
+            prep.setString(1, t.getPresciptionName());
+            prep.setTimestamp(2, (java.sql.Timestamp) t.getCreateDate());
+            prep.setInt(3, t.getPatient().getPatientId());
+            prep.setInt(4, t.getDoctor().getDoctor());
+            prep.setInt(5, t.getMedicine().getMedicienId());
+            prep.setInt(6, t.getQuantity());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
     @Override
