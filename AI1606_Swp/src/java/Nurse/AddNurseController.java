@@ -108,7 +108,11 @@ public class AddNurseController extends HttpServlet {
             rt.forward(request, response);
         }else{
             if (password.equals(repassword)) {
-                
+                try {
+                    
+                }catch (Exception e) {
+                    System.out.println(e.toString());
+                }
             }
         }
     }
