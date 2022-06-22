@@ -133,27 +133,6 @@ public class NurseDAO implements DAO<Nurse> {
     }
 
 
-    public int countPage(int pageSize) {
-        try {
-            String query = "select Count(*) from nurse";
-
-            PreparedStatement ps = conn.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            int count = 0;
-            if (rs.next()) {
-                count = rs.getInt(1);
-            }
-            int numOfPage = count / pageSize;
-            if (count % pageSize != 0) {
-                numOfPage++;
-            }
-            return numOfPage;
-        } catch (Exception ex) {
-            ex.printStackTrace(System.out);
-        }
-        return 0;
-    }
-
 // fix bug update
     @Override
     public void update(Nurse t, Hashtable<String, String> my_dict) {
