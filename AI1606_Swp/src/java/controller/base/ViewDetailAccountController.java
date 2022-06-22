@@ -10,6 +10,7 @@ import dao.DoctorDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -65,6 +66,8 @@ public class ViewDetailAccountController extends HttpServlet {
         Account account = (Account) ss.getAttribute("userLogin");
         Account userLogin = dao.get(account.getAccountId());
         ss.setAttribute("userLogin", userLogin);
+        RequestDispatcher view = request.getRequestDispatcher("/myaccount/accountDetail.jsp");
+         view.forward(request, response);
     }
 
     /**
