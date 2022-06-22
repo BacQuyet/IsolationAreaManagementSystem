@@ -103,7 +103,7 @@ public class AddRoomNurseController extends HttpServlet {
         room.setRoomName(roomName);
         room.setBedNumber(Integer.parseInt(bedNumber));
         room.setNote(note);
-        room.setArea(daoArea.get(nurse.getId_area()));
+        //room.setArea(daoArea.get(nurse.getId_area()));
         dao.create(room);
         
         Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");

@@ -124,6 +124,11 @@ public class AddNurseController extends HttpServlet {
                 nurse.setPhone(Integer.parseInt(phone));
                 nurse.setId_account(accountDAO.get(user1.getAccountId()));
                 nurse.setName_nurse(username);
+                NurseDAO nu = new NurseDAO();
+                nu.create(nurse);
+                Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
+                request.setAttribute("notify", noti);
+                response.sendRedirect("viewnurse");
                 
                 }catch (Exception e) {
                     System.out.println(e.toString());
