@@ -109,7 +109,12 @@ public class AddNurseController extends HttpServlet {
         }else{
             if (password.equals(repassword)) {
                 try {
-                    
+                Account newUser = new Account();
+                newUser.setUserName(username);
+                newUser.setPassword(password);
+                newUser.setEmail(email);
+                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
+                newUser.setType(new TypeAccount(3));
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
