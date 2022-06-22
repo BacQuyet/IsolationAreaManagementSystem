@@ -23,11 +23,10 @@
         <div class="col-10 content">
             <%
                 Account account = (Account) session.getAttribute("userLogin");
-                
+
             %>
             <div class="content-body">
-                <%
-                    if (account.getType().getAccountTypeId() == 1) { // Nurse login
+                <%                    if (account.getType().getAccountTypeId() == 1) { // Nurse login
                 %>
                 <div>
 
@@ -49,7 +48,32 @@
                     <%
                         }
                     %>
-            
+                    <%
+                        if (account.getType().getAccountTypeId() == 2) { // Nurse login
+                    %>
+                <div>
+
+                    <div class="content-header__info content-header__account">
+
+                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập: </span>
+                    </div>
+
+                    <div class="content-middle"> 
+                        <div class="content-middle__lylich">
+                            <span class="info-label">Lý lịch cá nhân</span>
+                            <ul class="info-detail">
+                                <li>Họ và tên: 
+                                <li>Số điện thoại:</li>
+                                <li>Địa chỉ: 
+                                <li>Email: 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+                    <%
+                        }
+                    %>
                 <script>
                     var loadFile = function (event) {
                         var reader = new FileReader();
@@ -62,6 +86,6 @@
                 </script>
             </div>
         </div>
-        
+
     </div>
 </div>
