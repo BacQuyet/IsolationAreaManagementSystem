@@ -71,7 +71,6 @@ public class AddNurseController extends HttpServlet {
             throws ServletException, IOException {
            AreaDAO a = new AreaDAO();
         request.setAttribute("emtrang", a.getAll());
-        System.out.println("heloos");
         request.getRequestDispatcher("/Nurse/add-nurse.jsp").forward(request, response);
     }
 
@@ -129,7 +128,6 @@ public class AddNurseController extends HttpServlet {
                 Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
                 request.setAttribute("notify", noti);
                 response.sendRedirect("viewnurse");
-                
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
