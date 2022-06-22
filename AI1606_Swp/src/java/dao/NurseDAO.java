@@ -71,9 +71,9 @@ public class NurseDAO implements DAO<Nurse> {
                 nurse.setName_nurse(rs.getString("name_nurse"));
                 nurse.setPhone(rs.getInt("phone"));
                 nurse.setFullName(rs.getString("fullname"));
-                nurse.setId_account(account_id);
+                nurse.setId_account(acc.get(rs.getInt("id_account")));
                 nurse.setAddress(rs.getString("address"));
-                nurse.setId_area(rs.getInt("id_area"));
+                nurse.setId_area(area.get(rs.getInt("id_area")));
             }
             return nurse;
         } catch (SQLException ex) {
@@ -121,9 +121,9 @@ public class NurseDAO implements DAO<Nurse> {
                 nurse.setName_nurse(rs.getString("name_nurse"));
                 nurse.setPhone(rs.getInt("phone"));
                 nurse.setFullName(rs.getString("fullname"));
-                nurse.setId_account(rs.getInt("id_account"));
+                nurse.setId_account(acc.get(rs.getInt("id_account")));
                 nurse.setAddress(rs.getString("address"));
-                nurse.setId_area(rs.getInt("id_area"));
+                nurse.setId_area(area.get(rs.getInt("id_area")));
             }
             return nurse;
         } catch (SQLException ex) {
@@ -132,34 +132,6 @@ public class NurseDAO implements DAO<Nurse> {
         return null;
     }
 
-    public List<Nurse> getAllNurse(int pageIndex, int pageSize) {
-        ArrayList<Nurse> lst = new ArrayList<>();
-        try {
-            String query = "SELECT * FROM nurse ORDER BY id_nurse "
-                    + "OFFSET (?*?-?) ROWS FETCH NEXT ? ROWS ONLY";
-            PreparedStatement ps = conn.prepareStatement(query);
-            ps.setInt(1, pageIndex);
-            ps.setInt(2, pageSize);
-            ps.setInt(3, pageSize);
-            ps.setInt(4, pageSize);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int nID = rs.getInt(1);
-                String nName = rs.getString(2);
-                int phone = rs.getInt(3);
-                String fullName = rs.getString(7);
-                int idAccount = rs.getInt(4);
-                String address = rs.getString(5);
-                int idArea = rs.getInt(6);
-                lst.add(new Nurse(nID, nName, phone, fullName, idAccount, address, idArea));
-            }
-            return lst;
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
 
     public int countPage(int pageSize) {
         try {
@@ -200,9 +172,9 @@ public class NurseDAO implements DAO<Nurse> {
             prep.setString(1, t.getName_nurse());
             prep.setInt(2, t.getPhone());
             prep.setString(3, t.getFullName());
-            prep.setInt(4, t.getId_account());
+            prep.setInt(4, t.getId_account().getAccountId());
             prep.setString(5, t.getAddress());
-            prep.setInt(6, t.getId_area());
+            prep.setInt(6, t.getId_area().getAreaId());
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
