@@ -191,7 +191,7 @@ public class DoctorDAO implements DAO<Doctor> {
         String sql = "SELECT * from doctor where id_account = " + id;
         List<Doctor> qq = new ArrayList<>();
         qq = parse(sql);
-        return null;
+        return (qq.isEmpty() ? null : qq.get(0));
     }
 
     public Doctor getByIdAccount(int idAccount) {
