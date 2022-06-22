@@ -86,7 +86,25 @@ public class DoctorDAO implements DAO<Doctor> {
 
     @Override
     public List<Doctor> parse(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            ArrayList<Doctor> qq = new ArrayList<>();
+            while (rs.next()) {
+                Doctor p = new Doctor();
+                p.setDoctor(rs.getInt("id_doctor"));
+                p.setDoctorName(rs.getString("doctor_name"));
+                p.setPhone(rs.getInt("phone"));
+                p.setFullName(rs.getString("fullname"));
+                p.setAddress(rs.getString("address"));
+                p.setIdAccount(rs.getInt("id_account"));              
+                qq.add(p);
+            }
+            return qq;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     @Override
