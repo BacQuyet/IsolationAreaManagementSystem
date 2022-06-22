@@ -133,6 +133,11 @@ public class AddNurseController extends HttpServlet {
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
+            }else {
+                Notification noti = new Notification("Error", "sai mk", "error");
+                request.setAttribute("notify", noti);
+                RequestDispatcher rt = request.getRequestDispatcher("/Nurse/addnurse");
+                rt.forward(request, response);
             }
         }
     }

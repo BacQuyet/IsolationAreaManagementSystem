@@ -52,7 +52,10 @@ public class AreaDAO implements DAO<Area> {
 
     @Override
     public List<Area> getAll() {
-        return null;
+        String sql = "SELECT * FROM area";
+        List<Area> area = new ArrayList<>();
+        area = parse(sql);
+        return area;
     }
 
     @Override
