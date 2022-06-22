@@ -33,19 +33,19 @@
 
                     <div class="content-header__info content-header__account">
 
-                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập:</span>
+                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập: ${userLogin.getUserName()}</span>
                     </div>
 
                     <div class="content-middle"> 
                         <div class="content-middle__lylich">
                             <span class="info-label">Lý lịch cá nhân</span>
                             <ul class="info-detail">
-                                <li>Email:
+                                <li>Email: ${userLogin.getEmail()}
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div><img class="content-img" src=""/></div>
+                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
                     <%
                         }
                     %>
