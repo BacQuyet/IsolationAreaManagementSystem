@@ -1,6 +1,7 @@
 
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="<%=request.getContextPath()%>/assets/css/accountDetail.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/detail.css">
 <div class=" user-container ">
     <div class="menu">
         <ul>
