@@ -8,6 +8,7 @@ package controller.base;
 import dao.AccountDAO;
 import dao.DoctorDAO;
 import entity.Account;
+import entity.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -63,7 +64,10 @@ public class ViewDetailAccountController extends HttpServlet {
             throws ServletException, IOException {
         AccountDAO dao = new AccountDAO();
         HttpSession ss = request.getSession();
+        DoctorDAO daoD = new DoctorDAO();
+         
         Account account = (Account) ss.getAttribute("userLogin");
+        Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
         Account userLogin = dao.get(account.getAccountId());
         ss.setAttribute("userLogin", userLogin);
         RequestDispatcher view = request.getRequestDispatcher("/myaccount/accountDetail.jsp");
