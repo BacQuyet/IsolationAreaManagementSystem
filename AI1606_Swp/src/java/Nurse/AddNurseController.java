@@ -115,6 +115,7 @@ public class AddNurseController extends HttpServlet {
                 newUser.setEmail(email);
                 newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
                 newUser.setType(new TypeAccount(3));
+                accountDAO.create(newUser);
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
