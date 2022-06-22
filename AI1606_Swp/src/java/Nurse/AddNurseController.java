@@ -120,6 +120,10 @@ public class AddNurseController extends HttpServlet {
                 Nurse nurse = new Nurse();
                 nurse.setAddress(address);
                 nurse.setFullName(fullname);
+                nurse.setId_area(a.get(Integer.parseInt(area)));
+                nurse.setPhone(Integer.parseInt(phone));
+                nurse.setId_account(accountDAO.get(user1.getAccountId()));
+                nurse.setName_nurse(username);
                 
                 }catch (Exception e) {
                     System.out.println(e.toString());

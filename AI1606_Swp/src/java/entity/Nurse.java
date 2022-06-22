@@ -11,22 +11,23 @@ public class Nurse {
     private String name_nurse;
     private int phone;
     private String fullName;
-    private int id_account;
+    private Account id_account;
     private String address;
-    private int id_area;
+    private Area id_area;
 
     public Nurse() {
     }
 
-    public Nurse(int id_nurse, String name_nurse, int phone, String fullName, int id_account, String address, int id_area) {
+    public Nurse(int id_nurse, String name_nurse, String fullName, Account id_account, String address, Area id_area) {
         this.id_nurse = id_nurse;
         this.name_nurse = name_nurse;
-        this.phone = phone;
         this.fullName = fullName;
         this.id_account = id_account;
         this.address = address;
         this.id_area = id_area;
     }
+    
+    
 
     public int getId_nurse() {
         return id_nurse;
@@ -60,11 +61,11 @@ public class Nurse {
         this.fullName = fullName;
     }
 
-    public int getId_account() {
+    public Account getId_account() {
         return id_account;
     }
 
-    public void setId_account(int id_account) {
+    public void setId_account(Account id_account) {
         this.id_account = id_account;
     }
 
@@ -76,13 +77,15 @@ public class Nurse {
         this.address = address;
     }
 
-    public int getId_area() {
+    public Area getId_area() {
         return id_area;
     }
 
-    public void setId_area(int id_area) {
+    public void setId_area(Area id_area) {
         this.id_area = id_area;
     }
+
+    
 
     @Override
     public String toString() {
