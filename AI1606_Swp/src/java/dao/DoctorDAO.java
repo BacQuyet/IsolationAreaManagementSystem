@@ -97,7 +97,7 @@ public class DoctorDAO implements DAO<Doctor> {
                 p.setPhone(rs.getInt("phone"));
                 p.setFullName(rs.getString("fullname"));
                 p.setAddress(rs.getString("address"));
-                p.setIdAccount(rs.getInt("id_account"));              
+                p.setIdAccount(rs.getInt("id_account"));
                 qq.add(p);
             }
             return qq;
@@ -127,6 +127,7 @@ public class DoctorDAO implements DAO<Doctor> {
             e.printStackTrace();
         }
     }
+
     public void updateDoctor(Doctor d) {
         String sql = "UPDATE [dbo].[doctor]\n"
                 + "   SET [phone] = ?\n"
@@ -144,6 +145,7 @@ public class DoctorDAO implements DAO<Doctor> {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
     }
+
     @Override
     public void update(Doctor t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -184,8 +186,15 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return null;
     }
-    
-    public Doctor getByIdAccount(int idAccount){
+
+    public Doctor getDoctorByAccountId(int id) {
+        String sql = "SELECT * from doctor where id_account = " + id;
+        List<Doctor> qq = new ArrayList<>();
+        qq = parse(sql);
+        return null;
+    }
+
+    public Doctor getByIdAccount(int idAccount) {
         try {
             String sql = "select * from dbo.doctor where id_account = ?";
             PreparedStatement sttm = conn.prepareStatement(sql);
@@ -206,7 +215,7 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return null;
     }
-    
+
     public static void main(String[] args) {
         DoctorDAO dao = new DoctorDAO();
         dao.delete(new Doctor(2011));
