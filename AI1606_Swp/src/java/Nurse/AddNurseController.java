@@ -116,6 +116,11 @@ public class AddNurseController extends HttpServlet {
                 newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
                 newUser.setType(new TypeAccount(3));
                 accountDAO.create(newUser);
+                Account user1 = accountDAO.find(username);
+                Nurse nurse = new Nurse();
+                nurse.setAddress(address);
+                nurse.setFullName(fullname);
+                
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
