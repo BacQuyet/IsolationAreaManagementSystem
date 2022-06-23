@@ -88,6 +88,9 @@ public class UpdateNurseController extends HttpServlet {
         String nurseName = request.getParameter("nurseName");
         String phone = request.getParameter("phone");
         String accountId = request.getParameter("accountId");
+        String address = request.getParameter("address");
+        String areaId = request.getParameter("areaId");
+        String fullname = request.getParameter("fullname");
     }
 
     /**
