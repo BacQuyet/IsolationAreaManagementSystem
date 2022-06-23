@@ -6,6 +6,7 @@
 package Nurse;
 
 import dao.AccountDAO;
+import dao.AreaDAO;
 import dao.NurseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -76,6 +77,7 @@ public class UpdateNurseController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         NurseDAO dao = new NurseDAO();
         AccountDAO daoacc = new AccountDAO();
+        AreaDAO areadao = new AreaDAO();
     }
 
     /**
