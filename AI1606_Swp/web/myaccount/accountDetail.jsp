@@ -63,10 +63,10 @@
                         <div class="content-middle__lylich">
                             <span class="info-label">Lý lịch cá nhân</span>
                             <ul class="info-detail">
-                                <li>Họ và tên: ${d.getFullName()}
+                                <li>Họ và tên: ${d.getFullName()}</li>
                                 <li>Số điện thoại: ${d.getPhone()}</li>
-                                <li>Địa chỉ: ${d.getAddress()}
-                                <li>Email: ${userLogin.getEmail()}
+                                <li>Địa chỉ: ${d.getAddress()}</li>
+                                <li>Email: ${userLogin.getEmail()}</li>
                             </ul>
                         </div>
                     </div>
