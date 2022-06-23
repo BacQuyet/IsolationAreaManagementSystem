@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -104,6 +105,17 @@ public class UpdateReportController extends HttpServlet {
                 content += request.getParameter("other") + "; ";
             }
         }
+        if ("".equals(content.trim())) {
+            content = "Không có triệu trứng bệnh; ";
+        }
+        content += request.getParameter("test");
+        // update
+        if (dao.updateReport(reportId, content) > 0) {
+            Notification noti = new Notification("Success", "Cập nhật report thành công.", "success");
+            request.setAttribute("notify", noti);
+        }
+        RequestDispatcher update = request.getRequestDispatcher("listReport");
+        update.forward(request, response);
     }
 
     /**
