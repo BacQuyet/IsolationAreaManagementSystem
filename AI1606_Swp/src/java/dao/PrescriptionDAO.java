@@ -8,6 +8,7 @@ package dao;
 import entity.Presciption;
 import entity.Report;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -105,10 +106,41 @@ public class PrescriptionDAO implements DAO<Presciption>{
     public void update(Presciption t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public void updatePrescription(Presciption p) {
+        String sql = "UPDATE [dbo].[prescription]\n"
+                + "   SET [medicine_name] = ?\n"
+                + "      ,[create_date] = ?\n"
+                + "      ,[id_patient] = ?\n"
+                + "      ,[id_doctor] = ?\n"
+                + "      ,[id_medicine] = ?\n"
+                + "      ,[quantity] = ?\n"
+                + " WHERE id_prescription = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, p.getPresciptionName());
+            pre.setDate(2, (Date) p.getCreateDate());
+            pre.setInt(3, p.getPatient().getPatientId());
+            pre.setInt(4, p.getDoctor().getDoctor());
+            pre.setInt(5, p.getMedicine().getMedicienId());
+            pre.setInt(6, p.getQuantity());
+            pre.setInt(7, p.getPresciptionId());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, e);
+        }
+    }
 
     @Override
     public void delete(Presciption t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM [dbo].[prescription] WHERE id_prescription = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, t.getPresciptionId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
     
     public List getIndex(int index1, int index2, int id) {
