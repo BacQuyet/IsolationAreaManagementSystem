@@ -7,6 +7,7 @@ package controller.base;
 
 import dao.AccountDAO;
 import dao.DoctorDAO;
+import dao.NurseDAO;
 import entity.Account;
 import entity.Doctor;
 import java.io.IOException;
@@ -65,7 +66,7 @@ public class ViewDetailAccountController extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         HttpSession ss = request.getSession();
         DoctorDAO daoD = new DoctorDAO();
-         
+         NurseDAO daoN = new NurseDAO();
         Account account = (Account) ss.getAttribute("userLogin");
         Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
         Account userLogin = dao.get(account.getAccountId());
