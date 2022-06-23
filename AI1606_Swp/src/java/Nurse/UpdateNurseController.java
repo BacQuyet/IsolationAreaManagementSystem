@@ -10,6 +10,7 @@ import dao.AreaDAO;
 import dao.NurseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -78,6 +79,11 @@ public class UpdateNurseController extends HttpServlet {
         NurseDAO dao = new NurseDAO();
         AccountDAO daoacc = new AccountDAO();
         AreaDAO areadao = new AreaDAO();
+        
+        if (request.getParameter("nurseId") == null) {
+            RequestDispatcher view = request.getRequestDispatcher("viewnurse");
+            view.forward(request, response);
+        }
     }
 
     /**
