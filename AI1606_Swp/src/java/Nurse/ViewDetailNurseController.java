@@ -5,6 +5,7 @@
  */
 package Nurse;
 
+import dao.NurseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -57,6 +58,7 @@ public class ViewDetailNurseController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("nurseId"));
+        NurseDAO nurseDao = new NurseDAO();
     }
 
     /**
