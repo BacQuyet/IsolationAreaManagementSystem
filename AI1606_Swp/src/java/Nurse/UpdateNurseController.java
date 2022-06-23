@@ -5,6 +5,7 @@
  */
 package Nurse;
 
+import dao.AccountDAO;
 import dao.NurseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,7 +59,6 @@ public class UpdateNurseController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
-       
     }
 
     /**
@@ -75,6 +75,7 @@ public class UpdateNurseController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         NurseDAO dao = new NurseDAO();
+        AccountDAO daoacc = new AccountDAO();
     }
 
     /**
