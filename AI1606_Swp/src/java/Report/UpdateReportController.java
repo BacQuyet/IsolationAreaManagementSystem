@@ -82,7 +82,28 @@ public class UpdateReportController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        ReportDAO dao = new ReportDAO();
+        if (request.getParameter("reportId") == null) {
+            RequestDispatcher update = request.getRequestDispatcher("listReport");
+            update.forward(request, response);
+        }
+        int reportId = Integer.parseInt(request.getParameter("reportId"));
+        // get content
+        String content = "";
+        for (int i = 1; i < 10; i++) {
+            String x = request.getParameter("s" + i);
+            if (x != null) {
+                content += x + "; ";
+            }
+        }
+        String x = request.getParameter("cother");
+        if (x != null) {
+            if (request.getParameter("other") != null) {
+                content += request.getParameter("other") + "; ";
+            }
+        }
     }
 
     /**
