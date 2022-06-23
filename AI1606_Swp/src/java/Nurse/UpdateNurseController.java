@@ -85,6 +85,9 @@ public class UpdateNurseController extends HttpServlet {
             view.forward(request, response);
         }
         int nurseId = Integer.parseInt(request.getParameter("nurseId"));
+        String nurseName = request.getParameter("nurseName");
+        String phone = request.getParameter("phone");
+        String accountId = request.getParameter("accountId");
     }
 
     /**
