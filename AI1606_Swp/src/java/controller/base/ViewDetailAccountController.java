@@ -73,6 +73,7 @@ public class ViewDetailAccountController extends HttpServlet {
         Nurse n = daoN.getNurseByAccountId(account.getAccountId());
         Account userLogin = dao.get(account.getAccountId());
         ss.setAttribute("d", d);
+        ss.setAttribute("nurse", n);
         ss.setAttribute("userLogin", userLogin);
         RequestDispatcher view = request.getRequestDispatcher("/myaccount/accountDetail.jsp");
          view.forward(request, response);
