@@ -248,6 +248,10 @@
         <servlet-name>ViewDetailAccountController</servlet-name>
         <servlet-class>controller.base.ViewDetailAccountController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateReportController</servlet-name>
+        <servlet-class>Report.UpdateReportController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -483,6 +487,10 @@
     <servlet-mapping>
         <servlet-name>ViewDetailAccountController</servlet-name>
         <url-pattern>/myaccount/viewAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateReportController</servlet-name>
+        <url-pattern>/Report/updateReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
