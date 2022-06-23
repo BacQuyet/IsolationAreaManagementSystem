@@ -91,6 +91,9 @@ public class UpdateNurseController extends HttpServlet {
         String address = request.getParameter("address");
         String areaId = request.getParameter("areaId");
         String fullname = request.getParameter("fullname");
+        
+        RequestDispatcher update = request.getRequestDispatcher("/Nurse/update-nurse.jsp");
+        update.forward(request, response);
     }
 
     /**
