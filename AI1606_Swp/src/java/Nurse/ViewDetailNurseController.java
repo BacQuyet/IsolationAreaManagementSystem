@@ -65,6 +65,8 @@ public class ViewDetailNurseController extends HttpServlet {
         Nurse nurse = nurseDao.getByID(id);
         AccountDAO accountDAO = new AccountDAO();
         Account account = accountDAO.get(nurse.getId_account().getAccountId());
+        
+        request.setAttribute("nurse", nurse);
     }
 
     /**
