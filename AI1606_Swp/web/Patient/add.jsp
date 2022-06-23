@@ -8,7 +8,7 @@
     </div>
 
     <div class="form-container">
-        <form action="add" method="POST" id="form-dn" class="form">
+        <form action="AddPatientFromNurse" method="POST" id="form-dn" class="form">
             <div class="form-header">
                 <div class="form-group form-group__special">
                     <label for="fullname" class="form-label">Họ và tên:</label>
@@ -61,7 +61,9 @@
             <div class="form-group">
                 <label for="roomName" class="form-label">Xếp vào phòng số</label>
                 <select name="roomName" id="roomName" class="form-control" required>
-                    
+                    <c:forEach var="cnt" items="${okroom}">
+                        <option value="${cnt.getRoomId()}">${cnt.getRoomName()}</option>
+                    </c:forEach>
                 </select>
             </div>
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
