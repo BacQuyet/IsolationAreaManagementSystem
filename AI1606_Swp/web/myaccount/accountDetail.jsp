@@ -82,7 +82,7 @@
 
                     <div class="content-header__info content-header__account">
 
-                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập: </span>
+                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập: ${userLogin.getUserName()}</span>
                     </div>
 
                     <div class="content-middle"> 
@@ -90,10 +90,10 @@
                             <span class="info-label">Lý lịch cá nhân</span>
                             <ul class="info-detail">
 
-                                <li>Họ và tên:  </li>
-                                <li>Số điện thoại: </li>
-                                <li>Địa chỉ: 
-                                <li>Email: 
+                                <li>Họ và tên: ${nurse.getName_nurse()} </li>
+                                <li>Số điện thoại: ${nurse.getPhone()}</li>
+                                <li>Địa chỉ: ${nurse.getAddress()} </li>
+                                <li>Email: ${userLogin.getEmail()} </li>
                             </ul>
                         </div>
                     </div>
