@@ -34,13 +34,31 @@ public class NurseDAO implements DAO<Nurse> {
 
     @Override
     public List<Nurse> parse(String sql) {
-        
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            ArrayList<Nurse> nurse = new ArrayList<>();
+            while (rs.next()) {
+                Nurse r = new Nurse();
+                r.setId_nurse(rs.getInt("id_nurse"));
+                r.setName_nurse(rs.getString("name_nurse"));
+                r.setPhone(rs.getInt("phone"));
+                r.setId_account(acc.get(rs.getInt("id_account")));
+                r.setAddress(rs.getString("address"));
+                r.setId_area(area.get(rs.getInt("id_area")));
+                r.setFullName(rs.getString("fullname"));
+                nurse.add(r);
+            }
+            return nurse;
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
         return null;
     }
     public Nurse getNurseByAccountId(int id) {
         String sql = "SELECT * from nurse where id_account = " + id;
         List<Nurse> qq = new ArrayList<>();
-        qq = parse(sql);
+        
         return (qq.isEmpty() ? null : qq.get(0));
     }
     @Override
