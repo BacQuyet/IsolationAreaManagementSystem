@@ -58,6 +58,11 @@ public class FilterReportController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        
+        String fname = (String) request.getParameter("fname");
+        String ffrom = (String) request.getParameter("ffrom");
+        String fto = (String) request.getParameter("fto");
+        String fsort = (String) request.getParameter("fsort");
     }
 
     /**
