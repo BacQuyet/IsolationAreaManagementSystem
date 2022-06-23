@@ -6,6 +6,7 @@
 package Nurse;
 
 import dao.NurseDAO;
+import entity.Nurse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -59,6 +60,7 @@ public class ViewDetailNurseController extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("nurseId"));
         NurseDAO nurseDao = new NurseDAO();
+        Nurse nurse = nurseDao.getByID(id);
     }
 
     /**
