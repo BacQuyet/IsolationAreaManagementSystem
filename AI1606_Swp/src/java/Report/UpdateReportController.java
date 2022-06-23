@@ -65,6 +65,10 @@ public class UpdateReportController extends HttpServlet {
             RequestDispatcher update = request.getRequestDispatcher("listReport");
             update.forward(request, response);
         }
+        int reportId = Integer.parseInt(request.getParameter("reportId"));
+        request.setAttribute("report", dao.get(reportId));
+        RequestDispatcher update = request.getRequestDispatcher("update.jsp");
+        update.forward(request, response);
     }
 
     /**
