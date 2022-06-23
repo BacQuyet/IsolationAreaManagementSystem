@@ -157,10 +157,6 @@
         <servlet-class>Nurse.DeleteNurseController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewDetailNurseController</servlet-name>
-        <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddDoctorController</servlet-name>
         <servlet-class>Doctor.AddDoctorController</servlet-class>
     </servlet>
@@ -255,6 +251,10 @@
     <servlet>
         <servlet-name>FilterReportController</servlet-name>
         <servlet-class>Report.FilterReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailNurseController</servlet-name>
+        <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -441,10 +441,6 @@
         <url-pattern>/Nurse/deletenurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ViewDetailNurseController</servlet-name>
-        <url-pattern>/Nurse/viewdetailnurse</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ViewReportController</servlet-name>
         <url-pattern>/Report/listReport</url-pattern>
     </servlet-mapping>
@@ -499,6 +495,10 @@
     <servlet-mapping>
         <servlet-name>FilterReportController</servlet-name>
         <url-pattern>/Report/filterReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailNurseController</servlet-name>
+        <url-pattern>/viewdetailnurse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
