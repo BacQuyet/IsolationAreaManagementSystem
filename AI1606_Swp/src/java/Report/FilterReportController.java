@@ -7,10 +7,12 @@ package Report;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -63,6 +65,11 @@ public class FilterReportController extends HttpServlet {
         String ffrom = (String) request.getParameter("ffrom");
         String fto = (String) request.getParameter("fto");
         String fsort = (String) request.getParameter("fsort");
+        
+        HttpSession session = request.getSession();
+        session.setAttribute(fname, fname);
+        RequestDispatcher view = request.getRequestDispatcher("listReport");
+        view.forward(request, response);
     }
 
     /**
