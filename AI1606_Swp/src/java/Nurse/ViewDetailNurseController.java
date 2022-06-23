@@ -11,6 +11,7 @@ import entity.Account;
 import entity.Nurse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -68,6 +69,8 @@ public class ViewDetailNurseController extends HttpServlet {
         
         request.setAttribute("nurse", nurse);
         request.setAttribute("account", account);
+        RequestDispatcher view = request.getRequestDispatcher("/Nurse/view-detail-nurse.jsp");
+        view.forward(request, response);
     }
 
     /**
