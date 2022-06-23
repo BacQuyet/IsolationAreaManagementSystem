@@ -58,7 +58,7 @@ public class NurseDAO implements DAO<Nurse> {
     public Nurse getNurseByAccountId(int id) {
         String sql = "SELECT * from nurse where id_account = " + id;
         List<Nurse> qq = new ArrayList<>();
-        
+        qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
     @Override
