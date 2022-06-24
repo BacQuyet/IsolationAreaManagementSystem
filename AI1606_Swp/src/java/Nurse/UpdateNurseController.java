@@ -8,6 +8,7 @@ package Nurse;
 import dao.AccountDAO;
 import dao.AreaDAO;
 import dao.NurseDAO;
+import entity.Nurse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -93,6 +94,7 @@ public class UpdateNurseController extends HttpServlet {
         String fullname = request.getParameter("fullname");
         if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
             if (nurseName.length() > 0 && phone.length() > 0 && accountId.length() > 0 && address.length() > 0 && areaId.length() > 0 && fullname.length() > 0) {
+            Nurse nurse = new Nurse();
             }
         }
         
