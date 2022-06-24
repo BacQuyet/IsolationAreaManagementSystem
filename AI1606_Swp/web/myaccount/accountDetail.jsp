@@ -117,10 +117,10 @@
                             <span class="info-label">Lý lịch cá nhân</span>
                             <ul class="info-detail">
 
-                                <li>Họ và tên: ${patient.getPatientName()}
+                                <li>Họ và tên: ${patient.getPatientName()}</li>
                                 <li>Số điện thoại: ${patient.getPhoneNumber()}</li>
-                                <li>Địa chỉ: ${patient.getAddress()}
-                                <li>Email: ${userLogin.getEmail()}
+                                <li>Địa chỉ: ${patient.getAddress()}</li>
+                                <li>Email: ${userLogin.getEmail()}</li>
                             </ul>
                         </div>
                     </div>
