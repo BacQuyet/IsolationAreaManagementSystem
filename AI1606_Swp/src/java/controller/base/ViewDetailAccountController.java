@@ -8,6 +8,7 @@ package controller.base;
 import dao.AccountDAO;
 import dao.DoctorDAO;
 import dao.NurseDAO;
+import dao.PatientDAO;
 import entity.Account;
 import entity.Doctor;
 import entity.Nurse;
@@ -68,6 +69,7 @@ public class ViewDetailAccountController extends HttpServlet {
         HttpSession ss = request.getSession();
         DoctorDAO daoD = new DoctorDAO();
         NurseDAO daoN = new NurseDAO();
+        PatientDAO daoP = new PatientDAO();
         Account account = (Account) ss.getAttribute("userLogin");
         Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
         Nurse n = daoN.getNurseByAccountId(account.getAccountId());
