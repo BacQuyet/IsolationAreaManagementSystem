@@ -100,6 +100,8 @@ public class UpdateNurseController extends HttpServlet {
             nurse.setPhone(Integer.parseInt(phone));
             nurse.setId_account(daoacc.get(Integer.parseInt(accountId)));
             nurse.setAddress(address);
+            nurse.setId_area(areadao.get(Integer.parseInt(areaId)));
+            nurse.setFullName(fullname);
             }
         }
         
