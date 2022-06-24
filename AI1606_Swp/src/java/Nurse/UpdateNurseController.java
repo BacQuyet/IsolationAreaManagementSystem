@@ -108,6 +108,7 @@ public class UpdateNurseController extends HttpServlet {
             Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", noti);
         }
+            request.setAttribute("nurse", dao.get(nurseId));
             }
         }
         
