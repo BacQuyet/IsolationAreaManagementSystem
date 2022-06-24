@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -102,6 +103,11 @@ public class UpdateNurseController extends HttpServlet {
             nurse.setAddress(address);
             nurse.setId_area(areadao.get(Integer.parseInt(areaId)));
             nurse.setFullName(fullname);
+            
+            if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
+            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", noti);
+        }
             }
         }
         
