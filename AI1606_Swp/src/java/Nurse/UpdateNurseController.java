@@ -107,6 +107,8 @@ public class UpdateNurseController extends HttpServlet {
             dao.updateNurse(nurse);
             Notification noti = new Notification("Success", "Cập nhật y tá cách ly thành công.", "success");
             request.setAttribute("notify", noti);
+            RequestDispatcher update = request.getRequestDispatcher("viewnurse");
+            update.forward(request, response);
             }
         }
         if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
