@@ -95,6 +95,7 @@ public class UpdateNurseController extends HttpServlet {
         if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
             if (nurseName.length() > 0 && phone.length() > 0 && accountId.length() > 0 && address.length() > 0 && areaId.length() > 0 && fullname.length() > 0) {
             Nurse nurse = new Nurse();
+            nurse.setId_nurse(nurseId);
             }
         }
         
