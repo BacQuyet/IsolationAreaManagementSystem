@@ -104,7 +104,7 @@ public class UpdateNurseController extends HttpServlet {
             nurse.setId_area(areadao.get(Integer.parseInt(areaId)));
             nurse.setFullName(fullname);
             
-            
+            dao.updateNurse(nurse);
             }
         }
         if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {

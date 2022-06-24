@@ -143,7 +143,24 @@ public class NurseDAO implements DAO<Nurse> {
     public void update(Nurse t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    public void updateNurse(Nurse n) {
+        String sql = "UPDATE nurse SET "
+                + "name_nurse = ?, phone = ?, id_account = ?, address = ?, id_area = ?, fullname = ? "
+                + "WHERE id_nurse = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, n.getName_nurse());
+            pre.setInt(2, n.getPhone());
+            pre.setInt(3, n.getId_account().getAccountId());
+            pre.setString(4, n.getAddress());
+            pre.setInt(5, n.getId_area().getAreaId());
+            pre.setString(6, n.getFullName());
+            pre.setInt(7, n.getId_nurse());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
     @Override
     public List<Nurse> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
