@@ -48,29 +48,7 @@ public class PatientDAO implements DAO<Patient> {
 
     @Override
     public List<Patient> parse(String sql) {
-        try {
-            Statement sttm = conn.createStatement();
-            ResultSet rs = sttm.executeQuery(sql);
-            ArrayList<Patient> qq = new ArrayList<>();
-            while (rs.next()) {
-                Patient p = new Patient();
-                p.setPatientId(rs.getInt("patient_id"));
-                p.setPatientName(rs.getString("full_name"));
-                p.setAge(rs.getInt("age"));
-                p.setGender(rs.getString("gender"));
-                p.setAddress(rs.getString("address"));
-                p.setPassport(rs.getString("partpost"));
-                p.setPhoneNumber(rs.getInt("phone"));
-                p.setRegion(rs.getString("region"));
-                p.setSuspicionLevel(rs.getString("suspicion_level"));
-                p.setTimeIn(rs.getTimestamp("time_in"));
-                p.setTimeOut(rs.getTimestamp("time_out"));
-                qq.add(p);
-            }
-            return qq;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        
         return null;
     }
 
@@ -97,7 +75,6 @@ public class PatientDAO implements DAO<Patient> {
     public Patient getPatientByAccountId(int id) {
         String sql = "SELECT * from patient where account_id = " + id;
         List<Patient> qq = new ArrayList<>();
-        qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
 
