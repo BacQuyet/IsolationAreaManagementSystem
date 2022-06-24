@@ -105,6 +105,8 @@ public class UpdateNurseController extends HttpServlet {
             nurse.setFullName(fullname);
             
             dao.updateNurse(nurse);
+            Notification noti = new Notification("Success", "Cập nhật y tá cách ly thành công.", "success");
+            request.setAttribute("notify", noti);
             }
         }
         if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
