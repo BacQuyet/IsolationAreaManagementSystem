@@ -104,14 +104,14 @@ public class UpdateNurseController extends HttpServlet {
             nurse.setId_area(areadao.get(Integer.parseInt(areaId)));
             nurse.setFullName(fullname);
             
-            if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
+            
+            }
+        }
+        if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
             Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", noti);
         }
-            request.setAttribute("nurse", dao.get(nurseId));
-            }
-        }
-        
+        request.setAttribute("nurse", dao.get(nurseId));
         RequestDispatcher update = request.getRequestDispatcher("/Nurse/update-nurse.jsp");
         update.forward(request, response);
     }
