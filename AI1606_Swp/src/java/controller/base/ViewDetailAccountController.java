@@ -12,6 +12,7 @@ import dao.PatientDAO;
 import entity.Account;
 import entity.Doctor;
 import entity.Nurse;
+import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -73,6 +74,7 @@ public class ViewDetailAccountController extends HttpServlet {
         Account account = (Account) ss.getAttribute("userLogin");
         Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
         Nurse n = daoN.getNurseByAccountId(account.getAccountId());
+        Patient p = daoP.getPatientByAccountId(account.getAccountId());
         Account userLogin = dao.get(account.getAccountId());
         ss.setAttribute("d", d);
         ss.setAttribute("nurse", n);
