@@ -27,7 +27,7 @@
 
             <div class="form-group">
                 <label for="accountId" class="form-label">Tên Account:</label>
-                <input id="accountId" class="form-control" name="accountId" type="text"  value="" style="display: none">
+                <input id="accountId" class="form-control" name="accountId" type="text"  value="${nurse.getId_account().getAccountId()}" style="display: none">
                 <input id="accountName" class="form-control" name="accountName" type="text" readonly  value="">
                 <span class="form-message"></span>
             </div>
