@@ -14,7 +14,7 @@
             <input id="nurseId" class="form-control" name="nurseId" type="text" value="${nurse.getId_nurse()}" style="display: none">
             <div class="form-group form-group__special">
                 <label for="nurseName" class="form-label">Tên Y Tá:</label>
-                <input id="nurseName" class="form-control" name="nurseName" type="text" required value ="">
+                <input id="nurseName" class="form-control" name="nurseName" type="text" required value ="${nurse.getName_nurse()}">
                 <span class="form-message"></span>
             </div>
 
