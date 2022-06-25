@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label for="phone" class="form-label">Số Điện Thoại:</label>
-                <input id="phone" class="form-control" name="phone" type="text" title="Vui lòng nhập đúng số điện thoại" value="">
+                <input id="phone" class="form-control" name="phone" type="text" title="Vui lòng nhập đúng số điện thoại" value="${nurse.getPhone()}">
                 <span class="form-message"></span>
             </div>
 
