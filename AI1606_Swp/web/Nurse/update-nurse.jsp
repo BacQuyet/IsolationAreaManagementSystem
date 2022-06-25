@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="address" class="form-label">Địa chỉ:</label>
-                <input id="address" class="form-control" name="address" type="text" value = "">
+                <input id="address" class="form-control" name="address" type="text" value = "${nurse.getAddress()}">
                 <span class="form-message"></span>
             </div>
                 
