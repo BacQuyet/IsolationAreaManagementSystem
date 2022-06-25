@@ -14,7 +14,7 @@
             <input id="nurseId" class="form-control" name="nurseId" type="text" value="${nurse.getId_nurse()}" style="display: none">
             <div class="form-group form-group__special">
                 <label for="nurseName" class="form-label">Tên Y Tá:</label>
-                <input id="nurseName" class="form-control" name="nurseName" type="text" required value ="${nurse.getName_nurse()}">
+                <input id="nurseName" class="form-control" name="nurseName" type="text" required value="${nurse.getName_nurse()}">
                 <span class="form-message"></span>
             </div>
 
@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="address" class="form-label">Địa chỉ:</label>
-                <input id="address" class="form-control" name="address" type="text" value = "${nurse.getAddress()}">
+                <input id="address" class="form-control" name="address" type="text" value="${nurse.getAddress()}">
                 <span class="form-message"></span>
             </div>
                 
@@ -47,7 +47,7 @@
                 
             <div class="form-group">
                 <label for="fullname" class="form-label">Họ tên đầy đủ:</label>
-                <input id="fullname" class="form-control" name="fullname" type="text" value = "">
+                <input id="fullname" class="form-control" name="fullname" type="text" value="${nurse.getFullName()}">
                 <span class="form-message"></span>
             </div>
 
