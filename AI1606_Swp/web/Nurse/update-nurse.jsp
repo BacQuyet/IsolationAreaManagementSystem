@@ -6,8 +6,6 @@
         <span class="content-label__info"><i class="fas fa-home"></i> Hệ thống > Cập nhật thông tin y tá</span>
         <div class="spacer2"></div>
     </div>
-
-
     <div class="form-container">
         <form action="updatenurse" method="POST" id="form-dn" class="form">
             
@@ -17,7 +15,6 @@
                 <input id="nurseName" class="form-control" name="nurseName" type="text" required value="${nurse.getName_nurse()}">
                 <span class="form-message"></span>
             </div>
-
 
             <div class="form-group">
                 <label for="phone" class="form-label">Số Điện Thoại:</label>
@@ -43,14 +40,12 @@
                 <input id="areaId" class="form-control" name="areaId" type="text"  value="${nurse.getId_area().getAreaId()}" style="display: none">
                 <input id="areaName" class="form-control" name="areaName" type="text" readonly  value="${nurse.getId_area().getAreaName()}">
                 <span class="form-message"></span>
-            </div>
-                
+            </div>              
             <div class="form-group">
                 <label for="fullname" class="form-label">Họ tên đầy đủ:</label>
                 <input id="fullname" class="form-control" name="fullname" type="text" value="${nurse.getFullName()}">
                 <span class="form-message"></span>
             </div>
-
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
         </form>
     </div>
