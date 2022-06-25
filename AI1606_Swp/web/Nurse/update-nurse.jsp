@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label for="areaId" class="form-label">Tên Khu vực:</label>
                 <input id="areaId" class="form-control" name="areaId" type="text"  value="${nurse.getId_area().getAreaId()}" style="display: none">
-                <input id="areaName" class="form-control" name="areaName" type="text" readonly  value="">
+                <input id="areaName" class="form-control" name="areaName" type="text" readonly  value="${nurse.getId_area().getAreaName()}">
                 <span class="form-message"></span>
             </div>
                 
