@@ -7,6 +7,7 @@ package Area;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -80,6 +81,8 @@ public class AddAreaController extends HttpServlet {
         if(areaName == null || address == null){
             Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", noti);
+            RequestDispatcher add = request.getRequestDispatcher("/Area/addarea");
+            add.forward(request, response);
         }
     }
 
