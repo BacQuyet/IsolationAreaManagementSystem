@@ -68,6 +68,7 @@ public class AreaDAO implements DAO<Area> {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, t.getAreaName());
             pre.setString(2, t.getAreaAddress());
+            pre.setString(3, t.getContact());
             pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
