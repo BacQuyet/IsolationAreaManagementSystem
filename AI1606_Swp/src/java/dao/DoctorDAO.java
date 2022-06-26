@@ -193,7 +193,9 @@ public class DoctorDAO implements DAO<Doctor> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
-
+    public void updateAccountDoctor(Doctor d) {
+        
+    }
     public Doctor getByIdAccount(int idAccount) {
         try {
             String sql = "select * from dbo.doctor where id_account = ?";
