@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
@@ -98,6 +99,8 @@ public class UpdateAccountDoctorController extends HttpServlet {
         d.setAddress(address);
         d.setIdAccount(id);
         daoD.updateAccountDoctor(d);
+        Notification noti = new Notification("Success", "Cập nhật bác sĩ thành công.", "success");
+        request.setAttribute("notify", noti);
     }
 
     /**
