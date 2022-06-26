@@ -201,7 +201,9 @@ public class DoctorDAO implements DAO<Doctor> {
                 + " WHERE [id_account] = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, d.getFullName());
 
+            pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
