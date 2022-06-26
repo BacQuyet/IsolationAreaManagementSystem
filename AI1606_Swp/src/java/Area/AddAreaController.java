@@ -74,6 +74,7 @@ public class AddAreaController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String areaName = request.getParameter("areaName");
         String address = request.getParameter("address");
+        String contact = request.getParameter("contact");
     }
 
     /**
