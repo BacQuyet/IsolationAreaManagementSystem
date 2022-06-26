@@ -199,7 +199,12 @@ public class DoctorDAO implements DAO<Doctor> {
                 + "      ,[phone] = ?\n"
                 + "      ,[address] = ?\n"
                 + " WHERE [id_account] = ?";
-        
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
     public Doctor getByIdAccount(int idAccount) {
         try {
