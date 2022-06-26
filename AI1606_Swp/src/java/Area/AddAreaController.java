@@ -93,6 +93,8 @@ public class AddAreaController extends HttpServlet {
         a.setAreaAddress(address);
         a.setContact(contact);
         ar.create(a);
+        Notification noti = new Notification("Success", "Thêm khu vực cách ly thành công.", "success");
+        request.setAttribute("notify", noti);
     }
 
     /**
