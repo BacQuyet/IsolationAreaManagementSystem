@@ -75,6 +75,10 @@
                 <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
             </div>
         </form>
-
+        <!--int[] arr = (int[]) request.getAttribute("new");
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+                                String[] dates = (String[]) request.getAttribute("dates");
+                                int newToday = arr[5];
+                                Integer newWeek = (Integer) request.getAttribute("newWeek");-->
     </div>
 </div>
