@@ -60,7 +60,8 @@ public class AreaDAO implements DAO<Area> {
 
     @Override
     public void create(Area t) {
-        
+        String sql = "INSERT INTO area"
+                + " ([area_name],[area_address],[contact]) VALUES (?,?,?)";
     }
 
     @Override
