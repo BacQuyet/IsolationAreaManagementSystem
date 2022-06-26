@@ -68,6 +68,8 @@ public class AccountDAO implements DAO<Account> {
                 + " WHERE account_id =?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, d.getEmail());
+            pre.setInt(2, d.getAccountId());
         } catch (SQLException ex) {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
