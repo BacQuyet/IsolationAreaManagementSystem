@@ -6,6 +6,7 @@
 package Doctor;
 
 import dao.AccountDAO;
+import dao.DoctorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -36,7 +37,7 @@ public class UpdateAccountDoctorController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateAccountDoctorController</title>");            
+            out.println("<title>Servlet UpdateAccountDoctorController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UpdateAccountDoctorController at " + request.getContextPath() + "</h1>");
@@ -75,7 +76,8 @@ public class UpdateAccountDoctorController extends HttpServlet {
         //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-                AccountDAO dao = new AccountDAO();
+        AccountDAO dao = new AccountDAO();
+        DoctorDAO daoD = new DoctorDAO();
         int id = Integer.parseInt(request.getParameter("account_id"));
     }
 
