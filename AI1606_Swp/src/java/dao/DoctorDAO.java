@@ -194,6 +194,11 @@ public class DoctorDAO implements DAO<Doctor> {
         return (qq.isEmpty() ? null : qq.get(0));
     }
     public void updateAccountDoctor(Doctor d) {
+        String sql = "UPDATE [dbo].[doctor]\n"
+                + "   SET [fullname] = ?\n"
+                + "      ,[phone] = ?\n"
+                + "      ,[address] = ?\n"
+                + " WHERE [id_account] = ?";
         
     }
     public Doctor getByIdAccount(int idAccount) {
