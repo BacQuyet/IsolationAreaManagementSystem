@@ -15,6 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class AreaDAO implements DAO<Area> {
@@ -62,6 +64,12 @@ public class AreaDAO implements DAO<Area> {
     public void create(Area t) {
         String sql = "INSERT INTO area"
                 + " ([area_name],[area_address],[contact]) VALUES (?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
 
     @Override
