@@ -7,6 +7,7 @@ package Doctor;
 
 import dao.AccountDAO;
 import dao.DoctorDAO;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -80,6 +81,7 @@ public class UpdateAccountDoctorController extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         DoctorDAO daoD = new DoctorDAO();
         HttpSession ss = request.getSession();
+        Account account = (Account) ss.getAttribute("userLogin");
         int id = Integer.parseInt(request.getParameter("account_id"));
     }
 
