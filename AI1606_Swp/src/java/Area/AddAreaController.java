@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -77,7 +78,8 @@ public class AddAreaController extends HttpServlet {
         String contact = request.getParameter("contact");
         
         if(areaName == null || address == null){
-            
+            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", noti);
         }
     }
 
