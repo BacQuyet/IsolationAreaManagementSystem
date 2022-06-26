@@ -101,6 +101,8 @@ public class UpdateAccountDoctorController extends HttpServlet {
         daoD.updateAccountDoctor(d);
         Notification noti = new Notification("Success", "Cập nhật bác sĩ thành công.", "success");
         request.setAttribute("notify", noti);
+        Account userLogin = dao.get(account.getAccountId());
+        
     }
 
     /**
