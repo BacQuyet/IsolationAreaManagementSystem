@@ -83,6 +83,10 @@ public class UpdateAccountDoctorController extends HttpServlet {
         HttpSession ss = request.getSession();
         Account account = (Account) ss.getAttribute("userLogin");
         int id = Integer.parseInt(request.getParameter("account_id"));
+        String phone = request.getParameter("phone");
+        String full_name = request.getParameter("full_name");
+        String address = request.getParameter("address");
+        String email = request.getParameter("email");
     }
 
     /**
