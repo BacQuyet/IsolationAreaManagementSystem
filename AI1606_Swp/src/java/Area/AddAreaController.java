@@ -89,6 +89,7 @@ public class AddAreaController extends HttpServlet {
         
         AreaDAO ar = new AreaDAO();
         Area a = new Area();
+        a.setAreaName(areaName);
     }
 
     /**
