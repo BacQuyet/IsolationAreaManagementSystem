@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.Notification;
 
-/**
- *
- * @author ADMIN
- */
+
 public class UpdateReportController extends HttpServlet {
 
     /**
