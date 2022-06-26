@@ -62,7 +62,9 @@ public class AccountDAO implements DAO<Account> {
         }
         return null;
     }
-
+    public void updateAccount(Account d) {
+        
+    }
     @Override
     public Account get(int id) {
         String sql = "Select * from account where account_id = " + id;

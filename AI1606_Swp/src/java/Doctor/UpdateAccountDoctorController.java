@@ -90,6 +90,7 @@ public class UpdateAccountDoctorController extends HttpServlet {
         Account a = new Account();
         a.setAccountId(id);
         a.setEmail(email);
+        
     }
 
     /**
