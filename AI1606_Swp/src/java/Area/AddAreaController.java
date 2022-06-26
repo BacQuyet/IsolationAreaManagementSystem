@@ -6,6 +6,7 @@
 package Area;
 
 import dao.AreaDAO;
+import entity.Area;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -87,6 +88,7 @@ public class AddAreaController extends HttpServlet {
         }
         
         AreaDAO ar = new AreaDAO();
+        Area a = new Area();
     }
 
     /**
