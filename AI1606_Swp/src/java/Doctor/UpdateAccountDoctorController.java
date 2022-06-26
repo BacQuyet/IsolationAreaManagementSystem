@@ -87,6 +87,9 @@ public class UpdateAccountDoctorController extends HttpServlet {
         String full_name = request.getParameter("full_name");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
+        Account a = new Account();
+        a.setAccountId(id);
+        a.setEmail(email);
     }
 
     /**
