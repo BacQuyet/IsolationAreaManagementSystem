@@ -72,6 +72,7 @@ public class AddAreaController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        String areaName = request.getParameter("areaName");
     }
 
     /**
