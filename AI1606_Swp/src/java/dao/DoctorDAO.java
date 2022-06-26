@@ -193,7 +193,23 @@ public class DoctorDAO implements DAO<Doctor> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
-
+    public void updateAccountDoctor(Doctor d) {
+        String sql = "UPDATE [dbo].[doctor]\n"
+                + "   SET [fullname] = ?\n"
+                + "      ,[phone] = ?\n"
+                + "      ,[address] = ?\n"
+                + " WHERE [id_account] = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, d.getFullName());
+            pre.setInt(2, d.getPhone());
+            pre.setString(3, d.getAddress());
+            pre.setInt(4, d.getIdAccount());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
     public Doctor getByIdAccount(int idAccount) {
         try {
             String sql = "select * from dbo.doctor where id_account = ?";

@@ -62,7 +62,19 @@ public class AccountDAO implements DAO<Account> {
         }
         return null;
     }
-
+    public void updateAccount(Account d) {
+        String sql = "UPDATE [dbo].[account]\n"
+                + "   SET [email] = ?\n"
+                + " WHERE account_id =?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, d.getEmail());
+            pre.setInt(2, d.getAccountId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
     @Override
     public Account get(int id) {
         String sql = "Select * from account where account_id = " + id;
