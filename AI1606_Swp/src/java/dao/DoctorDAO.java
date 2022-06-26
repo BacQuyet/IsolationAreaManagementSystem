@@ -205,6 +205,7 @@ public class DoctorDAO implements DAO<Doctor> {
             pre.setInt(2, d.getPhone());
             pre.setString(3, d.getAddress());
             pre.setInt(4, d.getIdAccount());
+            pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
