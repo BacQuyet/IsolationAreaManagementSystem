@@ -64,6 +64,7 @@ public class ViewAreaController extends HttpServlet {
         int recordPerPage = 5;
         
         RequestDispatcher view = request.getRequestDispatcher("/Area/viewlistarea.jsp");
+        view.forward(request, response);
     }
 
     /**
