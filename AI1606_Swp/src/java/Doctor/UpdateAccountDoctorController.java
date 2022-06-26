@@ -11,6 +11,7 @@ import entity.Account;
 import entity.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -104,6 +105,8 @@ public class UpdateAccountDoctorController extends HttpServlet {
         Account userLogin = dao.get(account.getAccountId());
         ss.setAttribute("d", daoD.getDoctorByAccountId(account.getAccountId()));
         ss.setAttribute("userLogin", userLogin);
+        RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
+            r1.forward(request, response);
     }
 
     /**
