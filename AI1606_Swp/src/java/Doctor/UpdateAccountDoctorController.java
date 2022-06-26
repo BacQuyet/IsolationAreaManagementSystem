@@ -5,6 +5,7 @@
  */
 package Doctor;
 
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -74,6 +75,7 @@ public class UpdateAccountDoctorController extends HttpServlet {
         //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+                AccountDAO dao = new AccountDAO();
         int id = Integer.parseInt(request.getParameter("account_id"));
     }
 
