@@ -63,7 +63,9 @@ public class AccountDAO implements DAO<Account> {
         return null;
     }
     public void updateAccount(Account d) {
-        
+        String sql = "UPDATE [dbo].[account]\n"
+                + "   SET [email] = ?\n"
+                + " WHERE account_id =?";
     }
     @Override
     public Account get(int id) {
