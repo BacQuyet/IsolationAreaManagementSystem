@@ -71,7 +71,10 @@ public class UpdateAccountDoctorController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(request.getParameter("account_id"));
     }
 
     /**
