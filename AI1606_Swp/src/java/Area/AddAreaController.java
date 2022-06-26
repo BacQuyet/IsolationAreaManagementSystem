@@ -5,6 +5,7 @@
  */
 package Area;
 
+import dao.AreaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -84,6 +85,8 @@ public class AddAreaController extends HttpServlet {
             RequestDispatcher add = request.getRequestDispatcher("/Area/addarea");
             add.forward(request, response);
         }
+        
+        AreaDAO ar = new AreaDAO();
     }
 
     /**
