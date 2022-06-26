@@ -91,6 +91,7 @@ public class AddAreaController extends HttpServlet {
         Area a = new Area();
         a.setAreaName(areaName);
         a.setAreaAddress(address);
+        a.setContact(contact);
     }
 
     /**
