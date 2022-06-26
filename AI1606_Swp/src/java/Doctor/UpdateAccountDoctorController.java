@@ -8,6 +8,7 @@ package Doctor;
 import dao.AccountDAO;
 import dao.DoctorDAO;
 import entity.Account;
+import entity.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -91,6 +92,11 @@ public class UpdateAccountDoctorController extends HttpServlet {
         a.setAccountId(id);
         a.setEmail(email);
         dao.updateAccount(a);
+        Doctor d = new Doctor();
+        d.setFullName(full_name);
+        d.setPhone(Integer.parseInt(phone));
+        d.setAddress(address);
+        d.setIdAccount(id);
     }
 
     /**
