@@ -97,6 +97,7 @@ public class UpdateAccountDoctorController extends HttpServlet {
         d.setPhone(Integer.parseInt(phone));
         d.setAddress(address);
         d.setIdAccount(id);
+        daoD.updateAccountDoctor(d);
     }
 
     /**
