@@ -75,6 +75,10 @@ public class AddAreaController extends HttpServlet {
         String areaName = request.getParameter("areaName");
         String address = request.getParameter("address");
         String contact = request.getParameter("contact");
+        
+        if(areaName == null || address == null){
+            
+        }
     }
 
     /**
