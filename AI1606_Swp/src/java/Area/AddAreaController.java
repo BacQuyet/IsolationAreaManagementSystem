@@ -95,6 +95,7 @@ public class AddAreaController extends HttpServlet {
         ar.create(a);
         Notification noti = new Notification("Success", "Thêm khu vực cách ly thành công.", "success");
         request.setAttribute("notify", noti);
+        response.sendRedirect("viewarea");
     }
 
     /**
