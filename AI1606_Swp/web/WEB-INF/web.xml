@@ -264,6 +264,10 @@
         <servlet-name>AddAreaController</servlet-name>
         <servlet-class>Area.AddAreaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewAreaController</servlet-name>
+        <servlet-class>Area.ViewAreaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -515,6 +519,10 @@
     <servlet-mapping>
         <servlet-name>AddAreaController</servlet-name>
         <url-pattern>/addarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAreaController</servlet-name>
+        <url-pattern>/viewarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
