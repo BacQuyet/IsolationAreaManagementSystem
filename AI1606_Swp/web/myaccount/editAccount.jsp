@@ -27,7 +27,7 @@
             %>          
             <%                    if (account.getType().getAccountTypeId() == 2) { // Nurse login
             %>
-            <form action="" method="POST" id="form-user" class="form-user">
+            <form action="EditAccount" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
                     <label for="account_id" class="form-label">Mã</label>
                     <input id="account_id" class="form-control" name="account_id" type="text" readonly value="">
