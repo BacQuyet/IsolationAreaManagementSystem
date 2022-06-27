@@ -85,6 +85,7 @@ public class EditAccountAdminController extends HttpServlet {
         Account a = new Account();
         a.setAccountId(id);
         a.setEmail(email);
+        dao.updateAccount(a);
     }
 
     /**
