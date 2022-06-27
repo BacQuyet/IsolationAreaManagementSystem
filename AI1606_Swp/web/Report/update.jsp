@@ -11,7 +11,7 @@
         <h3>Báo cáo sức khỏe chi tiết</h3>
         <br><br>
         <h4>Vui lòng cập nhật lại toàn bộ các triệu chứng trong 24 giờ qua:</h4>
-        <form action="update" method="POST" id="form-dn" class="form">
+        <form action="updateReport" method="POST" id="form-dn" class="form">
             <input id="reportId" class="form-control" name="reportId" type="text" value="" style="display: none">
             <div class="input-group mb-3">
                 <div class="form-check" style="margin: 50px 20px">
