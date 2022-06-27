@@ -94,7 +94,7 @@ public class ViewReportController extends HttpServlet {
             RequestDispatcher view = request.getRequestDispatcher("personalList.jsp");
             view.forward(request, response);
         } else {
-            // List for Doctor
+            // List  Doctors
             request.setAttribute("fname", fname);
             request.setAttribute("ffrom", ffrom);
             request.setAttribute("fto", fto);
@@ -116,6 +116,7 @@ public class ViewReportController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
+        //
     }
 
     /**

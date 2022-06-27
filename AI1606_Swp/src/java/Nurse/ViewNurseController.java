@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Thanh Duy
- */
+
 public class ViewNurseController extends HttpServlet {
 
     /**
@@ -34,7 +31,7 @@ public class ViewNurseController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+          //
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");

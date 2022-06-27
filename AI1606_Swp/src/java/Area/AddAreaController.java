@@ -3,16 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.base;
+package Area;
 
-import dao.AccountDAO;
-import dao.DoctorDAO;
-import dao.NurseDAO;
-import dao.PatientDAO;
-import entity.Account;
-import entity.Doctor;
-import entity.Nurse;
-import entity.Patient;
+import dao.AreaDAO;
+import entity.Area;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,13 +14,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
- * @author Administrator
+ * @author Thanh Duy
  */
-public class ViewDetailAccountController extends HttpServlet {
+public class AddAreaController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +39,10 @@ public class ViewDetailAccountController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewDetailAccountController</title>");            
+            out.println("<title>Servlet AddAreaController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewDetailAccountController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddAreaController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,22 +60,7 @@ public class ViewDetailAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountDAO dao = new AccountDAO();
-        HttpSession ss = request.getSession();
-        DoctorDAO daoD = new DoctorDAO();
-        NurseDAO daoN = new NurseDAO();
-        PatientDAO daoP = new PatientDAO();
-        Account account = (Account) ss.getAttribute("userLogin");
-        Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
-        Nurse n = daoN.getNurseByAccountId(account.getAccountId());
-        Patient p = daoP.getPatientByAccountId(account.getAccountId());
-        Account userLogin = dao.get(account.getAccountId());
-        ss.setAttribute("d", d);
-        ss.setAttribute("nurse", n);
-        ss.setAttribute("patient", p);
-        ss.setAttribute("userLogin", userLogin);
-        RequestDispatcher view = request.getRequestDispatcher("/myaccount/accountDetail.jsp");
-         view.forward(request, response);
+        request.getRequestDispatcher("/Area/add-area.jsp").forward(request, response);
     }
 
     /**
@@ -95,7 +74,28 @@ public class ViewDetailAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String areaName = request.getParameter("areaName");
+        String address = request.getParameter("address");
+        String contact = request.getParameter("contact");
+        
+        if(areaName == null || address == null){
+            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", noti);
+            RequestDispatcher add = request.getRequestDispatcher("/Area/addarea");
+            add.forward(request, response);
+        }
+        
+        AreaDAO ar = new AreaDAO();
+        Area a = new Area();
+        a.setAreaName(areaName);
+        a.setAreaAddress(address);
+        a.setContact(contact);
+        ar.create(a);
+        Notification noti = new Notification("Success", "Thêm khu vực cách ly thành công.", "success");
+        request.setAttribute("notify", noti);
+        response.sendRedirect("viewarea");
     }
 
     /**

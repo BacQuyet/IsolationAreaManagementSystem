@@ -3,16 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.base;
+package Report;
 
-import dao.AccountDAO;
-import dao.DoctorDAO;
-import dao.NurseDAO;
-import dao.PatientDAO;
-import entity.Account;
-import entity.Doctor;
-import entity.Nurse;
-import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -24,9 +16,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Administrator
+ * @author ADMIN
  */
-public class ViewDetailAccountController extends HttpServlet {
+public class FilterReportController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,16 +37,16 @@ public class ViewDetailAccountController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewDetailAccountController</title>");            
+            out.println("<title>Servlet FilterReportController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewDetailAccountController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet FilterReportController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -66,22 +58,18 @@ public class ViewDetailAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountDAO dao = new AccountDAO();
-        HttpSession ss = request.getSession();
-        DoctorDAO daoD = new DoctorDAO();
-        NurseDAO daoN = new NurseDAO();
-        PatientDAO daoP = new PatientDAO();
-        Account account = (Account) ss.getAttribute("userLogin");
-        Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
-        Nurse n = daoN.getNurseByAccountId(account.getAccountId());
-        Patient p = daoP.getPatientByAccountId(account.getAccountId());
-        Account userLogin = dao.get(account.getAccountId());
-        ss.setAttribute("d", d);
-        ss.setAttribute("nurse", n);
-        ss.setAttribute("patient", p);
-        ss.setAttribute("userLogin", userLogin);
-        RequestDispatcher view = request.getRequestDispatcher("/myaccount/accountDetail.jsp");
-         view.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        
+        String fname = (String) request.getParameter("fname");
+        String ffrom = (String) request.getParameter("ffrom");
+        String fto = (String) request.getParameter("fto");
+        String fsort = (String) request.getParameter("fsort");
+        
+        HttpSession session = request.getSession();
+        session.setAttribute(fname, fname);
+        RequestDispatcher view = request.getRequestDispatcher("listReport");
+        view.forward(request, response);
     }
 
     /**
@@ -95,7 +83,7 @@ public class ViewDetailAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     /**

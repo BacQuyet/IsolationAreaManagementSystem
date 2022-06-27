@@ -157,10 +157,6 @@
         <servlet-class>Nurse.DeleteNurseController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewDetailNurseController</servlet-name>
-        <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddDoctorController</servlet-name>
         <servlet-class>Doctor.AddDoctorController</servlet-class>
     </servlet>
@@ -247,6 +243,30 @@
     <servlet>
         <servlet-name>ViewDetailAccountController</servlet-name>
         <servlet-class>controller.base.ViewDetailAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateReportController</servlet-name>
+        <servlet-class>Report.UpdateReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FilterReportController</servlet-name>
+        <servlet-class>Report.FilterReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailNurseController</servlet-name>
+        <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAccountDoctorController</servlet-name>
+        <servlet-class>Doctor.UpdateAccountDoctorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAreaController</servlet-name>
+        <servlet-class>Area.AddAreaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewAreaController</servlet-name>
+        <servlet-class>Area.ViewAreaController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -433,10 +453,6 @@
         <url-pattern>/Nurse/deletenurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ViewDetailNurseController</servlet-name>
-        <url-pattern>/Nurse/viewdetailnurse</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ViewReportController</servlet-name>
         <url-pattern>/Report/listReport</url-pattern>
     </servlet-mapping>
@@ -483,6 +499,30 @@
     <servlet-mapping>
         <servlet-name>ViewDetailAccountController</servlet-name>
         <url-pattern>/myaccount/viewAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateReportController</servlet-name>
+        <url-pattern>/Report/updateReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterReportController</servlet-name>
+        <url-pattern>/Report/filterReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailNurseController</servlet-name>
+        <url-pattern>/Nurse/viewdetailnurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountDoctorController</servlet-name>
+        <url-pattern>/myaccount/EditAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAreaController</servlet-name>
+        <url-pattern>/addarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAreaController</servlet-name>
+        <url-pattern>/viewarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

@@ -63,10 +63,64 @@
                         <div class="content-middle__lylich">
                             <span class="info-label">Lý lịch cá nhân</span>
                             <ul class="info-detail">
-                                <li>Họ và tên: ${d.getFullName()}
+                                <li>Họ và tên: ${d.getFullName()}</li>
                                 <li>Số điện thoại: ${d.getPhone()}</li>
-                                <li>Địa chỉ: ${d.getAddress()}
-                                <li>Email: ${userLogin.getEmail()}
+                                <li>Địa chỉ: ${d.getAddress()}</li>
+                                <li>Email: ${userLogin.getEmail()}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+                    <%
+                        }
+                    %>
+                    <%
+                        if (account.getType().getAccountTypeId() == 3) { // Nurse login
+%>
+                <div>
+
+                    <div class="content-header__info content-header__account">
+
+                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập: ${userLogin.getUserName()}</span>
+                    </div>
+
+                    <div class="content-middle"> 
+                        <div class="content-middle__lylich">
+                            <span class="info-label">Lý lịch cá nhân</span>
+                            <ul class="info-detail">
+
+                                <li>Họ và tên: ${nurse.getName_nurse()} </li>
+                                <li>Số điện thoại: ${nurse.getPhone()}</li>
+                                <li>Địa chỉ: ${nurse.getAddress()} </li>
+                                <li>Email: ${userLogin.getEmail()} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+                    <%
+                        }
+                    %>
+                    <%
+                    if (account.getType().getAccountTypeId() == 4) { // Nurse login
+%>
+                <div>
+
+                    <div class="content-header__info content-header__account">
+
+                        <span style="color: blue;font-size: 2rem;font-weight: 500;">Tên đăng nhập: ${userLogin.getUserName()}</span>
+                    </div>
+
+                    <div class="content-middle"> 
+                        <div class="content-middle__lylich">
+                            <span class="info-label">Lý lịch cá nhân</span>
+                            <ul class="info-detail">
+
+                                <li>Họ và tên: ${patient.getPatientName()}</li>
+                                <li>Số điện thoại: ${patient.getPhoneNumber()}</li>
+                                <li>Địa chỉ: ${patient.getAddress()}</li>
+                                <li>Email: ${userLogin.getEmail()}</li>
                             </ul>
                         </div>
                     </div>

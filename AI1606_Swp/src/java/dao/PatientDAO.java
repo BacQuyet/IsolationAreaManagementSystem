@@ -238,6 +238,7 @@ public class PatientDAO implements DAO<Patient> {
         }
         return null;
     }
+
     public int getNoOfRecord(int areaId) {
         try {
             String sql = "SELECT COUNT(*) AS NoOfRecords FROM dbo.patient WHERE area_id = " + areaId;
@@ -249,6 +250,7 @@ public class PatientDAO implements DAO<Patient> {
             return 0;
         }
     }
+
     public List<Patient> getList(int offset, int noOfRecords, int areaId) {
         String sql = "SELECT * FROM dbo.patient\n"
                 + "WHERE area_id = " + areaId + "\n"
@@ -259,6 +261,7 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return qq;
     }
+
     @Override
     public void delete(Patient t) {
         try {
@@ -272,19 +275,21 @@ public class PatientDAO implements DAO<Patient> {
 
     @Override
     public List<Patient> getAll() {
-       String sql = "SELECT * from patient";
+        String sql = "SELECT * from patient";
         List<Patient> qq = new ArrayList<>();
         qq = parse(sql);
         return qq;
     }
+
     public void discharge(Patient patient) {
         Hashtable<String, String> hashTable = new Hashtable<>();
         String timeOut = Utils.getToday();
         hashTable.put("time_out", timeOut);
         update(patient, hashTable);
     }
+
     public List<Patient> SearchByKey(String key) {
-        
+
         String sql = "SELECT * from patient where full_name like '%" + key + "%'";
         List<Patient> qq = new ArrayList<>();
         qq = parse(sql);

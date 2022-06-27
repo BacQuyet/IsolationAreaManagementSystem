@@ -3,16 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.base;
+package Report;
 
-import dao.AccountDAO;
-import dao.DoctorDAO;
-import dao.NurseDAO;
-import dao.PatientDAO;
-import entity.Account;
-import entity.Doctor;
-import entity.Nurse;
-import entity.Patient;
+import dao.ReportDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,13 +13,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import utils.Notification;
 
-/**
- *
- * @author Administrator
- */
-public class ViewDetailAccountController extends HttpServlet {
+
+public class UpdateReportController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +35,10 @@ public class ViewDetailAccountController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewDetailAccountController</title>");            
+            out.println("<title>Servlet UpdateReportController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewDetailAccountController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateReportController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,22 +56,17 @@ public class ViewDetailAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountDAO dao = new AccountDAO();
-        HttpSession ss = request.getSession();
-        DoctorDAO daoD = new DoctorDAO();
-        NurseDAO daoN = new NurseDAO();
-        PatientDAO daoP = new PatientDAO();
-        Account account = (Account) ss.getAttribute("userLogin");
-        Doctor d = daoD.getDoctorByAccountId(account.getAccountId());
-        Nurse n = daoN.getNurseByAccountId(account.getAccountId());
-        Patient p = daoP.getPatientByAccountId(account.getAccountId());
-        Account userLogin = dao.get(account.getAccountId());
-        ss.setAttribute("d", d);
-        ss.setAttribute("nurse", n);
-        ss.setAttribute("patient", p);
-        ss.setAttribute("userLogin", userLogin);
-        RequestDispatcher view = request.getRequestDispatcher("/myaccount/accountDetail.jsp");
-         view.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        ReportDAO dao = new ReportDAO();
+        if (request.getParameter("reportId") == null) {
+            RequestDispatcher update = request.getRequestDispatcher("listReport");
+            update.forward(request, response);
+        }
+        int reportId = Integer.parseInt(request.getParameter("reportId"));
+        request.setAttribute("report", dao.get(reportId));
+        RequestDispatcher update = request.getRequestDispatcher("update.jsp");
+        update.forward(request, response);
     }
 
     /**
@@ -95,7 +80,39 @@ public class ViewDetailAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        ReportDAO dao = new ReportDAO();
+        if (request.getParameter("reportId") == null) {
+            RequestDispatcher update = request.getRequestDispatcher("listReport");
+            update.forward(request, response);
+        }
+        int reportId = Integer.parseInt(request.getParameter("reportId"));
+        // get content
+        String content = "";
+        for (int i = 1; i < 10; i++) {
+            String x = request.getParameter("s" + i);
+            if (x != null) {
+                content += x + "; ";
+            }
+        }
+        String x = request.getParameter("cother");
+        if (x != null) {
+            if (request.getParameter("other") != null) {
+                content += request.getParameter("other") + "; ";
+            }
+        }
+        if ("".equals(content.trim())) {
+            content = "Không có triệu trứng bệnh; ";
+        }
+        content += request.getParameter("test");
+        // update
+        if (dao.updateReport(reportId, content) > 0) {
+            Notification noti = new Notification("Success", "Cập nhật report thành công.", "success");
+            request.setAttribute("notify", noti);
+        }
+        RequestDispatcher update = request.getRequestDispatcher("listReport");
+        update.forward(request, response);
     }
 
     /**
