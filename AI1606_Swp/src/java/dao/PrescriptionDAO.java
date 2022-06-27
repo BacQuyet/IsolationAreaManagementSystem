@@ -143,6 +143,17 @@ public class PrescriptionDAO implements DAO<Presciption>{
         }
     }
     
+    public void deletePres(Integer id){
+        String sql = "DELETE FROM [dbo].[prescription] WHERE id_prescription = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            pre.executeUpdate();
+        } catch (SQLException e) {
+            Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, e);
+        }
+    }
+    
     public List getIndex(int index1, int index2, int id) {
         String sql = "SELECT * FROM (\n"
                 + "    SELECT *, ROW_NUMBER() OVER (ORDER BY id_prescription) AS RowNum\n"

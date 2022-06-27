@@ -52,7 +52,10 @@
                         <td>${prescription.getDoctor().getDoctorName()}</td>
                         <td>${prescription.getMedicine().getName()}</td>
                         <td>${prescription.getQuantity()}</td>
-                        <td><a href="/Patient_Test/Prescription/edit?id=${prescription.getPresciptionId()}">Edit</a></td>
+                        <td>
+                            <a href="/Patient_Test/Prescription/edit?id=${prescription.getPresciptionId()}">Edit</a>
+                            <a href="/Patient_Test/Prescription/delete?id=${prescription.getPresciptionId()}">Delete</a>
+                        </td>
                     </tr>
                 </c:forEach>
                 
