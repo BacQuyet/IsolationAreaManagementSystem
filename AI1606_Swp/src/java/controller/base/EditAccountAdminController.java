@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
@@ -86,6 +87,9 @@ public class EditAccountAdminController extends HttpServlet {
         a.setAccountId(id);
         a.setEmail(email);
         dao.updateAccount(a);
+        Notification noti = new Notification("Success", "Cập nhật bệnh nhân thành công.", "success");
+        request.setAttribute("notify", noti);
+        Account userLogin = dao.get(account.getAccountId());
     }
 
     /**
