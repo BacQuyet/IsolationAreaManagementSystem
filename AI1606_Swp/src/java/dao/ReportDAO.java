@@ -140,7 +140,7 @@ public class ReportDAO implements DAO<Report> {
     }
 
     public int getNoOfRecord() {
-        String sql = "SELECT *from report";
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[report]";
         try {
             Statement sttm = conn.createStatement();
             ResultSet rs = sttm.executeQuery(sql);
