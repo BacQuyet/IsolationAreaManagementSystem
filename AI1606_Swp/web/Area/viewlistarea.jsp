@@ -31,3 +31,17 @@
                 <th width="20">Liên lạc</th>  
                 <th width="15%">Hành động</th>
             </tr>
+            
+            <c:forEach items="${listArea}" var="area">
+                <tr>
+                    <td>${area.getAreaId()}</td>
+                    <td>${area.getAreaName()}</td>
+                    <td>${area.getAreaAddress()}</td>
+                    <td>${area.getContact()}</td>
+                    <td class="td-action">
+                        <a href="<%=request.getContextPath()%>/Area/viewdetailroom?roomId=${room.getRoomId()}"><i class="far fa-calendar-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Area/updateroom?roomId=${room.getRoomId()}"><i class="fas fa-pen"></i></a>
+                        <a href="<%=request.getContextPath()%>/Area/deletearea?areaId=${area.getAreaId()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </c:forEach>
