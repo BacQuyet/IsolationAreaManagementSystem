@@ -27,7 +27,42 @@
             %>          
             <%                    if (account.getType().getAccountTypeId() == 2) { // Nurse login
             %>
-                       
+            <form action="" method="POST" id="form-user" class="form-user">
+                <div class="form-group">
+                    <label for="account_id" class="form-label">Mã</label>
+                    <input id="account_id" class="form-control" name="account_id" type="text" readonly value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Tên đăng nhập</label>
+                    <input id="ten_dang_nhap" class="form-control" name="username" type="text" readonly value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="full_name" class="form-label">Tên người dùng</label>
+                    <input id="full_name" class="form-control" name="full_name" type="text" value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input id="phone" class="form-control" name="phone" type="text" value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="form-label">Địa chỉ</label>
+                    <input id="address" class="form-control" name="address" type="text" value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" class="form-control" name="email" type="text" value="">
+                    <span class="form-message"></span>
+                </div>
+                <button class="form-submit" type="submit">Save</button>
+            </form>
+            <%
+                }
+            %>            
             <div><img class="menu-detail-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}/avatar-default.png"/>
                 <input name="file" type="file" accept="image/*" onchange="loadFile(event)" id="getFile" style="display:none" >
                 <button style="margin-top: 4px; display:block;width:80px; height:30px;" onclick="document.getElementById('getFile').click()">Chọn ảnh</button>
