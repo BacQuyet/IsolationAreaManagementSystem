@@ -119,7 +119,7 @@ public class PrescriptionDAO implements DAO<Presciption>{
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, p.getPresciptionName());
-            pre.setDate(2, (Date) p.getCreateDate());
+            pre.setDate(2, new Date(p.getCreateDate().getTime()));
             pre.setInt(3, p.getPatient().getPatientId());
             pre.setInt(4, p.getDoctor().getDoctor());
             pre.setInt(5, p.getMedicine().getMedicienId());

@@ -39,6 +39,7 @@
                 <th width="15%">Bác sĩ</th>
                 <th width="15%">Thuốc</th>
                 <th width="15%">Số lượng</th>
+                <th width="10%">Thao tác</th>
             </tr>
             <tbody id="myTable">
                 <tr></tr>
@@ -51,6 +52,7 @@
                         <td>${prescription.getDoctor().getDoctorName()}</td>
                         <td>${prescription.getMedicine().getName()}</td>
                         <td>${prescription.getQuantity()}</td>
+                        <td><a href="/Patient_Test/Prescription/edit?id=${prescription.getPresciptionId()}">Edit</a></td>
                     </tr>
                 </c:forEach>
                 
