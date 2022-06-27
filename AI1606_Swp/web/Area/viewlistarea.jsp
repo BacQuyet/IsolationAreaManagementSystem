@@ -21,3 +21,13 @@
     </div>
     <% }
     %>
+    
+    <div class="table-list">
+        <table class="table-list__user">
+            <tr>
+                <th width="10%">Mã khu vực</th>
+                <th width="20%">Tên khu vực</th>
+                <th width="10%">Địa chỉ khu vực</th>  
+                <th width="20">Liên lạc</th>  
+                <th width="15%">Hành động</th>
+            </tr>
