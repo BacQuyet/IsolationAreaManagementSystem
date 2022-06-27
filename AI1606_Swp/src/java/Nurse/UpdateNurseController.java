@@ -18,10 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.Notification;
 
-/**
- *
- * @author Thanh Duy
- */
+
 public class UpdateNurseController extends HttpServlet {
 
     /**
