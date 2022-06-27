@@ -9,6 +9,7 @@ import dao.AccountDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -90,6 +91,17 @@ public class EditAccountAdminController extends HttpServlet {
         Notification noti = new Notification("Success", "Cập nhật bệnh nhân thành công.", "success");
         request.setAttribute("notify", noti);
         Account userLogin = dao.get(account.getAccountId());
+        ss.setAttribute("userLogin", userLogin);
+        RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
+        r1.forward(request, response);
+//        } else {
+//            Notification noti = new Notification("Error", "Nhập sai số điện thoại", "error");
+//            request.setAttribute("notify", noti);
+//            RequestDispatcher r1 = request.getRequestDispatcher("editAccount.jsp");
+//            r1.forward(request, response);
+//        }
+
+        request.getRequestDispatcher("/myaccount/EditAccount").forward(request, response);
     }
 
     /**
