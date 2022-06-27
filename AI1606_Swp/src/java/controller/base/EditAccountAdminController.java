@@ -6,6 +6,7 @@
 package controller.base;
 
 import dao.AccountDAO;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -79,6 +80,8 @@ public class EditAccountAdminController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("account_id"));
         AccountDAO dao = new AccountDAO();
         HttpSession ss = request.getSession();
+        Account account = (Account) ss.getAttribute("userLogin");
+        String email = request.getParameter("email");
     }
 
     /**
