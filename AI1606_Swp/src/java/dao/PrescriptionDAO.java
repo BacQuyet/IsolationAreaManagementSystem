@@ -119,7 +119,7 @@ public class PrescriptionDAO implements DAO<Presciption>{
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setString(1, p.getPresciptionName());
-            pre.setDate(2, (Date) p.getCreateDate());
+            pre.setDate(2, new Date(p.getCreateDate().getTime()));
             pre.setInt(3, p.getPatient().getPatientId());
             pre.setInt(4, p.getDoctor().getDoctor());
             pre.setInt(5, p.getMedicine().getMedicienId());
@@ -140,6 +140,17 @@ public class PrescriptionDAO implements DAO<Presciption>{
             pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
+    
+    public void deletePres(Integer id){
+        String sql = "DELETE FROM [dbo].[prescription] WHERE id_prescription = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            pre.executeUpdate();
+        } catch (SQLException e) {
+            Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, e);
         }
     }
     

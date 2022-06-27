@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/X1%20Carbon%20Gen%207/OneDrive/Documents/FPTU/Semester%205/SWP391/Code/IsolationAreaManagementSystem/AI1606_Swp/src/java/Prescription/EditPrescriptionController.java</file>
+            <file>file:/C:/Users/X1%20Carbon%20Gen%207/OneDrive/Documents/FPTU/Semester%205/SWP391/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Prescription/EditPrescription.jsp</file>
+            <file>file:/C:/Users/X1%20Carbon%20Gen%207/OneDrive/Documents/FPTU/Semester%205/SWP391/Code/IsolationAreaManagementSystem/AI1606_Swp/web/assets/css/base/header.css</file>
+            <file>file:/C:/Users/X1%20Carbon%20Gen%207/OneDrive/Documents/FPTU/Semester%205/SWP391/Code/IsolationAreaManagementSystem/AI1606_Swp/web/Prescription/ListPrescription.jsp</file>
+        </group>
+>>>>>>> 4a78b78b0ea2e4f8135a65a405b296a081c466ed
     </open-files>
 </project-private>

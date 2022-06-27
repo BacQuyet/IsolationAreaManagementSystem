@@ -3,27 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Patient;
+package controller.base;
 
-import dao.PatientDAO;
+import dao.AccountDAO;
 import entity.Account;
-import entity.Nurse;
-import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
  * @author Administrator
  */
-public class ViewListPatientController extends HttpServlet {
+public class EditAccountAdminController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,16 +40,16 @@ public class ViewListPatientController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewListPatientController</title>");
+            out.println("<title>Servlet EditAccountAdminController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewListPatientController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditAccountAdminController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-   
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -63,20 +61,8 @@ public class ViewListPatientController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        int page = 1;
-        int recordsPerPage = 10;
-        PatientDAO dao = new PatientDAO();
-        List<Patient> list = dao.getListAll((page - 1) * recordsPerPage, recordsPerPage);
-        int noOfRecords = dao.getAll().size();
-        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        request.setAttribute("noOfRecords", noOfRecords);
-        request.setAttribute("list", list);
-        request.setAttribute("noOfPages", noOfPages);
-        request.setAttribute("currentPage", page);
-        RequestDispatcher view = request.getRequestDispatcher("/Patient/list.jsp");
-        view.forward(request, response);
+        request.getRequestDispatcher("/myaccount/editAccount.jsp").forward(request, response);
+
     }
 
     /**
@@ -90,7 +76,32 @@ public class ViewListPatientController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(request.getParameter("account_id"));
+        AccountDAO dao = new AccountDAO();
+        HttpSession ss = request.getSession();
+        Account account = (Account) ss.getAttribute("userLogin");
+        String email = request.getParameter("email");
+        Account a = new Account();
+        a.setAccountId(id);
+        a.setEmail(email);
+        dao.updateAccount(a);
+        Notification noti = new Notification("Success", "Cập nhật bệnh nhân thành công.", "success");
+        request.setAttribute("notify", noti);
+        Account userLogin = dao.get(account.getAccountId());
+        ss.setAttribute("userLogin", userLogin);
+        RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
+        r1.forward(request, response);
+//        } else {
+//            Notification noti = new Notification("Error", "Nhập sai số điện thoại", "error");
+//            request.setAttribute("notify", noti);
+//            RequestDispatcher r1 = request.getRequestDispatcher("editAccount.jsp");
+//            r1.forward(request, response);
+//        }
+
+        request.getRequestDispatcher("/myaccount/EditAccount").forward(request, response);
     }
 
     /**

@@ -3,27 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Patient;
+package Prescription;
 
-import dao.PatientDAO;
-import entity.Account;
-import entity.Nurse;
-import entity.Patient;
+import dao.PrescriptionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
- * @author Administrator
+ * @author X1 Carbon Gen 7
  */
-public class ViewListPatientController extends HttpServlet {
+public class DeletePrescriptionController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,24 +30,24 @@ public class ViewListPatientController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ViewListPatientController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ViewListPatientController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+//    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet DeletePrescriptionController</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet DeletePrescriptionController at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
+//    }
 
-   
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -63,20 +59,7 @@ public class ViewListPatientController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        int page = 1;
-        int recordsPerPage = 10;
-        PatientDAO dao = new PatientDAO();
-        List<Patient> list = dao.getListAll((page - 1) * recordsPerPage, recordsPerPage);
-        int noOfRecords = dao.getAll().size();
-        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        request.setAttribute("noOfRecords", noOfRecords);
-        request.setAttribute("list", list);
-        request.setAttribute("noOfPages", noOfPages);
-        request.setAttribute("currentPage", page);
-        RequestDispatcher view = request.getRequestDispatcher("/Patient/list.jsp");
-        view.forward(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -90,7 +73,13 @@ public class ViewListPatientController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        PrescriptionDAO dao = new PrescriptionDAO();
+        dao.deletePres(id);
+        Notification noti = new Notification("Success", "Xóa đơn thuốc thành công", "success");
+        request.setAttribute("notify", noti);
+        RequestDispatcher r1 = request.getRequestDispatcher("/Prescription/List");
+        r1.forward(request, response);
     }
 
     /**
