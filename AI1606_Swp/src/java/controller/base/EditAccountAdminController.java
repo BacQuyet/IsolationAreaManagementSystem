@@ -38,7 +38,7 @@ public class EditAccountAdminController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditAccountAdminController</title>");            
+            out.println("<title>Servlet EditAccountAdminController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet EditAccountAdminController at " + request.getContextPath() + "</h1>");
@@ -60,7 +60,7 @@ public class EditAccountAdminController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getRequestDispatcher("/myaccount/editAccount.jsp").forward(request, response);
-        
+
     }
 
     /**
@@ -82,6 +82,9 @@ public class EditAccountAdminController extends HttpServlet {
         HttpSession ss = request.getSession();
         Account account = (Account) ss.getAttribute("userLogin");
         String email = request.getParameter("email");
+        Account a = new Account();
+        a.setAccountId(id);
+        a.setEmail(email);
     }
 
     /**
