@@ -25,7 +25,7 @@
                 Account account = (Account) session.getAttribute("userLogin");
 
             %>
-            <%                    if (account.getType().getAccountTypeId() == 1) { // Nurse login
+            <%                    if (account.getType().getAccountTypeId() == 1) { // Admin
             %>
             <form action="editAccountAdmin" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
