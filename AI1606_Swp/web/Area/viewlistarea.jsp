@@ -1,17 +1,6 @@
-<%-- 
-    Document   : viewlistarea
-    Created on : Jun 27, 2022, 8:24:45 PM
-    Author     : Thanh Duy
---%>
+<%@page import="entity.Account"%>
+<%@page import="dao.RoomDAO"%>
+<%@page import="entity.Room"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/list.css">
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
