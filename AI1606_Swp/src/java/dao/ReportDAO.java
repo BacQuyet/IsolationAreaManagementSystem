@@ -139,8 +139,11 @@ public class ReportDAO implements DAO<Report> {
         return report;
     }
 
-    public int getNoOfRecord() {
+    public int getNoOfRecord(int id) {
         String sql = "SELECT COUNT(*) AS Num FROM [dbo].[report]";
+        if (id > 0) {
+            
+        }
         try {
             Statement sttm = conn.createStatement();
             ResultSet rs = sttm.executeQuery(sql);
