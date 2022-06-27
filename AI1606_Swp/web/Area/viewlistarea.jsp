@@ -74,3 +74,7 @@
                 <a href="<%=request.getContextPath()%>/Area/viewarea?page=${currentPage+1}"> > </a>
             </c:if>
         </div>
+            </div>
+        
+    </div>
+</div>
