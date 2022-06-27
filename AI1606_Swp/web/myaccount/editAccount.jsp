@@ -27,7 +27,24 @@
             %>
             <%                    if (account.getType().getAccountTypeId() == 1) { // Nurse login
             %>
-            
+            <form action="editAccountAdmin" method="POST" id="form-user" class="form-user">
+                <div class="form-group">
+                    <label for="account_id" class="form-label">Mã</label>
+                    <input id="account_id" class="form-control" name="account_id" type="text" readonly value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Tên đăng nhập</label>
+                    <input id="ten_dang_nhap" class="form-control" name="username" type="text" readonly value="">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" class="form-control" name="email" type="text" value="">
+                    <span class="form-message"></span>
+                </div>
+                <button class="form-submit" type="submit">Save</button>
+            </form>
             <%
                 }
             %>
