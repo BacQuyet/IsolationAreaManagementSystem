@@ -5,12 +5,14 @@
  */
 package controller.base;
 
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -75,6 +77,8 @@ public class EditAccountAdminController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("account_id"));
+        AccountDAO dao = new AccountDAO();
+        HttpSession ss = request.getSession();
     }
 
     /**
