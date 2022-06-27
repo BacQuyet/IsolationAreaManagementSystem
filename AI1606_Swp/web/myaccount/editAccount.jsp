@@ -40,17 +40,17 @@
                 </div>
                 <div class="form-group">
                     <label for="full_name" class="form-label">Tên người dùng</label>
-                    <input id="full_name" class="form-control" name="full_name" type="text" value="">
+                    <input id="full_name" class="form-control" name="full_name" type="text" value="${d.getFullName()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input id="phone" class="form-control" name="phone" type="text" value="">
+                    <input id="phone" class="form-control" name="phone" type="text" value="${d.getPhone()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="address" class="form-label">Địa chỉ</label>
-                    <input id="address" class="form-control" name="address" type="text" value="">
+                    <input id="address" class="form-control" name="address" type="text" value="${d.getAddress()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
