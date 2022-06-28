@@ -7,7 +7,7 @@
         <ul>
             <li><div><img class="menu-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${userLogin.getAvatar()}"/></div>
                 <div style="margin-left: 24px;"><h3>${userLogin.getUserName()}</h3>
-                    <a href=""><i class="fas fa-pen"></i>Sửa hồ sơ</a>
+                    <a href="<%=request.getContextPath()%>/myaccount/EditAccount?account_id=${userLogin.getAccountId()}"><i class="fas fa-pen"></i>Sửa hồ sơ</a>
                 </div>
             <li class="spacer"></li>
 
