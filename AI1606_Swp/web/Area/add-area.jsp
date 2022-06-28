@@ -6,3 +6,11 @@
         <span class="content-label__info"><i class="fas fa-home"></i> Hệ thống > Quản lý khu vực > Thêm khu vực</span>
         <div class="spacer2"></div>
     </div>
+    
+    <div class="form-container">
+        <form action="addarea" method="POST" id="form-dn" class="form">
+        </form>
+
+    </div>
+
+</div>
