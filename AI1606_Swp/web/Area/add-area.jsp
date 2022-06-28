@@ -9,6 +9,11 @@
     
     <div class="form-container">
         <form action="addarea" method="POST" id="form-dn" class="form">
+            <div class="form-group form-group__special">
+                <label for="areaName" class="form-label">Tên khu vực</label>
+                <input id="areaName" class="form-control" name="areaName" type="text" required>
+                <span class="form-message"></span>
+            </div>
         </form>
 
     </div>
