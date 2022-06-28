@@ -1,10 +1,4 @@
-<%-- 
-    Document   : add-area
-    Created on : Jun 26, 2022, 8:58:32 PM
-    Author     : Thanh Duy
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
