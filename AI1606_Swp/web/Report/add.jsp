@@ -11,7 +11,7 @@
         <h3>Báo cáo sức khỏe chi tiết</h3>
         <br><br><input class="form-control" name="reportId" type="text"  style="display: none">
         <h4>Các triệu chứng trong 24 giờ qua:</h4>
-        <form action="add" method="POST" id="form-dn" class="form">
+        <form action="addReport" method="POST" id="form-dn" class="form">
             <div class="input-group mb-3">
                 <div class="form-check" style="margin: 50px 20px">
                     <label class="form-check-label">

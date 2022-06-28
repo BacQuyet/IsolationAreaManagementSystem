@@ -276,6 +276,10 @@
         <servlet-name>DeletePrescriptionController</servlet-name>
         <servlet-class>Prescription.DeletePrescriptionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditAccountAdminController</servlet-name>
+        <servlet-class>controller.base.EditAccountAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -539,6 +543,10 @@
     <servlet-mapping>
         <servlet-name>DeletePrescriptionController</servlet-name>
         <url-pattern>/Prescription/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountAdminController</servlet-name>
+        <url-pattern>/myaccount/editAccountAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>

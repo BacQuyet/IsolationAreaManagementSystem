@@ -84,7 +84,7 @@ public class ViewReportController extends HttpServlet {
 
         ReportDAO dao = new ReportDAO();
         List<Report> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage, id);
-        int noOfRecord = dao.getNoOfRecord();
+        int noOfRecord = dao.getNoOfRecord(id);
         int noOfPage = (int) ((noOfRecord + 4) / 5);
         request.setAttribute("noOfRecords", noOfRecord);
         request.setAttribute("listReport", list);
