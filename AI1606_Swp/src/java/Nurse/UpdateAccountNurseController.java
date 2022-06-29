@@ -5,6 +5,7 @@
  */
 package Nurse;
 
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -71,7 +72,11 @@ public class UpdateAccountNurseController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(request.getParameter("account_id"));
+        AccountDAO dao = new AccountDAO();
     }
 
     /**
