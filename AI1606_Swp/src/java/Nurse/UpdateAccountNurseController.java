@@ -6,6 +6,7 @@
 package Nurse;
 
 import dao.AccountDAO;
+import dao.NurseDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -79,6 +80,7 @@ public class UpdateAccountNurseController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("account_id"));
         AccountDAO dao = new AccountDAO();
+        NurseDAO daoD = new NurseDAO();
         HttpSession ss = request.getSession();
         Account account = (Account) ss.getAttribute("userLogin");
         String phone = request.getParameter("phone");
@@ -88,6 +90,7 @@ public class UpdateAccountNurseController extends HttpServlet {
         Account a = new Account();
         a.setAccountId(id);
         a.setEmail(email);
+        dao.updateAccount(a);
     }
 
     /**
