@@ -20,6 +20,12 @@
                 <input id="address" class="form-control" name="address" type="text" >
                 <span class="form-message"></span>
             </div>
+            
+            <div class="form-group">
+                <label for="contact" class="form-label">Liên lạc: </label>
+                <input id="contact" class="form-control" name="" type="text" >
+                <span class="form-message"></span>
+            </div>
         </form>
 
     </div>
