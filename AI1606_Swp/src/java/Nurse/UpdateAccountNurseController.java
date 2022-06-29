@@ -11,6 +11,7 @@ import entity.Account;
 import entity.Nurse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -102,6 +103,10 @@ public class UpdateAccountNurseController extends HttpServlet {
         Notification noti = new Notification("Success", "Cập nhật y tá thành công.", "success");
         request.setAttribute("notify", noti);
         Account userLogin = dao.get(account.getAccountId());
+        ss.setAttribute("nurse", daoD.getNurseByAccountId(account.getAccountId()));
+        ss.setAttribute("userLogin", userLogin);
+        RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
+        r1.forward(request, response);
     }
 
     /**
