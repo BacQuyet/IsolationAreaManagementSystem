@@ -82,6 +82,9 @@ public class UpdateAccountNurseController extends HttpServlet {
         HttpSession ss = request.getSession();
         Account account = (Account) ss.getAttribute("userLogin");
         String email = request.getParameter("email");
+        Account a = new Account();
+        a.setAccountId(id);
+        a.setEmail(email);
     }
 
     /**
