@@ -81,6 +81,9 @@ public class UpdateAccountNurseController extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         HttpSession ss = request.getSession();
         Account account = (Account) ss.getAttribute("userLogin");
+        String phone = request.getParameter("phone");
+        String full_name = request.getParameter("full_name");
+        String address = request.getParameter("address");
         String email = request.getParameter("email");
         Account a = new Account();
         a.setAccountId(id);
