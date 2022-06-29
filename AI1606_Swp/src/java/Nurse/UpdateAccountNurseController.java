@@ -107,6 +107,12 @@ public class UpdateAccountNurseController extends HttpServlet {
         ss.setAttribute("userLogin", userLogin);
         RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
         r1.forward(request, response);
+        if ((full_name != null && address != null && phone != null)) {
+            Notification notis = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+            request.setAttribute("notify", notis);
+        }
+
+        request.getRequestDispatcher("/myaccount/EditAccount").forward(request, response);
     }
 
     /**
