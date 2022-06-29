@@ -87,7 +87,23 @@ public class NurseDAO implements DAO<Nurse> {
         return null;
     }
     
-    
+    public void updateAccountNurse(Nurse d) {
+        String sql = "UPDATE [dbo].[nurse]\n"
+                + "   SET [fullname] = ?\n"
+                + "      ,[phone] = ?\n"
+                + "      ,[address] = ?\n"
+                + " WHERE [id_account] = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, d.getFullName());
+            pre.setInt(2, d.getPhone());
+            pre.setString(3, d.getAddress());
+            pre.setInt(4, d.getAccount_id());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(NurseDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
     public int getNoOfRecord() {
         String sql = "SELECT COUNT(*) AS Num FROM [dbo].[nurse]";
         try {
