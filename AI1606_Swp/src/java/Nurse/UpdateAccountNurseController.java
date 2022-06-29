@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.Notification;
 
 /**
  *
@@ -98,6 +99,9 @@ public class UpdateAccountNurseController extends HttpServlet {
         d.setAddress(address);
         d.setAccount_id(id);
         daoD.updateAccountNurse(d);
+        Notification noti = new Notification("Success", "Cập nhật y tá thành công.", "success");
+        request.setAttribute("notify", noti);
+        Account userLogin = dao.get(account.getAccountId());
     }
 
     /**
