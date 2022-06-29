@@ -13,14 +13,12 @@
                 <label for="areaName" class="form-label">Tên khu vực</label>
                 <input id="areaName" class="form-control" name="areaName" type="text" required>
                 <span class="form-message"></span>
-            </div>
-            
+            </div>            
             <div class="form-group">
                 <label for="address" class="form-label">Địa chỉ khu vực: </label>
                 <input id="address" class="form-control" name="address" type="text" >
                 <span class="form-message"></span>
             </div>
-            
             <div class="form-group">
                 <label for="contact" class="form-label">Liên lạc: </label>
                 <input id="contact" class="form-control" name="contact" type="text" >
@@ -28,7 +26,5 @@
             </div>
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
         </form>
-
     </div>
-
 </div>
