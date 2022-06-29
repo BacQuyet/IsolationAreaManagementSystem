@@ -23,7 +23,7 @@
             
             <div class="form-group">
                 <label for="contact" class="form-label">Liên lạc: </label>
-                <input id="contact" class="form-control" name="" type="text" >
+                <input id="contact" class="form-control" name="contact" type="text" >
                 <span class="form-message"></span>
             </div>
         </form>
