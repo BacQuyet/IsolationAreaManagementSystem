@@ -8,6 +8,7 @@ package Nurse;
 import dao.AccountDAO;
 import dao.NurseDAO;
 import entity.Account;
+import entity.Nurse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -91,6 +92,11 @@ public class UpdateAccountNurseController extends HttpServlet {
         a.setAccountId(id);
         a.setEmail(email);
         dao.updateAccount(a);
+        Nurse d = new Nurse();
+        d.setFullName(full_name);
+        d.setPhone(Integer.parseInt(phone));
+        d.setAddress(address);
+        d.setAccount_id(id);
     }
 
     /**

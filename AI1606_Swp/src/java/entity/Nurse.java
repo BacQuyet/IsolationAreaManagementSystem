@@ -14,7 +14,7 @@ public class Nurse {
     private Account id_account;
     private String address;
     private Area id_area;
-
+    private int account_id;
     public Nurse() {
     }
 
@@ -59,6 +59,14 @@ public class Nurse {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public int getAccount_id() {
+        return account_id;
+    }
+
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 
     public Account getId_account() {
