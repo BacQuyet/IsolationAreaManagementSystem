@@ -14,6 +14,12 @@
                 <input id="areaName" class="form-control" name="areaName" type="text" required>
                 <span class="form-message"></span>
             </div>
+            
+            <div class="form-group">
+                <label for="address" class="form-label">Địa chỉ khu vực: </label>
+                <input id="address" class="form-control" name="" type="text" >
+                <span class="form-message"></span>
+            </div>
         </form>
 
     </div>
