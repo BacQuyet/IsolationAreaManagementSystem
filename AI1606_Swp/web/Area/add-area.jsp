@@ -17,7 +17,7 @@
             
             <div class="form-group">
                 <label for="address" class="form-label">Địa chỉ khu vực: </label>
-                <input id="address" class="form-control" name="" type="text" >
+                <input id="address" class="form-control" name="address" type="text" >
                 <span class="form-message"></span>
             </div>
         </form>
