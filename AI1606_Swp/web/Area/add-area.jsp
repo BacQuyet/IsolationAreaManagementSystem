@@ -25,7 +25,6 @@
                 <span class="form-message"></span>
             </div>
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
-            <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
         </form>
     </div>
 </div>
