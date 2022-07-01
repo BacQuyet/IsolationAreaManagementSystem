@@ -284,6 +284,10 @@
         <servlet-name>UpdateAccountNurseController</servlet-name>
         <servlet-class>Nurse.UpdateAccountNurseController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditAccountPatientController</servlet-name>
+        <servlet-class>Patient.EditAccountPatientController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -555,6 +559,10 @@
     <servlet-mapping>
         <servlet-name>UpdateAccountNurseController</servlet-name>
         <url-pattern>/Nurse/editAccountNurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountPatientController</servlet-name>
+        <url-pattern>/myaccount/editAccountPatient</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
