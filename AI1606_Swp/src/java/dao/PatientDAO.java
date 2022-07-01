@@ -110,6 +110,11 @@ public class PatientDAO implements DAO<Patient> {
         return (qq.isEmpty() ? null : qq.get(0));
     }
     public void updateAccountPatient(Patient d) {
+        String sql = "UPDATE [dbo].[patient]\n"
+                + "   SET [full_name] = ?\n"
+                + "      ,[phone] = ?\n"
+                + "      ,[address] = ?\n"
+                + " WHERE [account_id] = ?";
         
     }
     /**
