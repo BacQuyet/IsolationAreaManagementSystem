@@ -121,6 +121,7 @@ public class PatientDAO implements DAO<Patient> {
             pre.setInt(2, d.getPhoneNumber());
             pre.setString(3, d.getAddress());
             pre.setInt(4, d.getId_account());
+            pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PatientDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
