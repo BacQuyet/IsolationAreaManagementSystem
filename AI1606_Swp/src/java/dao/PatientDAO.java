@@ -115,7 +115,15 @@ public class PatientDAO implements DAO<Patient> {
                 + "      ,[phone] = ?\n"
                 + "      ,[address] = ?\n"
                 + " WHERE [account_id] = ?";
-        
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, d.getPatientName());
+            pre.setInt(2, d.getPhoneNumber());
+            pre.setString(3, d.getAddress());
+            pre.setInt(4, d.getId_account());
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
     /**
      * GET LIST OF PATIENTS IN GIVEN DAY DURATION
