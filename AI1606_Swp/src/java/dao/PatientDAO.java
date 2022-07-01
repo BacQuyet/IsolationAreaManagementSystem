@@ -21,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.Utils;
 
 public class PatientDAO implements DAO<Patient> {
@@ -107,7 +109,9 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
-
+    public void updateAccountPatient(Patient d) {
+        
+    }
     /**
      * GET LIST OF PATIENTS IN GIVEN DAY DURATION
      *
