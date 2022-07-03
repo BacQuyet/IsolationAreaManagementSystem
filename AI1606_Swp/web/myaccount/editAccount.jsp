@@ -116,7 +116,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
-                    <input id="email" class="form-control" name="email" type="text" value="">
+                    <input id="email" class="form-control" name="email" type="text" value="${userLogin.getEmail()}">
                     <span class="form-message"></span>
                 </div>
                 <button class="form-submit" type="submit">Save</button>
