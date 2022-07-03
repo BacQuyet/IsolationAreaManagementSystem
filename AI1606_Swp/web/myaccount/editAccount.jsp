@@ -91,12 +91,12 @@
             <form action="editAccountNurse" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
                     <label for="account_id" class="form-label">Mã</label>
-                    <input id="account_id" class="form-control" name="account_id" type="text" readonly value="">
+                    <input id="account_id" class="form-control" name="account_id" type="text" readonly value="${userLogin.getAccountId()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="username" class="form-label">Tên đăng nhập</label>
-                    <input id="ten_dang_nhap" class="form-control" name="username" type="text" readonly value="">
+                    <input id="ten_dang_nhap" class="form-control" name="username" type="text" readonly value="${userLogin.getUserName()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
