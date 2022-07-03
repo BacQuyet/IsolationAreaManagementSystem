@@ -85,6 +85,12 @@
             </form>
             <%
                 }
+            %>
+<%                    if (account.getType().getAccountTypeId() == 3) { // Nurse login
+            %>
+            
+            <%
+                }
             %>            
             <div><img class="menu-detail-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}/avatar-default.png"/>
                 <input name="file" type="file" accept="image/*" onchange="loadFile(event)" id="getFile" style="display:none" >
