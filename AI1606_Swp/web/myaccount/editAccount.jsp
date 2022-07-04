@@ -139,22 +139,22 @@
                 </div>
                 <div class="form-group">
                     <label for="full_name" class="form-label">Tên người dùng</label>
-                    <input id="full_name" class="form-control" name="full_name" type="text" value="">
+                    <input id="full_name" class="form-control" name="full_name" type="text" value="${patient.getPatientName()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input id="phone" class="form-control" name="phone" type="text" value="">
+                    <input id="phone" class="form-control" name="phone" type="text" value="${patient.getPhoneNumber()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="address" class="form-label">Địa chỉ</label>
-                    <input id="address" class="form-control" name="address" type="text" value="">
+                    <input id="address" class="form-control" name="address" type="text" value="${patient.getAddress()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
-                    <input id="email" class="form-control" name="email" type="text" value="">
+                    <input id="email" class="form-control" name="email" type="text" value="${userLogin.getEmail()}">
                     <span class="form-message"></span>
                 </div>
                 <button class="form-submit" type="submit">Save</button>
