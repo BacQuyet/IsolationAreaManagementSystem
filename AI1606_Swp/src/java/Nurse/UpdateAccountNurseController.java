@@ -90,6 +90,9 @@ public class UpdateAccountNurseController extends HttpServlet {
         String full_name = request.getParameter("full_name");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
+
+        //if (phone.length() == 10) {  // check so dien thoai có sai ko
+        //check tung thuoc tinh xem co thay doi khong
         Account a = new Account();
         a.setAccountId(id);
         a.setEmail(email);
@@ -100,13 +103,21 @@ public class UpdateAccountNurseController extends HttpServlet {
         d.setAddress(address);
         d.setAccount_id(id);
         daoD.updateAccountNurse(d);
+
         Notification noti = new Notification("Success", "Cập nhật y tá thành công.", "success");
         request.setAttribute("notify", noti);
         Account userLogin = dao.get(account.getAccountId());
+//          userLogin.setPatient(dao);
         ss.setAttribute("nurse", daoD.getNurseByAccountId(account.getAccountId()));
         ss.setAttribute("userLogin", userLogin);
         RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
         r1.forward(request, response);
+//        } else {
+//            Notification noti = new Notification("Error", "Nhập sai số điện thoại", "error");
+//            request.setAttribute("notify", noti);
+//            RequestDispatcher r1 = request.getRequestDispatcher("editAccount.jsp");
+//            r1.forward(request, response);
+//        }
         if ((full_name != null && address != null && phone != null)) {
             Notification notis = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", notis);

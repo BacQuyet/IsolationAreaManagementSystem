@@ -558,7 +558,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateAccountNurseController</servlet-name>
-        <url-pattern>/Nurse/editAccountNurse</url-pattern>
+        <url-pattern>/myaccount/editAccountNurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditAccountPatientController</servlet-name>
@@ -576,6 +576,7 @@
             <description>JSP configuration for the system </description>
             <url-pattern>/myaccount/accountDetail.jsp</url-pattern>
             <url-pattern>/myaccount/ChangePassword.jsp</url-pattern>
+            <url-pattern>/myaccount/editAccount.jsp</url-pattern>
             <url-pattern>/index.jsp</url-pattern>
             <url-pattern>/login.jsp</url-pattern>
             <url-pattern>/forgot_password.jsp</url-pattern>

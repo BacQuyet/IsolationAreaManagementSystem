@@ -87,7 +87,7 @@ public class NurseDAO implements DAO<Nurse> {
         return null;
     }
     
-    public void updateAccountNurse(Nurse d) {
+       public void updateAccountNurse(Nurse d) {
         String sql = "UPDATE [dbo].[nurse]\n"
                 + "   SET [fullname] = ?\n"
                 + "      ,[phone] = ?\n"
@@ -208,6 +208,10 @@ public class NurseDAO implements DAO<Nurse> {
             x.printStackTrace();
         }
 
+    }
+    public static void main(String[] args) {
+        NurseDAO dao = new NurseDAO();
+        dao.updateAccountNurse(new Nurse(1231231234, "nam", "nam", 1002));
     }
 
 }

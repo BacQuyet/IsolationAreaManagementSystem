@@ -26,8 +26,17 @@ public class Nurse {
         this.address = address;
         this.id_area = id_area;
     }
+
+    public Nurse(int phone, String fullName, String address, int account_id) {
+        this.phone = phone;
+        this.fullName = fullName;
+        this.address = address;
+        this.account_id = account_id;
+    }
+
+
     
-    
+        
 
     public int getId_nurse() {
         return id_nurse;
