@@ -46,7 +46,7 @@
                 </tr>
             </c:forEach>
         </table>
-                    /////
+                    ///////
         <div class="content-pad">
             <c:if test="${currentPage * 5 > noOfRecords}">
                 <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${noOfRecords} of ${noOfRecords} entries</div>
