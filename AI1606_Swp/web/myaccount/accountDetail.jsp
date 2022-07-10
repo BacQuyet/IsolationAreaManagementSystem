@@ -103,7 +103,7 @@
                         }
                     %>
                     <%
-                    if (account.getType().getAccountTypeId() == 4) { // Nurse login
+                    if (account.getType().getAccountTypeId() == 4) { // Patient login
 %>
                 <div>
 
