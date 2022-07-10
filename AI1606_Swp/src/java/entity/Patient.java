@@ -40,6 +40,7 @@ public class Patient {
     private Area area;
     private String roomName;
     private String areaName;
+    private int id_account;
     public Patient() {
     }
 
@@ -57,6 +58,14 @@ public class Patient {
         this.timeOut = timeOut;
         this.room = phong;
         this.area = khuCachLy;
+    }
+
+    public int getId_account() {
+        return id_account;
+    }
+
+    public void setId_account(int id_account) {
+        this.id_account = id_account;
     }
 
     public String getRoomName() {

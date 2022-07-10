@@ -12,8 +12,8 @@
             <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/accountDetail.jsp" class="menu-item"><i class="far fa-user-circle"></i> Tài khoản của tôi</a></li>
             <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/accountDetail.jsp" class="menu-item depend"> Hồ sơ</a></li>
             <li class="menu-li"><a href="<%=request.getContextPath()%>/Don/view-list" class           
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/ChangePassword.jsp" class="menu-item depend"> Đổi mật khẩu</a>
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/Don/view-list" class="menu-item"><i class="far fa-check-circle"></i> Đơn của tôi</a></li>
+                                   <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/ChangePassword.jsp" class="menu-item depend"> Đổi mật khẩu</a>
+                    <li class="menu-li"><a href="<%=request.getContextPath()%>/Don/view-list" class="menu-item"><i class="far fa-check-circle"></i> Đơn của tôi</a></li>
         </ul>
     </div>
     <div class="menu-detail">
@@ -25,7 +25,7 @@
                 Account account = (Account) session.getAttribute("userLogin");
 
             %>
-            <%                    if (account.getType().getAccountTypeId() == 1) { // Admin
+            <%                    if (account.getType().getAccountTypeId() == 1) { // Admin login 
             %>
             <form action="editAccountAdmin" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
@@ -48,7 +48,7 @@
             <%
                 }
             %>
-            <%                    if (account.getType().getAccountTypeId() == 2) { // Doctor
+            <%                    if (account.getType().getAccountTypeId() == 2) { // Doctor login
             %>
             <form action="EditAccount" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
@@ -74,6 +74,82 @@
                 <div class="form-group">
                     <label for="address" class="form-label">Địa chỉ</label>
                     <input id="address" class="form-control" name="address" type="text" value="${d.getAddress()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" class="form-control" name="email" type="text" value="${userLogin.getEmail()}">
+                    <span class="form-message"></span>
+                </div>
+                <button class="form-submit" type="submit">Save</button>
+            </form>
+            <%
+                }
+            %>
+            <%                    if (account.getType().getAccountTypeId() == 3) { //Nurse logn
+            %>
+            <form action="editAccountNurse" method="POST" id="form-user" class="form-user">
+                <div class="form-group">
+                    <label for="account_id" class="form-label">Mã</label>
+                    <input id="account_id" class="form-control" name="account_id" type="text" readonly value="${userLogin.getAccountId()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Tên đăng nhập</label>
+                    <input id="ten_dang_nhap" class="form-control" name="username" type="text" readonly value="${userLogin.getUserName()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="full_name" class="form-label">Tên người dùng</label>
+                    <input id="full_name" class="form-control" name="full_name" type="text" value="${nurse.getFullName()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input id="phone" class="form-control" name="phone" type="text" value="${nurse.getPhone()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="form-label">Địa chỉ</label>
+                    <input id="address" class="form-control" name="address" type="text" value="${nurse.getAddress()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" class="form-control" name="email" type="text" value="${userLogin.getEmail()}">
+                    <span class="form-message"></span>
+                </div>
+                <button class="form-submit" type="submit">Save</button>
+            </form>
+            <%
+                }
+            %>
+            <%                    if (account.getType().getAccountTypeId() == 4) { //Patient login
+            %>
+            <form action="editAccountPatient" method="POST" id="form-user" class="form-user">
+                <div class="form-group">
+                    <label for="account_id" class="form-label">Mã</label>
+                    <input id="account_id" class="form-control" name="account_id" type="text" readonly value="${userLogin.getAccountId()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Tên đăng nhập</label>
+                    <input id="ten_dang_nhap" class="form-control" name="username" type="text" readonly value="${userLogin.getUserName()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="full_name" class="form-label">Tên người dùng</label>
+                    <input id="full_name" class="form-control" name="full_name" type="text" value="${patient.getPatientName()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input id="phone" class="form-control" name="phone" type="text" value="${patient.getPhoneNumber()}">
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="form-label">Địa chỉ</label>
+                    <input id="address" class="form-control" name="address" type="text" value="${patient.getAddress()}">
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">

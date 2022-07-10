@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Nurse;
+package Patient;
 
 import dao.AccountDAO;
-import dao.NurseDAO;
+import dao.PatientDAO;
 import entity.Account;
-import entity.Nurse;
+import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -23,7 +23,7 @@ import utils.Notification;
  *
  * @author Administrator
  */
-public class UpdateAccountNurseController extends HttpServlet {
+public class EditAccountPatientController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +42,10 @@ public class UpdateAccountNurseController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateAccountNurseController</title>");            
+            out.println("<title>Servlet EditAccountPatientController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UpdateAccountNurseController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditAccountPatientController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,7 +63,6 @@ public class UpdateAccountNurseController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         request.getRequestDispatcher("/myaccount/editAccount.jsp").forward(request, response);
     }
 
@@ -78,12 +77,11 @@ public class UpdateAccountNurseController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("account_id"));
         AccountDAO dao = new AccountDAO();
-        NurseDAO daoD = new NurseDAO();
+        PatientDAO daoD = new PatientDAO();
         HttpSession ss = request.getSession();
         Account account = (Account) ss.getAttribute("userLogin");
         String phone = request.getParameter("phone");
@@ -97,18 +95,18 @@ public class UpdateAccountNurseController extends HttpServlet {
         a.setAccountId(id);
         a.setEmail(email);
         dao.updateAccount(a);
-        Nurse d = new Nurse();
-        d.setFullName(full_name);
-        d.setPhone(Integer.parseInt(phone));
+        Patient d = new Patient();
+        d.setPatientName(full_name);
+        d.setPhoneNumber(Integer.parseInt(phone));
         d.setAddress(address);
-        d.setAccount_id(id);
-        daoD.updateAccountNurse(d);
+        d.setId_account(id);
+        daoD.updateAccountPatient(d);
 
-        Notification noti = new Notification("Success", "Cập nhật y tá thành công.", "success");
+        Notification noti = new Notification("Success", "Cập nhật bệnh nhân thành công.", "success");
         request.setAttribute("notify", noti);
         Account userLogin = dao.get(account.getAccountId());
 //          userLogin.setPatient(dao);
-        ss.setAttribute("nurse", daoD.getNurseByAccountId(account.getAccountId()));
+        ss.setAttribute("patient", daoD.getPatientByAccountId(account.getAccountId()));
         ss.setAttribute("userLogin", userLogin);
         RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
         r1.forward(request, response);

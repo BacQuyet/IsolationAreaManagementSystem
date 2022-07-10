@@ -27,7 +27,7 @@
 
             %>
             <div class="content-body">
-                <%                    if (account.getType().getAccountTypeId() == 1) { // Nurse login
+                <%                    if (account.getType().getAccountTypeId() == 1) { // admin login
                 %>
                 <div>
 
@@ -50,7 +50,7 @@
                         }
                     %>
                     <%
-                        if (account.getType().getAccountTypeId() == 2) { // Nurse login
+                        if (account.getType().getAccountTypeId() == 2) { // Doctor login
                     %>
                 <div>
 
@@ -103,7 +103,7 @@
                         }
                     %>
                     <%
-                    if (account.getType().getAccountTypeId() == 4) { // Nurse login
+                    if (account.getType().getAccountTypeId() == 4) { // Patient login
 %>
                 <div>
 

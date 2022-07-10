@@ -15,7 +15,7 @@
     </div>
 
     <div class="table-list">
-        <table class="table-list__user">
+        <table class="table-list__user"> 
             <tr>
                 <th width="5%">Mã Bệnh Nhân</th>
                 <th width="17%">Họ tên</th>
@@ -28,7 +28,8 @@
 
                 <th width="19%">Hành động</th>
             </tr>
-            <c:forEach var="patient" items="${list}">
+            <c:forEach var="patient" items="${list}">  
+               
                 <tr>
                     <td>${patient.getPatientId()}</td>
                     <td>${patient.getPatientName()}</td>
