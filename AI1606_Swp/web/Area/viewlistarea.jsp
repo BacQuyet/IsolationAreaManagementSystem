@@ -57,7 +57,7 @@
                 <c:if test="${currentPage != 1}">
                     <a href="<%=request.getContextPath()%>/Area/viewarea?page=${currentPage - 1}"> < </a>
                 </c:if>
-///
+////
                 <c:forEach begin="1" end="${noOfPages}" var="i">
                     <c:choose>
                         <c:when test="${currentPage eq i}">
