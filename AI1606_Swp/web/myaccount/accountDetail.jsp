@@ -50,7 +50,7 @@
                         }
                     %>
                     <%
-                        if (account.getType().getAccountTypeId() == 2) { // Nurse login
+                        if (account.getType().getAccountTypeId() == 2) { // Doctor login
                     %>
                 <div>
 
