@@ -48,7 +48,7 @@
             <%
                 }
             %>
-            <%                    if (account.getType().getAccountTypeId() == 2) { // Doctor
+            <%                    if (account.getType().getAccountTypeId() == 2) { // Doctor login
             %>
             <form action="EditAccount" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
