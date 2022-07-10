@@ -86,7 +86,7 @@
             <%
                 }
             %>
-            <%                    if (account.getType().getAccountTypeId() == 3) { //Nurse 
+            <%                    if (account.getType().getAccountTypeId() == 3) { //Nurse logn
             %>
             <form action="editAccountNurse" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
