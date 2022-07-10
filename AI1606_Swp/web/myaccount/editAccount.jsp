@@ -124,7 +124,7 @@
             <%
                 }
             %>
-            <%                    if (account.getType().getAccountTypeId() == 4) { //Patient
+            <%                    if (account.getType().getAccountTypeId() == 4) { //Patient login
             %>
             <form action="editAccountPatient" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
