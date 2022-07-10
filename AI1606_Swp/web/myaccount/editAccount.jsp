@@ -25,7 +25,7 @@
                 Account account = (Account) session.getAttribute("userLogin");
 
             %>
-            <%                    if (account.getType().getAccountTypeId() == 1) { // Admin
+            <%                    if (account.getType().getAccountTypeId() == 1) { // Admin login 
             %>
             <form action="editAccountAdmin" method="POST" id="form-user" class="form-user">
                 <div class="form-group">
