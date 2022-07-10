@@ -27,7 +27,7 @@
 
             %>
             <div class="content-body">
-                <%                    if (account.getType().getAccountTypeId() == 1) { // Doctor login
+                <%                    if (account.getType().getAccountTypeId() == 1) { // admin login
                 %>
                 <div>
 
