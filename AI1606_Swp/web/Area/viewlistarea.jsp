@@ -21,7 +21,7 @@
     </div>
     <% }
     %>
-    
+
     <div class="table-list">
         <table class="table-list__user">
             <tr>
@@ -31,7 +31,7 @@
                 <th width="20">Liên lạc</th>  
                 <th width="15%">Hành động</th>
             </tr>
-            
+
             <c:forEach items="${listArea}" var="area">
                 <tr>
                     <td>${area.getAreaId()}</td>
@@ -46,35 +46,33 @@
                 </tr>
             </c:forEach>
         </table>
-    <div class="content-pad">
-        <c:if test="${currentPage * 5 > noOfRecords}">
-            <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${noOfRecords} of ${noOfRecords} entries</div>
-        </c:if>
-        <c:if test="${currentPage * 5 <= noOfRecords}">
-            <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${currentPage * 5} of ${noOfRecords} entries</div>
-        </c:if>
-        
-        <div class="content-pad__info">
-            <c:if test="${currentPage != 1}">
-                <a href="<%=request.getContextPath()%>/Area/viewarea?page=${currentPage - 1}"> < </a>
+        <div class="content-pad">
+            <c:if test="${currentPage * 5 > noOfRecords}">
+                <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${noOfRecords} of ${noOfRecords} entries</div>
             </c:if>
-
-            <c:forEach begin="1" end="${noOfPages}" var="i">
-                <c:choose>
-                    <c:when test="${currentPage eq i}">
-                        <a href="">${i}</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a href="<%=request.getContextPath()%>/Area/viewarea?page=${i}"> ${i} </a>
-                    </c:otherwise>
-                </c:choose>
-            </c:forEach>
-
-            <c:if test = "${currentPage lt noOfPages}">
-                <a href="<%=request.getContextPath()%>/Area/viewarea?page=${currentPage+1}"> > </a>
+            <c:if test="${currentPage * 5 <= noOfRecords}">
+                <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${currentPage * 5} of ${noOfRecords} entries</div>
             </c:if>
-        </div>
+            <div class="content-pad__info">
+                <c:if test="${currentPage != 1}">
+                    <a href="<%=request.getContextPath()%>/Area/viewarea?page=${currentPage - 1}"> < </a>
+                </c:if>
+//
+                <c:forEach begin="1" end="${noOfPages}" var="i">
+                    <c:choose>
+                        <c:when test="${currentPage eq i}">
+                            <a href="">${i}</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="<%=request.getContextPath()%>/Area/viewarea?page=${i}"> ${i} </a>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <c:if test = "${currentPage lt noOfPages}">
+                    <a href="<%=request.getContextPath()%>/Area/viewarea?page=${currentPage+1}"> > </a>
+                </c:if>
             </div>
-        
+        </div>
     </div>
 </div>
