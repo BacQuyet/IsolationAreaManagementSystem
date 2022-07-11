@@ -90,7 +90,6 @@ public class UpdateAccountNurseController extends HttpServlet {
         String full_name = request.getParameter("full_name");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
-
         //if (phone.length() == 10) {  // check so dien thoai có sai ko
         //check tung thuoc tinh xem co thay doi khong
         Account a = new Account();
