@@ -50,6 +50,7 @@
                 Welcome to the GeeksforGeeks Portal!
                 You can choose any language using the
                 buttons above!
+                buttons above!
             </p>
 
 
