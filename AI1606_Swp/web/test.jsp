@@ -17,6 +17,7 @@
         <p>
             Click on the buttons below to change
             the language of the webpage.
+            the language of the webpage.
         </p>
 
         <!-- Define the buttons that will
