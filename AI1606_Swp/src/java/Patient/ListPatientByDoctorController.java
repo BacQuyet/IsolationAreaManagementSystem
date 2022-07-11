@@ -5,8 +5,12 @@
  */
 package Patient;
 
+import dao.PatientDAO;
+import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +60,20 @@ public class ListPatientByDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        int page = 1;
+        int recordsPerPage = 10;
+        PatientDAO dao = new PatientDAO();
+        List<Patient> list = dao.getListAll((page - 1) * recordsPerPage, recordsPerPage);
+        int noOfRecords = dao.getAll().size();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        request.setAttribute("noOfRecords", noOfRecords);
+        request.setAttribute("list", list);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher view = request.getRequestDispatcher("/Patient/list.jsp");
+        view.forward(request, response);
     }
 
     /**
