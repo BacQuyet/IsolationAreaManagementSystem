@@ -12,6 +12,7 @@
             GeeksforGeeks
             GeeksforGeeks
             GeeksforGeeks
+            GeeksforGeeks
         </h1>
 
         <p>
@@ -19,6 +20,7 @@
             the language of the webpage.
             the language of the webpage.
             Click on the buttons below to change
+            the language of the webpage.
             the language of the webpage.
             the language of the webpage.
         </p>
@@ -39,6 +41,12 @@
             <!-- Define the content of the page
             that would be changed -->
             <p id="siteContent">
+                Welcome to the GeeksforGeeks Portal!
+                You can choose any language using the
+                buttons above!
+                Welcome to the GeeksforGeeks Portal!
+                You can choose any language using the
+                buttons above!
                 Welcome to the GeeksforGeeks Portal!
                 You can choose any language using the
                 buttons above!
