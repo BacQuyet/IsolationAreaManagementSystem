@@ -70,6 +70,7 @@ public class ViewDetailNurseController extends HttpServlet {
         request.setAttribute("account", account);
         RequestDispatcher view = request.getRequestDispatcher("/Nurse/view-detail-nurse.jsp");
         view.forward(request, response);
+        
     }
 
     /**
