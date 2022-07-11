@@ -133,6 +133,11 @@
                     </li>
                     <% } %>
                     <% if (acocuntTypeId == 4) { // Doctor %>  
+                    
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/ListPatientByDoctor"><i class="fas fa-file-invoice sidebar-icon"></i>
+                            <span class="sidebar-info">Theo dõi bệnh nhân</span>
+                        </a>
+                    </li>
 
                     <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Theo dõi sức khỏe</span>
