@@ -51,6 +51,7 @@
                 You can choose any language using the
                 buttons above!
                 buttons above!
+                buttons above!
             </p>
 
 
