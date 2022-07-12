@@ -46,6 +46,11 @@ public class Feedback {
     public void setPatient(int patient) {
         this.patient = patient;
     }
+
+    @Override
+    public String toString() {
+        return "Feedback{" + "name=" + name + ", content=" + content + ", patient=" + patient + '}';
+    }
     
     
     
