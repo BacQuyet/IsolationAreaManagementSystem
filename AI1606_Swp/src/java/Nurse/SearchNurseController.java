@@ -76,7 +76,30 @@ public class SearchNurseController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        int page = 1;
+        int recordsPerPage = 5;
+        String key = request.getParameter("key");
+            if (key == null || "".equals(key)) {
+                response.sendRedirect("viewnurse");
+            } else {
+                if (request.getParameter("page") != null) {
+                    page = Integer.parseInt(request.getParameter("page"));
+                }
+                NurseDAO dao = new NurseDAO();
+                List<Nurse> list = dao.SearchNurseByKey(key,(page - 1) * recordsPerPage, recordsPerPage);
+                int noOfRecords = dao.countPageSize(key);
+                int noOfPages = (int) ((noOfRecords + 4) / 5);
+                request.setAttribute("noOfRecords", noOfRecords);
+                request.setAttribute("listnurse", list);
+                request.setAttribute("noOfPages", noOfPages);
+                request.setAttribute("currentPage", page);
+                RequestDispatcher view = request.getRequestDispatcher("list-nurse.jsp");
+                view.forward(request, response);
+
+            }
     }
 
     /**
