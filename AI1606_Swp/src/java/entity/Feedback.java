@@ -16,6 +16,12 @@ public class Feedback {
 
     public Feedback() {
     }
+
+    public Feedback(String name, String content, int patient) {
+        this.name = name;
+        this.content = content;
+        this.patient = patient;
+    }
     
     
     
