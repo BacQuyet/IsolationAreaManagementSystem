@@ -185,6 +185,19 @@ public class PatientDAO implements DAO<Patient> {
         }
         return null;
     }
+    public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from patient where full_name like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public int getTotalPatients() {
         String sql = "SELECT COUNT(*) AS Num FROM dbo.patient";
         try {
