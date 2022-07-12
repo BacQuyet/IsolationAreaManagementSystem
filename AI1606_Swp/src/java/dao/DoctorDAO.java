@@ -66,7 +66,6 @@ public class DoctorDAO implements DAO<Doctor> {
     public int countPage(int pageSize) {
         try {
             String query = "select Count(*) from doctor";
-
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             int count = 0;
@@ -83,7 +82,19 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return 0;
     }
-
+    public int countPage() {
+        try {
+            String query = "select Count(*) as Num from doctor";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     @Override
     public List<Doctor> parse(String sql) {
         try {
