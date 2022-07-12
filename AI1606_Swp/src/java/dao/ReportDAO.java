@@ -157,7 +157,7 @@ public class ReportDAO implements DAO<Report> {
         }
         return 0;
     }
-    
+
     public int updateReport(int id, String content) {
         int res = 0;
         String sql = "UPDATE [dbo].[report] SET "
@@ -173,7 +173,7 @@ public class ReportDAO implements DAO<Report> {
         }
         return res;
     }
-    
+
     public void addFeedback(Feedback f) {
         String sql = "INSERT INTO [dbo].[feedback]\n"
                 + "           ([patient_id]\n"
@@ -182,22 +182,27 @@ public class ReportDAO implements DAO<Report> {
                 + "     VALUES\n"
                 + "           (?,?,?)";
         try {
-            
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, f.getPatient());
+            pre.setString(2, f.getName());
+            pre.setString(3, f.getContent());
+            pre.executeUpdate();
         } catch (Exception e) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, e);
         }
     }
 
     public List<Report> getAllByPatientId(Integer patientId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public List<Report> getAllByPatient(Patient p) {
         String sql = "select * from report where id_patient = " + p.getPatientId() + " order by create_date desc";
         List<Report> qq = new ArrayList<>();
         qq = parse(sql);
         return qq;
     }
-    
+
     public static void main(String[] args) {
         ReportDAO dao = new ReportDAO();
         dao.getClass();
