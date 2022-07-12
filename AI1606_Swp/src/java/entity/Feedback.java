@@ -22,6 +22,30 @@ public class Feedback {
         this.content = content;
         this.patient = patient;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getPatient() {
+        return patient;
+    }
+
+    public void setPatient(int patient) {
+        this.patient = patient;
+    }
     
     
     
