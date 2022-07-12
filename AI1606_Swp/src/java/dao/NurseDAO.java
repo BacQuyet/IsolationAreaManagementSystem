@@ -127,7 +127,19 @@ public class NurseDAO implements DAO<Nurse> {
         nurse = parse(sql);
         return nurse;
     }
-
+   public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from nurse where fullname like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public Nurse getByID(int id_nurse) {
 
         try {
