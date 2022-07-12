@@ -88,7 +88,7 @@ public class EditAccountAdminController extends HttpServlet {
         a.setAccountId(id);
         a.setEmail(email);
         dao.updateAccount(a);
-        Notification noti = new Notification("Success", "Cập nhật bệnh nhân thành công.", "success");
+        Notification noti = new Notification("Success", "Cập nhật tài khoản admin thành công.", "success");
         request.setAttribute("notify", noti);
         Account userLogin = dao.get(account.getAccountId());
         ss.setAttribute("userLogin", userLogin);
