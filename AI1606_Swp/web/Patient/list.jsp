@@ -8,6 +8,10 @@
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Người cách ly </span>
         <div class="spacer2"></div>
     </div>
+    <form action ="searchPatient" method="POST">
+        <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
+        <button type="SUBMIT"><i class="fas fa-search"></i></button>
+    </form> 
     <div class="btn-add">
         <a href="<%=request.getContextPath()%>/Patient/add.jsp"><i class="fas fa-plus-circle"></i>
             <span>Thêm</span>
