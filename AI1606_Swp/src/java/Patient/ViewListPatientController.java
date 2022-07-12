@@ -65,12 +65,17 @@ public class ViewListPatientController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        int page = 1;
-        int recordsPerPage = 10;
         PatientDAO dao = new PatientDAO();
+        int page = 1;
+        int recordsPerPage = 5;
+        
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
         List<Patient> list = dao.getListAll((page - 1) * recordsPerPage, recordsPerPage);
-        int noOfRecords = dao.getAll().size();
-        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        int noOfRecords = dao.countPage();
+        int noOfPages = (int) ((noOfRecords + 4) / 5);
+
         request.setAttribute("noOfRecords", noOfRecords);
         request.setAttribute("list", list);
         request.setAttribute("noOfPages", noOfPages);
