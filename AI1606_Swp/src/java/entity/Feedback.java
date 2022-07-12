@@ -13,5 +13,10 @@ public class Feedback {
     private String name;
     private String content;
     private int patient;
+
+    public Feedback() {
+    }
+    
+    
     
 }
