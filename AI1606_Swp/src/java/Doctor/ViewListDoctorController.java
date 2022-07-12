@@ -60,8 +60,28 @@ public class ViewListDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        DoctorDAO ndao = new DoctorDAO();
+        int page = 1;
+        int recordsPerPage = 5;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        //List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
+        List<Doctor> list = ndao.getAllDoctor((page - 1) * recordsPerPage, recordsPerPage);
+        int noOfRecords = ndao.countPage();
+        int noOfPages = (int) ((noOfRecords + 4) / 5);
+
+        request.setAttribute("noOfRecords", noOfRecords);
+        request.setAttribute("list", list);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+
+        RequestDispatcher view = request.getRequestDispatcher("/Doctors/list-doctor.jsp");
+        view.forward(request, response);
     }
+    
 
     /**
      * Handles the HTTP <code>POST</code> method.
