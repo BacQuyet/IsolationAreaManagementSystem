@@ -173,6 +173,19 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return null;
     }
+    public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from doctor where fullname like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     @Override
     public void update(Doctor t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
