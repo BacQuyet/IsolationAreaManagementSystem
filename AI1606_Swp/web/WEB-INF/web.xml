@@ -292,6 +292,10 @@
         <servlet-name>ListPatientByDoctorController</servlet-name>
         <servlet-class>Patient.ListPatientByDoctorController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchDoctorController</servlet-name>
+        <servlet-class>Doctor.SearchDoctorController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -571,6 +575,10 @@
     <servlet-mapping>
         <servlet-name>ListPatientByDoctorController</servlet-name>
         <url-pattern>/Patient/ListPatientByDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchDoctorController</servlet-name>
+        <url-pattern>/Doctors/searchDoctor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
