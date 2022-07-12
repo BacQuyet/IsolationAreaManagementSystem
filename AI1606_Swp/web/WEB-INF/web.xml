@@ -300,6 +300,10 @@
         <servlet-name>SearchPatientController</servlet-name>
         <servlet-class>Patient.SearchPatientController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchNurseController</servlet-name>
+        <servlet-class>Nurse.SearchNurseController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -587,6 +591,10 @@
     <servlet-mapping>
         <servlet-name>SearchPatientController</servlet-name>
         <url-pattern>/Patient/searchPatient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchNurseController</servlet-name>
+        <url-pattern>/Nurse/searchNurse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
