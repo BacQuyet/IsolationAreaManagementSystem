@@ -256,7 +256,19 @@ public class PatientDAO implements DAO<Patient> {
         }
         return null;
     }
-
+    public int countPage() {
+        try {
+            String query = "select Count(*) as Num from patient";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public int getNoOfRecord(int areaId) {
         try {
             String sql = "SELECT COUNT(*) AS NoOfRecords FROM dbo.patient WHERE area_id = " + areaId;
