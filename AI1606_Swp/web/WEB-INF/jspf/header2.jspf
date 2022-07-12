@@ -72,13 +72,6 @@
                     <a href="home"><img src="<%=request.getContextPath()%>/assets/img/logo.png"></a>
                 </div>
                 <% }%>
-
-                <div class='search col-7'>
-                    <form action ="search" method="POST">
-                        <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
-                        <button type="SUBMIT"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
             </div>
         </header>
         <div id="toast"></div>
@@ -93,18 +86,18 @@
                         <div class="space"></div>
 
                     </li>
-                    <li><a class="sidebar-li" href="home"><i class="fas fa-home sidebar-icon"></i>
+                    <li><a class="sidebar-li active"><i class="sidebar-icon"></i>
                             <span class="sidebar-info">Dashboard</span>
+                            <div class="spacer2"></div>
                         </a>
                     </li>
-                    <li><a class="sidebar-li active" href="home"><i class="sidebar-icon"></i>
+
+                    <li><a class="sidebar-li" href="home"><i class="fas fa-home sidebar-icon"></i>
                             <span class="sidebar-info">Home</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
-                            <span class="sidebar-info">Tìm kiếm</span>
-                        </a>
-                    </li>
+
+
                     <% int acocuntTypeId;
                         try {
                             acocuntTypeId = user.getType().getAccountTypeId();
@@ -131,9 +124,16 @@
                             <span class="sidebar-info">Quản lý phòng</span>
                         </a>
                     </li>
+                    <li><a class="sidebar-li" href=""><i class="fas fa-user-shield sidebar-icon"></i>
+                            <span class="sidebar-info">Quản lý góp ý</span>
+                        </a>
+                    </li>
                     <% } %>
                     <% if (acocuntTypeId == 4) { // Doctor %>  
-                    
+                    <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
+                            <span class="sidebar-info">Tìm kiếm</span>
+                        </a>
+                    </li>
                     <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/ListPatientByDoctor"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Theo dõi bệnh nhân</span>
                         </a>
@@ -149,6 +149,10 @@
                     </li>
                     <% } %>
                     <% if (acocuntTypeId == 2) { // Nurse %> 
+                    <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
+                            <span class="sidebar-info">Tìm kiếm</span>
+                        </a>
+                    </li>
                     <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Patient/view-list"><i class="fas fa-user sidebar-icon"></i>
                             <span class="sidebar-info">Người cách ly</span>
                         </a>
@@ -159,14 +163,15 @@
                     </li>
                     <% }%>
                     <% if (acocuntTypeId == 3) { // Patient %>  
+                    <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
+                            <span class="sidebar-info">Tìm kiếm</span>
+                        </a>
+                    </li>
                     <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Báo cáo sức khỏe</span>
                         </a>
                     </li>
                     <% }%>
-                    <li><a class="sidebar-li" href=""><i class="fas fa-user-shield sidebar-icon"></i>
-                            <span class="sidebar-info">Tài khoản</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
