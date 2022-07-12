@@ -175,7 +175,12 @@ public class ReportDAO implements DAO<Report> {
     }
     
     public void addFeedback(Feedback f) {
-        
+        String sql = "INSERT INTO [dbo].[feedback]\n"
+                + "           ([patient_id]\n"
+                + "           ,[name]\n"
+                + "           ,[content])\n"
+                + "     VALUES\n"
+                + "           (?,?,?)";
     }
 
     public List<Report> getAllByPatientId(Integer patientId) {
