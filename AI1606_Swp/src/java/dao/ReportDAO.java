@@ -181,6 +181,10 @@ public class ReportDAO implements DAO<Report> {
                 + "           ,[content])\n"
                 + "     VALUES\n"
                 + "           (?,?,?)";
+        try {
+            
+        } catch (Exception e) {
+        }
     }
 
     public List<Report> getAllByPatientId(Integer patientId) {
