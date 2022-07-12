@@ -34,16 +34,12 @@ public class DoctorDAO implements DAO<Doctor> {
             + "           (?,?,?,?,?)";
     Connection conn = DBcontext.getConnection();
 
-    public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
+    public List<Doctor> getAllDoctor(int offset, int noOfRecords) {
         ArrayList<Doctor> lst = new ArrayList<>();
         try {
             String query = "SELECT * FROM doctor ORDER BY id_doctor "
-                    + "OFFSET (?*?-?) ROWS FETCH NEXT ? ROWS ONLY";
+                    + "OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setInt(1, pageIndex);
-            ps.setInt(2, pageSize);
-            ps.setInt(3, pageSize);
-            ps.setInt(4, pageSize);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int nID = rs.getInt(1);
@@ -52,11 +48,9 @@ public class DoctorDAO implements DAO<Doctor> {
                 String fullName = rs.getString(4);
                 int idAccount = rs.getInt(5);
                 String address = rs.getString(6);
-
                 lst.add(new Doctor(nID, nName, phone, fullName, idAccount, address));
             }
             return lst;
-
         } catch (SQLException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
