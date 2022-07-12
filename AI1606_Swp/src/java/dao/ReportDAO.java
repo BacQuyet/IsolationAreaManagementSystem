@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Feedback;
 import entity.Patient;
 import entity.Report;
 import java.sql.Connection;
@@ -171,6 +172,10 @@ public class ReportDAO implements DAO<Report> {
             Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
         return res;
+    }
+    
+    public void addFeedback(Feedback f) {
+        
     }
 
     public List<Report> getAllByPatientId(Integer patientId) {
