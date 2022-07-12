@@ -62,17 +62,29 @@ public class ListPatientByDoctorController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+
         int page = 1;
-        int recordsPerPage = 10;
+        int recordPerPage = 10;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        String fname = (String) request.getParameter("fname");
+        String ffrom = (String) request.getParameter("ffrom");
+        String fto = (String) request.getParameter("fto");
+        String fsort = (String) request.getParameter("fsort");
         PatientDAO dao = new PatientDAO();
-        List<Patient> list = dao.getListAll((page - 1) * recordsPerPage, recordsPerPage);
-        int noOfRecords = dao.getAll().size();
-        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        request.setAttribute("noOfRecords", noOfRecords);
-        request.setAttribute("list", list);
-        request.setAttribute("noOfPages", noOfPages);
+        List<Patient> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
+        int noOfRecord = dao.getNoOfRecords();
+        int noOfPage = (int) ((noOfRecord + 9) / 10);
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listPatient", list);
+        request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
-        RequestDispatcher view = request.getRequestDispatcher("/Patient/list.jsp");
+        request.setAttribute("fname", fname);
+        request.setAttribute("ffrom", ffrom);
+        request.setAttribute("fto", fto);
+        request.setAttribute("fsort", fsort);
+        RequestDispatcher view = request.getRequestDispatcher("listByDoctor.jsp");
         view.forward(request, response);
     }
 

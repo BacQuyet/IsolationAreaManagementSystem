@@ -313,4 +313,29 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return qq;
     }
+    
+    public List getIndex(int index1, int index2) {
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY patient_id) AS RowNum\n"
+                + "    FROM [dbo].[patient] \n"
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        List<Patient> patient = new ArrayList<>();
+        patient = parse(sql);
+        return patient;
+    }
+    
+    public int getNoOfRecords() {
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[patient]";
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return 0;
+    }
 }
