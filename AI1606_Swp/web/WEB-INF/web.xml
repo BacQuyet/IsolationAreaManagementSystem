@@ -288,6 +288,10 @@
         <servlet-name>EditAccountPatientController</servlet-name>
         <servlet-class>Patient.EditAccountPatientController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteAreaController</servlet-name>
+        <servlet-class>Area.DeleteAreaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -563,6 +567,10 @@
     <servlet-mapping>
         <servlet-name>EditAccountPatientController</servlet-name>
         <url-pattern>/myaccount/editAccountPatient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAreaController</servlet-name>
+        <url-pattern>/Area/deletearea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
