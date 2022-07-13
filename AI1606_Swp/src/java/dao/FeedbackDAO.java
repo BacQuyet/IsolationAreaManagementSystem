@@ -71,7 +71,7 @@ public class FeedbackDAO implements DAO<Feedback> {
     @Override
     public List<Feedback> getAll() {
         String sql = "SELECT * FROM feedback";
-        
+        List<Feedback> feedback = new ArrayList<>();
     }
 
     @Override
