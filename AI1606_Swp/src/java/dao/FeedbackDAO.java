@@ -116,6 +116,17 @@ public class FeedbackDAO implements DAO<Feedback> {
         }
         return 0;
     }
+    
+    public List getIndex(int index1, int index2) {
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY feedback_id) AS RowNum\n"
+                + "    FROM [dbo].[feedback] "
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        List<Feedback> feedback = new ArrayList<>();
+        feedback = parse(sql);
+        return feedback;
+    }
 
     @Override
     public void delete(Feedback t) {
