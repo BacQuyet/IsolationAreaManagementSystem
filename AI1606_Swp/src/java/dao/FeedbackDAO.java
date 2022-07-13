@@ -151,6 +151,8 @@ public class FeedbackDAO implements DAO<Feedback> {
                 + "WHERE feedback_id = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, t.getFeedback_id());
+            pre.executeUpdate();
         } catch (Exception e) {
         }
     }
