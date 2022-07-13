@@ -70,7 +70,8 @@ public class FeedbackDAO implements DAO<Feedback> {
 
     @Override
     public List<Feedback> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "SELECT * FROM feedback";
+        
     }
 
     @Override
