@@ -77,7 +77,14 @@ public class AreaDAO implements DAO<Area> {
 
     @Override
     public void delete(Area t) {
-        
+        String sql = "DELETE FROM [dbo].[area] WHERE area_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, t.getAreaId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
 
     @Override
