@@ -154,6 +154,7 @@ public class FeedbackDAO implements DAO<Feedback> {
             pre.setInt(1, t.getFeedback_id());
             pre.executeUpdate();
         } catch (Exception e) {
+            Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
         }
     }
 
