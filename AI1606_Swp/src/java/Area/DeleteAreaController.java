@@ -76,6 +76,7 @@ public class DeleteAreaController extends HttpServlet {
         int areaId = Integer.parseInt(request.getParameter("areaId"));
         
         AreaDAO dao = new AreaDAO();
+        dao.delete(dao.get(areaId));
     }
 
     /**
