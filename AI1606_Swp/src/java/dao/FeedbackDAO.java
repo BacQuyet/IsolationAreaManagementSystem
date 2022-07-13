@@ -84,6 +84,15 @@ public class FeedbackDAO implements DAO<Feedback> {
                 + "           ,[create_date])\n"
                 + "     VALUES\n"
                 + "           (?,?,?)";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, t.getPatient_id());
+            pre.setString(2, t.getContent());
+            pre.setTimestamp(3, t.getCreateDate());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
     }
 
     @Override
