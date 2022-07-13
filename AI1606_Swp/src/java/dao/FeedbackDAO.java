@@ -99,6 +99,23 @@ public class FeedbackDAO implements DAO<Feedback> {
     public void update(Feedback t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public int getNoOfRecord(int id) {
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[feedback]";
+        if (id > 0) {
+            sql += " WHERE id_patient = " + id;
+        }
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return 0;
+    }
 
     @Override
     public void delete(Feedback t) {
