@@ -136,6 +136,7 @@ public class AddNurseController extends HttpServlet {
                 request.setAttribute("notify", noti);
                 RequestDispatcher rt = request.getRequestDispatcher("/Nurse/addnurse");
                 rt.forward(request, response);
+                
             }
         }
     }

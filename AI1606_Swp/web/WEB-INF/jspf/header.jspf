@@ -71,12 +71,6 @@
                 </div>
                 <% }%>
 
-                <div class='search col-7'>
-                    <form action ="" method="POST">
-                        <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
-                        <button type="SUBMIT"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
             </div>
         </header>
         <div style="clear: both"></div>

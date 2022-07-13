@@ -127,7 +127,19 @@ public class NurseDAO implements DAO<Nurse> {
         nurse = parse(sql);
         return nurse;
     }
-
+   public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from nurse where fullname like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public Nurse getByID(int id_nurse) {
 
         try {
@@ -152,7 +164,31 @@ public class NurseDAO implements DAO<Nurse> {
         }
         return null;
     }
+    public List<Nurse> SearchNurseByKey(String key, int offset, int noOfRecords) {
 
+        String sql = "SELECT * from nurse where fullname like ? ORDER BY fullname OFFSET "+offset+" ROWS FETCH NEXT "+noOfRecords+" ROWS ONLY";
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setString(1, "%" + key + "%");
+            ResultSet rs = sttm.executeQuery();
+            ArrayList<Nurse> nurse = new ArrayList<>();
+            while (rs.next()) {
+                Nurse r = new Nurse();
+                r.setId_nurse(rs.getInt("id_nurse"));
+                r.setName_nurse(rs.getString("name_nurse"));
+                r.setPhone(rs.getInt("phone"));
+                r.setId_account(acc.get(rs.getInt("id_account")));
+                r.setAddress(rs.getString("address"));
+                r.setId_area(area.get(rs.getInt("id_area")));
+                r.setFullName(rs.getString("fullname"));
+                nurse.add(r);
+            }
+            return nurse;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
 // fix bug update
     @Override
@@ -211,7 +247,10 @@ public class NurseDAO implements DAO<Nurse> {
     }
     public static void main(String[] args) {
         NurseDAO dao = new NurseDAO();
-        dao.updateAccountNurse(new Nurse(1231231234, "nam", "nam", 1002));
+        //dao.updateAccountNurse(new Nurse(1231231234, "nam", "nam", 1002));
+        List<Nurse> list = new ArrayList<>();
+        list = dao.SearchNurseByKey("thanh", 2, 1);
+        System.out.println(list);
     }
 
 }

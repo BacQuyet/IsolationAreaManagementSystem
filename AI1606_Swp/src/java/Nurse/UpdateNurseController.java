@@ -106,6 +106,7 @@ public class UpdateNurseController extends HttpServlet {
             request.setAttribute("notify", noti);
             RequestDispatcher update = request.getRequestDispatcher("viewnurse");
             update.forward(request, response);
+            
             }
         }
         if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {

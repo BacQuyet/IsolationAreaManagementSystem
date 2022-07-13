@@ -6,8 +6,6 @@
 package Patient;
 
 import dao.PatientDAO;
-import entity.Account;
-import entity.Nurse;
 import entity.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,13 +15,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Administrator
+ * @author X1 Carbon Gen 7
  */
-public class ViewListPatientController extends HttpServlet {
+public class ListPatientByDoctorController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,16 +39,16 @@ public class ViewListPatientController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ViewListPatientController</title>");
+            out.println("<title>Servlet ListPatientByDoctorController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ViewListPatientController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ListPatientByDoctorController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-   
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -65,22 +62,29 @@ public class ViewListPatientController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        PatientDAO dao = new PatientDAO();
+
         int page = 1;
-        int recordsPerPage = 5;
-        
+        int recordPerPage = 10;
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
-        List<Patient> list = dao.getListAll((page - 1) * recordsPerPage, recordsPerPage);
-        int noOfRecords = dao.countPage();
-        int noOfPages = (int) ((noOfRecords + 4) / 5);
-
-        request.setAttribute("noOfRecords", noOfRecords);
-        request.setAttribute("list", list);
-        request.setAttribute("noOfPages", noOfPages);
+        String fname = (String) request.getParameter("fname");
+        String ffrom = (String) request.getParameter("ffrom");
+        String fto = (String) request.getParameter("fto");
+        String fsort = (String) request.getParameter("fsort");
+        PatientDAO dao = new PatientDAO();
+        List<Patient> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
+        int noOfRecord = dao.getNoOfRecords();
+        int noOfPage = (int) ((noOfRecord + 9) / 10);
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listPatient", list);
+        request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
-        RequestDispatcher view = request.getRequestDispatcher("/Patient/list.jsp");
+        request.setAttribute("fname", fname);
+        request.setAttribute("ffrom", ffrom);
+        request.setAttribute("fto", fto);
+        request.setAttribute("fsort", fsort);
+        RequestDispatcher view = request.getRequestDispatcher("listByDoctor.jsp");
         view.forward(request, response);
     }
 
@@ -95,7 +99,7 @@ public class ViewListPatientController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        processRequest(request, response);
     }
 
     /**

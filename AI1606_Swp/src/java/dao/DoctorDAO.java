@@ -34,16 +34,12 @@ public class DoctorDAO implements DAO<Doctor> {
             + "           (?,?,?,?,?)";
     Connection conn = DBcontext.getConnection();
 
-    public List<Doctor> getAllDoctor(int pageIndex, int pageSize) {
+    public List<Doctor> getAllDoctor(int offset, int noOfRecords) {
         ArrayList<Doctor> lst = new ArrayList<>();
         try {
             String query = "SELECT * FROM doctor ORDER BY id_doctor "
-                    + "OFFSET (?*?-?) ROWS FETCH NEXT ? ROWS ONLY";
+                    + "OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setInt(1, pageIndex);
-            ps.setInt(2, pageSize);
-            ps.setInt(3, pageSize);
-            ps.setInt(4, pageSize);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int nID = rs.getInt(1);
@@ -52,11 +48,9 @@ public class DoctorDAO implements DAO<Doctor> {
                 String fullName = rs.getString(4);
                 int idAccount = rs.getInt(5);
                 String address = rs.getString(6);
-
                 lst.add(new Doctor(nID, nName, phone, fullName, idAccount, address));
             }
             return lst;
-
         } catch (SQLException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,7 +60,6 @@ public class DoctorDAO implements DAO<Doctor> {
     public int countPage(int pageSize) {
         try {
             String query = "select Count(*) from doctor";
-
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             int count = 0;
@@ -83,7 +76,19 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return 0;
     }
-
+    public int countPage() {
+        try {
+            String query = "select Count(*) as Num from doctor";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     @Override
     public List<Doctor> parse(String sql) {
         try {
@@ -145,7 +150,42 @@ public class DoctorDAO implements DAO<Doctor> {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
     }
+    public List<Doctor> SearchDoctorByKey(String key, int offset, int noOfRecords) {
 
+        String sql = "SELECT * from doctor where fullname like ? ORDER BY fullname OFFSET "+offset+" ROWS FETCH NEXT "+noOfRecords+" ROWS ONLY";
+        List<Doctor> doctors = new ArrayList<>();
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setString(1, "%" + key + "%");
+            ResultSet rs = sttm.executeQuery();
+            while (rs.next()) {
+                int nID = rs.getInt(1);
+                String nName = rs.getString(2);
+                int phone = rs.getInt(3);
+                String fullName = rs.getString(4);
+                int idAccount = rs.getInt(5);
+                String address = rs.getString(6);
+                doctors.add(new Doctor(nID, nName, phone, fullName, idAccount, address));
+            }
+            return doctors;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from doctor where fullname like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     @Override
     public void update(Doctor t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

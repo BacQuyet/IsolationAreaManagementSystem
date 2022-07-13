@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Nurse;
+package Doctor;
 
-import dao.AccountDAO;
-import dao.NurseDAO;
+import dao.DoctorDAO;
 import entity.Account;
-import entity.Nurse;
+import entity.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,7 @@ import utils.Notification;
  *
  * @author Administrator
  */
-public class UpdateAccountNurseController extends HttpServlet {
+public class SearchDoctorController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +42,10 @@ public class UpdateAccountNurseController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateAccountNurseController</title>");            
+            out.println("<title>Servlet SearchDoctorController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UpdateAccountNurseController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SearchDoctorController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,7 +64,7 @@ public class UpdateAccountNurseController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        request.getRequestDispatcher("/myaccount/editAccount.jsp").forward(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -78,51 +78,31 @@ public class UpdateAccountNurseController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
-        int id = Integer.parseInt(request.getParameter("account_id"));
-        AccountDAO dao = new AccountDAO();
-        NurseDAO daoD = new NurseDAO();
-        HttpSession ss = request.getSession();
-        Account account = (Account) ss.getAttribute("userLogin");
-        String phone = request.getParameter("phone");
-        String full_name = request.getParameter("full_name");
-        String address = request.getParameter("address");
-        String email = request.getParameter("email");
-        //if (phone.length() == 10) {  // check so dien thoai có sai ko
-        //check tung thuoc tinh xem co thay doi khong
-        Account a = new Account();
-        a.setAccountId(id);
-        a.setEmail(email);
-        dao.updateAccount(a);
-        Nurse d = new Nurse();
-        d.setFullName(full_name);
-        d.setPhone(Integer.parseInt(phone));
-        d.setAddress(address);
-        d.setAccount_id(id);
-        daoD.updateAccountNurse(d);
+        int page = 1;
+        int recordsPerPage = 5;
+        String key = request.getParameter("key");
+            if (key == null || "".equals(key)) {
+                response.sendRedirect("ViewDoctor");
+            } else {
+                if (request.getParameter("page") != null) {
+                    page = Integer.parseInt(request.getParameter("page"));
+                }
+                DoctorDAO dao = new DoctorDAO();
+                List<Doctor> list = dao.SearchDoctorByKey(key,(page - 1) * recordsPerPage, recordsPerPage);
+                int noOfRecords = dao.countPageSize(key);
+                int noOfPages = (int) ((noOfRecords + 4) / 5);
+                request.setAttribute("noOfRecords", noOfRecords);
+                request.setAttribute("list", list);
+                request.setAttribute("noOfPages", noOfPages);
+                request.setAttribute("currentPage", page);
+                RequestDispatcher view = request.getRequestDispatcher("list-doctor.jsp");
+                view.forward(request, response);
 
-        Notification noti = new Notification("Success", "Cập nhật tài khoản y tá thành công.", "success");
-        request.setAttribute("notify", noti);
-        Account userLogin = dao.get(account.getAccountId());
-//          userLogin.setPatient(dao);
-        ss.setAttribute("nurse", daoD.getNurseByAccountId(account.getAccountId()));
-        ss.setAttribute("userLogin", userLogin);
-        RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
-        r1.forward(request, response);
-//        } else {
-//            Notification noti = new Notification("Error", "Nhập sai số điện thoại", "error");
-//            request.setAttribute("notify", noti);
-//            RequestDispatcher r1 = request.getRequestDispatcher("editAccount.jsp");
-//            r1.forward(request, response);
-//        }
-        if ((full_name != null && address != null && phone != null)) {
-            Notification notis = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
-            request.setAttribute("notify", notis);
-        }
+            }
 
-        request.getRequestDispatcher("/myaccount/EditAccount").forward(request, response);
     }
 
     /**

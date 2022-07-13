@@ -153,12 +153,51 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return qq.size();
     }
+    
+    public List<Patient> SearchPatientByKey(String key, int offset, int noOfRecords) {
 
-    /**
-     * GET TOTAL PATIENTS IN THE SYSTEM
-     *
-     * @return NUMBER OF PATIENTS
-     */
+        String sql = "SELECT p.patient_id, p.full_name,p.age,p.region,p.time_in,p.time_out,p.suspicion_level,r.room_name,a.area_name from patient p  \n"
+                + "join room  r on p.room_id = r.room_id\n"
+                + "join area a on p.area_id = a.area_id\n"
+                + "where full_name like ? \n"
+                + "ORDER BY full_name OFFSET "+offset+" ROWS FETCH NEXT "+noOfRecords+" ROWS ONLY";
+        List<Patient> pp = new ArrayList<>();
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setString(1, "%" + key + "%");
+            ResultSet rs = sttm.executeQuery();
+                while (rs.next()) {
+                    Patient p = new Patient();
+                    p.setPatientId(rs.getInt("patient_id"));
+                    p.setPatientName(rs.getString("full_name"));
+                    p.setAge(rs.getInt("age"));
+                    p.setRegion(rs.getString("region"));
+                    p.setSuspicionLevel(rs.getString("suspicion_level"));
+                    p.setTimeIn(rs.getTimestamp("time_in"));
+                    p.setTimeOut(rs.getTimestamp("time_out"));
+                    p.setRoomName(rs.getString("room_name"));
+                    p.setAreaName(rs.getString("area_name"));
+                    pp.add(p);
+                }
+            return pp;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from patient where full_name like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public int getTotalPatients() {
         String sql = "SELECT COUNT(*) AS Num FROM dbo.patient";
         try {
@@ -256,7 +295,19 @@ public class PatientDAO implements DAO<Patient> {
         }
         return null;
     }
-
+    public int countPage() {
+        try {
+            String query = "select Count(*) as Num from patient";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public int getNoOfRecord(int areaId) {
         try {
             String sql = "SELECT COUNT(*) AS NoOfRecords FROM dbo.patient WHERE area_id = " + areaId;
@@ -312,5 +363,30 @@ public class PatientDAO implements DAO<Patient> {
         List<Patient> qq = new ArrayList<>();
         qq = parse(sql);
         return qq;
+    }
+    
+    public List getIndex(int index1, int index2) {
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY patient_id) AS RowNum\n"
+                + "    FROM [dbo].[patient] \n"
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        List<Patient> patient = new ArrayList<>();
+        patient = parse(sql);
+        return patient;
+    }
+    
+    public int getNoOfRecords() {
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[patient]";
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrescriptionDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return 0;
     }
 }

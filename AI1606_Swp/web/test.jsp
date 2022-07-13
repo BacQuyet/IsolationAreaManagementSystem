@@ -10,10 +10,18 @@
     <body>
         <h1 style="color: green">
             GeeksforGeeks
+            GeeksforGeeks
+            GeeksforGeeks
+            GeeksforGeeks
         </h1>
 
         <p>
             Click on the buttons below to change
+            the language of the webpage.
+            the language of the webpage.
+            Click on the buttons below to change
+            the language of the webpage.
+            the language of the webpage.
             the language of the webpage.
         </p>
 
@@ -35,6 +43,17 @@
             <p id="siteContent">
                 Welcome to the GeeksforGeeks Portal!
                 You can choose any language using the
+                buttons above!
+                Welcome to the GeeksforGeeks Portal!
+                You can choose any language using the
+                buttons above!
+                Welcome to the GeeksforGeeks Portal!
+                You can choose any language using the
+                buttons above!
+                buttons above!
+                buttons above!
+                buttons above!
+                buttons above!
                 buttons above!
             </p>
 
