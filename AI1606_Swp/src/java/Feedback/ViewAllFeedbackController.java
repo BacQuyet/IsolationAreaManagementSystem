@@ -78,7 +78,6 @@ public class ViewAllFeedbackController extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-
         RequestDispatcher view = request.getRequestDispatcher("/Feedback/listfeedback.jsp");
         view.forward(request, response);
     }
