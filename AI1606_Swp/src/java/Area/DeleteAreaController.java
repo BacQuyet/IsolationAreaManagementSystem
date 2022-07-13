@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -77,6 +78,9 @@ public class DeleteAreaController extends HttpServlet {
         
         AreaDAO dao = new AreaDAO();
         dao.delete(dao.get(areaId));
+        
+        Notification noti = new Notification("Success","Xóa phòng cách ly thành công.","success");
+            request.setAttribute("notify", noti);
     }
 
     /**
