@@ -79,7 +79,6 @@ public class DeleteAreaController extends HttpServlet {
         
         AreaDAO dao = new AreaDAO();
         dao.delete(dao.get(areaId));
-        
         Notification noti = new Notification("Success","Xóa phòng cách ly thành công.","success");
         request.setAttribute("notify", noti);
         RequestDispatcher delete = request.getRequestDispatcher("viewarea");
