@@ -63,32 +63,19 @@ public class RemoveDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        AccountDAO accountDAO = new AccountDAO();
-        DoctorDAO doctorDAO = new DoctorDAO();
-        int id1 = Integer.parseInt(id);
-        Doctor doctor = doctorDAO.get(id1);
-        Account account = accountDAO.get(doctor.getIdAccount());
-        doctorDAO.delete(doctor);
-        accountDAO.delete(account);
-         int pageIndex = 1;
-        final int PAGE_SIZE = 2;
-        int type = 0;
-        String raw_page = request.getParameter("pageIndex");
-        if (raw_page != null) {
-            pageIndex = Integer.parseInt(raw_page);
-        }
-        List<Doctor> list = doctorDAO.getAllDoctor(pageIndex, PAGE_SIZE);
-        int totalPage = doctorDAO.countPage(PAGE_SIZE);
-
-         request.setAttribute("totalPage", totalPage);
-         request.setAttribute("pageIndex", pageIndex);
-        
-         request.setAttribute("list", list);
-         Notification noti = new Notification("Success", "Xoá tài khoản thành công.", "success");
-                request.setAttribute("notify", noti);
-         RequestDispatcher view = request.getRequestDispatcher("/Doctors/list-doctor.jsp");
-         view.forward(request, response);
+//        String id = request.getParameter("id");
+//        AccountDAO accountDAO = new AccountDAO();
+//        DoctorDAO doctorDAO = new DoctorDAO();
+//        int id1 = Integer.parseInt(id);
+//        Doctor doctor = doctorDAO.get(id1);
+//        Account account = accountDAO.get(doctor.getIdAccount());
+//        doctorDAO.delete(doctor);
+//        accountDAO.delete(account);
+//         Notification noti = new Notification("Success", "Xoá tài khoản thành công.", "success");
+//                request.setAttribute("notify", noti);
+//         RequestDispatcher view = request.getRequestDispatcher("/Doctors/list-doctor.jsp");
+//         view.forward(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -102,7 +89,20 @@ public class RemoveDoctorController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String id = request.getParameter("id");
+        AccountDAO accountDAO = new AccountDAO();
+        DoctorDAO doctorDAO = new DoctorDAO();
+        int id1 = Integer.parseInt(id);
+        Doctor doctor = doctorDAO.get(id1);
+        Account account = accountDAO.get(doctor.getIdAccount());
+        doctorDAO.delete(doctor);
+        accountDAO.delete(account);
+        Notification noti = new Notification("Success", "Xóa bác sĩ thành công.", "success");
+        request.setAttribute("notify", noti);
+        request.getRequestDispatcher("ViewDoctor").forward(request, response);
     }
 
     /**
