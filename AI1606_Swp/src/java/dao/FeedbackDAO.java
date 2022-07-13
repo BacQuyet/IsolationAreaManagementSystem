@@ -127,6 +127,23 @@ public class FeedbackDAO implements DAO<Feedback> {
         feedback = parse(sql);
         return feedback;
     }
+    
+    public void updateFeedback(Feedback f) {
+        String sql = "UPDATE [dbo].[feedback]\n"
+                + "   SET [patient_id] = ?\n"
+                + "      ,[content] = ?\n"
+                + "      ,[create_date] = ?\n"
+                + " WHERE feedback_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, f.getPatient_id());
+            pre.setString(2, f.getContent());
+            pre.setTimestamp(3, f.getCreateDate());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
+        }
+    }
 
     @Override
     public void delete(Feedback t) {
