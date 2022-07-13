@@ -147,7 +147,8 @@ public class FeedbackDAO implements DAO<Feedback> {
 
     @Override
     public void delete(Feedback t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM [dbo].[feedback]\n"
+                + "WHERE feedback_id = ?";
     }
 
     public List<Feedback> getAllFeedback(int offset, int noOfRecords) {
