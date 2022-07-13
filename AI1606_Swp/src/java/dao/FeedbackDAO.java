@@ -78,7 +78,12 @@ public class FeedbackDAO implements DAO<Feedback> {
 
     @Override
     public void create(Feedback t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "INSERT INTO [dbo].[feedback]\n"
+                + "           ([patient_id]\n"
+                + "           ,[content]\n"
+                + "           ,[create_date])\n"
+                + "     VALUES\n"
+                + "           (?,?,?)";
     }
 
     @Override
