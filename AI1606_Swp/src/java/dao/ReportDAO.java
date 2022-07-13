@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Feedback;
 import entity.Patient;
 import entity.Report;
 import java.sql.Connection;
@@ -156,7 +157,7 @@ public class ReportDAO implements DAO<Report> {
         }
         return 0;
     }
-    
+
     public int updateReport(int id, String content) {
         int res = 0;
         String sql = "UPDATE [dbo].[report] SET "
@@ -173,17 +174,19 @@ public class ReportDAO implements DAO<Report> {
         return res;
     }
 
+   
+
     public List<Report> getAllByPatientId(Integer patientId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public List<Report> getAllByPatient(Patient p) {
         String sql = "select * from report where id_patient = " + p.getPatientId() + " order by create_date desc";
         List<Report> qq = new ArrayList<>();
         qq = parse(sql);
         return qq;
     }
-    
+
     public static void main(String[] args) {
         ReportDAO dao = new ReportDAO();
         dao.getClass();

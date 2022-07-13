@@ -12,7 +12,7 @@
         <br><br>
         <h4>Vui lòng cập nhật lại toàn bộ các triệu chứng trong 24 giờ qua:</h4>
         <form action="updateReport" method="POST" id="form-dn" class="form">
-            <input id="reportId" class="form-control" name="reportId" type="text" value="" style="display: none">
+            <input id="reportId" class="form-control" name="reportId" type="text" value="${report.getId_report()}" style="display: none">
             <div class="input-group mb-3">
                 <div class="form-check" style="margin: 50px 20px">
                     <label class="form-check-label">

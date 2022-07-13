@@ -289,6 +289,10 @@
         <servlet-class>Patient.EditAccountPatientController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
+        <servlet-name>DeleteAreaController</servlet-name>
+        <servlet-class>Area.DeleteAreaController</servlet-class>
+=======
         <servlet-name>ListPatientByDoctorController</servlet-name>
         <servlet-class>Patient.ListPatientByDoctorController</servlet-class>
     </servlet>
@@ -303,6 +307,7 @@
     <servlet>
         <servlet-name>SearchNurseController</servlet-name>
         <servlet-class>Nurse.SearchNurseController</servlet-class>
+>>>>>>> 5a70888869e018f39ee5723d7036f614c20928a7
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -581,6 +586,10 @@
         <url-pattern>/myaccount/editAccountPatient</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>DeleteAreaController</servlet-name>
+        <url-pattern>/Area/deletearea</url-pattern>
+=======
         <servlet-name>ListPatientByDoctorController</servlet-name>
         <url-pattern>/Patient/ListPatientByDoctor</url-pattern>
     </servlet-mapping>
@@ -595,6 +604,7 @@
     <servlet-mapping>
         <servlet-name>SearchNurseController</servlet-name>
         <url-pattern>/Nurse/searchNurse</url-pattern>
+>>>>>>> 5a70888869e018f39ee5723d7036f614c20928a7
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
