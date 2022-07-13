@@ -49,7 +49,23 @@ public class FeedbackDAO implements DAO<Feedback> {
 
     @Override
     public Feedback get(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "SELECT * FROM [dbo].[feedback] WHERE patient_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                Feedback f = new Feedback();
+                f.setFeedback_id(rs.getInt("feedback_id"));
+                f.setContent(rs.getString("content"));
+                f.setCreateDate(rs.getTimestamp("create_date"));
+                f.setPatient_id(rs.getInt("patient_id"));
+                return f;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return null;
     }
 
     @Override
