@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -21,11 +22,29 @@ import java.util.logging.Logger;
  *
  * @author Administrator
  */
-public class FeedbackDAO implements DAO<Feedback>{
+public class FeedbackDAO implements DAO<Feedback> {
+
     Connection conn = DBcontext.getConnection();
+
     @Override
     public List<Feedback> parse(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            ArrayList<Feedback> feedback = new ArrayList<>();
+            while (rs.next()) {
+                Feedback f = new Feedback();
+                f.setFeedback_id(rs.getInt("feedback_id"));
+                f.setContent(rs.getString("content"));
+                f.setCreateDate(rs.getTimestamp("create_date"));
+                f.setPatient_id(rs.getInt("patient_id"));
+                feedback.add(f);
+            }
+            return feedback;
+        } catch (Exception e) {
+            Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
+        }
+        return null;
     }
 
     @Override
@@ -52,10 +71,11 @@ public class FeedbackDAO implements DAO<Feedback>{
     public void delete(Feedback t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     public List<Feedback> getAllFeedback(int offset, int noOfRecords) {
         ArrayList<Feedback> lst = new ArrayList<>();
         try {
-                String query = "SELECT * FROM feedback ORDER BY create_date DESC "
+            String query = "SELECT * FROM feedback ORDER BY create_date DESC "
                     + "OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
@@ -73,6 +93,7 @@ public class FeedbackDAO implements DAO<Feedback>{
         }
         return null;
     }
+
     public int countPage() {
         try {
             String query = "select Count(*) as Num from feedback";
@@ -86,6 +107,7 @@ public class FeedbackDAO implements DAO<Feedback>{
         }
         return 0;
     }
+
     public static void main(String[] args) {
         FeedbackDAO dao = new FeedbackDAO();
         List<Feedback> list = new ArrayList<>();
