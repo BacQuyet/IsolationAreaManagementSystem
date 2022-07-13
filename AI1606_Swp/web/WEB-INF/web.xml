@@ -289,10 +289,10 @@
         <servlet-class>Patient.EditAccountPatientController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>DeleteAreaController</servlet-name>
         <servlet-class>Area.DeleteAreaController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>ListPatientByDoctorController</servlet-name>
         <servlet-class>Patient.ListPatientByDoctorController</servlet-class>
     </servlet>
@@ -307,7 +307,10 @@
     <servlet>
         <servlet-name>SearchNurseController</servlet-name>
         <servlet-class>Nurse.SearchNurseController</servlet-class>
->>>>>>> 5a70888869e018f39ee5723d7036f614c20928a7
+    </servlet>
+    <servlet>
+        <servlet-name>ViewAllFeedbackController</servlet-name>
+        <servlet-class>Feedback.ViewAllFeedbackController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -586,10 +589,10 @@
         <url-pattern>/myaccount/editAccountPatient</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>DeleteAreaController</servlet-name>
         <url-pattern>/Area/deletearea</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListPatientByDoctorController</servlet-name>
         <url-pattern>/Patient/ListPatientByDoctor</url-pattern>
     </servlet-mapping>
@@ -604,7 +607,10 @@
     <servlet-mapping>
         <servlet-name>SearchNurseController</servlet-name>
         <url-pattern>/Nurse/searchNurse</url-pattern>
->>>>>>> 5a70888869e018f39ee5723d7036f614c20928a7
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAllFeedbackController</servlet-name>
+        <url-pattern>/Feedback/viewAllFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
@@ -639,6 +645,7 @@
             <url-pattern>/Nurse/*</url-pattern>
             <url-pattern>/Prescription/*</url-pattern>
             <url-pattern>/Report/*</url-pattern>
+            <url-pattern>/Feedback/*</url-pattern>
             <include-prelude>/WEB-INF/jspf/header2.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>
