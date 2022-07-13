@@ -5,6 +5,7 @@
  */
 package Area;
 
+import dao.AreaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -73,6 +74,8 @@ public class DeleteAreaController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int areaId = Integer.parseInt(request.getParameter("areaId"));
+        
+        AreaDAO dao = new AreaDAO();
     }
 
     /**
