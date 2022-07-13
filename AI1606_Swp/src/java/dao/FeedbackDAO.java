@@ -150,7 +150,7 @@ public class FeedbackDAO implements DAO<Feedback> {
         String sql = "DELETE FROM [dbo].[feedback]\n"
                 + "WHERE feedback_id = ?";
         try {
-            
+            PreparedStatement pre = conn.prepareStatement(sql);
         } catch (Exception e) {
         }
     }
