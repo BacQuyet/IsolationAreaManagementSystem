@@ -73,7 +73,19 @@ public class FeedbackDAO implements DAO<Feedback>{
         }
         return null;
     }
-
+    public int countPage() {
+        try {
+            String query = "select Count(*) as Num from feedback";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         FeedbackDAO dao = new FeedbackDAO();
         List<Feedback> list = new ArrayList<>();
