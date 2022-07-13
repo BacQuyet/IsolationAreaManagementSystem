@@ -72,6 +72,7 @@ public class DeleteAreaController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        int areaId = Integer.parseInt(request.getParameter("areaId"));
     }
 
     /**
