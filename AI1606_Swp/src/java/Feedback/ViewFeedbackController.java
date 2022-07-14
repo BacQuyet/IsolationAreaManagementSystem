@@ -11,6 +11,7 @@ import entity.Feedback;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -90,7 +91,8 @@ public class ViewFeedbackController extends HttpServlet {
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
         if (userLogin.getType().getAccountTypeId() == 4) {
-            
+            RequestDispatcher view = request.getRequestDispatcher("/Feedback/viewFeedback.jsp");
+            view.forward(request, response);
         }else{
             
         }
