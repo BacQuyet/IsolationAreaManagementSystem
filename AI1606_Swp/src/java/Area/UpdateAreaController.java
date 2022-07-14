@@ -8,6 +8,7 @@ package Area;
 import dao.AreaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -74,6 +75,11 @@ public class UpdateAreaController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         AreaDAO areadao = new AreaDAO();
+        
+        if (request.getParameter("areaId") == null) {
+            RequestDispatcher view = request.getRequestDispatcher("viewarea");
+            view.forward(request, response);
+        }
     }
 
     /**
