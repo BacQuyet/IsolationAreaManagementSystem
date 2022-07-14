@@ -98,6 +98,7 @@ public class AddRoomNurseController extends HttpServlet {
         if (note.length() == 0) {
             note = "no notes";
         }
+        
         RoomDAO dao = new RoomDAO();
         AreaDAO daoArea = new AreaDAO();
         Room room = new Room();
