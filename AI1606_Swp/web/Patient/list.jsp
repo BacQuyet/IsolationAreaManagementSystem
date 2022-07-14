@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/list.css">
 <div class='search col-10'>
 <div class="col-10 content">
-    <div class="content-label">
+     <div class="content-label">
         <span class="content-label__menu">Bảng điều khiển</span>
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Người cách ly </span>
         <div class="spacer2"></div>
