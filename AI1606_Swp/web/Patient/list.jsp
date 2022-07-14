@@ -80,7 +80,7 @@
                  <c:if test = "${currentPage lt noOfPages}">
                     <a href="<%=request.getContextPath()%>/Patient/ViewPatient?page=${currentPage+1}"> > </a>
                  </c:if>
-            </div>
+             </div>
          </div>
      </div>
 </div>
