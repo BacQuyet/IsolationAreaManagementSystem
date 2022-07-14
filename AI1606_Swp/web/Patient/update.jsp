@@ -14,7 +14,7 @@
         <form action="update" method="POST" id="form-dn" class="form">
             <input id="patientId" name="patientId" style="display: none" value="">
             <div class="form-header">
-                <div class="form-group form-group__special">
+                 <div class="form-group form-group__special">
                     <label for="fullname" class="form-label">Họ và tên:</label>
                     <input id="fullname" class="form-control" name="fullname" type="text" value="" required>
                     <span class="form-message"></span>
