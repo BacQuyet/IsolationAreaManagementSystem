@@ -98,6 +98,8 @@ public class ViewFeedbackController extends HttpServlet {
             request.setAttribute("ffrom", ffrom);
             request.setAttribute("fto", fto);
             request.setAttribute("fsort", fsort);
+            RequestDispatcher view = request.getRequestDispatcher("/Feedback/viewFeedback.jsp");
+            view.forward(request, response);
         }
     }
 
