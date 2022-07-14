@@ -77,7 +77,7 @@
                     </c:choose>
                 </c:forEach>
 
-                <c:if test = "${currentPage lt noOfPages}">
+                 <c:if test = "${currentPage lt noOfPages}">
                     <a href="<%=request.getContextPath()%>/Patient/ViewPatient?page=${currentPage+1}"> > </a>
                 </c:if>
             </div>
