@@ -5,6 +5,7 @@
  */
 package Area;
 
+import dao.AreaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -83,6 +84,7 @@ public class SearchAreaController extends HttpServlet {
                 page = Integer.parseInt(request.getParameter("page"));
             }
         }
+        AreaDAO dao = new AreaDAO();
     }
 
     /**
