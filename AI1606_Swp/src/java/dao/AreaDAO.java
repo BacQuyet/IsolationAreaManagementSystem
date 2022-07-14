@@ -59,6 +59,18 @@ public class AreaDAO implements DAO<Area> {
         area = parse(sql);
         return area;
     }
+    
+    public List getIndex(int index1, int index2) {
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY area_id) AS RowNum\n"
+                + "    FROM [dbo].[area] "
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        List<Area> area = new ArrayList<>();
+        area = parse(sql);
+        return area;
+    }
+    
     public List<Area> SearchArea(String key, int index1, int index2) {
 
         String sql = "SELECT * FROM (\n"
