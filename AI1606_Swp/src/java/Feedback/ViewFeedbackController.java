@@ -5,6 +5,7 @@
  */
 package Feedback;
 
+import dao.FeedbackDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -76,6 +77,8 @@ public class ViewFeedbackController extends HttpServlet {
         String ffrom = (String) request.getParameter("ffrom");
         String fto = (String) request.getParameter("fto");
         String fsort = (String) request.getParameter("fsort");
+        
+        FeedbackDAO dao = new FeedbackDAO();
     }
 
     /**
