@@ -10,7 +10,7 @@
     <body>
         <h1 style="color: green">
             GeeksforGeekss
-            GeeksforGeeks
+            GeeksforGeekss
             GeeksforGeeks
             GeeksforGeeks
         </h1>
