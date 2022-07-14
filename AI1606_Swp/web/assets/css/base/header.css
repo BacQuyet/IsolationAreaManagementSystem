@@ -54,7 +54,6 @@ header {
 .search{
     display:flex;
     align-items: center;
-    width: 1000px;
     justify-content: flex-start;
     position: relative;
 
@@ -64,6 +63,7 @@ header {
     width: 500px;
     height: 40px;
     padding: 12px 20px;
+    margin-left: 300px;
     font-size: 1.5rem;
     border: 1px solid rgba(0,0,0,0.6);
     border-radius: 5px 0 0 5px;

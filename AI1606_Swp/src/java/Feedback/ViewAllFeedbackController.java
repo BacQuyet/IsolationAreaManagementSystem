@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Doctor;
+package Feedback;
 
-import dao.AccountDAO;
-import dao.DoctorDAO;
-import entity.Account;
-import entity.Doctor;
+import dao.FeedbackDAO;
+import entity.Feedback;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,13 +15,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import utils.Notification;
 
 /**
  *
  * @author Administrator
  */
-public class RemoveDoctorController extends HttpServlet {
+public class ViewAllFeedbackController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +39,10 @@ public class RemoveDoctorController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RemoveDoctorController</title>");            
+            out.println("<title>Servlet ViewAllFeedbackController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RemoveDoctorController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ViewAllFeedbackController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,19 +60,26 @@ public class RemoveDoctorController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String id = request.getParameter("id");
-//        AccountDAO accountDAO = new AccountDAO();
-//        DoctorDAO doctorDAO = new DoctorDAO();
-//        int id1 = Integer.parseInt(id);
-//        Doctor doctor = doctorDAO.get(id1);
-//        Account account = accountDAO.get(doctor.getIdAccount());
-//        doctorDAO.delete(doctor);
-//        accountDAO.delete(account);
-//         Notification noti = new Notification("Success", "Xoá tài khoản thành công.", "success");
-//                request.setAttribute("notify", noti);
-//         RequestDispatcher view = request.getRequestDispatcher("/Doctors/list-doctor.jsp");
-//         view.forward(request, response);
-        doPost(request, response);
+        //processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        FeedbackDAO ndao = new FeedbackDAO();
+        int page = 1;
+        int recordsPerPage = 5;
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        //List<Doctor> list = ndao.getAllDoctor(pageIndex, PAGE_SIZE);
+        List<Feedback> list = ndao.getAllFeedback((page - 1) * recordsPerPage, recordsPerPage);
+        int noOfRecords = ndao.countPage();
+        int noOfPages = (int) ((noOfRecords + 4) / 5);
+
+        request.setAttribute("noOfRecords", noOfRecords);
+        request.setAttribute("list", list);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+        RequestDispatcher view = request.getRequestDispatcher("/Feedback/listfeedback.jsp");
+        view.forward(request, response);
     }
 
     /**
@@ -90,19 +94,7 @@ public class RemoveDoctorController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String id = request.getParameter("id");
-        AccountDAO accountDAO = new AccountDAO();
-        DoctorDAO doctorDAO = new DoctorDAO();
-        int id1 = Integer.parseInt(id);
-        Doctor doctor = doctorDAO.get(id1);
-        Account account = accountDAO.get(doctor.getIdAccount());
-        doctorDAO.delete(doctor);
-        accountDAO.delete(account);
-        Notification noti = new Notification("Success", "Xóa bác sĩ thành công.", "success");
-        request.setAttribute("notify", noti);
-        request.getRequestDispatcher("ViewDoctor").forward(request, response);
+        doGet(request, response);
     }
 
     /**

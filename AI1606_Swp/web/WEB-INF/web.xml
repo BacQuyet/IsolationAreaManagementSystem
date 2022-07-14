@@ -309,8 +309,13 @@
         <servlet-class>Nurse.SearchNurseController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>UpdateAreaController</servlet-name>
         <servlet-class>Area.UpdateAreaController</servlet-class>
+=======
+        <servlet-name>ViewAllFeedbackController</servlet-name>
+        <servlet-class>Feedback.ViewAllFeedbackController</servlet-class>
+>>>>>>> ae04688fe8395a38fc834d84ffb036a3a7f0c1db
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -609,8 +614,13 @@
         <url-pattern>/Nurse/searchNurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>UpdateAreaController</servlet-name>
         <url-pattern>/Area/updatearea</url-pattern>
+=======
+        <servlet-name>ViewAllFeedbackController</servlet-name>
+        <url-pattern>/Feedback/viewAllFeedback</url-pattern>
+>>>>>>> ae04688fe8395a38fc834d84ffb036a3a7f0c1db
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
@@ -645,6 +655,7 @@
             <url-pattern>/Nurse/*</url-pattern>
             <url-pattern>/Prescription/*</url-pattern>
             <url-pattern>/Report/*</url-pattern>
+            <url-pattern>/Feedback/*</url-pattern>
             <include-prelude>/WEB-INF/jspf/header2.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
         </jsp-property-group>

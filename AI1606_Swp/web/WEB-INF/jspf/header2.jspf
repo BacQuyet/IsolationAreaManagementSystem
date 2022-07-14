@@ -124,7 +124,7 @@
                             <span class="sidebar-info">Quản lý phòng</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href=""><i class="fas fa-user-shield sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Feedback/viewAllFeedback"><i class="fas fa-user-shield sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý góp ý</span>
                         </a>
                     </li>

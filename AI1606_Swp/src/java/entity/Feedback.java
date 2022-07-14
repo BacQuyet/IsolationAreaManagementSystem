@@ -5,30 +5,34 @@
  */
 package entity;
 
+import java.sql.Timestamp;
+
 /**
  *
- * @author ADMIN
+ * @author Administrator
  */
 public class Feedback {
-    private String name;
+    private int feedback_id;
     private String content;
-    private int patient;
+    private Timestamp createDate;
+    private int patient_id;
 
     public Feedback() {
     }
 
-    public Feedback(String name, String content, int patient) {
-        this.name = name;
+    public Feedback(int feedback_id, String content, Timestamp createDate, int patient_id) {
+        this.feedback_id = feedback_id;
         this.content = content;
-        this.patient = patient;
+        this.createDate = createDate;
+        this.patient_id = patient_id;
     }
 
-    public String getName() {
-        return name;
+    public int getFeedback_id() {
+        return feedback_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFeedback_id(int feedback_id) {
+        this.feedback_id = feedback_id;
     }
 
     public String getContent() {
@@ -39,19 +43,26 @@ public class Feedback {
         this.content = content;
     }
 
-    public int getPatient() {
-        return patient;
+    public Timestamp getCreateDate() {
+        return createDate;
     }
 
-    public void setPatient(int patient) {
-        this.patient = patient;
+    public void setCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+    }
+
+    public int getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(int patient_id) {
+        this.patient_id = patient_id;
     }
 
     @Override
     public String toString() {
-        return "Feedback{" + "name=" + name + ", content=" + content + ", patient=" + patient + '}';
+        return "Feedback{" + "feedback_id=" + feedback_id + ", content=" + content + ", createDate=" + createDate + ", patient_id=" + patient_id + '}';
     }
-    
     
     
 }

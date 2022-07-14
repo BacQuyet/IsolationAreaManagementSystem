@@ -19,7 +19,6 @@
             </a>
         </div>
         <div class="table-list">
-
             <table class="table-list__user">
                 <tr>
                     <th width="10%">Mã</th>
@@ -37,15 +36,12 @@
                         <td class="td-action">
                             <a href="<%=request.getContextPath()%>/Doctors/viewDetailDoctor?id=${doctor.getDoctor()}"><i class="far fa-calendar-alt"></i></a>
                             <a href="<%=request.getContextPath()%>/Doctors/UpdateDoctor?id_doctor=${doctor.getDoctor()}"><i class="fas fa-pen"></i></a>
-                            <a href="<%=request.getContextPath()%>/Accounts/DeleteAccountDoctor?id=${doctor.getDoctor()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
+                            <a href="<%=request.getContextPath()%>/Doctors/Delete?id=${doctor.getDoctor()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
-
         </div>
-
-
         <div class="content-pad">
             <c:if test="${currentPage * 5 > noOfRecords}">
                 <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${noOfRecords} of ${noOfRecords} entries</div>
@@ -77,5 +73,4 @@
             </div>
         </div>
     </div>
-
 </div>

@@ -42,13 +42,14 @@ public class DoctorDAO implements DAO<Doctor> {
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int nID = rs.getInt(1);
-                String nName = rs.getString(2);
-                int phone = rs.getInt(3);
-                String fullName = rs.getString(4);
-                int idAccount = rs.getInt(5);
-                String address = rs.getString(6);
-                lst.add(new Doctor(nID, nName, phone, fullName, idAccount, address));
+                Doctor p = new Doctor();
+                p.setDoctor(rs.getInt("id_doctor"));
+                p.setDoctorName(rs.getString("doctor_name"));
+                p.setPhone(rs.getInt("phone"));
+                p.setFullName(rs.getString("fullname"));
+                p.setAddress(rs.getString("address"));
+                p.setIdAccount(rs.getInt("id_account"));
+                lst.add(p);
             }
             return lst;
         } catch (SQLException ex) {
@@ -76,6 +77,7 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return 0;
     }
+
     public int countPage() {
         try {
             String query = "select Count(*) as Num from doctor";
@@ -89,6 +91,7 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return 0;
     }
+
     @Override
     public List<Doctor> parse(String sql) {
         try {
@@ -150,9 +153,10 @@ public class DoctorDAO implements DAO<Doctor> {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
     }
+
     public List<Doctor> SearchDoctorByKey(String key, int offset, int noOfRecords) {
 
-        String sql = "SELECT * from doctor where fullname like ? ORDER BY fullname OFFSET "+offset+" ROWS FETCH NEXT "+noOfRecords+" ROWS ONLY";
+        String sql = "SELECT * from doctor where fullname like ? ORDER BY fullname OFFSET " + offset + " ROWS FETCH NEXT " + noOfRecords + " ROWS ONLY";
         List<Doctor> doctors = new ArrayList<>();
         try {
             PreparedStatement sttm = conn.prepareStatement(sql);
@@ -173,6 +177,7 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return null;
     }
+
     public int countPageSize(String key) {
         try {
             String query = "select Count(*) as Num from doctor where fullname like '%" + key + "%'";
@@ -186,6 +191,7 @@ public class DoctorDAO implements DAO<Doctor> {
         }
         return 0;
     }
+
     @Override
     public void update(Doctor t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -233,6 +239,7 @@ public class DoctorDAO implements DAO<Doctor> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
+
     public void updateAccountDoctor(Doctor d) {
         String sql = "UPDATE [dbo].[doctor]\n"
                 + "   SET [fullname] = ?\n"
@@ -250,6 +257,7 @@ public class DoctorDAO implements DAO<Doctor> {
             Logger.getLogger(DoctorDAO.class.getName()).log(Level.SEVERE, sql, ex);
         }
     }
+
     public Doctor getByIdAccount(int idAccount) {
         try {
             String sql = "select * from dbo.doctor where id_account = ?";
@@ -274,6 +282,8 @@ public class DoctorDAO implements DAO<Doctor> {
 
     public static void main(String[] args) {
         DoctorDAO dao = new DoctorDAO();
-        dao.delete(new Doctor(2011));
+        List<Doctor> list = new ArrayList<>();
+        list = dao.getAllDoctor(2, 3);
+        System.out.println(list);
     }
 }
