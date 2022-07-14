@@ -89,6 +89,11 @@ public class SearchAreaController extends HttpServlet {
         AreaDAO dao = new AreaDAO();
         List<Area> list = dao.SearchArea(key,(page - 1) * recordPerPage, recordPerPage);
         int noOfRecord = dao.countPageSize(key);
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listArea", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
     }
 
     /**
