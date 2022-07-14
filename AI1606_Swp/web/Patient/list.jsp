@@ -56,6 +56,7 @@
             <c:if test="${currentPage * 5 > noOfRecords}">
                 <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${noOfRecords} of ${noOfRecords} entries</div>
             </c:if>
+                
             <c:if test="${currentPage * 5 <= noOfRecords}">
                 <div class="content-pad__label">Showing ${(currentPage-1)*5+1} to ${currentPage * 5} of ${noOfRecords} entries</div>
             </c:if>
