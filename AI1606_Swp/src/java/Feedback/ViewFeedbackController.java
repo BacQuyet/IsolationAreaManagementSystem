@@ -89,6 +89,9 @@ public class ViewFeedbackController extends HttpServlet {
         request.setAttribute("listFeedback", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
+        if (userLogin.getType().getAccountTypeId() == 4) {
+            
+        }
     }
 
     /**
