@@ -14,7 +14,7 @@
             <input id="areaId" class="form-control" name="areaId" type="text" value="${area.getAreaId()}" style="display: none">
             <div class="form-group form-group__special">
                 <label for="areaName" class="form-label">Tên khu vực</label>
-                <input id="areaName" class="form-control" name="areaName" type="text" required value ="">
+                <input id="areaName" class="form-control" name="areaName" type="text" required value="${area.getAreaName()}">
                 <span class="form-message"></span>
             </div>
 
