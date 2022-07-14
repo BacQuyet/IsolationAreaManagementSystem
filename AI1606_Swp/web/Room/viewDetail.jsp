@@ -7,7 +7,7 @@
         <div class="spacer2"></div>
      </div>
 
-    <div class="content-header">
+     <div class="content-header">
         <div class="content-header__info">
             <span>Khu cách ly: </span>
             <span>Khu cách ly: </span>
