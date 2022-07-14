@@ -41,7 +41,7 @@
             </button>
 
             <!-- Define the content of the page
-            that would be changed -->
+            that would -->
             <p id="siteContent">
                 Welcome to the GeeksforGeeks Portal!
                 You can choose any language using the
