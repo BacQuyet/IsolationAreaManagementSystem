@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/detail.css">
 
 <div class="col-10 content">
-    <button onclick="history.back()">Back</button>
+     <button onclick="history.back()">Back</button>
     <div class="content-label">
         <span class="content-label__menu">Bảng điều khiển</span>
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Người cách ly > Xem chi tiết</span>
