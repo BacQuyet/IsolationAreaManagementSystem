@@ -16,7 +16,7 @@
         <a href="<%=request.getContextPath()%>/Patient/add.jsp"><i class="fas fa-plus-circle"></i>
             <span>Thêm</span>
         </a>
-    </div>
+     </div>
 
     <div class="table-list">
         <table class="table-list__user">
