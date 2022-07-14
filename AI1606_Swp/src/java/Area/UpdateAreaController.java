@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -95,6 +96,8 @@ public class UpdateAreaController extends HttpServlet {
                 a.setAreaAddress(areaAddress);
                 a.setContact(areaContact);
                 areadao.updateArea(a);
+                Notification noti = new Notification("Success", "Cập nhật khu vực cách ly thành công.", "success");
+                request.setAttribute("notify", noti);
             }
         }
     }
