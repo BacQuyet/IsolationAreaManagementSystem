@@ -71,6 +71,11 @@ public class ViewFeedbackController extends HttpServlet {
         if (userLogin.getType().getAccountTypeId() == 4) {// Patient
             id = userLogin.getPatient().getPatientId();
         }
+        
+        String fname = (String) request.getParameter("fname");
+        String ffrom = (String) request.getParameter("ffrom");
+        String fto = (String) request.getParameter("fto");
+        String fsort = (String) request.getParameter("fsort");
     }
 
     /**
