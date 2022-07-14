@@ -12,6 +12,7 @@
             <div class="form-group form-group__special">
                 <label for="feedbackName" class="form-label">Nội dung góp ý</label>
                 <textarea id="feedbackName" class="form-control" name="feedbackName" type="text" required ></textarea>
+                <span class="form-message"></span>
             </div>
         </form>
     </div>
