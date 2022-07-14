@@ -84,6 +84,11 @@ public class ViewFeedbackController extends HttpServlet {
         List<Feedback> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
         int noOfRecord = dao.getNoOfRecord(id);
         int noOfPage = (int) ((noOfRecord + 4) / 5);
+        
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listFeedback", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
     }
 
     /**
