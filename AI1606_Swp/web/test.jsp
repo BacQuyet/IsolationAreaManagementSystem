@@ -18,7 +18,7 @@
         </h1>
 
         <p>
-            Click on the buttons below to change
+            Click on the buttons below to changes
             the language of the webpage.
             the language of the webpage.
             Click on the buttons below to change
