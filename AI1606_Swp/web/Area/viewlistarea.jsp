@@ -10,6 +10,13 @@
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Quản lý phòng bệnh</span>
         <div class="spacer2"></div>
     </div>
+    
+    <div class='search col-7' style="margin-left: 20px; margin-top: 10px;">
+        <form action ="searcharea" method="POST">
+            <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
+            <button type="SUBMIT"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
     <%
         Account account = (Account) session.getAttribute("userLogin");
         if (account.getType().getAccountTypeId() == 1) {
