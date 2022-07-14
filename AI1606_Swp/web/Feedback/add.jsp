@@ -6,7 +6,7 @@
         <span class="content-label__info"><i class="fas fa-home"></i> Hệ thống > Góp ý</span>
         <div class="spacer2"></div>
     </div>
-    
+
     <div class="form-container">
         <form action="addFeedback" method="POST" id="form-dn" class="form">
             <div class="form-group form-group__special">
@@ -14,6 +14,8 @@
                 <textarea id="feedbackName" class="form-control" name="feedbackName" type="text" required ></textarea>
                 <span class="form-message"></span>
             </div>
+
+            <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
         </form>
     </div>
 </div>
