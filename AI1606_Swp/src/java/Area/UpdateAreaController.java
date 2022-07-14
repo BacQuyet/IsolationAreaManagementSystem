@@ -60,7 +60,7 @@ public class UpdateAreaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doPost(request, response);
     }
 
     /**
@@ -102,6 +102,10 @@ public class UpdateAreaController extends HttpServlet {
                 update.forward(request, response);
             }
         }
+        
+        request.setAttribute("area", areadao.get(areaId));
+        RequestDispatcher update = request.getRequestDispatcher("/Area/update.jsp");
+        update.forward(request, response);
     }
 
     /**
