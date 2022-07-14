@@ -87,6 +87,7 @@
                     <a href="<%=request.getContextPath()%>/Room/viewroom?page=${currentPage+1}"> > </a>
                 </c:if>
                     
+                    
             </div>
         </div>
     </div>
