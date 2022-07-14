@@ -46,8 +46,8 @@
                     <td>${area.getAreaAddress()}</td>
                     <td>${area.getContact()}</td>
                     <td class="td-action">
-                        <a href="<%=request.getContextPath()%>/Area/viewdetailroom?roomId=${room.getRoomId()}"><i class="far fa-calendar-alt"></i></a>
-                        <a href="<%=request.getContextPath()%>/Area/updateroom?roomId=${room.getRoomId()}"><i class="fas fa-pen"></i></a>
+                        <a href="<%=request.getContextPath()%>/Area/viewdetailarea?areaId=${room.getAreaId()}"><i class="far fa-calendar-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Area/updatearea?areaId=${room.getAreaId()}"><i class="fas fa-pen"></i></a>
                         <a href="<%=request.getContextPath()%>/Area/deletearea?areaId=${area.getAreaId()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
