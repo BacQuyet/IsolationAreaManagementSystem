@@ -309,13 +309,16 @@
         <servlet-class>Nurse.SearchNurseController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>UpdateAreaController</servlet-name>
         <servlet-class>Area.UpdateAreaController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>ViewAllFeedbackController</servlet-name>
         <servlet-class>Feedback.ViewAllFeedbackController</servlet-class>
->>>>>>> ae04688fe8395a38fc834d84ffb036a3a7f0c1db
+    </servlet>
+    <servlet>
+        <servlet-name>SearchAreaController</servlet-name>
+        <servlet-class>Area.SearchAreaController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -614,13 +617,16 @@
         <url-pattern>/Nurse/searchNurse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>UpdateAreaController</servlet-name>
         <url-pattern>/Area/updatearea</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ViewAllFeedbackController</servlet-name>
         <url-pattern>/Feedback/viewAllFeedback</url-pattern>
->>>>>>> ae04688fe8395a38fc834d84ffb036a3a7f0c1db
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAreaController</servlet-name>
+        <url-pattern>/Area/searcharea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
