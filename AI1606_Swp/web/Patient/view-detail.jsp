@@ -36,6 +36,7 @@
                 <li>Số ngày thực hiện: </li>
                 <li>Phòng số: </li>
             </ul>
+                
         </div>
     </div>   
     <div class="content-history">
