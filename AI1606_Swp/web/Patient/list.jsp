@@ -50,7 +50,7 @@
                     </td>
 
                 </tr>
-            </c:forEach>
+             </c:forEach>
         </table>
         <div class="content-pad">
             <c:if test="${currentPage * 5 > noOfRecords}">
