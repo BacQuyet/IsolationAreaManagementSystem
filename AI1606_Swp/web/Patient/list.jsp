@@ -18,7 +18,7 @@
         </a>
      </div>
 
-    <div class="table-list">
+     <div class="table-list">
         <table class="table-list__user">
             <tr>
                 <th width="5%">Mã Bệnh Nhân</th>
