@@ -62,7 +62,6 @@ public class ViewNurseController extends HttpServlet {
         NurseDAO ndao = new NurseDAO();
         int page = 1;
         int recordPerPage = 5;
-
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
