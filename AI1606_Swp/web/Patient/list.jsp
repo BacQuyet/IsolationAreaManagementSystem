@@ -31,7 +31,7 @@
                 <th width="19%">Mức độ nghi nhiễm</th>
                 <th width="19%">Hành động</th>
             </tr>
-            <c:forEach var="patient" items="${list}">
+             <c:forEach var="patient" items="${list}">
                 <tr>
                     <td>${patient.getPatientId()}</td>
                     <td>${patient.getPatientName()}</td>
