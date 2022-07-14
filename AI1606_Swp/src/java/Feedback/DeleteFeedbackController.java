@@ -5,6 +5,7 @@
  */
 package Feedback;
 
+import dao.FeedbackDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -73,10 +74,12 @@ public class DeleteFeedbackController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        FeedbackDAO dao = new FeedbackDAO();
         if (request.getParameter("feedbackId") == null) {
             RequestDispatcher update = request.getRequestDispatcher("listFeedback");
             update.forward(request, response);
         }
+        dao.delete(dao.get1(Integer.parseInt(request.getParameter("feedbackId"))));
     }
 
     /**
