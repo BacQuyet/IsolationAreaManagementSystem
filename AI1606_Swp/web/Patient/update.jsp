@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/add.css">
 
 <div class="col-10 content">
-    <div class="content-label">
+     <div class="content-label">
         <span class="content-label__menu">Bảng điều khiển</span>
         <span class="content-label__info"><i class="fas fa-home"></i> Hệ thống > Ngưới cách ly > Chỉnh sửa lý lịch</span>
         <div class="spacer2"></div>
