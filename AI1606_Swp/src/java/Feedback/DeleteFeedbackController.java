@@ -72,7 +72,7 @@ public class DeleteFeedbackController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        if () {
+        if (request.getParameter("feedbackId") == null) {
             
         }
     }
