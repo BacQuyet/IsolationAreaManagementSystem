@@ -75,6 +75,7 @@ public class SearchAreaController extends HttpServlet {
         
         int page = 1;
         int recordPerPage = 5;
+        String key = request.getParameter("key");
     }
 
     /**
