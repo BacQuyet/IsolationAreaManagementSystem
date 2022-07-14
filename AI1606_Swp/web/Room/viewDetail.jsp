@@ -14,7 +14,7 @@
             <span>Mã phòng:  -  Tên phòng: </span>
         </div>
         
-    </div>
+     </div>
     <div class="content-middle"> 
         <div class="content-middle__lylich space3">
             <span class="info-label">Thông tin</span>
