@@ -97,6 +97,7 @@ public class ViewFeedbackController extends HttpServlet {
             request.setAttribute("fname", fname);
             request.setAttribute("ffrom", ffrom);
             request.setAttribute("fto", fto);
+            request.setAttribute("fsort", fsort);
         }
     }
 
