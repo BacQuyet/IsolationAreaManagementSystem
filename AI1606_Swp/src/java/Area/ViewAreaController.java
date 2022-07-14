@@ -5,6 +5,7 @@
  */
 package Area;
 
+import dao.AreaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -66,6 +67,7 @@ public class ViewAreaController extends HttpServlet {
         if (request.getParameter("page") != null) {
                 page = Integer.parseInt(request.getParameter("page"));
             }
+        AreaDAO dao = new AreaDAO();
         
         RequestDispatcher view = request.getRequestDispatcher("/Area/viewlistarea.jsp");
         view.forward(request, response);
