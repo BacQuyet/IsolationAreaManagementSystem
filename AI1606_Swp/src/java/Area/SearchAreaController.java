@@ -76,6 +76,9 @@ public class SearchAreaController extends HttpServlet {
         int page = 1;
         int recordPerPage = 5;
         String key = request.getParameter("key");
+        if (key == null || "".equals(key)) {
+                response.sendRedirect("viewroom");
+            }
     }
 
     /**
