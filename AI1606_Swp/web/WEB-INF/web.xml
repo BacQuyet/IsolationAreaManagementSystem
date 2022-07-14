@@ -320,6 +320,10 @@
         <servlet-name>SearchAreaController</servlet-name>
         <servlet-class>Area.SearchAreaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewFeedbackController</servlet-name>
+        <servlet-class>Feedback.ViewFeedbackController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -627,6 +631,10 @@
     <servlet-mapping>
         <servlet-name>SearchAreaController</servlet-name>
         <url-pattern>/Area/searcharea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewFeedbackController</servlet-name>
+        <url-pattern>/Feedback/listFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
