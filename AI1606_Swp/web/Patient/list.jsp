@@ -12,7 +12,7 @@
         <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
         <button type="SUBMIT"><i class="fas fa-search"></i></button>
      </form> 
-    <div class="btn-add">
+     <div class="btn-add">
         <a href="<%=request.getContextPath()%>/Patient/add.jsp"><i class="fas fa-plus-circle"></i>
             <span>Thêm</span>
         </a>
