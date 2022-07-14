@@ -94,6 +94,7 @@ public class AddRoomNurseController extends HttpServlet {
             RequestDispatcher add = request.getRequestDispatcher("/Room/add.jsp");
             add.forward(request, response);
         }
+        
         if (note.length() == 0) {
             note = "no notes";
         }
