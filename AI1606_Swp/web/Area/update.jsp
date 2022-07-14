@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label for="areaContact" class="form-label">Ghi chú</label>
-                <input id="areaContact" class="form-control" name="areaContact" type="text" value = "">
+                <input id="areaContact" class="form-control" name="areaContact" type="text" value ="${area.getContact()}">
                 <span class="form-message"></span>
             </div>
 
