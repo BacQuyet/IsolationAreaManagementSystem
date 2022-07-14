@@ -5,12 +5,14 @@
  */
 package Feedback;
 
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -63,6 +65,9 @@ public class ViewFeedbackController extends HttpServlet {
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
+        int id = 0;
+        HttpSession session = request.getSession();
+        Account userLogin = (Account) session.getAttribute("userLogin");
     }
 
     /**
