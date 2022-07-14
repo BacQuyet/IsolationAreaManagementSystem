@@ -6,6 +6,7 @@
 package Area;
 
 import dao.AreaDAO;
+import entity.Area;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -88,7 +89,7 @@ public class UpdateAreaController extends HttpServlet {
         
         if(areaName != null && areaAddress != null && areaContact != null){
             if(areaName.length() > 0 && areaAddress.length() > 0 && areaContact.length() > 0){
-                
+                Area a = new Area();
             }
         }
     }
