@@ -94,7 +94,7 @@ public class ViewFeedbackController extends HttpServlet {
             RequestDispatcher view = request.getRequestDispatcher("/Feedback/viewFeedback.jsp");
             view.forward(request, response);
         }else{
-            
+            request.setAttribute("fname", fname);
         }
     }
 
