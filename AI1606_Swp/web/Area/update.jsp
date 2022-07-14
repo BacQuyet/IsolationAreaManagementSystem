@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="areaAddress" class="form-label">Ghi chú</label>
-                <input id="areaAddress" class="form-control" name="areaAddress" type="text" value = "">
+                <input id="areaAddress" class="form-control" name="areaAddress" type="text" value="${area.getAreaAddress()}">
                 <span class="form-message"></span>
             </div>
             <div class="form-group">
