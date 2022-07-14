@@ -67,6 +67,13 @@ public class FeedbackDAO implements DAO<Feedback> {
         }
         return null;
     }
+    
+    public Feedback get1(int id) {
+        String sql = "select * from feedback where feedback_id = " + id;
+        List<Feedback> qq = new ArrayList<>();
+        qq = parse(sql);
+        return (qq.isEmpty() ? null : qq.get(0));
+    }
 
     @Override
     public List<Feedback> getAll() {
