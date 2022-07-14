@@ -10,7 +10,7 @@
     <div class="form-container">
         <form action="addFeedback" method="POST" id="form-dn" class="form">
             <div class="form-group form-group__special">
-                
+                <label for="feedbackName" class="form-label">Nội dung góp ý</label>
             </div>
         </form>
     </div>
