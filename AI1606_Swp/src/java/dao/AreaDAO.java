@@ -60,6 +60,20 @@ public class AreaDAO implements DAO<Area> {
         return area;
     }
     
+    public int getNoOfRecord() {
+        String sql = "SELECT COUNT(*) AS Num FROM [dbo].[area]";
+        try {
+            Statement sttm = conn.createStatement();
+            ResultSet rs = sttm.executeQuery(sql);
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+        return 0;
+    }
+    
     public List getIndex(int index1, int index2) {
         String sql = "SELECT * FROM (\n"
                 + "    SELECT *, ROW_NUMBER() OVER (ORDER BY area_id) AS RowNum\n"
