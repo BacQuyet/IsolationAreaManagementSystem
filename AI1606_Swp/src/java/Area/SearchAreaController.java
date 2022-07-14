@@ -10,6 +10,7 @@ import entity.Area;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -94,6 +95,9 @@ public class SearchAreaController extends HttpServlet {
         request.setAttribute("listArea", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
+        
+        RequestDispatcher view = request.getRequestDispatcher("viewlistarea.jsp");
+        view.forward(request, response);
     }
 
     /**
