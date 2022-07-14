@@ -59,7 +59,33 @@ public class AreaDAO implements DAO<Area> {
         area = parse(sql);
         return area;
     }
+    public List<Area> SearchArea(String key, int index1, int index2) {
 
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY area_id) AS RowNum\n"
+                + "    FROM [dbo].[area] where area_name like ? "
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setString(1, "%" + key + "%");
+            ResultSet rs = sttm.executeQuery();
+            ArrayList<Area> qq = new ArrayList<>();
+            while (rs.next()) {
+                Area p = new Area();
+                p.setAreaId(rs.getInt("area_id"));
+                p.setAreaName(rs.getString("area_name"));
+                p.setAreaAddress(rs.getString("area_address"));
+                p.setContact(rs.getString("contact"));
+                qq.add(p);
+            }
+            return qq;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     @Override
     public void create(Area t) {
         String sql = "INSERT INTO area"
