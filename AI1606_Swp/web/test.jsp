@@ -29,7 +29,7 @@
         </p>
 
         <!-- Define the buttons that will
-        change  it -->
+        change   -->
         <button onclick="changeLanguage('eng')">
             Change to English<
             /button>
