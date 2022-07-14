@@ -86,6 +86,22 @@ public class AreaDAO implements DAO<Area> {
         }
         return null;
     }
+    
+    public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from area where area_name like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
+    
+    
     @Override
     public void create(Area t) {
         String sql = "INSERT INTO area"
