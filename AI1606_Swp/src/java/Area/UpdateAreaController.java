@@ -98,6 +98,8 @@ public class UpdateAreaController extends HttpServlet {
                 areadao.updateArea(a);
                 Notification noti = new Notification("Success", "Cập nhật khu vực cách ly thành công.", "success");
                 request.setAttribute("notify", noti);
+                RequestDispatcher update = request.getRequestDispatcher("viewarea");
+                update.forward(request, response);
             }
         }
     }
