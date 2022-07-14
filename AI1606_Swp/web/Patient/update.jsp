@@ -29,7 +29,7 @@
                     </select>
                 </div>
             </div>
-            <span class="form-span">Lý lịch cá nhân</span>
+             <span class="form-span">Lý lịch cá nhân</span>
             <div class="form-group">
                 <label for="age" class="form-label">Tuổi:</label>
                 <input id="age" class="form-control" name="age" type="text" value="" pattern="[0-9]{1,2}" title="Vui lòng nhập đúng số tuổi">
