@@ -7,6 +7,7 @@ package Feedback;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -73,7 +74,8 @@ public class DeleteFeedbackController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         if (request.getParameter("feedbackId") == null) {
-            
+            RequestDispatcher update = request.getRequestDispatcher("listFeedback");
+            update.forward(request, response);
         }
     }
 
