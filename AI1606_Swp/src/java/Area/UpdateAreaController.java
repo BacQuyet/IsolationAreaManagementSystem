@@ -85,6 +85,12 @@ public class UpdateAreaController extends HttpServlet {
         String areaName = request.getParameter("areaName");
         String areaAddress = request.getParameter("areaAddress");
         String areaContact = request.getParameter("areaContact");
+        
+        if(areaName != null && areaAddress != null && areaContact != null){
+            if(areaName.length() > 0 && areaAddress.length() > 0 && areaContact.length() > 0){
+                
+            }
+        }
     }
 
     /**
