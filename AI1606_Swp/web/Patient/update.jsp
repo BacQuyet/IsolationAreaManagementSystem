@@ -42,6 +42,7 @@
                     <option value="Nữ">Nữ</option>
                 </select>
             </div>
+             
             <div class="form-group">
                 <label for="passport" class="form-label">Mã căn cước:</label>
                 <input id="passport" class="form-control" name="passport" type="text" value="">
