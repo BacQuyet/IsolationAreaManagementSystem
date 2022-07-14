@@ -18,7 +18,7 @@
                     <label for="fullname" class="form-label">Họ và tên:</label>
                     <input id="fullname" class="form-control" name="fullname" type="text" value="" required>
                     <span class="form-message"></span>
-                </div>
+                 </div>
                 <div class="form-group">
                     <label for="suspicionLevel" class="form-label">Phân loại:</label>
                     <select name="suspicionLevel" id="suspicionLevel">
