@@ -7,8 +7,10 @@ package Feedback;
 
 import dao.FeedbackDAO;
 import entity.Account;
+import entity.Feedback;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -79,6 +81,9 @@ public class ViewFeedbackController extends HttpServlet {
         String fsort = (String) request.getParameter("fsort");
         
         FeedbackDAO dao = new FeedbackDAO();
+        List<Feedback> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
+        int noOfRecord = dao.getNoOfRecord(id);
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
     }
 
     /**
