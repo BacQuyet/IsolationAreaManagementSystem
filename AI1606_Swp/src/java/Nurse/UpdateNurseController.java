@@ -116,6 +116,7 @@ public class UpdateNurseController extends HttpServlet {
         request.setAttribute("nurse", dao.get(nurseId));
         RequestDispatcher update = request.getRequestDispatcher("/Nurse/update-nurse.jsp");
         update.forward(request, response);
+        
     }
 
     /**
