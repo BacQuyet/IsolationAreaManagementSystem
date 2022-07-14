@@ -91,6 +91,20 @@ public class AreaDAO implements DAO<Area> {
     public void update(Area t, Hashtable<String, String> my_dict) {
         
     }
-
+    public void updateArea(Area a) {
+        String sql = "UPDATE area SET "
+                + "area_name = ?, area_address = ?, contact = ? "
+                + "WHERE area_id = ?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, a.getAreaName());
+            pre.setString(2, a.getAreaAddress());
+            pre.setString(3, a.getContact());
+            pre.setInt(4, a.getAreaId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AreaDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
 }
 

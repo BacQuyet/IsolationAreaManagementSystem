@@ -94,6 +94,7 @@ public class UpdateAreaController extends HttpServlet {
                 a.setAreaName(areaName);
                 a.setAreaAddress(areaAddress);
                 a.setContact(areaContact);
+                areadao.updateArea(a);
             }
         }
     }
