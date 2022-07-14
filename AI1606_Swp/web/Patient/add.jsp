@@ -7,7 +7,7 @@
         <div class="spacer2"></div>
     </div>
 
-    <div class="form-container">
+     <div class="form-container">
         <form action="AddPatientFromNurse" method="POST" id="form-dn" class="form">
             <div class="form-header">
                 <div class="form-group form-group__special">
