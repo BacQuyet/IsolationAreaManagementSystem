@@ -80,6 +80,11 @@ public class UpdateAreaController extends HttpServlet {
             RequestDispatcher view = request.getRequestDispatcher("viewarea");
             view.forward(request, response);
         }
+        
+        int areaId = Integer.parseInt(request.getParameter("areaId"));
+        String areaName = request.getParameter("areaName");
+        String areaAddress = request.getParameter("areaAddress");
+        String areaContact = request.getParameter("areaContact");
     }
 
     /**
