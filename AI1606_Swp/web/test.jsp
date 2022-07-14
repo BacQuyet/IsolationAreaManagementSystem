@@ -34,7 +34,7 @@
             Change to English
             </button>
             <button onclick="changeLanguage('es')">
-                Change to Spanish
+                Change to Spanishs
             </button>
             <button onclick="changeLanguage('hin')">
                 Change to Hindi
