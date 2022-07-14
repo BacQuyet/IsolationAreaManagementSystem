@@ -78,7 +78,11 @@ public class SearchAreaController extends HttpServlet {
         String key = request.getParameter("key");
         if (key == null || "".equals(key)) {
                 response.sendRedirect("viewroom");
+        }else {
+            if (request.getParameter("page") != null) {
+                page = Integer.parseInt(request.getParameter("page"));
             }
+        }
     }
 
     /**
