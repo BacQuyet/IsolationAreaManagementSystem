@@ -5,7 +5,7 @@
         <span class="content-label__menu">Bảng điều khiển</span>
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Xem chi tiết phòng bệnh</span>
         <div class="spacer2"></div>
-    </div>
+     </div>
 
     <div class="content-header">
         <div class="content-header__info">
