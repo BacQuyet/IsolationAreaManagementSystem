@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -80,6 +81,8 @@ public class DeleteFeedbackController extends HttpServlet {
             update.forward(request, response);
         }
         dao.delete(dao.get1(Integer.parseInt(request.getParameter("feedbackId"))));
+        Notification noti = new Notification("Success", "Xóa feedback thành công.", "success");
+        request.setAttribute("notify", noti);
     }
 
     /**
