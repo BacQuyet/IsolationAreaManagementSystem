@@ -6,8 +6,10 @@
 package Area;
 
 import dao.AreaDAO;
+import entity.Area;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -68,6 +70,9 @@ public class ViewAreaController extends HttpServlet {
                 page = Integer.parseInt(request.getParameter("page"));
             }
         AreaDAO dao = new AreaDAO();
+        List<Area> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
+        int noOfRecord = dao.getNoOfRecord();
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
         
         RequestDispatcher view = request.getRequestDispatcher("/Area/viewlistarea.jsp");
         view.forward(request, response);
