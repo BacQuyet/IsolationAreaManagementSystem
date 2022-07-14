@@ -31,8 +31,8 @@
         <!-- Define the buttons that will
         change   -->
         <button onclick="changeLanguage('eng')">
-            Change to English<
-            /button>
+            Change to English
+            </button>
             <button onclick="changeLanguage('es')">
                 Change to Spanish
             </button>
