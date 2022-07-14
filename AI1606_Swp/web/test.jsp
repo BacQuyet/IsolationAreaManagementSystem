@@ -29,8 +29,7 @@
         </p>
 
         <!-- Define the buttons that will
-        change the language of the page
-        and reload it -->
+        change  it -->
         <button onclick="changeLanguage('eng')">
             Change to English<
             /button>
