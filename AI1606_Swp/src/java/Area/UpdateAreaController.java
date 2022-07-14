@@ -5,6 +5,7 @@
  */
 package Area;
 
+import dao.AreaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -72,6 +73,7 @@ public class UpdateAreaController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        AreaDAO areadao = new AreaDAO();
     }
 
     /**
