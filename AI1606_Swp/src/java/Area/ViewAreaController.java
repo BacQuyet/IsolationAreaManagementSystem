@@ -73,6 +73,10 @@ public class ViewAreaController extends HttpServlet {
         List<Area> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
         int noOfRecord = dao.getNoOfRecord();
         int noOfPage = (int) ((noOfRecord + 4) / 5);
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listArea", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
         
         RequestDispatcher view = request.getRequestDispatcher("/Area/viewlistarea.jsp");
         view.forward(request, response);
