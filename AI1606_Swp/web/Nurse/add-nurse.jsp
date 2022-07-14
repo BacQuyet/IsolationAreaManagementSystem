@@ -8,7 +8,7 @@
         <span class="content-label__menu">Bảng điều khiển</span>
         <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Quản lý tài khoản > Thêm nhân sự</span>
         <div class="spacer2"></div>
-    </div>
+     </div>
     <div class="form-container form-container_add">
         <div>
             <form action="addnurse" method="POST" id="form-xn" class="form">
