@@ -129,7 +129,7 @@
                         </a>
                     </li>
                     <% } %>
-                    <% if (acocuntTypeId == 4) { // Doctor %>  
+                    <% if (acocuntTypeId == 2) { // Doctor %>  
                     <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
                             <span class="sidebar-info">Tìm kiếm</span>
                         </a>
@@ -148,7 +148,7 @@
                         </a>
                     </li>
                     <% } %>
-                    <% if (acocuntTypeId == 2) { // Nurse %> 
+                    <% if (acocuntTypeId == 3) { // Nurse %> 
                     <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
                             <span class="sidebar-info">Tìm kiếm</span>
                         </a>
@@ -162,13 +162,13 @@
                         </a>
                     </li>
                     <% }%>
-                    <% if (acocuntTypeId == 3) { // Patient %>  
-                    <li><a class="sidebar-li" href="#key"><i class="sidebar-icon"></i>
-                            <span class="sidebar-info">Tìm kiếm</span>
+                    <% if (acocuntTypeId == 4) { // Patient %>  
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/listReport"><i class="fas fa-file-invoice sidebar-icon"></i>
+                            <span class="sidebar-info">Báo cáo sức khỏe</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-file-invoice sidebar-icon"></i>
-                            <span class="sidebar-info">Báo cáo sức khỏe</span>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Feedback/listFeedback"><i class="fas fa-file-movie-o sidebar-icon"></i>
+                            <span class="sidebar-info">Góp ý</span>
                         </a>
                     </li>
                     <% }%>
