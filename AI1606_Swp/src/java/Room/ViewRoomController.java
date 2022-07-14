@@ -66,7 +66,7 @@ public class ViewRoomController extends HttpServlet {
                 page = Integer.parseInt(request.getParameter("page"));
             }
             
-         RoomDAO dao = new RoomDAO();    
+        RoomDAO dao = new RoomDAO();    
         List<Room> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
         int noOfRecord = dao.getNoOfRecord();
         int noOfPage = (int) ((noOfRecord + 4) / 5);
