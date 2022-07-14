@@ -91,6 +91,8 @@ public class ViewFeedbackController extends HttpServlet {
         request.setAttribute("currentPage", page);
         if (userLogin.getType().getAccountTypeId() == 4) {
             
+        }else{
+            
         }
     }
 
