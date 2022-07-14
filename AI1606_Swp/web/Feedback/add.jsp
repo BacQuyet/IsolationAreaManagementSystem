@@ -6,5 +6,8 @@
         <span class="content-label__info"><i class="fas fa-home"></i> Hệ thống > Góp ý</span>
         <div class="spacer2"></div>
     </div>
-
+    
+    <div class="form-container">
+        
+    </div>
 </div>
