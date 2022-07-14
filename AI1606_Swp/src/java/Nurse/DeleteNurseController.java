@@ -75,6 +75,7 @@ public class DeleteNurseController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        
         int nurseId = Integer.parseInt(request.getParameter("nurseId"));
         NurseDAO dao = new NurseDAO();
         dao.delete(dao.get(nurseId));
