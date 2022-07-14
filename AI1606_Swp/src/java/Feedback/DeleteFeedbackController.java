@@ -83,6 +83,8 @@ public class DeleteFeedbackController extends HttpServlet {
         dao.delete(dao.get1(Integer.parseInt(request.getParameter("feedbackId"))));
         Notification noti = new Notification("Success", "Xóa feedback thành công.", "success");
         request.setAttribute("notify", noti);
+        RequestDispatcher delete = request.getRequestDispatcher("listFeedback");
+        delete.forward(request, response);
     }
 
     /**
