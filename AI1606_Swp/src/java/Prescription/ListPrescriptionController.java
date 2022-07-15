@@ -7,8 +7,10 @@ package Prescription;
 
 import dao.PrescriptionDAO;
 import entity.Account;
+import entity.Presciption;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -76,6 +78,9 @@ public class ListPrescriptionController extends HttpServlet {
         }
         
         PrescriptionDAO dao = new PrescriptionDAO();
+        List<Presciption> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage, id);
+        int noOfRecord = dao.getNoOfRecord(id);
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
     }
 
     /**
