@@ -124,7 +124,7 @@ public class FeedbackDAO implements DAO<Feedback> {
         return 0;
     }
     
-    public List getIndex(int index1, int index2) {
+    public List getIndex(int index1, int index2, int id) {
         String sql = "SELECT * FROM (\n"
                 + "    SELECT *, ROW_NUMBER() OVER (ORDER BY feedback_id) AS RowNum\n"
                 + "    FROM [dbo].[feedback] "

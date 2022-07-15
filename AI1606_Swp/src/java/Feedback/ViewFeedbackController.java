@@ -75,32 +75,19 @@ public class ViewFeedbackController extends HttpServlet {
         if (userLogin.getType().getAccountTypeId() == 4) {// Patient
             id = userLogin.getPatient().getPatientId();
         }
-        
-        String fname = (String) request.getParameter("fname");
-        String ffrom = (String) request.getParameter("ffrom");
-        String fto = (String) request.getParameter("fto");
-        String fsort = (String) request.getParameter("fsort");
-        
+
         FeedbackDAO dao = new FeedbackDAO();
-        List<Feedback> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage);
+        List<Feedback> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage, id);
         int noOfRecord = dao.getNoOfRecord(id);
         int noOfPage = (int) ((noOfRecord + 4) / 5);
-        
+
         request.setAttribute("noOfRecords", noOfRecord);
         request.setAttribute("listFeedback", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
-        if (userLogin.getType().getAccountTypeId() == 4) {
-            RequestDispatcher view = request.getRequestDispatcher("/Feedback/viewFeedback.jsp");
-            view.forward(request, response);
-        }else{
-            request.setAttribute("fname", fname);
-            request.setAttribute("ffrom", ffrom);
-            request.setAttribute("fto", fto);
-            request.setAttribute("fsort", fsort);
-            RequestDispatcher view = request.getRequestDispatcher("/Feedback/viewFeedback.jsp");
-            view.forward(request, response);
-        }
+        
+        RequestDispatcher view = request.getRequestDispatcher("/Feedback/viewFeedback.jsp");
+        view.forward(request, response);
     }
 
     /**
