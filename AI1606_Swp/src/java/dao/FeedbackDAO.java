@@ -131,7 +131,7 @@ public class FeedbackDAO implements DAO<Feedback> {
                 + ") AS MyDerivedTable\n"
                 + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
         try {
-
+            PreparedStatement sttm = conn.prepareStatement(sql);
         } catch (Exception e) {
             Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
         }
