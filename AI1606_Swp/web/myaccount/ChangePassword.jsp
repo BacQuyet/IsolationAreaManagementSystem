@@ -10,11 +10,9 @@
                 </div>
             <li class="spacer"></li>
 
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/accountDetail.jsp" class="menu-item"><i class="far fa-user-circle"></i> Tài khoản của tôi</a></li>
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/accountDetail.jsp" class="menu-item depend"> Hồ sơ</a></li>
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/ChangePassword.jsp" class="menu-item depend"> Đổi mật khẩu</a></li>
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/checkAccount.jsp" class="menu-item active"><i class="fas fa-user-check"></i> Xác minh thuộc khu cách ly</a></li>
-            <li class="menu-li"><a href="<%=request.getContextPath()%>/Don/view-list" class="menu-item"><i class="far fa-check-circle"></i> Đơn của tôi</a></li>
+            <li class="menu-li"><a class="menu-item"><i class="far fa-user-circle"></i> Tài khoản của tôi</a></li>
+            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/viewAccount" class="menu-item depend"> Hồ sơ</a></li>
+            <li class="menu-li"><a href="<%=request.getContextPath()%>/myaccount/ChangePassword.jsp" class="menu-item depend"> Đổi mật khẩu</a></li> 
         </ul>
     </div>
     <div class="menu-detail">

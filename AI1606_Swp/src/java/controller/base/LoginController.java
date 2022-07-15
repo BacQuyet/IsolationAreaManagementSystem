@@ -55,8 +55,8 @@ public class LoginController extends HttpServlet {
         Account account = accountDAO.findByUsernamePassword(username, password);
 
         if (account == null) {
-//            Notification noti = new Notification("Error", "Tài khoản không đúng. Vui lòng kiểm tra lại.", "error");
-//            request.setAttribute("notify", noti);
+            Notification noti = new Notification("Error", "Tài khoản không đúng. Vui lòng kiểm tra lại.", "error");
+            request.setAttribute("notify", noti);
             RequestDispatcher rt = request.getRequestDispatcher("login.jsp");
             rt.forward(request, response);
         } else {
