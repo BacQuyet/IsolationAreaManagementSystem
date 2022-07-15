@@ -143,6 +143,7 @@ public class FeedbackDAO implements DAO<Feedback> {
                 f.setPatient_id(rs.getInt("patient_id"));
                 feedback.add(f);
             }
+            return feedback;
         } catch (Exception e) {
             Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
         }
