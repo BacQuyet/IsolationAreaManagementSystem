@@ -78,6 +78,11 @@ public class UpdateFeedbackController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        String content = request.getParameter("feedbackName");
+        int feedbackId = Integer.parseInt(request.getParameter("feedbackId"));
+        int Patient_Id = Integer.parseInt(request.getParameter("PatientId"));
+        
+        
     }
 
     /**
