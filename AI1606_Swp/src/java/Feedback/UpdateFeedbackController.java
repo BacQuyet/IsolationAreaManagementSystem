@@ -102,6 +102,9 @@ public class UpdateFeedbackController extends HttpServlet {
             fe.setPatient(pa.get(Patient_Id));
             fe.setContent(content);
             fe.setCreateDate(date);
+            
+            FeedbackDAO dao = new FeedbackDAO();
+            dao.updateFeedback(fe);
         }
     }
 
