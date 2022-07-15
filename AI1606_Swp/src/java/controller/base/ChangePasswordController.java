@@ -96,7 +96,18 @@ public class ChangePasswordController extends HttpServlet {
                         RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
             r1.forward(request, response);
             }
+            else{
+                Notification noti = new Notification("Error", "Xác nhận mật khẩu không chính xác", "error");
+            request.setAttribute("notify", noti);
+            RequestDispatcher r1 = request.getRequestDispatcher("ChangePassword.jsp");
+            r1.forward(request, response);
+            }
             
+        }else {
+            Notification noti = new Notification("Error", "Lỗi xảy ra.<br/> Vui lòng xem lại mật khẩu của bạn", "error");
+            request.setAttribute("notify", noti);
+            RequestDispatcher r1 = request.getRequestDispatcher("ChangePassword.jsp");
+            r1.forward(request, response);
         }
     }
 
