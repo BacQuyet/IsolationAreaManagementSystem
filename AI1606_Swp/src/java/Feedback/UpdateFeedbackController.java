@@ -9,6 +9,7 @@ import dao.FeedbackDAO;
 import dao.PatientDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -93,6 +94,8 @@ public class UpdateFeedbackController extends HttpServlet {
         
         if (content != null) {
             PatientDAO pa = new PatientDAO();
+            long millis = System.currentTimeMillis();
+            Timestamp date = new Timestamp(millis);
         }
     }
 
