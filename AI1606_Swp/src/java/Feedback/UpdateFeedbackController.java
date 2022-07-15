@@ -109,6 +109,9 @@ public class UpdateFeedbackController extends HttpServlet {
             Notification noti = new Notification("Success", "Chỉnh sửa góp ý mới thành công.", "success");
             request.setAttribute("notify", noti);
         }
+        
+        RequestDispatcher r = request.getRequestDispatcher("/Feedback/listFeedback");
+        r.forward(request, response);
     }
 
     /**
