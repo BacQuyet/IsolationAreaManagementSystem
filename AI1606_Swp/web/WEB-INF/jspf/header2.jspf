@@ -143,7 +143,7 @@
                             <span class="sidebar-info">Theo dõi sức khỏe</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Report/list"><i class="fas fa-briefcase-medical sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Prescription/List"><i class="fas fa-briefcase-medical sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý đơn thuốc</span>
                         </a>
                     </li>
