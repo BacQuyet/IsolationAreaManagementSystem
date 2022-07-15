@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -74,7 +75,8 @@ public class AddFeedbackController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String content = request.getParameter("feedbackName");
         if (content == null) {
-            
+            Notification noti = new Notification("Warning", "Hãy điền đủ thông tin.", "warning");
+            request.setAttribute("notify", noti);
         }
     }
 
