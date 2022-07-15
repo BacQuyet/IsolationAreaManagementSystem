@@ -99,6 +99,9 @@ public class UpdateFeedbackController extends HttpServlet {
             Timestamp date = new Timestamp(millis);
             Feedback fe = new Feedback();
             fe.setFeedback_id(feedbackId);
+            fe.setPatient(pa.get(Patient_Id));
+            fe.setContent(content);
+            fe.setCreateDate(date);
         }
     }
 
