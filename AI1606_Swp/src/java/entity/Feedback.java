@@ -67,6 +67,14 @@ public class Feedback {
         this.patient_id = patient_id;
     }
 
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
     @Override
     public String toString() {
         return "Feedback{" + "feedback_id=" + feedback_id + ", content=" + content + ", createDate=" + createDate + ", patient_id=" + patient_id + '}';
