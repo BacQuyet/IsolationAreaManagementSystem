@@ -135,6 +135,14 @@ public class FeedbackDAO implements DAO<Feedback> {
             sttm.setInt(1, id);
             ResultSet rs = sttm.executeQuery();
             ArrayList<Feedback> feedback = new ArrayList<>();
+            while (rs.next()) {
+                Feedback f = new Feedback();
+                f.setFeedback_id(rs.getInt("feedback_id"));
+                f.setContent(rs.getString("content"));
+                f.setCreateDate(rs.getTimestamp("create_date"));
+                f.setPatient_id(rs.getInt("patient_id"));
+                feedback.add(f);
+            }
         } catch (Exception e) {
             Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
         }
