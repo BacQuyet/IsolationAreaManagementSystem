@@ -92,7 +92,7 @@
                         </a>
                     </li>
 
-                    <li><a class="sidebar-li" href="home"><i class="fas fa-home sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/home"><i class="fas fa-home sidebar-icon"></i>
                             <span class="sidebar-info">Home</span>
                         </a>
                     </li>
