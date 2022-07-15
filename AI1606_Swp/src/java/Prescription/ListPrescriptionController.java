@@ -5,6 +5,7 @@
  */
 package Prescription;
 
+import dao.PrescriptionDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -73,6 +74,8 @@ public class ListPrescriptionController extends HttpServlet {
         if (userLogin.getType().getAccountTypeId() == 4) {// Patient
             id = userLogin.getPatient().getPatientId();
         }
+        
+        PrescriptionDAO dao = new PrescriptionDAO();
     }
 
     /**
