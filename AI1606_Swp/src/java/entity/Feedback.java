@@ -28,6 +28,13 @@ public class Feedback {
         this.patient_id = patient_id;
     }
 
+    public Feedback(int feedback_id, String content, Timestamp createDate, Patient patient) {
+        this.feedback_id = feedback_id;
+        this.content = content;
+        this.createDate = createDate;
+        this.patient = patient;
+    }
+
     public int getFeedback_id() {
         return feedback_id;
     }
