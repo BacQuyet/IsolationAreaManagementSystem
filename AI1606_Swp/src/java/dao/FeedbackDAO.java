@@ -67,7 +67,7 @@ public class FeedbackDAO implements DAO<Feedback> {
         }
         return null;
     }
-    
+
     public Feedback get1(int id) {
         String sql = "select * from feedback where feedback_id = " + id;
         List<Feedback> qq = new ArrayList<>();
@@ -106,7 +106,7 @@ public class FeedbackDAO implements DAO<Feedback> {
     public void update(Feedback t, Hashtable<String, String> my_dict) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public int getNoOfRecord(int id) {
         String sql = "SELECT COUNT(*) AS Num FROM [dbo].[feedback]";
         if (id > 0) {
@@ -123,18 +123,21 @@ public class FeedbackDAO implements DAO<Feedback> {
         }
         return 0;
     }
-    
+
     public List getIndex(int index1, int index2, int id) {
         String sql = "SELECT * FROM (\n"
                 + "    SELECT *, ROW_NUMBER() OVER (ORDER BY feedback_id) AS RowNum\n"
                 + "    FROM [dbo].[feedback] WHERE [patient_id] = ? \n"
                 + ") AS MyDerivedTable\n"
                 + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
-        List<Feedback> feedback = new ArrayList<>();
-        feedback = parse(sql);
-        return feedback;
+        try {
+
+        } catch (Exception e) {
+            Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
+        }
+        return null;
     }
-    
+
     public void updateFeedback(Feedback f) {
         String sql = "UPDATE [dbo].[feedback]\n"
                 + "   SET [patient_id] = ?\n"
