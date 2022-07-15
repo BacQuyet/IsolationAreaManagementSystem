@@ -11,6 +11,7 @@ import entity.Presciption;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -86,6 +87,9 @@ public class ListPrescriptionController extends HttpServlet {
         request.setAttribute("listPrescription", list);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
+        
+        RequestDispatcher view = request.getRequestDispatcher("/Prescription/ListPrescription.jsp");
+        view.forward(request, response);
     }
 
     /**
