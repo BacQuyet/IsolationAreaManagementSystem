@@ -86,6 +86,8 @@ public class AddFeedbackController extends HttpServlet {
         long millis = System.currentTimeMillis();
         Timestamp date = new Timestamp(millis);
         Feedback fe = new Feedback();
+        fe.setContent(content);
+        fe.setCreateDate(date);
     }
 
     /**
