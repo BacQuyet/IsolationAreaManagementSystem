@@ -110,7 +110,7 @@ public class FeedbackDAO implements DAO<Feedback> {
     public int getNoOfRecord(int id) {
         String sql = "SELECT COUNT(*) AS Num FROM [dbo].[feedback]";
         if (id > 0) {
-            sql += " WHERE id_patient = " + id;
+            sql += " WHERE patient_id = " + id;
         }
         try {
             Statement sttm = conn.createStatement();
