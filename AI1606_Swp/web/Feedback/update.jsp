@@ -12,15 +12,19 @@
         <div class="spacer2"></div>
     </div>
 
+    <div class="form-container">
+        <form action="updateFeedback" method="POST" id="form-dn" class="form">
+            <input type="text" id="feedbackId" name="feedbackId" value="${feedback.getFeedback_id()}" style="display: none"/>
+            <input type="text" id="PatientId" name="PatientId" value="${feedback.getPatient().getPatientId()}" style="display: none"/>
+            <div class="form-group form-group__special">
+                <label for="feedbackName" class="form-label">Cập nhật góp ý</label>
+                <input value="${feedback.getContent()}" id="feedbackName" class="form-control" name="feedbackName" type="text" required />
+                <span class="form-message"></span>
+            </div>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <h1>Hello World!</h1>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+            <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
+        </form>
+
+    </div>
+</div>
+
