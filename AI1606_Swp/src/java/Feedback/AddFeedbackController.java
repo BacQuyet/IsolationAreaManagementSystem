@@ -5,6 +5,8 @@
  */
 package Feedback;
 
+import dao.FeedbackDAO;
+import entity.Account;
 import entity.Feedback;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import utils.Notification;
 
 /**
@@ -89,6 +92,13 @@ public class AddFeedbackController extends HttpServlet {
         Feedback fe = new Feedback();
         fe.setContent(content);
         fe.setCreateDate(date);
+        
+        HttpSession session = request.getSession();
+        Account userLogin = (Account) session.getAttribute("userLogin");
+        fe.setPatient(userLogin.getPatient());
+        FeedbackDAO dao = new FeedbackDAO();
+        dao.create(fe);
+        
     }
 
     /**

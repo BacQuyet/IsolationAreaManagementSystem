@@ -16,6 +16,7 @@ public class Feedback {
     private String content;
     private Timestamp createDate;
     private int patient_id;
+    private Patient patient;
 
     public Feedback() {
     }
