@@ -73,6 +73,9 @@ public class AddFeedbackController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String content = request.getParameter("feedbackName");
+        if (content == null) {
+            
+        }
     }
 
     /**
