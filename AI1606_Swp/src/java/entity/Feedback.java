@@ -77,7 +77,7 @@ public class Feedback {
 
     @Override
     public String toString() {
-        return "Feedback{" + "feedback_id=" + feedback_id + ", content=" + content + ", createDate=" + createDate + ", patient_id=" + patient_id + '}';
+        return "Feedback{" + "feedback_id=" + feedback_id + ", content=" + content + ", createDate=" + createDate + ", patient=" + patient.getPatientId() + '}';
     }
     
     
