@@ -105,6 +105,9 @@ public class UpdateFeedbackController extends HttpServlet {
             
             FeedbackDAO dao = new FeedbackDAO();
             dao.updateFeedback(fe);
+            
+            Notification noti = new Notification("Success", "Chỉnh sửa góp ý mới thành công.", "success");
+            request.setAttribute("notify", noti);
         }
     }
 
