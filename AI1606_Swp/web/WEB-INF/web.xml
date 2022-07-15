@@ -237,10 +237,6 @@
         <servlet-class>Prescription.AddPrescriptionController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SearchPrescriptionController</servlet-name>
-        <servlet-class>Prescription.SearchPrescriptionController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ViewDetailAccountController</servlet-name>
         <servlet-class>controller.base.ViewDetailAccountController</servlet-class>
     </servlet>
@@ -339,6 +335,10 @@
     <servlet>
         <servlet-name>UpdateFeedbackController</servlet-name>
         <servlet-class>Feedback.UpdateFeedbackController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListPrescriptionController</servlet-name>
+        <servlet-class>Prescription.ListPrescriptionController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
@@ -565,10 +565,6 @@
         <url-pattern>/Prescription/add</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SearchPrescriptionController</servlet-name>
-        <url-pattern>/Prescription/search</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ViewDetailAccountController</servlet-name>
         <url-pattern>/myaccount/viewAccount</url-pattern>
     </servlet-mapping>
@@ -667,6 +663,10 @@
     <servlet-mapping>
         <servlet-name>UpdateFeedbackController</servlet-name>
         <url-pattern>/Feedback/updateFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListPrescriptionController</servlet-name>
+        <url-pattern>/Prescription/List</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
