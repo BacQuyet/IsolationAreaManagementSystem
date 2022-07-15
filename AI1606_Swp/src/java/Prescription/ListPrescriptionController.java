@@ -81,6 +81,11 @@ public class ListPrescriptionController extends HttpServlet {
         List<Presciption> list = dao.getIndex((page - 1) * recordPerPage + 1, page * recordPerPage, id);
         int noOfRecord = dao.getNoOfRecord(id);
         int noOfPage = (int) ((noOfRecord + 4) / 5);
+        
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listPrescription", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
     }
 
     /**
