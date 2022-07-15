@@ -6,6 +6,7 @@
 package Feedback;
 
 import dao.FeedbackDAO;
+import dao.PatientDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -91,7 +92,7 @@ public class UpdateFeedbackController extends HttpServlet {
         }
         
         if (content != null) {
-            
+            PatientDAO pa = new PatientDAO();
         }
     }
 
