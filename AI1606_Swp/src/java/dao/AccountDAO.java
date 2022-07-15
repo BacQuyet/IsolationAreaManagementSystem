@@ -82,7 +82,19 @@ public class AccountDAO implements DAO<Account> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
-
+    public void updatePassword(Account a) {
+        String sql = "UPDATE [dbo].[account]\n"
+                + "   SET [password] = ?\n"
+                + " WHERE account_id =?";
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, a.getPassword());
+            pre.setInt(2, a.getAccountId());
+            pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, sql, ex);
+        }
+    }
     @Override
     public List<Account> getAll() {
         return null;
