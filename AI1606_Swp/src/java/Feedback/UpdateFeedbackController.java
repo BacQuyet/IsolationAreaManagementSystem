@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Notification;
 
 /**
  *
@@ -82,7 +83,12 @@ public class UpdateFeedbackController extends HttpServlet {
         int feedbackId = Integer.parseInt(request.getParameter("feedbackId"));
         int Patient_Id = Integer.parseInt(request.getParameter("PatientId"));
         
-        
+        if (content == null) {
+            Notification noti = new Notification("Warning", "Hãy điền đủ thông tin.", "warning");
+            request.setAttribute("notify", noti);
+            RequestDispatcher add = request.getRequestDispatcher("/Feedback/update.jsp");
+            add.forward(request, response);
+        }
     }
 
     /**
