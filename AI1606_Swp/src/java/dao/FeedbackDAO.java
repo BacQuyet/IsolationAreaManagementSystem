@@ -49,7 +49,7 @@ public class FeedbackDAO implements DAO<Feedback> {
 
     @Override
     public Feedback get(int id) {
-        String sql = "SELECT * FROM [dbo].[feedback] WHERE patient_id = ?";
+        String sql = "SELECT * FROM [dbo].[feedback] WHERE feedback_id = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
