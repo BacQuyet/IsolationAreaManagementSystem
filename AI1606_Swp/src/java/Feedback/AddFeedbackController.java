@@ -7,6 +7,7 @@ package Feedback;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -77,6 +78,8 @@ public class AddFeedbackController extends HttpServlet {
         if (content == null) {
             Notification noti = new Notification("Warning", "Hãy điền đủ thông tin.", "warning");
             request.setAttribute("notify", noti);
+            RequestDispatcher add = request.getRequestDispatcher("/Feedback/add.jsp");
+            add.forward(request, response);
         }
     }
 
