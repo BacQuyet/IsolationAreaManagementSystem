@@ -161,6 +161,7 @@ public class FeedbackDAO implements DAO<Feedback> {
             pre.setInt(1, f.getPatient().getPatientId());
             pre.setString(2, f.getContent());
             pre.setTimestamp(3, f.getCreateDate());
+            pre.setInt(4, f.getFeedback_id());
             pre.executeUpdate();
         } catch (Exception e) {
             Logger.getLogger(FeedbackDAO.class.getName()).log(Level.SEVERE, sql, e);
