@@ -5,6 +5,7 @@
  */
 package Prescription;
 
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -68,6 +69,8 @@ public class ListPrescriptionController extends HttpServlet {
         }
         int id = 0;
         HttpSession session = request.getSession();
+        Account userLogin = (Account) session.getAttribute("userLogin");
+        
     }
 
     /**
