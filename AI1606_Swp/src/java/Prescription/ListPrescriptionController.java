@@ -70,7 +70,9 @@ public class ListPrescriptionController extends HttpServlet {
         int id = 0;
         HttpSession session = request.getSession();
         Account userLogin = (Account) session.getAttribute("userLogin");
-        
+        if (userLogin.getType().getAccountTypeId() == 4) {// Patient
+            id = userLogin.getPatient().getPatientId();
+        }
     }
 
     /**
