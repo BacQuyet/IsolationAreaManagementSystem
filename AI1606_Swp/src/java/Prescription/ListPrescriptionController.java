@@ -65,6 +65,8 @@ public class ListPrescriptionController extends HttpServlet {
         if (request.getParameter("page") != null) {
             page = Integer.parseInt(request.getParameter("page"));
         }
+        int id = 0;
+        
     }
 
     /**
