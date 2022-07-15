@@ -93,7 +93,7 @@ public class FeedbackDAO implements DAO<Feedback> {
                 + "           (?,?,?)";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, t.getPatient_id());
+            pre.setInt(1, t.getPatient().getPatientId());
             pre.setString(2, t.getContent());
             pre.setTimestamp(3, t.getCreateDate());
             pre.executeUpdate();
@@ -158,7 +158,7 @@ public class FeedbackDAO implements DAO<Feedback> {
                 + " WHERE feedback_id = ?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, f.getPatient_id());
+            pre.setInt(1, f.getPatient().getPatientId());
             pre.setString(2, f.getContent());
             pre.setTimestamp(3, f.getCreateDate());
             pre.executeUpdate();
