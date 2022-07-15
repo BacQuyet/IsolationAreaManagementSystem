@@ -99,6 +99,10 @@ public class AddFeedbackController extends HttpServlet {
         FeedbackDAO dao = new FeedbackDAO();
         dao.create(fe);
         
+        Notification noti = new Notification("Success", "Thêm góp ý mới thành công.", "success");
+        request.setAttribute("notify", noti);
+        RequestDispatcher r = request.getRequestDispatcher("/Feedback/listFeedback");
+        r.forward(request, response);
     }
 
     /**
