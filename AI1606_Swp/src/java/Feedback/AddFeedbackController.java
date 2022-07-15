@@ -77,6 +77,7 @@ public class AddFeedbackController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String content = request.getParameter("feedbackName");
+        
         if (content == null) {
             Notification noti = new Notification("Warning", "Hãy điền đủ thông tin.", "warning");
             request.setAttribute("notify", noti);
