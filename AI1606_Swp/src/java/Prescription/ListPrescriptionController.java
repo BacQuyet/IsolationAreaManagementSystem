@@ -58,6 +58,9 @@ public class ListPrescriptionController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        
+        int page = 1;
+        int recordPerPage = 5;
     }
 
     /**
