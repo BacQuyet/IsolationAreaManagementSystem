@@ -245,10 +245,6 @@
         <servlet-class>Report.UpdateReportController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>FilterReportController</servlet-name>
-        <servlet-class>Report.FilterReportController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ViewDetailNurseController</servlet-name>
         <servlet-class>Nurse.ViewDetailNurseController</servlet-class>
     </servlet>
@@ -571,10 +567,6 @@
     <servlet-mapping>
         <servlet-name>UpdateReportController</servlet-name>
         <url-pattern>/Report/updateReport</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FilterReportController</servlet-name>
-        <url-pattern>/Report/filterReport</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewDetailNurseController</servlet-name>
