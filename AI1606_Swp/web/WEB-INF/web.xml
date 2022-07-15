@@ -336,6 +336,10 @@
         <servlet-name>AddFeedbackController</servlet-name>
         <servlet-class>Feedback.AddFeedbackController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateFeedbackController</servlet-name>
+        <servlet-class>Feedback.UpdateFeedbackController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -659,6 +663,10 @@
     <servlet-mapping>
         <servlet-name>AddFeedbackController</servlet-name>
         <url-pattern>/Feedback/addFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateFeedbackController</servlet-name>
+        <url-pattern>/Feedback/updateFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
