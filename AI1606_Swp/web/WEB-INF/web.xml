@@ -328,6 +328,10 @@
         <servlet-name>DeleteFeedbackController</servlet-name>
         <servlet-class>Feedback.DeleteFeedbackController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordController</servlet-name>
+        <servlet-class>controller.base.ChangePasswordController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -643,6 +647,10 @@
     <servlet-mapping>
         <servlet-name>DeleteFeedbackController</servlet-name>
         <url-pattern>/Feedback/deleteFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordController</servlet-name>
+        <url-pattern>/myaccount/ChangePassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
