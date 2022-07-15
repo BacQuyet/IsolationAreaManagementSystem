@@ -7,6 +7,7 @@ package Feedback;
 
 import dao.FeedbackDAO;
 import dao.PatientDAO;
+import entity.Feedback;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
@@ -96,6 +97,8 @@ public class UpdateFeedbackController extends HttpServlet {
             PatientDAO pa = new PatientDAO();
             long millis = System.currentTimeMillis();
             Timestamp date = new Timestamp(millis);
+            Feedback fe = new Feedback();
+            fe.setFeedback_id(feedbackId);
         }
     }
 
