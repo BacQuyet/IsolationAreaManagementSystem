@@ -52,9 +52,9 @@
                         <td>${prescription.getDoctor().getDoctorName()}</td>
                         <td>${prescription.getMedicine().getName()}</td>
                         <td>${prescription.getQuantity()}</td>
-                        <td>
-                            <a href="/Patient_Test/Prescription/edit?id=${prescription.getPresciptionId()}">Edit</a>
-                            <a href="/Patient_Test/Prescription/delete?id=${prescription.getPresciptionId()}">Delete</a>
+                        <td class="td-action">
+                            <a href="<%=request.getContextPath()%>/Prescription/edit?id=${prescription.getPresciptionId()}"><i class="fas fa-pen"></i></a>
+                            <a href="<%=request.getContextPath()%>/Prescription/delete?id=${prescription.getPresciptionId()}"style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 </c:forEach>

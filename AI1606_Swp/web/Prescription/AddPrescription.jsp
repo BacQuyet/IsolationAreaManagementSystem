@@ -27,7 +27,7 @@
 
     <div class="form-container">
 
-        <form action="/Prescription/add" method="POST" id="form-dn">
+        <form action="add" method="POST" id="form-dn">
             <div class="form-group">
                 <label class="form-label" for="prescriptionName">Tên đơn thuốc:</label>
                 <input class="form-control" type="text" id="prescriptionName" name="prescriptionName"><br/>
