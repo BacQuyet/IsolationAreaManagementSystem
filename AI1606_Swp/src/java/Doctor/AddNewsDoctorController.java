@@ -108,7 +108,7 @@ public class AddNewsDoctorController extends HttpServlet {
                 RequestDispatcher r1 = request.getRequestDispatcher("ViewDoctor");
                 r1.forward(request, response);
             } else {
-                Notification noti = new Notification("Error", "sai mk", "error");
+                Notification noti = new Notification("Error", "Mật khẩu xác nhận chưa chính xác", "error");
                 request.setAttribute("notify", noti);
                 RequestDispatcher rt = request.getRequestDispatcher("add-doctor.jsp");
                 rt.forward(request, response);
