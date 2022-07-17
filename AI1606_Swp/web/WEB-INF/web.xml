@@ -582,11 +582,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddAreaController</servlet-name>
-        <url-pattern>/addarea</url-pattern>
+        <url-pattern>/Area/addarea</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewAreaController</servlet-name>
-        <url-pattern>/viewarea</url-pattern>
+        <url-pattern>/Area/viewarea</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditPrescriptionController</servlet-name>
@@ -697,6 +697,7 @@
             <url-pattern>/listfeedback.jsp</url-pattern>
             <url-pattern>/Patient/*</url-pattern>
             <url-pattern>/Room/*</url-pattern>
+            <url-pattern>/Area/*</url-pattern>
             <url-pattern>/Doctors/*</url-pattern>
             <url-pattern>/Nurse/*</url-pattern>
             <url-pattern>/Prescription/*</url-pattern>

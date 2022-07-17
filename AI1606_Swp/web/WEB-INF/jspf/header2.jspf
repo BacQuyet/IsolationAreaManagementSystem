@@ -115,6 +115,9 @@
                             <span class="sidebar-info">Quản lý bác sĩ</span>
                         </a>
                     </li>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Area/viewarea"><i class="fas fa-briefcase-medical sidebar-icon"></i>
+                            <span class="sidebar-info">Quản lý khu vực</span>
+                        </a>
                     </li>
                     <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Nurse/viewnurse"><i class="fas fa-file-invoice sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý y tá</span>
