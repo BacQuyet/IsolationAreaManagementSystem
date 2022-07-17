@@ -11,14 +11,14 @@
 
         </div>
     </div>
-    
-    <div class='search col-7' style="margin-left: 20px; margin-top: 10px;">
+
+    <div class="search col-7" style="margin-left: 20px; margin-top: 10px;">
         <form action ="searchroom" method="POST">
             <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
             <button type="SUBMIT"><i class="fas fa-search"></i></button>
         </form>
     </div>
-    
+
     <%
         Account account = (Account) session.getAttribute("userLogin");
         if (account.getType().getAccountTypeId() == 3) { // Nurse login
@@ -41,7 +41,7 @@
     </div>
     <% }
     %>
-    
+
     <div class="table-list">
         <table class="table-list__user">
             <tr>
@@ -94,8 +94,7 @@
                 <c:if test = "${currentPage lt noOfPages}">
                     <a href="<%=request.getContextPath()%>/Room/viewroom?page=${currentPage+1}"> > </a>
                 </c:if>
-                    
-                    
             </div>
         </div>
     </div>
+</div>

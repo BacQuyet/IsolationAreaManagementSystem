@@ -72,6 +72,7 @@ public class ViewRoomController extends HttpServlet {
         int noOfPage = (int) ((noOfRecord + 4) / 5);
        
         request.setAttribute("listRoom", list);
+        request.setAttribute("noOfRecords", noOfRecord);
         request.setAttribute("noOfPages", noOfPage);
         request.setAttribute("currentPage", page);
         RequestDispatcher view = request.getRequestDispatcher("/Room/list.jsp");
