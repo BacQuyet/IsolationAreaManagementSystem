@@ -106,10 +106,6 @@ public class UpdateRoomController extends HttpServlet {
                 update.forward(request, response);
             }
         }
-        if ((roomName != null && bedNumber != null && areaId != null)) {
-            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
-            request.setAttribute("notify", noti);
-        }
         request.setAttribute("room", dao.get(roomId));
         RequestDispatcher update = request.getRequestDispatcher("/Room/update.jsp");
         update.forward(request, response);

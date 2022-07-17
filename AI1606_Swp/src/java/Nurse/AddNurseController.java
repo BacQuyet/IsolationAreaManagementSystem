@@ -104,8 +104,7 @@ public class AddNurseController extends HttpServlet {
         if (user != null) {
             Notification noti = new Notification("Error", "Tài khoản đã tồn tại", "error");
             request.setAttribute("notify", noti);
-            RequestDispatcher rt = request.getRequestDispatcher("/Nurse/addnurse");
-            rt.forward(request, response);
+            response.sendRedirect("addnurse");
         }else{
             if (password.equals(repassword)) {
                 try {
@@ -135,8 +134,7 @@ public class AddNurseController extends HttpServlet {
             }else {
                 Notification noti = new Notification("Error", "sai mk", "error");
                 request.setAttribute("notify", noti);
-                RequestDispatcher rt = request.getRequestDispatcher("/Nurse/addnurse");
-                rt.forward(request, response);
+                response.sendRedirect("addnurse");
                 
             }
         }

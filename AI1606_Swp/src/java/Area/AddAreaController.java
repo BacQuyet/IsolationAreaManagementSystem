@@ -80,13 +80,11 @@ public class AddAreaController extends HttpServlet {
         String address = request.getParameter("address");
         String contact = request.getParameter("contact");
         
-        if(areaName == null || address == null){
-            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+        if(areaName != null){
+            Notification noti = new Notification("Warning", "Khu vực đã tồn tại", "warning");
             request.setAttribute("notify", noti);
-            RequestDispatcher add = request.getRequestDispatcher("/Area/addarea");
-            add.forward(request, response);
-        }
-        
+            response.sendRedirect("addarea");
+        }else{
         AreaDAO ar = new AreaDAO();
         Area a = new Area();
         a.setAreaName(areaName);
@@ -96,6 +94,9 @@ public class AddAreaController extends HttpServlet {
         Notification noti = new Notification("Success", "Thêm khu vực cách ly thành công.", "success");
         request.setAttribute("notify", noti);
         response.sendRedirect("viewarea");
+        }
+        
+        
     }
 
     /**

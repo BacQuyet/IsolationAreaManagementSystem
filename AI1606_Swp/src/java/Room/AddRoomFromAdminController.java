@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.Notification;
 
-
 public class AddRoomFromAdminController extends HttpServlet {
 
     /**
@@ -37,7 +36,7 @@ public class AddRoomFromAdminController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddRoomFromAdminController</title>");            
+            out.println("<title>Servlet AddRoomFromAdminController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddRoomFromAdminController at " + request.getContextPath() + "</h1>");
@@ -76,33 +75,34 @@ public class AddRoomFromAdminController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         AreaDAO daoArea = new AreaDAO();
-        
+
         String roomName = request.getParameter("roomName");
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
         String area = request.getParameter("area");
-        
+
         if (roomName != null) {
             Notification noti = new Notification("Warning", "Đã có tên giường tồn tại.", "warning");
             request.setAttribute("notify", noti);
-            RequestDispatcher add = request.getRequestDispatcher("/Room/addroomAdmin");
-            add.forward(request, response);
+            response.sendRedirect("addroomAdmin");
+        } else {
+            if (note.length() == 0) {
+                note = "no notes";
+            }
+
+            RoomDAO dao = new RoomDAO();
+            Room room = new Room();
+            room.setRoomName(roomName);
+            room.setBedNumber(Integer.parseInt(bedNumber));
+            room.setNote(note);
+            room.setArea(daoArea.get(Integer.parseInt(area)));
+            dao.create(room);
+
+            Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");
+            request.setAttribute("notify", noti);
+            response.sendRedirect("viewroom");
         }
-        if (note.length() == 0) {
-            note = "no notes";
-        }
-        
-        RoomDAO dao = new RoomDAO();
-        Room room = new Room();
-        room.setRoomName(roomName);
-        room.setBedNumber(Integer.parseInt(bedNumber));
-        room.setNote(note);
-        room.setArea(daoArea.get(Integer.parseInt(area)));
-        dao.create(room);
-        
-        Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");
-        request.setAttribute("notify", noti);
-        response.sendRedirect("viewroom");
+
     }
 
     /**

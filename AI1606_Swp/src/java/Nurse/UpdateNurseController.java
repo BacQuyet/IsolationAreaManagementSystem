@@ -111,10 +111,7 @@ public class UpdateNurseController extends HttpServlet {
             
             }
         }
-        if (nurseName != null && phone != null && accountId != null && address != null && areaId != null && fullname != null) {
-            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
-            request.setAttribute("notify", noti);
-        }
+
         request.setAttribute("nurse", dao.get(nurseId));
         RequestDispatcher update = request.getRequestDispatcher("/Nurse/update-nurse.jsp");
         update.forward(request, response);
