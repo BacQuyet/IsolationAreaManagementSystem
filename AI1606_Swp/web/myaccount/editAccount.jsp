@@ -161,20 +161,7 @@
             <%
                 }
             %>            
-            <div><img class="menu-detail-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}/avatar-default.png"/>
-                <input name="file" type="file" accept="image/*" onchange="loadFile(event)" id="getFile" style="display:none" >
-                <button style="margin-top: 4px; display:block;width:80px; height:30px;" onclick="document.getElementById('getFile').click()">Chọn ảnh</button>
-                <script>
-                    var loadFile = function (event) {
-                        var reader = new FileReader();
-                        reader.onload = function () {
-                            var output = document.getElementById('output');
-                            output.src = reader.result;
-                        };
-                        reader.readAsDataURL(event.target.files[0]);
-                    };                   
-                </script> 
-            </div>
+           
         </div>
 
     </div>

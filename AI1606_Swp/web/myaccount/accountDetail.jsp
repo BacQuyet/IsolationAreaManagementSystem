@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+               
                     <%
                         }
                     %>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+               
                     <%
                         }
                     %>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+                
                     <%
                         }
                     %>
@@ -124,20 +124,10 @@
                         </div>
                     </div>
                 </div>
-                <div><img class="content-img" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/></div>
+                
                     <%
                         }
-                    %>
-                <script>
-                    var loadFile = function (event) {
-                        var reader = new FileReader();
-                        reader.onload = function () {
-                            var output = document.getElementById('output');
-                            output.src = reader.result;
-                        };
-                        reader.readAsDataURL(event.target.files[0]);
-                    };
-                </script>
+                    %>                
             </div>
         </div>
 

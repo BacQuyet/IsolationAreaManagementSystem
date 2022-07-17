@@ -76,9 +76,8 @@
             <div class="report__info-class report__info-class__orange">
                 <label class="report-label"><i class="fas fa-bed"></i> Sức chứa</label>
                 <ul class="report-label__info">
-                    <li>Hiện tại <span></span></li>
-                    <li>Còn trống <span></span></li>
-                    <li>Tổng <span></span></li>
+                    <li>Hiện tại <span>${totalBed}</span></li>
+                    <li>Còn trống <span>${availableBed}</span></li>
                 </ul>
             </div>
         </div>
