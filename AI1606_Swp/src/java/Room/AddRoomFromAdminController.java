@@ -82,8 +82,8 @@ public class AddRoomFromAdminController extends HttpServlet {
         String note = request.getParameter("note");
         String area = request.getParameter("area");
         
-        if (roomName == null || bedNumber == null) {
-            Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
+        if (roomName != null) {
+            Notification noti = new Notification("Warning", "Đã có tên giường tồn tại.", "warning");
             request.setAttribute("notify", noti);
             RequestDispatcher add = request.getRequestDispatcher("/Room/addroomAdmin");
             add.forward(request, response);

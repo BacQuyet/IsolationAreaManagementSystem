@@ -66,7 +66,7 @@ public class NurseDAO implements DAO<Nurse> {
         try {
 
             String sql = "SELECT * FROM dbo.nurse\n"
-                    + "WHERE id_account = ?";
+                    + "WHERE id_nurse = ?";
             PreparedStatement sttm = conn.prepareStatement(sql);
             sttm.setInt(1, account_id);
             ResultSet rs = sttm.executeQuery();
