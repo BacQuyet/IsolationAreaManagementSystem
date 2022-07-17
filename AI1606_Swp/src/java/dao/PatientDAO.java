@@ -109,6 +109,13 @@ public class PatientDAO implements DAO<Patient> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
+    
+    public List<Patient> getPatientByRoomS(int id) {
+        String sql = "SELECT * from patient where room_id = " + id;
+        List<Patient> qq = new ArrayList<>();
+        qq = parse(sql);
+        return qq;
+    }
     public void updateAccountPatient(Patient d) {
         String sql = "UPDATE [dbo].[patient]\n"
                 + "   SET [full_name] = ?\n"

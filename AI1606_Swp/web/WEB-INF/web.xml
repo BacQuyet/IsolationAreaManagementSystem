@@ -336,6 +336,10 @@
         <servlet-name>ListPrescriptionController</servlet-name>
         <servlet-class>Prescription.ListPrescriptionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewDetailRoomController</servlet-name>
+        <servlet-class>Room.ViewDetailRoomController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -659,6 +663,10 @@
     <servlet-mapping>
         <servlet-name>ListPrescriptionController</servlet-name>
         <url-pattern>/Prescription/List</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailRoomController</servlet-name>
+        <url-pattern>/Room/viewdetailroom</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
