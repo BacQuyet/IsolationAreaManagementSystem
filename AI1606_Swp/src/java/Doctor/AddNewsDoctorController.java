@@ -103,7 +103,7 @@ public class AddNewsDoctorController extends HttpServlet {
                 doctor.setPhone(phoneNumber);
                 DoctorDAO doc = new DoctorDAO();
                 doc.create(doctor);
-                Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
+                Notification noti = new Notification("Success", "Thêm tài khoản bác sĩ thành công.", "success");
                 request.setAttribute("notify", noti);
                 RequestDispatcher r1 = request.getRequestDispatcher("ViewDoctor");
                 r1.forward(request, response);

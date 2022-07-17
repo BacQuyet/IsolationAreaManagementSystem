@@ -86,23 +86,17 @@ public class UpdateDoctorsController extends HttpServlet {
         String fullname = request.getParameter("fullname");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
-
         if (fullname != null && address != null) {
-            if (fullname.length() > 0 && address.length() > 0) {
-               
-
+            if (fullname.length() > 0 && address.length() > 0) {            
                 Doctor d = new Doctor();
                 d.setDoctor(id);
                 d.setFullName(fullname);
                 d.setPhone(Integer.parseInt(phone));
                 d.setAddress(address);               
                 dao.updateDoctor(d);
-                //response.sendRedirect("ViewDoctor");
-                Notification noti = new Notification("Success", "Cập nhật bác sĩ thành công.", "success");
+                Notification noti = new Notification("Success", "Cập nhật thông tin bác sĩ thành công.", "success");
                 request.setAttribute("notify", noti);
-                 request.getRequestDispatcher("ViewDoctor").forward(request, response);
-                
-                
+                 request.getRequestDispatcher("ViewDoctor").forward(request, response);                              
             }
         }
         if ((fullname != null && address != null)) {

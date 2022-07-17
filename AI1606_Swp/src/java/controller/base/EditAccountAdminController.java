@@ -94,12 +94,6 @@ public class EditAccountAdminController extends HttpServlet {
         ss.setAttribute("userLogin", userLogin);
         RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
         r1.forward(request, response);
-//        } else {
-//            Notification noti = new Notification("Error", "Nhập sai số điện thoại", "error");
-//            request.setAttribute("notify", noti);
-//            RequestDispatcher r1 = request.getRequestDispatcher("editAccount.jsp");
-//            r1.forward(request, response);
-//        }
 
         request.getRequestDispatcher("/myaccount/EditAccount").forward(request, response);
     }

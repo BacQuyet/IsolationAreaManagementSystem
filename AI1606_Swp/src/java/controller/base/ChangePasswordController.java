@@ -40,7 +40,7 @@ public class ChangePasswordController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ChangePasswordController</title>");            
+            out.println("<title>Servlet ChangePasswordController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ChangePasswordController at " + request.getContextPath() + "</h1>");
@@ -82,28 +82,27 @@ public class ChangePasswordController extends HttpServlet {
         String new2_pass = request.getParameter("new2_pass");
         HttpSession session = request.getSession();
         Account user = (Account) session.getAttribute("userLogin");
-        if(current_pass.equals(user.getPassword())){
-            if(new_pass.equals(new2_pass)){
-                
-            AccountDAO tkDAO = new AccountDAO();
-            Account a = new Account();
-            a.setAccountId(user.getAccountId());
-            a.setPassword(new_pass);
-            tkDAO.updatePassword(a);
-            session.setAttribute("userLogin", tkDAO.get(user.getAccountId()));
-            Notification noti = new Notification("Success", "Đổi mật khẩu thành công.", "success");
+        if (current_pass.equals(user.getPassword())) {
+            if (new_pass.equals(new2_pass)) {
+
+                AccountDAO tkDAO = new AccountDAO();
+                Account a = new Account();
+                a.setAccountId(user.getAccountId());
+                a.setPassword(new_pass);
+                tkDAO.updatePassword(a);
+                session.setAttribute("userLogin", tkDAO.get(user.getAccountId()));
+                Notification noti = new Notification("Success", "Đổi mật khẩu thành công.", "success");
                 request.setAttribute("notify", noti);
-                        RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
-            r1.forward(request, response);
-            }
-            else{
+                RequestDispatcher r1 = request.getRequestDispatcher("/myaccount/viewAccount");
+                r1.forward(request, response);
+            } else {
                 Notification noti = new Notification("Error", "Xác nhận mật khẩu không chính xác", "error");
-            request.setAttribute("notify", noti);
-            RequestDispatcher r1 = request.getRequestDispatcher("ChangePassword.jsp");
-            r1.forward(request, response);
+                request.setAttribute("notify", noti);
+                RequestDispatcher r1 = request.getRequestDispatcher("ChangePassword.jsp");
+                r1.forward(request, response);
             }
-            
-        }else {
+
+        } else {
             Notification noti = new Notification("Error", "Lỗi xảy ra.<br/> Vui lòng xem lại mật khẩu của bạn", "error");
             request.setAttribute("notify", noti);
             RequestDispatcher r1 = request.getRequestDispatcher("ChangePassword.jsp");
