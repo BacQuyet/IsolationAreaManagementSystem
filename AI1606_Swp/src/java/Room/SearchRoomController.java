@@ -5,8 +5,12 @@
  */
 package Room;
 
+import dao.RoomDAO;
+import entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -82,6 +86,19 @@ public class SearchRoomController extends HttpServlet {
             if (request.getParameter("page") != null) {
                 page = Integer.parseInt(request.getParameter("page"));
             }
+            
+        RoomDAO dao = new RoomDAO();
+        List<Room> list = dao.searchRoom(key,(page - 1) * recordPerPage, recordPerPage);
+        int noOfRecord = dao.countPageSize(key);
+        int noOfPage = (int) ((noOfRecord + 4) / 5);
+        request.setAttribute("noOfRecords", noOfRecord);
+        request.setAttribute("listRoom", list);
+        request.setAttribute("noOfPages", noOfPage);
+        request.setAttribute("currentPage", page);
+        
+        
+        RequestDispatcher view = request.getRequestDispatcher("list.jsp");
+        view.forward(request, response);
     }
     }
 
