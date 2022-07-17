@@ -8,11 +8,13 @@
             <span class="content-label__info"><i class="fas fa-home"></i> > Hệ thống > Quản lý tài khoản </span>
             <div class="spacer2"></div>
         </div>
-
+            <div class='search col-7' style="margin-left: 22px; margin-top: 10px;">
         <form action ="searchDoctor" method="POST">
             <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
             <button type="SUBMIT"><i class="fas fa-search"></i></button>
-        </form> 
+        </form>
+    </div>
+ 
         <div class="btn-add">
             <a href="<%=request.getContextPath()%>/Doctors/add-doctor.jsp"><i class="fas fa-plus-circle"></i>
                 <span>Thêm nhân viên</span>
