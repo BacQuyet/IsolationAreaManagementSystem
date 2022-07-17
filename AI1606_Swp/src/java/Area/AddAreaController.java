@@ -79,8 +79,10 @@ public class AddAreaController extends HttpServlet {
         String areaName = request.getParameter("areaName");
         String address = request.getParameter("address");
         String contact = request.getParameter("contact");
+        AreaDAO aa = new AreaDAO();
+        Area as = (Area) aa.getname(areaName);
         
-        if(areaName != null){
+        if(as != null){
             Notification noti = new Notification("Warning", "Khu vực đã tồn tại", "warning");
             request.setAttribute("notify", noti);
             response.sendRedirect("addarea");
@@ -93,10 +95,8 @@ public class AddAreaController extends HttpServlet {
         ar.create(a);
         Notification noti = new Notification("Success", "Thêm khu vực cách ly thành công.", "success");
         request.setAttribute("notify", noti);
-        response.sendRedirect("viewarea");
+        request.getRequestDispatcher("viewarea").forward(request, response);
         }
-        
-        
     }
 
     /**

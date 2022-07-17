@@ -91,6 +91,13 @@ public class RoomDAO implements DAO<Room> {
         room = parse(sql);
         return room;
     }
+    
+    public Room getname(String name){
+        String sql = "select * from room where room_name like '" + name + "'";
+        List<Room> qq = new ArrayList<>();
+        qq = parse(sql);
+        return (qq.isEmpty() ? null : qq.get(0));
+    }
 
     @Override
     public void create(Room r) {

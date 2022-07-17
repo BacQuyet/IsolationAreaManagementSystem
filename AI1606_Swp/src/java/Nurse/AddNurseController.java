@@ -107,7 +107,6 @@ public class AddNurseController extends HttpServlet {
             response.sendRedirect("addnurse");
         }else{
             if (password.equals(repassword)) {
-                try {
                 Account newUser = new Account();
                 newUser.setUserName(username);
                 newUser.setPassword(password);
@@ -127,10 +126,7 @@ public class AddNurseController extends HttpServlet {
                 nu.create(nurse);
                 Notification noti = new Notification("Success", "Thêm tài khoản nhân sự thành công.", "success");
                 request.setAttribute("notify", noti);
-                response.sendRedirect("viewnurse");
-                }catch (Exception e) {
-                    System.out.println(e.toString());
-                }
+                request.getRequestDispatcher("viewnurse").forward(request, response);
             }else {
                 Notification noti = new Notification("Error", "sai mk", "error");
                 request.setAttribute("notify", noti);

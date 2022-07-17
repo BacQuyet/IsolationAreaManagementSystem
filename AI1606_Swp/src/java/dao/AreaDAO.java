@@ -51,6 +51,13 @@ public class AreaDAO implements DAO<Area> {
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));
     }
+    
+    public Area getname(String name){
+        String sql = "select * from area where area_name like '" + name + "'";
+        List<Area> qq = new ArrayList<>();
+        qq = parse(sql);
+        return (qq.isEmpty() ? null : qq.get(0));
+    }
 
     @Override
     public List<Area> getAll() {

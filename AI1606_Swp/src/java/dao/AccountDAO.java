@@ -101,7 +101,7 @@ public class AccountDAO implements DAO<Account> {
     }
 
     public Account find(String username) {
-        String sql = "select * from account where username = '" + username + "'";
+        String sql = "select * from account where username like '" + username + "'";
         List<Account> qq = new ArrayList<>();
         qq = parse(sql);
         return (qq.isEmpty() ? null : qq.get(0));

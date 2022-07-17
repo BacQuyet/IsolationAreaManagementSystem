@@ -75,13 +75,14 @@ public class AddRoomFromAdminController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         AreaDAO daoArea = new AreaDAO();
-
+        RoomDAO dao1 = new RoomDAO();
+        
         String roomName = request.getParameter("roomName");
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
         String area = request.getParameter("area");
-
-        if (roomName != null) {
+        Room room1 = dao1.getname(roomName);
+        if (room1 != null) {
             Notification noti = new Notification("Warning", "Đã có tên giường tồn tại.", "warning");
             request.setAttribute("notify", noti);
             response.sendRedirect("addroomAdmin");
@@ -89,7 +90,6 @@ public class AddRoomFromAdminController extends HttpServlet {
             if (note.length() == 0) {
                 note = "no notes";
             }
-
             RoomDAO dao = new RoomDAO();
             Room room = new Room();
             room.setRoomName(roomName);
@@ -100,7 +100,7 @@ public class AddRoomFromAdminController extends HttpServlet {
 
             Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");
             request.setAttribute("notify", noti);
-            response.sendRedirect("viewroom");
+            request.getRequestDispatcher("viewroom").forward(request, response);
         }
 
     }
