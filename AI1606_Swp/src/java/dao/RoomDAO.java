@@ -137,6 +137,20 @@ public class RoomDAO implements DAO<Room> {
         return null;
     }
     
+    public int countPageSize(String key) {
+        try {
+            String query = "select Count(*) as Num from room where room_name like '%" + key + "%'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("Num");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+        return 0;
+    }
+    
     public void createRoom(Room r) {
         
         String sql = "INSERT INTO room"
