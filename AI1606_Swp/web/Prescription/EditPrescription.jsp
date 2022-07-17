@@ -34,11 +34,6 @@
                 <input class="form-control" type="text" id="prescriptionName" name="prescriptionName" value="${prescription.getPresciptionName()}"><br/>
             </div>
 
-<!--            <div class="form-group">
-                <label class="form-label" for="time">Thời gian:</label>
-                <input class="form-control" type="datetime-local" id="time" name="time"><br/>
-            </div>-->
-
             <div class="form-group">
                 <label class="form-label" for="patient" >Bệnh nhân:</label>
                 <select class="form-control" name="patient" id="patient">
