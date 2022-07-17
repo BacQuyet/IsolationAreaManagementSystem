@@ -18,16 +18,6 @@ public class Utils {
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final StringBuffer CHARACTERS = new StringBuffer("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
 
-    public static String randomPassword(int size) {
-        StringBuffer result = new StringBuffer();
-        Random random = new Random();
-
-        for (int i = 0; i < size; i++) {
-            char chars = CHARACTERS.charAt(random.nextInt(CHARACTERS.length()));
-            result.append(chars);
-        }
-        return result.toString();
-    }
 
 
     public int getDistanceTime(Date timeBegin, Date timeEnd) {
@@ -38,7 +28,9 @@ public class Utils {
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         return (int) diff;
     }
-
+    public static void main(String[] args) {
+        Utils u = new Utils();
+    }
     public static String getToday() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();

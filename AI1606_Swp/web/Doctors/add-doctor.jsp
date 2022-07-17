@@ -48,13 +48,11 @@
                     <input id="email" class="form-control" name="email" type="text" pattern=".+@gmail\.com"  required >
                     <span class="form-message"></span>
                 </div>
-
+                Select file to upload: <input type="file" id="file" name="file" /><br /><br /> 
                 <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
             </form>
         </div>
-        <div><img class="form-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}${userLogin.getAvatar()}"/>
-            <input name="file" type="file" accept="image/*" onchange="loadFile(event)" id="getFile" style="display:none" >
-            <button style="margin-top: 10px;margin-right: 300px; display:block;width: max-content; height:30px;" onclick="document.getElementById('getFile').click()">Chọn ảnh</button>
+
 
             <script>
                 var loadFile = function (event) {

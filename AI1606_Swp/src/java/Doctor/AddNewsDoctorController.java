@@ -70,7 +70,7 @@ public class AddNewsDoctorController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String repassword = request.getParameter("repass");
-  
+        String avatar = request.getParameter("file");
         String fullname = request.getParameter("name");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
@@ -91,7 +91,7 @@ public class AddNewsDoctorController extends HttpServlet {
                 newUser.setUserName(username);
                 newUser.setPassword(password);
                 newUser.setEmail(email);
-                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
+                newUser.setAvatar(avatar);
                 newUser.setType(new TypeAccount(2));
                 accountDAO.create(newUser);
                 Account user1 = accountDAO.find(username);

@@ -60,12 +60,10 @@
         <c:if test="${currentPage * 10 <= noOfRecords}">
             <div class="content-pad__label">Showing ${(currentPage-1)*10+1} to ${currentPage * 10} of ${noOfRecords} entries</div>
         </c:if>
-
         <div class="content-pad__info">
             <c:if test="${currentPage != 1}">
                 <a href="<%=request.getContextPath()%>/Patient/ListPatientByDoctor?page=${currentPage - 1}"> < </a>
             </c:if>
-
             <c:forEach begin="1" end="${noOfPages}" var="i">
                 <c:choose>
                     <c:when test="${currentPage eq i}">
