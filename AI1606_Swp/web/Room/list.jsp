@@ -52,7 +52,7 @@
                     <td>${room.getArea().getAreaName()}</td>
                     <td>${room.getNote()}</td>
                     <td class="td-action">
-                        <a href="<%=request.getContextPath()%>/Room/viewDetail?roomId=${room.getRoomId()}"><i class="far fa-calendar-alt"></i></a>
+                        <a href="<%=request.getContextPath()%>/Room/viewdetailroom?roomId=${room.getRoomId()}"><i class="far fa-calendar-alt"></i></a>
                         <a href="<%=request.getContextPath()%>/Room/updateroom?roomId=${room.getRoomId()}"><i class="fas fa-pen"></i></a>
                         <a href="<%=request.getContextPath()%>/Room/deleteroom?roomId=${room.getRoomId()}" style="background-color: red"><i class="fas fa-trash-alt"></i></a>
                     </td>
