@@ -27,7 +27,7 @@
         if (account.getType().getAccountTypeId() == 1) {
     %>
     <div class="btn-add">
-        <a href="<%=request.getContextPath()%>/Room/addadmin.jsp"><i class="fas fa-plus-circle"></i>
+        <a href="<%=request.getContextPath()%>/Room/addroomAdmin"><i class="fas fa-plus-circle"></i>
             <span>Thêm</span>
         </a>
     </div>

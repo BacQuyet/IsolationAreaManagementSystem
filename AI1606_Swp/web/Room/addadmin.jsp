@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/assets/css/list/add.css">
 <div class="col-10 content">
     <div class="content-label">
@@ -29,9 +30,14 @@
                 <span class="form-message"></span>
             </div>
             <div class="form-group">
-                <label for="area" class="form-label">Khu vực</label>
-                <input id="area" class="form-control" name="area" type="text" >
-                <span class="form-message"></span>
+                <label for="loai" class="form-label">khu vực: </label>
+                
+                <select name="area" id="area" class="form-control">
+                    <option value="0">Chọn khu vực</option>
+                    <c:forEach begin="0" end="${fn:length(emtrang)-1}" var="duy">
+                        <option value="${emtrang[duy].areaId}">${emtrang[duy].areaName}</option>
+                    </c:forEach>
+                </select>
             </div>
 
             <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>

@@ -57,7 +57,9 @@ public class AddRoomFromAdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        AreaDAO dao = new AreaDAO();
+        request.setAttribute("emtrang", dao.getAll());
+        request.getRequestDispatcher("/Room/addadmin.jsp").forward(request, response);
     }
 
     /**
@@ -73,16 +75,17 @@ public class AddRoomFromAdminController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        //
+        AreaDAO daoArea = new AreaDAO();
+        
         String roomName = request.getParameter("roomName");
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
-        int area = Integer.parseInt(request.getParameter("area"));
+        String area = request.getParameter("area");
         
         if (roomName == null || bedNumber == null) {
             Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", noti);
-            RequestDispatcher add = request.getRequestDispatcher("/Room/addadmin.jsp");
+            RequestDispatcher add = request.getRequestDispatcher("/Room/addroomAdmin");
             add.forward(request, response);
         }
         if (note.length() == 0) {
@@ -90,12 +93,11 @@ public class AddRoomFromAdminController extends HttpServlet {
         }
         
         RoomDAO dao = new RoomDAO();
-        AreaDAO daoArea = new AreaDAO();
         Room room = new Room();
         room.setRoomName(roomName);
         room.setBedNumber(Integer.parseInt(bedNumber));
         room.setNote(note);
-        room.setArea(daoArea.get(area));
+        room.setArea(daoArea.get(Integer.parseInt(area)));
         dao.create(room);
         
         Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");

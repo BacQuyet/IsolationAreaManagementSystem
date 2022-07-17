@@ -120,7 +120,7 @@
                             <span class="sidebar-info">Quản lý y tá</span>
                         </a>
                     </li>
-                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Room/list"><i class="fas fa-briefcase-medical sidebar-icon"></i>
+                    <li><a class="sidebar-li" href="<%=request.getContextPath()%>/Room/viewroom"><i class="fas fa-briefcase-medical sidebar-icon"></i>
                             <span class="sidebar-info">Quản lý phòng</span>
                         </a>
                     </li>
