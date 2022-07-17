@@ -108,6 +108,35 @@ public class RoomDAO implements DAO<Room> {
         }
     }
     
+    public List<Room> searchRoom(String key, int index1, int index2) {
+
+        String sql = "SELECT * FROM (\n"
+                + "    SELECT *, ROW_NUMBER() OVER (ORDER BY room_id) AS RowNum\n"
+                + "    FROM [dbo].[room] WHERE room_name like ?"
+                + ") AS MyDerivedTable\n"
+                + "WHERE MyDerivedTable.RowNum BETWEEN " + index1 + " AND " + index2;
+        
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.setString(1, "%" + key + "%");
+            ResultSet rs = sttm.executeQuery();
+            ArrayList<Room> room = new ArrayList<>();
+            while (rs.next()) {
+                Room r = new Room();
+                r.setRoomId(rs.getInt("room_id"));
+                r.setRoomName(rs.getString("room_name"));
+                r.setBedNumber(rs.getInt("bed_number"));
+                r.setArea(area.get(rs.getInt("area_id")));
+                r.setNote(rs.getString("note"));
+                room.add(r);
+            }
+            return room;
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public void createRoom(Room r) {
         
         String sql = "INSERT INTO room"
