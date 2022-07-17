@@ -344,6 +344,10 @@
         <servlet-name>ViewDetailAreaController</servlet-name>
         <servlet-class>Area.ViewDetailAreaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchRoomController</servlet-name>
+        <servlet-class>Room.SearchRoomController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewRoom</servlet-name>
         <url-pattern>/Room/list</url-pattern>
@@ -675,6 +679,10 @@
     <servlet-mapping>
         <servlet-name>ViewDetailAreaController</servlet-name>
         <url-pattern>/Area/viewdetailarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchRoomController</servlet-name>
+        <url-pattern>/Room/searchroom</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>60</session-timeout>
