@@ -95,6 +95,7 @@ public class AddNurseController extends HttpServlet {
         String address = request.getParameter("address");
         String area = request.getParameter("loai");
         String email = request.getParameter("email");
+        String avatar = request.getParameter("file");
         
         AccountDAO accountDAO = new AccountDAO();
         Account user = accountDAO.find(username);
@@ -112,7 +113,7 @@ public class AddNurseController extends HttpServlet {
                 newUser.setUserName(username);
                 newUser.setPassword(password);
                 newUser.setEmail(email);
-                newUser.setAvatar(Configs.IMG_PATH_AVATAR_DEFAULT);
+                newUser.setAvatar(avatar);
                 newUser.setType(new TypeAccount(3));
                 accountDAO.create(newUser);
                 Account user1 = accountDAO.find(username);

@@ -10,7 +10,7 @@ public class Configs {
     
     // database Configs on localhost
     public static final String SERVER = "localhost";
-    public static final String DB_NAME = "SWP_PROJECT"; //database name
+    public static final String DB_NAME = "SWP_PROJECT2"; //database name
     public static final String DB_USERNAME = "sa"; // username
     public static final String DB_PASSWORD = "123"; // password
     public static final String PORT_NUMBER = "1433";

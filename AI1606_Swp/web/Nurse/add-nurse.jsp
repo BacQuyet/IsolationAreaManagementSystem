@@ -59,22 +59,9 @@
                     </c:forEach>
                 </select>
             </div>
+                Select file to upload: <input type="file" id="file" name="file" /><br /><br /> 
                 <button type = "submit" class="form-submit"><i class="far fa-save"></i><span>Lưu</span></button>
             </form>
-        </div>
-        <div><img class="form-img" name ="file" id="output" src="<%=request.getContextPath()%>/${initParam.imgPath}${account.getAvatar()}"/>
-            <input name="file" type="file" accept="image/*" onchange="loadFile(event)" id="getFile" style="display:none" >
-            <button style="margin-top: 4px; display:block;width: max-content; height:30px;" onclick="document.getElementById('getFile').click()">Chọn ảnh</button>
-            <script>
-                var loadFile = function (event) {
-                    var reader = new FileReader();
-                    reader.onload = function () {
-                        var output = document.getElementById('output');
-                        output.src = reader.result;
-                    };
-                    reader.readAsDataURL(event.target.files[0]);
-                };
-            </script>
         </div>
     </div>
 </div>
