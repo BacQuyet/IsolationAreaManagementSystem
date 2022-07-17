@@ -11,6 +11,14 @@
 
         </div>
     </div>
+    
+    <div class='search col-7' style="margin-left: 20px; margin-top: 10px;">
+        <form action ="searchroom" method="POST">
+            <input type="text" class="search__text" placeholder="Nhập để tìm kiếm" id="key" name="key">
+            <button type="SUBMIT"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    
     <%
         Account account = (Account) session.getAttribute("userLogin");
         if (account.getType().getAccountTypeId() == 3) { // Nurse login
