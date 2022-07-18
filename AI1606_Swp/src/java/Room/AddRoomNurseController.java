@@ -84,7 +84,7 @@ public class AddRoomNurseController extends HttpServlet {
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
         Nurse nurse = (Nurse) ss.getAttribute("nurse");
-        
+        //
         if (roomName == null || bedNumber == null) {
             Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", noti);
