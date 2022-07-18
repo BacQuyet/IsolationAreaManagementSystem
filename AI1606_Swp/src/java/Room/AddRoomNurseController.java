@@ -84,7 +84,7 @@ public class AddRoomNurseController extends HttpServlet {
         String bedNumber = request.getParameter("bedNumber");
         String note = request.getParameter("note");
         Nurse nurse = (Nurse) ss.getAttribute("nurse");
-        //
+        
         if (roomName == null || bedNumber == null) {
             Notification noti = new Notification("Warning", "Hãy điền đủ tất cả thông tin.", "warning");
             request.setAttribute("notify", noti);
@@ -102,7 +102,8 @@ public class AddRoomNurseController extends HttpServlet {
         room.setRoomName(roomName);
         room.setBedNumber(Integer.parseInt(bedNumber));
         room.setNote(note);
-        //room.setArea(daoArea.g(nurse.getId_area()));
+        //room.setArea(daoArea.get(nurse.getId_area()));
+        //room.setArea(daoArea.get(nurse.getId_area()))
         dao.create(room);
         
         Notification noti = new Notification("Success", "Thêm phòng cách ly thành công.", "success");
