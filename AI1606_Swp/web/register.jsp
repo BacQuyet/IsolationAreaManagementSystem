@@ -5,7 +5,6 @@
 <div class="form-container">
     <form action="RegisterController" method="POST" id="form-dk" class="form">
         <h3 class="heading">Đăng ký</h3>
-
         <div class="spacer"></div>
 
         <div class="form-group">
