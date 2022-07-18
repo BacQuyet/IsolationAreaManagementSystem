@@ -101,7 +101,7 @@ public class SearchRoomController extends HttpServlet {
         view.forward(request, response);
     }
     }
-     //room.setArea(daoArea.get(nurse.getr
+     //room.setArea(daoArea.get(nurse
     /**
      * Returns a short description of the servlet.
      *
