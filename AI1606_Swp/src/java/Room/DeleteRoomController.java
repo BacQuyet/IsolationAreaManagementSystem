@@ -77,6 +77,7 @@ public class DeleteRoomController extends HttpServlet {
         int roomId = Integer.parseInt(request.getParameter("roomId"));
         PatientDAO daoPatient = new PatientDAO();
         Patient list = daoPatient.getPatientByRoom(roomId);
+        
         if (list == null){
             RoomDAO dao = new RoomDAO();
             dao.delete(dao.get(roomId));
