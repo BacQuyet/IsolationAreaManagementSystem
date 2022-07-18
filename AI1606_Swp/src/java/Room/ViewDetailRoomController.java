@@ -81,7 +81,6 @@ public class ViewDetailRoomController extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher("/Room/viewDetail.jsp");
         view.forward(request, response);
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -95,7 +94,7 @@ public class ViewDetailRoomController extends HttpServlet {
             throws ServletException, IOException {
         doGet(request, response);
     }
-
+//String areaName = room.getArea().getAreaName
     /**
      * Returns a short description of the servlet.
      *
